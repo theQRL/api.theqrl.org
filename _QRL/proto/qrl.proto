@@ -27,8 +27,11 @@ service PublicAPI
 
     rpc GetLatestData(GetLatestDataReq) returns (GetLatestDataResp);
 
-    rpc TransferCoins (TransferCoinsReq) returns (TransferCoinsResp);
     rpc PushTransaction (PushTransactionReq) returns (PushTransactionResp);
+
+    rpc TransferCoins (TransferCoinsReq) returns (TransferCoinsResp);
+
+    rpc GetAddressFromPK (GetAddressFromPKReq) returns (GetAddressFromPKResp);
 
     rpc GetMessageTxn (MessageTxnReq) returns (TransferCoinsResp);
 
@@ -37,10 +40,6 @@ service PublicAPI
     rpc GetTransferTokenTxn (TransferTokenTxnReq) returns (TransferCoinsResp);
 
     rpc GetSlaveTxn (SlaveTxnReq) returns (TransferCoinsResp);
-
-    rpc GetLatticePublicKeyTxn (LatticePublicKeyTxnReq) returns (TransferCoinsResp);
-
-    rpc GetAddressFromPK (GetAddressFromPKReq) returns (GetAddressFromPKResp);
 
 }
 
@@ -255,14 +254,6 @@ message SlaveTxnReq {
     bytes master_addr = 1;
     repeated bytes slave_pks = 2;
     repeated uint32 access_types = 3;
-    uint64 fee = 4;
-    bytes xmss_pk = 5;
-}
-
-message LatticePublicKeyTxnReq {
-    bytes master_addr = 1;
-    bytes kyber_pk = 2;
-    bytes dilithium_pk = 3;
     uint64 fee = 4;
     bytes xmss_pk = 5;
 }
@@ -489,11 +480,10 @@ message BlockHeightData {
 }
 
 message BlockMetaData {
-    bool is_orphan = 1;
-    bytes block_difficulty = 2;
-    bytes cumulative_difficulty = 3;
-    repeated bytes child_headerhashes = 4;
-    repeated bytes last_N_headerhashes = 5;     // Keeps last N headerhashes, for measurement of timestamp difference
+    bytes block_difficulty = 1;
+    bytes cumulative_difficulty = 2;
+    repeated bytes child_headerhashes = 3;
+    repeated bytes last_N_headerhashes = 4;     // Keeps last N headerhashes, for measurement of timestamp difference
 }
 
 message BlockNumberMapping {
@@ -526,7 +516,8 @@ message NodeChainState {
     uint64 block_number = 1;
     bytes header_hash = 2;
     bytes cumulative_difficulty = 3;
-    uint64 timestamp = 4;
+    string version = 4;
+    uint64 timestamp = 5;
 }
 
 message NodeHeaderHash {

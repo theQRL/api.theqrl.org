@@ -44,7 +44,6 @@
     - [GetStatsResp](#qrl.GetStatsResp)
     - [LRUStateCache](#qrl.LRUStateCache)
     - [LatticePK](#qrl.LatticePK)
-    - [LatticePublicKeyTxnReq](#qrl.LatticePublicKeyTxnReq)
     - [MessageTxnReq](#qrl.MessageTxnReq)
     - [NodeChainState](#qrl.NodeChainState)
     - [NodeHeaderHash](#qrl.NodeHeaderHash)
@@ -96,6 +95,15 @@
     - [Base](#qrl.Base)
   
 
+- [qrldebug.proto](#qrldebug.proto)
+    - [GetFullStateReq](#qrl.GetFullStateReq)
+    - [GetFullStateResp](#qrl.GetFullStateResp)
+  
+  
+  
+    - [DebugAPI](#qrl.DebugAPI)
+  
+
 - [qrllegacy.proto](#qrllegacy.proto)
     - [BKData](#qrl.BKData)
     - [FBData](#qrl.FBData)
@@ -126,6 +134,15 @@
   
   
     - [MiningAPI](#qrl.MiningAPI)
+  
+
+- [qrlstateinfo.proto](#qrlstateinfo.proto)
+    - [ForkState](#qrl.ForkState)
+    - [LastTransactions](#qrl.LastTransactions)
+    - [TransactionMetadata](#qrl.TransactionMetadata)
+  
+  
+  
   
 
 - [Scalar Value Types](#scalar-value-types)
@@ -346,7 +363,6 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_orphan | [bool](#bool) |  |  |
 | block_difficulty | [bytes](#bytes) |  |  |
 | cumulative_difficulty | [bytes](#bytes) |  |  |
 | child_headerhashes | [bytes](#bytes) | repeated |  |
@@ -774,25 +790,6 @@ Represents the reply message to get statistics about node
 
 
 
-<a name="qrl.LatticePublicKeyTxnReq"/>
-
-## LatticePublicKeyTxnReq
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| kyber_pk | [bytes](#bytes) |  |  |
-| dilithium_pk | [bytes](#bytes) |  |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
-
-
-
-
-
-
 <a name="qrl.MessageTxnReq"/>
 
 ## MessageTxnReq
@@ -822,6 +819,7 @@ Represents the reply message to get statistics about node
 | block_number | [uint64](#uint64) |  |  |
 | header_hash | [bytes](#bytes) |  |  |
 | cumulative_difficulty | [bytes](#bytes) |  |  |
+| version | [string](#string) |  |  |
 | timestamp | [uint64](#uint64) |  |  |
 
 
@@ -1418,14 +1416,13 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetAddressState | [GetAddressStateReq](#qrl.GetAddressStateReq) | [GetAddressStateResp](#qrl.GetAddressStateReq) |  |
 | GetObject | [GetObjectReq](#qrl.GetObjectReq) | [GetObjectResp](#qrl.GetObjectReq) |  |
 | GetLatestData | [GetLatestDataReq](#qrl.GetLatestDataReq) | [GetLatestDataResp](#qrl.GetLatestDataReq) |  |
-| TransferCoins | [TransferCoinsReq](#qrl.TransferCoinsReq) | [TransferCoinsResp](#qrl.TransferCoinsReq) |  |
 | PushTransaction | [PushTransactionReq](#qrl.PushTransactionReq) | [PushTransactionResp](#qrl.PushTransactionReq) |  |
+| TransferCoins | [TransferCoinsReq](#qrl.TransferCoinsReq) | [TransferCoinsResp](#qrl.TransferCoinsReq) |  |
+| GetAddressFromPK | [GetAddressFromPKReq](#qrl.GetAddressFromPKReq) | [GetAddressFromPKResp](#qrl.GetAddressFromPKReq) |  |
 | GetMessageTxn | [MessageTxnReq](#qrl.MessageTxnReq) | [TransferCoinsResp](#qrl.MessageTxnReq) |  |
 | GetTokenTxn | [TokenTxnReq](#qrl.TokenTxnReq) | [TransferCoinsResp](#qrl.TokenTxnReq) |  |
 | GetTransferTokenTxn | [TransferTokenTxnReq](#qrl.TransferTokenTxnReq) | [TransferCoinsResp](#qrl.TransferTokenTxnReq) |  |
 | GetSlaveTxn | [SlaveTxnReq](#qrl.SlaveTxnReq) | [TransferCoinsResp](#qrl.SlaveTxnReq) |  |
-| GetLatticePublicKeyTxn | [LatticePublicKeyTxnReq](#qrl.LatticePublicKeyTxnReq) | [TransferCoinsResp](#qrl.LatticePublicKeyTxnReq) |  |
-| GetAddressFromPK | [GetAddressFromPKReq](#qrl.GetAddressFromPKReq) | [GetAddressFromPKResp](#qrl.GetAddressFromPKReq) |  |
 
  
 
@@ -1478,6 +1475,58 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetNodeInfo | [GetNodeInfoReq](#qrl.GetNodeInfoReq) | [GetNodeInfoResp](#qrl.GetNodeInfoReq) |  |
+
+ 
+
+
+
+<a name="qrldebug.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+# qrldebug.proto
+
+
+
+<a name="qrl.GetFullStateReq"/>
+
+## GetFullStateReq
+
+
+
+
+
+
+
+<a name="qrl.GetFullStateResp"/>
+
+## GetFullStateResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| coinbase_state | [AddressState](#qrl.AddressState) |  |  |
+| addresses_state | [AddressState](#qrl.AddressState) | repeated |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="qrl.DebugAPI"/>
+
+## DebugAPI
+This service describes the Debug API used for debugging
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetFullState | [GetFullStateReq](#qrl.GetFullStateReq) | [GetFullStateResp](#qrl.GetFullStateReq) |  |
 
  
 
@@ -1853,6 +1902,74 @@ if height = 0, this means getlastblockheader |
 | GetLastBlockHeader | [GetLastBlockHeaderReq](#qrl.GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#qrl.GetLastBlockHeaderReq) |  |
 | GetBlockToMine | [GetBlockToMineReq](#qrl.GetBlockToMineReq) | [GetBlockToMineResp](#qrl.GetBlockToMineReq) |  |
 | SubmitMinedBlock | [SubmitMinedBlockReq](#qrl.SubmitMinedBlockReq) | [SubmitMinedBlockResp](#qrl.SubmitMinedBlockReq) |  |
+
+ 
+
+
+
+<a name="qrlstateinfo.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+# qrlstateinfo.proto
+
+
+
+<a name="qrl.ForkState"/>
+
+## ForkState
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| initiator_headerhash | [bytes](#bytes) |  | Stores the headerhash of the block initiated the fork recovery |
+| fork_point_headerhash | [bytes](#bytes) |  | Stores the headerhash of the block after which forked happened |
+| old_mainchain_hash_path | [bytes](#bytes) | repeated | Stores the hash path of old main chain which needs to be played |
+| new_mainchain_hash_path | [bytes](#bytes) | repeated | if the fork recovery fails
+
+Alternate chain hash path which is eligible to become mainchain |
+
+
+
+
+
+
+<a name="qrl.LastTransactions"/>
+
+## LastTransactions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tx_metadata | [TransactionMetadata](#qrl.TransactionMetadata) | repeated |  |
+
+
+
+
+
+
+<a name="qrl.TransactionMetadata"/>
+
+## TransactionMetadata
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| transaction | [Transaction](#qrl.Transaction) |  |  |
+| block_number | [uint64](#uint64) |  |  |
+| timestamp | [uint64](#uint64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
 
  
 

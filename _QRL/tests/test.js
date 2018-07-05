@@ -115,7 +115,7 @@ toBigendianUint64BytesUnsigned = (input) => {
 
 
 // initiating the test wallets to use
-var testfromaddress = '0105006d232eb403a0248f9d4c0476c06a7d7a1d0425420df2dd915b7fb46cf7da132699c27b93'
+var testfromaddress = '01050058bb3f8cb66fd90d0347478e5bdf3a475e82cfc5fe5dc276500ca21531e6edaf3d2d0f7e'
 var testfromxmsspk = '0105007e41c011a706c8edd8d1a2f18d558d14311917cd549b3edae07775b12d6640ef35ea0d4dd47fc36e2bc6d5aa5f6ef7582fcf6b8a564ea0ff3af3b42af05cbac9'
 var testtoaddress = '0105003e32fcbcdcaf09485272f1aa1c1e318daaa8cf7cd03bacf7cfceeddf936bb88efe1e4d21'
 var testfromaddress_bytes = stringToBytes(testfromaddress);
@@ -227,6 +227,7 @@ describe('GetStats', function() {
                         return;
                     }
                     response = res;
+                    console.log(response)
                     resolve();
                 });
             });
@@ -356,7 +357,7 @@ describe('GetStats', function() {
     });
     it('GetStatsResp has correct *block_timeseries.header_hash_prev* property: is a Buffer composed of 32 octets', function(){
         response.block_timeseries.forEach(i => expect(Buffer.isBuffer(i.header_hash_prev)).to.equal(true));
-        response.block_timeseries.forEach(i => expect(i.header_hash_prev.length).to.equal(32));
+        response.block_timeseries.forEach(i => expect(i).to.satisfy(function(x){ return x.header_hash_prev.length === 32 || x.number === '0' }));
     });
 });
 
@@ -412,6 +413,7 @@ describe('GetObject - AddressState', function() {
         expect(response.address_state.balance).to.be.a('string');
         expect(parseInt(response.address_state.balance)).to.be.a('number');
         expect(parseInt(response.address_state.balance)).to.be.below(18446744073709551617); // uint64
+        expect(parseInt(response.address_state.balance)).to.be.at.least(1000); // uint64
     });
     it('GetObjectResp has correct *AdressState.nonce* property', function(){
         expect(response.address_state.nonce).to.be.a('string');
@@ -600,7 +602,7 @@ describe('GetLatestData - All', function() {
     it('GetLatestDataResp has correct *blockheaders* property', function(){
         expect(response).to.have.property('blockheaders');
         response.blockheaders.forEach(i => expect(i).to.have.all.keys(['header','transaction_count']));
-        response.blockheaders.forEach(i => expect(i.header).to.have.all.keys(['hash_header','block_number','timestamp_seconds','hash_header_prev','reward_block','reward_fee','merkle_root','mining_nonce']));
+        response.blockheaders.forEach(i => expect(i.header).to.have.all.keys(['hash_header','block_number','timestamp_seconds','hash_header_prev','reward_block','reward_fee','merkle_root','mining_nonce','extra_nonce']));
         response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.hash_header)).to.equal(true) );
         response.blockheaders.forEach(i => expect(i.header.hash_header.length).to.equal(32) );
         response.blockheaders.forEach(i => expect(i.header.block_number).to.be.a('string') );
@@ -611,8 +613,10 @@ describe('GetLatestData - All', function() {
         response.blockheaders.forEach(i => expect(parseInt(i.header.reward_block)).to.be.a('number') );
         response.blockheaders.forEach(i => expect(i.header.reward_fee).to.be.a('string') );
         response.blockheaders.forEach(i => expect(parseInt(i.header.reward_fee)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect(i.header.mining_nonce).to.be.a('string') );
+        response.blockheaders.forEach(i => expect(i.header.mining_nonce).to.be.a('number') );
         response.blockheaders.forEach(i => expect(parseInt(i.header.mining_nonce)).to.be.a('number') );
+        response.blockheaders.forEach(i => expect(i.header.extra_nonce).to.be.a('string') );
+        response.blockheaders.forEach(i => expect(parseInt(i.header.extra_nonce)).to.be.a('number') );
         response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.hash_header_prev)).to.equal(true) );
         response.blockheaders.forEach(i => expect(i.header.hash_header_prev.length).to.equal(32) );
         response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.merkle_root)).to.equal(true) );
