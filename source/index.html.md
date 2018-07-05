@@ -2,6 +2,7 @@
 title: QRL API
 
 language_tabs: # must be one of https://git.io/vQNgJ
+  - python: Python
   - javascript: JavaScript
 
 toc_footers:
@@ -17,6 +18,66 @@ search: true
 # QRL Protocol Documentation
 
 > Something here about setting up and running the API. This is from the test.js file
+
+```python
+# simple python3 library to allow interaction with remote QRL node using: grpc, xmss, kyber and dilithium, ephemeral
+
+import qrl_pb2, qrl_pb2_grpc
+import grpc
+from pyqrllib.pyqrllib import bin2hstr, hstr2bin, bin2mnemonic, sha2_256, ucharVector, shake256
+from pyqrllib import pyqrllib
+from pyqrllib.kyber import Kyber
+from pyqrllib.dilithium import Dilithium
+
+from os import urandom
+
+
+# XMSS via pyqrllib within a class
+
+class Tree():
+    def __init__(self, seed=None, height=10):
+        if not seed:
+            seed = useed()
+        if height <3 or height % 2 != 0:            #h=2 or odd -> segfault
+            height = 10
+        self.seed = seed
+        self.hexseed = bin2hstr(self.seed)
+        self.mnemonic = bin2mnemonic(self.seed)
+        self.xmss = pyqrllib.Xmss(seed=seed, height=height)
+        self.PK = self.xmss.getPK()
+        self.SK = self.xmss.getSK()
+        self.height = self.xmss.getHeight()
+        self.signatures = 2**self.height
+        self.address = self.xmss.getAddress('Q')
+
+    def set_index(self, index=None):
+        if not index or index > 2**self.height:
+            return
+        self.xmss.setIndex(index)
+        return
+
+    def get_index(self):
+        return self.xmss.getIndex()
+
+    def remaining(self):
+        return self.signatures-self.xmss.getIndex()
+
+    def sign(self, message, index=None):
+        if isinstance(message, bytes):                          #if being passed for a tx then it will be bytes already
+            return bytes(self.xmss.sign(tuple(message)))
+        else:
+            return bin2hstr(self.xmss.sign(tuple(message.encode())))
+
+    def verify(self, message, signature, PK):
+        return self.xmss.verify(tuple(message.encode()), hstr2bin(signature), PK)
+
+```
+
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 let grpc = require('grpc');
@@ -85,6 +146,13 @@ Here are some required functions to make the code examples work.
 
 
 ## getQRLClient()
+
+```python
+Enter Python code here
+```
+
+
+
 ```javascript
 async function getQRLClient(nodeAddr) {
     return new Promise(resolve => {
@@ -116,6 +184,12 @@ We need to update this section and give good info for setup and usage.
 
 ## stringToBytes
 
+```python
+Enter Python code here
+```
+
+
+
 ```javascript
 // StringToBytes from QRLLIB
 stringToBytes = (convertMe) => {
@@ -143,6 +217,13 @@ We need to update this section and give good info for setup and usage.
 
 
 ## binaryToBytes
+
+```python
+Enter Python code here
+```
+
+
+
 
 ```javascript
 // Convert Binary object to Bytes
@@ -174,6 +255,12 @@ We need to update this section and give good info for setup and usage.
 
 ## toBuffer()
 
+```python
+Enter Python code here
+```
+
+
+
 ```javascript
 function toBuffer(ab) {
   const buffer = Buffer.from(ab)
@@ -199,6 +286,13 @@ We need to update this section and give good info for setup and usage.
 
 
 ## Connecting to the API
+
+```python
+Enter Python code here
+```
+
+
+
 
 ```javascript
 // Connecting to the API
@@ -227,6 +321,14 @@ We need to update this section and give good info for setup and usage.
 
 
 ## concatenateTypedArrays()
+
+
+
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 // Concatenates multiple typed arrays into one.
@@ -264,6 +366,11 @@ We need to update this section and give good info for setup and usage.
 
 
 ## toBigendianUint64BytesUnsigned()
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 // Take input and convert to unsigned uint64 bigendian bytes
@@ -308,6 +415,11 @@ We need to update this section and give good info for setup and usage.
 
 
 ## Initiating Test Wallets
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 // initiating the test wallets to use
@@ -358,6 +470,11 @@ We need to update this section and give good info for setup and usage.
 
 ## AddressState
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 // Test for GetObject for AddressState
 describe('GetObject - AddressState', function() {
@@ -402,6 +519,11 @@ Results shown here.</aside>
 
 > result property
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
     it('GetObjectResp has correct *result* property', function(){
         expect(response).to.have.property('result');
@@ -420,6 +542,11 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 result property
 
 ## found property
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
     it('GetObjectResp has correct *found* property', function(){
@@ -440,6 +567,11 @@ result property
 ## transaction property
 
 
+```python
+Enter Python code here
+```
+
+
 ```javascript    
     it('GetObjectResp has correct *transaction* property', function(){
         expect(response).to.have.property('transaction');
@@ -457,6 +589,11 @@ result property
 
 
 ## block_extended property
+
+```python
+Enter Python code here
+```
+
 
 ```javascript    
     it('GetObjectResp has correct *block_extended* property', function(){
@@ -477,6 +614,11 @@ result property
 
 ## address_state property
 
+```python
+Enter Python code here
+```
+
+
 ```javascript    
     it('GetObjectResp has correct *address_state* property', function(){
         expect(response).to.have.property('address_state');
@@ -494,6 +636,11 @@ result property
 
 
 ## AdressState.address property
+
+
+```python
+Enter Python code here
+```
 
 
 ```javascript    
@@ -516,6 +663,11 @@ result property
 ## AdressState.balance property
 
 
+```python
+Enter Python code here
+```
+
+
 ```javascript    
     it('GetObjectResp has correct *AdressState.balance* property', function(){
         expect(response.address_state.balance).to.be.a('string');
@@ -534,6 +686,11 @@ result property
 
 
 ## AdressState.nonce property
+
+
+```python
+Enter Python code here
+```
 
 
 ```javascript    
@@ -555,6 +712,11 @@ result property
 
 ## AdressState.ots_counter property
 
+```python
+Enter Python code here
+```
+
+
 ```javascript    
     it('GetObjectResp has correct *AdressState.ots_counter* property', function(){
         expect(response.address_state.ots_counter).to.be.a('string');
@@ -573,6 +735,11 @@ result property
 
 ## AdressState.ots_bitfield property
 
+```python
+Enter Python code here
+```
+
+
 ```javascript    
     it('GetObjectResp has correct *AdressState.ots_bitfield* property', function(){
         response.address_state.ots_bitfield.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
@@ -590,6 +757,11 @@ result property
 
 
 ## AdressState.transaction_hashes property
+
+```python
+Enter Python code here
+```
+
 
 ```javascript    
     it('GetObjectResp has correct *AdressState.transaction_hashes* property', function(){
@@ -900,6 +1072,11 @@ Empty message definition
 
 ## GetAddressStateReq
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 // Test for GetAddressState
 describe('GetAddressState', function() {
@@ -1027,6 +1204,11 @@ NOT USED -&gt; RM?
 
 ## GetKnownPeersReq
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 // Test for getKnownPeers
 // describe('GetKnownPeers', function() {
@@ -1060,6 +1242,11 @@ Represents a query to get known peers
 
 ## GetKnownPeersResp
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 //     it('GetAddressStateResp has AddressState state property', function(){
 //         expect(response).to.have.property('state');
@@ -1082,6 +1269,11 @@ Represents the reply message to known peers query
 
 
 ## GetLatestDataReq
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 // rpc GetLatestData(GetLatestDataReq) returns (GetLatestDataResp);
@@ -1188,6 +1380,11 @@ describe('GetLatestData - All', function() {
 
 ## GetLatestDataResp
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 
 describe('GetLatestData - TransactionExtended', function() {
@@ -1257,6 +1454,11 @@ describe('GetLatestData - TransactionExtended', function() {
 
 
 ## GetNodeStateReq
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 // Test for GetNodeState
@@ -1332,6 +1534,11 @@ Represents a query to get node state
 
 
 ## GetNodeStateResp
+
+
+```python
+Enter Python code here
+```
 
 
 ```javascript
@@ -1412,6 +1619,11 @@ Represents the reply message to peers stat query
 
 
 ## GetStatsReq
+```python
+Enter Python code here
+```
+
+
 ```javascript
 // Test for getStats
 describe('GetStats', function() {
@@ -1577,6 +1789,11 @@ Represents a query to get statistics about node
 
 
 ## GetStatsResp
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 ```
@@ -1791,6 +2008,11 @@ Represents the reply message to get statistics about node
 
 
 # PushTransactionReq
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 
@@ -2012,6 +2234,11 @@ Represents the reply message to get statistics about node
 ## TokenTxnReq
 
 ###GetTokenTxn
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 
@@ -2316,6 +2543,11 @@ describe('GetTokenTxn', function() {
 
 ## TransactionExtended
 
+```python
+Enter Python code here
+```
+
+
 ```javascript
 // Test for GetObject for TransactionExtended
 describe('GetObject - TransactionExtended', function() {
@@ -2404,6 +2636,11 @@ describe('GetObject - TransactionExtended', function() {
 
 
 ## TransferCoinsReq
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 
@@ -2539,6 +2776,11 @@ describe('TransferCoins', function() {
 
 
 ## TransferCoinsResp
+
+```python
+Enter Python code here
+```
+
 
 ```javascript
 describe('GetTransferTokenTxn', function() {
