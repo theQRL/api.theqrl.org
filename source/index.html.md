@@ -80,12 +80,11 @@ Enter Python code here
 
 
 ```javascript
+// required libraries
 let grpc = require('grpc');
 let temp = require('temp').track();
 let fs = require("fs-extra");
 let qrllib = require('./node_modules/qrllib/build/libjsqrl.js');
-var assert = require('assert');
-var expect = require('chai').expect
 
 async function fetchRemoteProto(nodeAddr) {
     let protoDescriptor = grpc.load('qrlbase.proto');
@@ -96,6 +95,7 @@ async function fetchRemoteProto(nodeAddr) {
             if (err) {
                 throw err;
             }
+            // path to the timestamp.proto file
             let requiredFile = '/tmp/google/protobuf/timestamp.proto';
             if (!fs.existsSync(requiredFile))
             {
@@ -114,6 +114,7 @@ async function fetchRemoteProto(nodeAddr) {
         });
     });
 }
+
 ```
 
 The QRL Protocol documentation is intended to lighten the on-boarding process and get developers up to speed quickly. We want you building into the protocol, not trying to learn how to read it!
@@ -165,14 +166,7 @@ async function getQRLClient(nodeAddr) {
 }
 ```
 
-Description of the function here.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Connection to the QRL client according to the provide API URL.
 
 > Need to  give tips on usage 
 
@@ -191,7 +185,6 @@ Enter Python code here
 
 
 ```javascript
-// StringToBytes from QRLLIB
 stringToBytes = (convertMe) => {
   // Convert String to Binary First
   const thisBinary = qrllib.hstr2bin(convertMe)
@@ -199,14 +192,8 @@ stringToBytes = (convertMe) => {
   return binaryToBytes(thisBinary)
 }
 ```
-Description of the function here.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+StringToBytes function converts a string to a byte array. This function requires the hstr2bin function from the qrllib.
 
 > Need to  give tips on usage 
 
@@ -236,14 +223,7 @@ binaryToBytes = (convertMe) => {
   return thisBytes
 }
 ```
-Description of the function here.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+binaryToBytes converts a binary to a byte array.
 
 > Need to give tips on usage 
 
@@ -267,14 +247,7 @@ function toBuffer(ab) {
   return buffer
 }
 ```
-Description of the function here.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+toBuffer creates a new Buffer and append the given object to it.
 
 > Need to give tips on usage 
 
@@ -296,19 +269,9 @@ Enter Python code here
 
 ```javascript
 // Connecting to the API
-// TODO: The IP should change to something running locally for tests_old
-// let qrlClient = getQRLClient('104.251.219.215:9009');
 let qrlClient = getQRLClient('127.0.0.1:10002');
-// let qrlClient = getQRLClient('127.0.0.1:9009');
 ```
-Description of the function here.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+qrlClient variable defines the API URL with the corresponding port. In the example above, the API is runnign locally on port 10002.
 
 > Need to  give tips on usage 
 
@@ -346,14 +309,8 @@ concatenateTypedArrays = (resultConstructor, ...arrays) => {
     return result
 }
 ```
-Description of the function here.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+concatenateTypedArrays function is necessary for some API function calls that requires a concatenated array (that is signed later on in the code).
 
 > Need to  give tips on usage 
 
@@ -394,14 +351,8 @@ toBigendianUint64BytesUnsigned = (input) => {
 }
 
 ```
-Description of the function here.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+toBigendianUint64BytesUnsigned takes the provided input and converts to an array of unsigned uint64 bigendian bytes.
 
 > Need to  give tips on usage 
 
@@ -424,21 +375,10 @@ Enter Python code here
 ```javascript
 // initiating the test wallets to use
 var testfromaddress = '0105006d232eb403a0248f9d4c0476c06a7d7a1d0425420df2dd915b7fb46cf7da132699c27b93'
-var testfromxmsspk = '0105007e41c011a706c8edd8d1a2f18d558d14311917cd549b3edae07775b12d6640ef35ea0d4dd47fc36e2bc6d5aa5f6ef7582fcf6b8a564ea0ff3af3b42af05cbac9'
-var testtoaddress = '0105003e32fcbcdcaf09485272f1aa1c1e318daaa8cf7cd03bacf7cfceeddf936bb88efe1e4d21'
 var testfromaddress_bytes = stringToBytes(testfromaddress);
-var testfromxmsspk_bytes = stringToBytes(testfromxmsspk);
-var testtoaddress_bytes = stringToBytes(testtoaddress);
 
 ```
-Description of the function here.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Example providing a wallet address (as hex) and the corresponding address as byte using the stringToBytes() function.
 
 > Need to  give tips on usage 
 
@@ -476,39 +416,32 @@ Enter Python code here
 
 
 ```javascript
-// Test for GetObject for AddressState
-describe('GetObject - AddressState', function() {
-    // example wallet address
-    let response;
-    // testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getObject({query : testfromaddress_bytes }, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
+testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
+qrlClient.then( function (qrlClient) {
+    qrlClient.getAddressState({address : testaddress}, (err, res) => {
+        if (err){
+            console.log("Error: ", err.message);
+            return;
+        }
+        // res is a GetAddressStateResp object
+        console.log(res);
+        // the resulting GetAddressStateResp object contains the following attributes
+        console.log(res.state);
+        console.log(res.state.address);
+        console.log(res.state.balance);
+        console.log(res.state.nonce);
+        console.log(res.state.ots_bitfield);
+        console.log(res.state.transaction_hashes);
+        console.log(res.state.tokens);
+        console.log(res.state.latticePK_list);
+        console.log(res.state.slave_pks_access_type);
+        console.log(res.state.ots_counter);
     });
-  });
+});
 ```
 ### Test for GetObject for AddressState
 
-This function will give multiple responses
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+getAddressState functions takes a wallet address as input (GetAddressStateReq object) and returns a GetAddressStateResp object.
 
 
 <aside class="notice">
