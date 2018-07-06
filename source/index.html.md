@@ -15,9 +15,41 @@ includes:
 search: true
 ---
 
-# QRL Protocol Documentation
+# QRL API Documentation
 
-> Something here about setting up and running the API. This is from the test.js file
+> Select the language above to suit your needs. 
+
+```python
+Example Python Code will be shown here.
+```
+
+```javascript
+Example JavaScript will be shown here.
+```
+
+
+Use this documentation to build onto the QRL network. This document covers all of the various API calls QRL supports, with some basic code examples. This is intended to lighten the on-boarding process and get developers up to speed with our API.
+
+
+<aside class="notice">
+This is a work in progress, code may change. Please see the official documentation at [https://docs.theqrl.org](https://docs.theqrl.org) or drop a line to [support@theqrl.org](mailto://support@theqrl.org)
+</aside>
+
+## Introduction
+
+
+> **fixme** Some cool fact or link to rpc --> grpc conversion tools?
+
+**fixme** QRL uses gRPC to do things. they are cool things and need to be documented here in a basic way!
+
+<aside class="notice"> **fixme** Fill in this section with a generic explanation of the API and uses!</aside>
+
+
+
+
+
+## Basic Connection
+
 
 ```python
 # simple python3 library to allow interaction with remote QRL node using: grpc, xmss, kyber and dilithium, ephemeral
@@ -73,12 +105,6 @@ class Tree():
 
 ```
 
-
-```python
-Enter Python code here
-```
-
-
 ```javascript
 // required libraries
 let grpc = require('grpc');
@@ -117,27 +143,29 @@ async function fetchRemoteProto(nodeAddr) {
 
 ```
 
-The QRL Protocol documentation is intended to lighten the on-boarding process and get developers up to speed quickly. We want you building into the protocol, not trying to learn how to read it!
+Connecting to the QRL network is fairly simple. Use the examples shown to get started. **fixme** There may be some specific details we should be calling out here!
 
-This is a work in progress and a such will change over time. Please make sure you are referencing the correct version of code and docs.
-
-here are the various aside options
 
 <aside class="notice">
-Nitice! We need to update this section and give good info for setup and usage.
+**fixme** Notice! We need to update this section and give good info for setup and usage.
 </aside>
 
+
+
+
+## Important information 
+
+
+> QRL uses XMSS in a merkletree to extend the available OTS keys. You need to be cognisant that you dont run out of available keys in a wallet.
 
 <aside class="warning">
-Warning! We need to update this section and give good info for setup and usage.
-</aside>
-
-<aside class="success">
-Success! We need to update this section and give good info for setup and usage.
+Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/">
 </aside>
 
 
 
+
+# QRL Protocol
 
 
 
