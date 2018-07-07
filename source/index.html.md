@@ -50,7 +50,6 @@ This is a work in progress, code may change. Please see the official documentati
 
 ## Basic Connection
 
-
 ```python
 **fixme**
 
@@ -136,14 +135,15 @@ Connecting to the QRL network is simple. Use the examples shown to get started. 
 
 ## Important information 
 
+**OTS Keys**
 
 > QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet.
 
 <aside class="warning">
-Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/">
+Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/">docs.theqrl.org</a>
 </aside>
 
-YOu are able to generate a slaves file that is basically an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [docs.theqrl.org](https://docs.theqrl.org/wallet/slaves.json/)
+You are able to generate a slaves file that is basically an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [docs.theqrl.org](https://docs.theqrl.org/wallet/slaves.json/)
 
 
 # QRL Protocol
