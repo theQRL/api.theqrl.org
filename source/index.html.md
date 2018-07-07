@@ -2,18 +2,21 @@
 title: QRL API
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - python: Python
   - javascript: JavaScript
+  - python: Python
 
 toc_footers:
-  - <a href='httsp://theqrl.org'>TheQRL.org</a>
   - <a href='https://github.com/theqrl'>QRL Github</a>
+  - <a href='https://theqrl.org'>TheQRL.org</a>
+  - <a href='https://docs.theqrl.org'>Docs.TheQRL.org</a>
+
 
 includes:
   - errors
 
 search: true
 ---
+
 
 # QRL API Documentation
 
@@ -52,32 +55,6 @@ This is a work in progress, code may change. Please see the official documentati
 
 ```python
 **fixme**
-
-# simple python3 library to allow interaction with remote QRL node using: 
-
-import qrl_pb2, qrl_pb2_grpc
-import grpc
-from pyqrllib.pyqrllib import bin2hstr, hstr2bin, bin2mnemonic, sha2_256, ucharVector, shake256
-from pyqrllib import pyqrllib
-from pyqrllib.kyber import Kyber
-from pyqrllib.dilithium import Dilithium
-
-from os import urandom
-
-
-# XMSS via pyqrllib within a class
-
-class Tree():
-    def __init__(self, seed=None, height=10):
-        if not seed:
-            seed = useed()
-        if height <3 or height % 2 != 0:            #h=2 or odd -> segfault
-            height = 10
-        self.seed = seed
-        self.hexseed = bin2hstr(self.seed)
-        self.mnemonic = bin2mnemonic(self.seed)
-        self.xmss = pyqrllib.Xmss(seed=seed, height=height)
-        self.PK = self.xmss.getPK()
         self.SK = self.xmss.getSK()
         self.height = self.xmss.getHeight()
         self.signatures = 2**self.height
@@ -146,11 +123,8 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 You are able to generate a slaves file that is basically an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [docs.theqrl.org](https://docs.theqrl.org/wallet/slaves.json/)
 
 
-# QRL Protocol
 
-
-
-## Functions
+# Functions
 
 Here are some required functions to make the examples below work. 
 
@@ -160,8 +134,6 @@ Here are some required functions to make the examples below work.
 ```python
 Enter Python code here **fixme**
 ```
-
-
 
 ```javascript
 async function getQRLClient(nodeAddr) {
@@ -176,9 +148,6 @@ async function getQRLClient(nodeAddr) {
 ```
 
 Connection to the QRL client according to the provide API URL.
-
-> **fixme** Need to  give tips on usage 
-
 
 
 ## stringToBytes
@@ -200,20 +169,12 @@ stringToBytes = (convertMe) => {
 
 StringToBytes function converts a string to a byte array. This function requires the hstr2bin function from the qrllib.
 
-> **fixme** give tips on usage 
-
-
-
-
 
 ## binaryToBytes
 
 ```python
 Enter Python code here **fixme**
 ``` 
-
-
-
 
 ```javascript
 // Convert Binary object to Bytes
@@ -228,9 +189,6 @@ binaryToBytes = (convertMe) => {
 ```
 binaryToBytes converts a binary to a byte array.
 
-> Need to give tips on usage 
-
-
 
 
 ## toBuffer()
@@ -238,8 +196,6 @@ binaryToBytes converts a binary to a byte array.
 ```python
 Enter Python code here
 ```
-
-
 
 ```javascript
 function toBuffer(ab) {
@@ -249,10 +205,6 @@ function toBuffer(ab) {
 ```
 toBuffer creates a new Buffer and append the given object to it.
 
-> Need to give tips on usage 
-
-
-
 
 
 ## Connecting to the API
@@ -261,31 +213,19 @@ toBuffer creates a new Buffer and append the given object to it.
 Enter Python code here
 ```
 
-
-
-
 ```javascript
 // Connecting to the API
 let qrlClient = getQRLClient('127.0.0.1:10002');
 ```
 qrlClient variable defines the API URL with the corresponding port. In the example above, the API is runnign locally on port 10002.
 
-> Need to  give tips on usage 
-
-
-
-
 
 
 ## concatenateTypedArrays()
 
-
-
-
 ```python
 Enter Python code here
 ```
-
 
 ```javascript
 // Concatenates multiple typed arrays into one.
@@ -305,11 +245,6 @@ concatenateTypedArrays = (resultConstructor, ...arrays) => {
 ```
 
 concatenateTypedArrays function is necessary for some API function calls that requires a concatenated array (that is signed later on in the code).
-
-> Need to  give tips on usage 
-
-
-
 
 
 
@@ -345,11 +280,6 @@ toBigendianUint64BytesUnsigned = (input) => {
 
 toBigendianUint64BytesUnsigned takes the provided input and converts to an array of unsigned uint64 bigendian bytes.
 
-> Need to  give tips on usage 
-
-
-
-
 
 
 
@@ -368,20 +298,45 @@ var testfromaddress_bytes = stringToBytes(testfromaddress);
 ```
 Example providing a wallet address (as hex) and the corresponding address as byte using the stringToBytes() function.
 
-> Need to  give tips on usage 
 
 
-
-
-
-
-
+# qrl.proto
 
 # Addresses
 
+
+## AddressAmount
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [bytes](#bytes) |  |  |
+| amount | [uint64](#uint64) |  |  |
+
+
+
+
+
+
+
 ## AddressList
 
-**fixme**
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -424,237 +379,6 @@ qrlClient.then( function (qrlClient) {
     });
 });
 ```
-### Test for GetObject for AddressState
-
-getAddressState functions takes a wallet address as input (GetAddressStateReq object) and returns a GetAddressStateResp object.
-
-
-<aside class="notice">
-Results shown here.
-</aside>
-
-
-## result
-
-> result property
-
-```python
-Enter Python code here
-```
-
-
-```javascript
-    it('GetObjectResp has correct *result* property', function(){
-        expect(response).to.have.property('result');
-        expect(response.result).to.be.a('string');
-        expect(response.result).to.equal('address_state');
-    });
-```
-
-
-**fixme** Give description of the function here
-
-
-result property
-
-## found property
-
-```python
-Enter Python code here
-```
-
-
-```javascript
-    it('GetObjectResp has correct *found* property', function(){
-        expect(response).to.have.property('found');
-        expect(response.found).to.equal(true);
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## transaction property
-
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *transaction* property', function(){
-        expect(response).to.have.property('transaction');
-        expect(response.transaction).to.equal(null);
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## block_extended property
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *block_extended* property', function(){
-        expect(response).to.have.property('block_extended');
-        expect(response.block_extended).to.equal(null);
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-
-## address_state property
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *address_state* property', function(){
-        expect(response).to.have.property('address_state');
-        expect(response.address_state).to.have.all.keys(['address','balance','nonce','ots_bitfield','transaction_hashes','tokens','latticePK_list','slave_pks_access_type','ots_counter']);
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## AdressState.address property
-
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.address* property', function(){
-        expect(Buffer.isBuffer(response.address_state.address)).to.equal(true);
-        expect(response.address_state.address.length).to.equal(39);
-        // check the first three octets values are correct
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## AdressState.balance property
-
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.balance* property', function(){
-        expect(response.address_state.balance).to.be.a('string');
-        expect(parseInt(response.address_state.balance)).to.be.a('number');
-        expect(parseInt(response.address_state.balance)).to.be.below(18446744073709551617); // uint64
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## AdressState.nonce property
-
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.nonce* property', function(){
-        expect(response.address_state.nonce).to.be.a('string');
-        expect(parseInt(response.address_state.nonce)).to.be.a('number');
-        expect(parseInt(response.address_state.nonce)).to.be.below(18446744073709551617); // uint64
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## AdressState.ots_counter property
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.ots_counter* property', function(){
-        expect(response.address_state.ots_counter).to.be.a('string');
-        expect(parseInt(response.address_state.ots_counter)).to.be.a('number');
-        expect(parseInt(response.address_state.ots_counter)).to.be.below(18446744073709551617); // uint64
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-## AdressState.ots_bitfield property
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.ots_bitfield* property', function(){
-        response.address_state.ots_bitfield.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.address_state.ots_bitfield.forEach(i => expect(i.length).to.equal(1));
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
-## AdressState.transaction_hashes property
-
-```python
-Enter Python code here
-```
-
-
-```javascript    
-    it('GetObjectResp has correct *AdressState.transaction_hashes* property', function(){
-        response.address_state.transaction_hashes.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.address_state.transaction_hashes.forEach(i => expect(i.length).to.equal(32));
-    });
-```
-
-**fixme** Give description of the function here
-
-
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -676,18 +400,13 @@ Enter Python code here
 
 ## AddressState.SlavePksAccessTypeEntry
 
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -703,18 +422,13 @@ Enter Python code here
 
 ## AddressState.TokensEntry
 
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -727,20 +441,16 @@ Enter Python code here
 
 
 
-# Block
 
+## Block
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -754,19 +464,17 @@ Enter Python code here
 
 
 
+
 ## BlockDataPoint
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
 
-
-**fixme** Give description of the function here
 
 BlockDataPoint message definition
 
@@ -787,19 +495,16 @@ BlockDataPoint message definition
 
 
 
+
 ## BlockExtended
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -821,14 +526,9 @@ BlockDataPoint message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -851,18 +551,13 @@ BlockDataPoint message definition
 
 ## BlockHeaderExtended
 
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -882,13 +577,9 @@ BlockDataPoint message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -909,18 +600,13 @@ BlockDataPoint message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
 
 
-**fixme** Give description of the function here
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| is_orphan | [bool](#bool) |  |  |
 | block_difficulty | [bytes](#bytes) |  |  |
 | cumulative_difficulty | [bytes](#bytes) |  |  |
 | child_headerhashes | [bytes](#bytes) | repeated |  |
@@ -938,13 +624,9 @@ BlockDataPoint message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -963,13 +645,9 @@ BlockDataPoint message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -983,12 +661,11 @@ BlockDataPoint message definition
 
 
 
-# Empty
+## Empty
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -997,11 +674,10 @@ BlockDataPoint message definition
 
 Empty message definition
 
-**fixme** Give description of the function here
 
 
 
-# Ephemeral
+
 
 
 ## EncryptedEphemeralMessage
@@ -1010,13 +686,9 @@ Empty message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1040,13 +712,9 @@ Empty message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1059,19 +727,15 @@ Empty message definition
 
 
 
-# GenesisBalance
+## GenesisBalance
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1081,7 +745,7 @@ Empty message definition
 
 
 
-# Get
+
 
 
 
@@ -1091,13 +755,9 @@ Empty message definition
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1112,19 +772,13 @@ Empty message definition
 
 ## GetAddressFromPKResp
 
-
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1140,80 +794,13 @@ Empty message definition
 ## GetAddressStateReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-// Test for GetAddressState
-describe('GetAddressState', function() {
-    // example wallet address
-    testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getAddressState({address : testaddress}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-    it('GetAddressStateResp has AddressState state property', function(){
-        expect(response).to.have.property('state');
-    });
-    it('GetAddressStateResp.state has correct *address* property', function(){
-        expect(response.state).to.have.property('address');
-        expect(Buffer.isBuffer(response.state.address)).to.equal(true);
-        expect(response.state.address.length).to.equal(39);
-    });
-    it('GetAddressStateResp.state has correct *balance* property', function(){
-        expect(response.state).to.have.property('balance');
-        expect(response.state.balance).to.be.a('string');
-        expect(parseInt(response.state.balance)).to.be.a('number');
-        expect(parseInt(response.state.balance)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetAddressStateResp.state has correct *nonce* property', function(){
-        expect(response.state).to.have.property('nonce');
-        expect(response.state.nonce).to.be.a('string');
-        expect(parseInt(response.state.nonce)).to.be.a('number');
-        expect(parseInt(response.state.nonce)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetAddressStateResp.state has correct *ots_bitfield* property', function(){
-        expect(response.state).to.have.property('ots_bitfield');
-        response.state.ots_bitfield.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.state.ots_bitfield.forEach(i => expect(i.length).to.equal(1));
-    });
-    it('GetAddressStateResp.state has correct *transaction_hashes* property', function(){
-        expect(response.state).to.have.property('transaction_hashes');
-        response.state.transaction_hashes.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.state.transaction_hashes.forEach(i => expect(i.length).to.equal(32));
-    });
-    it('GetAddressStateResp.state has correct *tokens* property', function(){
-        expect(response.state).to.have.property('tokens');
-    });
-    it('GetAddressStateResp.state has correct *latticePK_list* property', function(){
-        expect(response.state).to.have.property('latticePK_list');
-    });
-    it('GetAddressStateResp.state has correct *slave_pks_access_type* property', function(){
-        expect(response.state).to.have.property('slave_pks_access_type');
-    });
-    it('GetAddressStateResp.state has correct *ots_counter* property', function(){
-        expect(response.state).to.have.property('ots_counter');
-        expect(response.state.ots_counter).to.be.a('string');
-        expect(parseInt(response.state.ots_counter)).to.be.a('number');
-        expect(parseInt(response.state.ots_counter)).to.be.below(18446744073709551617); // uint64
-    });
-
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -1230,7 +817,6 @@ describe('GetAddressState', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1252,7 +838,6 @@ describe('GetAddressState', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1279,10 +864,10 @@ NOT USED -&gt; RM?
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
+
 
 NOT USED -&gt; RM?
 
@@ -1301,32 +886,13 @@ NOT USED -&gt; RM?
 ## GetKnownPeersReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-// Test for getKnownPeers
-// describe('GetKnownPeers', function() {
-//     let response;
-//     // call API
-//     before(function() {
-//         return new Promise((resolve) => {
-//             qrlClient.then( function (qrlClient) {
-//                 qrlClient.GetKnownPeers({}, (err, res) => {
-//                     if (err){
-//                         console.log("Error: ", err.message);
-//                         return;
-//                     }
-//                     console.log(res)
-//                     response = res;
-//                     resolve();
-//                 });
-//             });
-//         });
-//     });
-// });
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 Represents a query to get known peers
 
@@ -1339,14 +905,11 @@ Represents a query to get known peers
 ## GetKnownPeersResp
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
-
 ```javascript
-//     it('GetAddressStateResp has AddressState state property', function(){
-//         expect(response).to.have.property('state');
-//     });
+**fixme** Enter JAVASCRIPT here
 ```
 
 
@@ -1367,99 +930,14 @@ Represents the reply message to known peers query
 ## GetLatestDataReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-// rpc GetLatestData(GetLatestDataReq) returns (GetLatestDataResp);
-describe('GetLatestData - All', function() {
-    // example wallet address
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getLatestData({filter:0 , offset: 10, quantity: 20}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-    it('GetLatestDataResp has correct *blockheaders* property', function(){
-        expect(response).to.have.property('blockheaders');
-        response.blockheaders.forEach(i => expect(i).to.have.all.keys(['header','transaction_count']));
-        response.blockheaders.forEach(i => expect(i.header).to.have.all.keys(['hash_header','block_number','timestamp_seconds','hash_header_prev','reward_block','reward_fee','merkle_root','mining_nonce']));
-        response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.hash_header)).to.equal(true) );
-        response.blockheaders.forEach(i => expect(i.header.hash_header.length).to.equal(32) );
-        response.blockheaders.forEach(i => expect(i.header.block_number).to.be.a('string') );
-        response.blockheaders.forEach(i => expect(parseInt(i.header.block_number)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect(i.header.timestamp_seconds).to.be.a('string') );
-        response.blockheaders.forEach(i => expect(parseInt(i.header.timestamp_seconds)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect(i.header.reward_block).to.be.a('string') );
-        response.blockheaders.forEach(i => expect(parseInt(i.header.reward_block)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect(i.header.reward_fee).to.be.a('string') );
-        response.blockheaders.forEach(i => expect(parseInt(i.header.reward_fee)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect(i.header.mining_nonce).to.be.a('string') );
-        response.blockheaders.forEach(i => expect(parseInt(i.header.mining_nonce)).to.be.a('number') );
-        response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.hash_header_prev)).to.equal(true) );
-        response.blockheaders.forEach(i => expect(i.header.hash_header_prev.length).to.equal(32) );
-        response.blockheaders.forEach(i => expect( Buffer.isBuffer(i.header.merkle_root)).to.equal(true) );
-        response.blockheaders.forEach(i => expect(i.header.merkle_root.length).to.equal(32) );
-    });
-    it('GetLatestDataResp.blockheaders has correct *transaction_count* property', function(){
-        response.blockheaders.forEach(i => expect(i.transaction_count).to.have.all.keys(['count']));
-        // TODO: check the transaction counts
-    });
-    it('GetLatestDataResp has correct *transactions* property', function(){
-        expect(response).to.have.property('transactions');
-    });
-    it('GetLatestDataResp.transactions has correct *header* property', function(){
-        response.transactions.forEach(i => expect(i).to.have.all.keys(['header','tx','addr_from','size']));
-        response.transactions.forEach(i => expect( Buffer.isBuffer(i.header.hash_header)).to.equal(true) );
-        response.transactions.forEach(i => expect(i.header.hash_header.length).to.equal(32) );
-        response.transactions.forEach(i => expect(i.header.block_number).to.be.a('string') );
-        response.transactions.forEach(i => expect(parseInt(i.header.block_number)).to.be.a('number') );
-        response.transactions.forEach(i => expect(i.header.timestamp_seconds).to.be.a('string') );
-        response.transactions.forEach(i => expect(parseInt(i.header.timestamp_seconds)).to.be.a('number') );
-        response.transactions.forEach(i => expect(i.header.reward_block).to.be.a('string') );
-        response.transactions.forEach(i => expect(parseInt(i.header.reward_block)).to.be.a('number') );
-        response.transactions.forEach(i => expect(i.header.reward_fee).to.be.a('string') );
-        response.transactions.forEach(i => expect(parseInt(i.header.reward_fee)).to.be.a('number') );
-        response.transactions.forEach(i => expect(i.header.mining_nonce).to.be.a('string') );
-        response.transactions.forEach(i => expect(parseInt(i.header.mining_nonce)).to.be.a('number') );
-        response.transactions.forEach(i => expect( Buffer.isBuffer(i.header.hash_header_prev)).to.equal(true) );
-        response.transactions.forEach(i => expect(i.header.hash_header_prev.length).to.equal(32) );
-        response.transactions.forEach(i => expect( Buffer.isBuffer(i.header.merkle_root)).to.equal(true) );
-        response.transactions.forEach(i => expect(i.header.merkle_root.length).to.equal(32) );
-    });
-
-    // FIXME: Disabling. Sporadic failures as it is running on public testnet
-    // it('GetLatestDataResp.transactions has correct *tx* property', function(){
-    //     response.transactions.forEach(i => expect(i.tx).to.have.all.keys(['transactionType','master_addr','fee','public_key','signature','nonce','transaction_hash','transfer','coinbase','latticePK','message','token','transfer_token','slave']));
-    //     response.transactions.forEach(i => expect( Buffer.isBuffer(i.tx.master_addr)).to.equal(true) );
-    //     // response.transactions.forEach(i => expect(i.tx.master_addr.length).to.equal(39));
-    //     response.transactions.forEach(i => expect(i.tx.transaction_hash.length).to.equal(32));
-    //     response.transactions.forEach(i => expect(i.tx.transactionType).to.be.a('string') );
-    //     response.transactions.forEach(i => expect(i.tx.transactionType).to.equal('transfer') );
-    //     response.transactions.forEach(i => expect(i.tx.fee).to.be.a('string') );
-    //     response.transactions.forEach(i => expect(parseInt(i.tx.fee)).to.be.a('number') );
-    //     response.transactions.forEach(i => expect(i.tx.nonce).to.be.a('string') );
-    //     response.transactions.forEach(i => expect(parseInt(i.tx.nonce)).to.be.a('number') );
-    //     response.transactions.forEach(i => expect(i.tx.public_key.length).to.equal(67));
-    //     response.transactions.forEach(i => expect(i.tx.signature.length).to.equal(2756));
-    // });
-    it('GetLatestDataResp has correct *transactions_unconfirmed* property', function(){
-        expect(response).to.have.property('transactions_unconfirmed');
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -1473,46 +951,16 @@ describe('GetLatestData - All', function() {
 
 
 
-
 ## GetLatestDataResp
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-
-describe('GetLatestData - TransactionExtended', function() {
-    // example wallet address
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getLatestData({filter:0 , offset: 1, quantity: 10}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-    it('GetLatestDataResp has correct *blockheaders* property', function(){
-        expect(response).to.have.property('blockheaders');
-    });
-    it('GetLatestDataResp has correct *transactions* property', function(){
-        expect(response).to.have.property('transactions');
-    });
-    it('GetLatestDataResp has correct *transactions_unconfirmed* property', function(){
-        expect(response).to.have.property('transactions_unconfirmed');
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -1528,18 +976,17 @@ describe('GetLatestData - TransactionExtended', function() {
 
 ## GetLocalAddressesReq
 
-
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
 
 
-**fixme** add a description
+
+
 
 
 
@@ -1548,7 +995,6 @@ describe('GetLatestData - TransactionExtended', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1568,74 +1014,13 @@ describe('GetLatestData - TransactionExtended', function() {
 ## GetNodeStateReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-// Test for GetNodeState
-describe('GetNodeState', function() {
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getNodeState({}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-    it('GetNodeStateResp has NodeInfo *info* property', function(){
-        expect(response).to.have.property('info');
-    });
-    it('GetNodeStateResp.info has correct *state* property', function(){
-        expect(response.info).to.have.property('state');
-        expect(response.info.state).to.be.a('string');
-        expect(response.info.state).to.be.oneOf(['UNKNOWN', 'UNSYNCED', 'SYNCING', 'SYNCED', 'FORKED']);
-    });
-    it('GetNodeStateResp.info has correct *version* property', function(){
-        expect(response.info).to.have.property('version');
-        expect(response.info.version).to.be.a('string');
-    });
-    it('GetNodeStateResp.info has correct *num_connections* property', function(){
-        expect(response.info).to.have.property('num_connections');
-        expect(response.info.num_connections).to.be.a('number');
-        expect(response.info.num_connections).to.be.below(4294967297); // uint32
-    });
-    it('GetNodeStateResp.info has correct *num_known_peers* property', function(){
-        expect(response.info).to.have.property('num_known_peers');
-        expect(response.info.num_known_peers).to.be.a('number');
-        expect(response.info.num_known_peers).to.be.below(4294967297); // uint32
-    });
-    it('GetNodeStateResp.info has correct *uptime* property', function(){
-        expect(response.info).to.have.property('uptime');
-        expect(response.info.uptime).to.be.a('string');
-        expect(parseInt(response.info.uptime)).to.be.a('number');
-        expect(parseInt(response.info.uptime)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetNodeStateResp.info has correct *block_height* property', function(){
-        expect(response.info).to.have.property('block_height');
-        expect(response.info.block_height).to.be.a('string');
-        expect(parseInt(response.info.block_height)).to.be.a('number');
-        expect(parseInt(response.info.block_height)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetNodeStateResp.info has correct *block_last_hash* property', function(){
-        expect(response.info).to.have.property('block_last_hash');
-        expect(typeof(response.info.block_last_hash)).to.equal('object');
-        expect(Buffer.isBuffer(response.info.block_last_hash)).to.equal(true);
-    });
-    it('GetNodeStateResp.info has correct *network_id* property', function(){
-        expect(response.info).to.have.property('network_id');
-        expect(response.info.network_id).to.be.a('string');
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 Represents a query to get node state
 
@@ -1647,11 +1032,9 @@ Represents a query to get node state
 
 ## GetNodeStateResp
 
-
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1673,22 +1056,13 @@ Represents the reply message to node state query
 
 ## GetObjectReq
 
-
-
-
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
-
-
 
 
 
@@ -1699,13 +1073,14 @@ Represents the reply message to node state query
 
 
 
-## GetObjectResp
 
+
+
+## GetObjectResp
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1716,23 +1091,20 @@ Represents the reply message to node state query
 | ----- | ---- | ----- | ----------- |
 | found | [bool](#bool) |  |  |
 | address_state | [AddressState](#qrl.AddressState) |  |  |
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
 | transaction | [TransactionExtended](#qrl.TransactionExtended) |  |  |
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
 | block_extended | [BlockExtended](#qrl.BlockExtended) |  |  |
 
 
 
 
+
+
+
 ## GetPeersStatReq
+
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1744,12 +1116,14 @@ Represents a query to get connected peers stat
 
 
 
+
+
+
 ## GetPeersStatResp
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1770,159 +1144,13 @@ Represents the reply message to peers stat query
 
 
 ## GetStatsReq
+
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
-
 ```javascript
-// Test for getStats
-describe('GetStats', function() {
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getStats({include_timeseries: true}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-it('GetStatsResp has NodeInfo *node_info* property', function(){
-        expect(response).to.have.property('node_info');
-    });
-    it('GetStatsResp.node_info has correct *version* property', function(){
-        expect(response.node_info).to.have.property('version');
-        expect(response.node_info.version).to.be.a('string');
-    });
-    it('GetStatsResp.node_info has correct *state* property', function(){
-        expect(response.node_info).to.have.property('state');
-        expect(response.node_info.state).to.be.a('string');
-        expect(response.node_info.state).to.be.oneOf(['UNKNOWN', 'UNSYNCED', 'SYNCING', 'SYNCED', 'FORKED']);
-    });
-    it('GetStatsResp.node_info has correct *num_connections* property', function(){
-        expect(response.node_info).to.have.property('num_connections');
-        expect(response.node_info.num_connections).to.be.a('number');
-        expect(response.node_info.num_connections).to.be.a('number');
-        expect(response.node_info.num_connections).to.be.below(4294967297); // uint32
-    });
-    it('GetStatsResp.node_info has correct *num_known_peers* property', function(){
-        expect(response.node_info).to.have.property('num_known_peers');
-        expect(response.node_info.num_known_peers).to.be.a('number');
-        expect(response.node_info.num_known_peers).to.be.a('number');
-        expect(response.node_info.num_known_peers).to.be.below(4294967297); // uint32
-    });
-    it('GetStatsResp.node_info has correct *uptime* property', function(){
-        expect(response.node_info).to.have.property('uptime');
-        expect(response.node_info.uptime).to.be.a('string');
-        expect(parseInt(response.node_info.uptime)).to.be.a('number');
-        expect(parseInt(response.node_info.uptime)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp.node_info has correct *block_height* property', function(){
-        expect(response.node_info).to.have.property('block_height');
-        expect(response.node_info.block_height).to.be.a('string');
-        expect(parseInt(response.node_info.block_height)).to.be.a('number');
-        expect(parseInt(response.node_info.block_height)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp.node_info has correct *block_last_hash* property', function(){
-        expect(response.node_info).to.have.property('block_last_hash');
-        expect(typeof(response.node_info.block_last_hash)).to.equal('object');
-        expect(Buffer.isBuffer(response.node_info.block_last_hash)).to.equal(true);
-    });
-    it('GetStatsResp.node_info has correct *network_id* property', function(){
-        expect(response.node_info).to.have.property('network_id');
-        expect(response.node_info.network_id).to.be.a('string');
-    });
-    it('GetStatsResp has correct *epoch* property', function(){
-        expect(response).to.have.property('epoch');
-        expect(response.epoch).to.be.a('string');
-        expect(parseInt(response.epoch)).to.be.a('number');
-        expect(parseInt(response.epoch)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *uptime_network* property', function(){
-        expect(response).to.have.property('uptime_network');
-        expect(response.uptime_network).to.be.a('string');
-        expect(parseInt(response.uptime_network)).to.be.a('number');
-        expect(parseInt(response.uptime_network)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *block_last_reward* property', function(){
-        expect(response).to.have.property('block_last_reward');
-        expect(response.block_last_reward).to.be.a('string');
-        expect(parseInt(response.block_last_reward)).to.be.a('number');
-        expect(parseInt(response.block_last_reward)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *block_time_mean* property', function(){
-        expect(response).to.have.property('block_time_mean');
-        expect(response.block_time_mean).to.be.a('string');
-        expect(parseInt(response.block_time_mean)).to.be.a('number');
-        expect(parseInt(response.block_time_mean)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *block_time_sd* property', function(){
-        expect(response).to.have.property('block_time_sd');
-        expect(response.block_time_sd).to.be.a('string');
-        expect(parseInt(response.block_time_sd)).to.be.a('number');
-        expect(parseInt(response.block_time_sd)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *coins_total_supply* property', function(){
-        expect(response).to.have.property('coins_total_supply');
-        expect(response.coins_total_supply).to.be.a('string');
-        expect(parseInt(response.coins_total_supply)).to.be.a('number');
-        expect(parseInt(response.coins_total_supply)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *coins_emitted* property', function(){
-        expect(response).to.have.property('coins_emitted');
-        expect(response.coins_emitted).to.be.a('string');
-        expect(parseInt(response.coins_emitted)).to.be.a('number');
-        expect(parseInt(response.coins_emitted)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetStatsResp has correct *block_timeseries* property', function(){
-        expect(response).to.have.property('block_timeseries');
-        expect(typeof(response.block_timeseries)).to.equal('object');
-        response.block_timeseries.forEach(i => expect(i).to.have.all.keys(['number','difficulty','timestamp','time_last','time_movavg','hash_power','header_hash','header_hash_prev']));
-        // Difficulty should be a number
-        response.block_timeseries.forEach(i => expect(i.difficulty).to.be.a('string'));
-    });
-    it('GetStatsResp has correct *block_timeseries.number* property: is a uint64', function(){
-        response.block_timeseries.forEach(i => expect(i.number).to.be.a('string'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.number)).to.be.a('number'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.number)).to.be.below(18446744073709551617));
-    });
-    it('GetStatsResp has correct *block_timeseries.timestamp* property: is a uint64', function(){
-        response.block_timeseries.forEach(i => expect(i.timestamp).to.be.a('string'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.timestamp)).to.be.a('number'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.timestamp)).to.be.below(18446744073709551617));
-    });
-    it('GetStatsResp has correct *block_timeseries.time_last* property: is a uint64', function(){
-        response.block_timeseries.forEach(i => expect(i.time_last).to.be.a('string'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.time_last)).to.be.a('number'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.time_last)).to.be.below(18446744073709551617));
-    });
-    it('GetStatsResp has correct *block_timeseries.time_movavg* property: is a uint64', function(){
-        response.block_timeseries.forEach(i => expect(i.time_movavg).to.be.a('string'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.time_movavg)).to.be.a('number'));
-        response.block_timeseries.forEach(i => expect(parseInt(i.time_movavg)).to.be.below(18446744073709551617));
-    });
-    it('GetStatsResp has correct *block_timeseries.hash_power* property: is a number', function(){
-        response.block_timeseries.forEach(i => expect(i.hash_power).to.be.a('number'));
-        response.block_timeseries.forEach(i => expect(parseFloat(i.hash_power)).to.be.a('number'));
-    });
-    it('GetStatsResp has correct *block_timeseries.header_hash* property: is a Buffer composed of 32 octets', function(){
-        response.block_timeseries.forEach(i => expect(Buffer.isBuffer(i.header_hash)).to.equal(true));
-        response.block_timeseries.forEach(i => expect(i.header_hash.length).to.equal(32));
-    });
-    it('GetStatsResp has correct *block_timeseries.header_hash_prev* property: is a Buffer composed of 32 octets', function(){
-        response.block_timeseries.forEach(i => expect(Buffer.isBuffer(i.header_hash_prev)).to.equal(true));
-        response.block_timeseries.forEach(i => expect(i.header_hash_prev.length).to.equal(32));
-    });
- });
-
+**fixme** Enter JAVASCRIPT here
 ```
 
 
@@ -1944,7 +1172,6 @@ Represents a query to get statistics about node
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1972,13 +1199,13 @@ Represents the reply message to get statistics about node
 
 
 
-# LRUStateCache
+## LRUStateCache
+
 
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -1988,13 +1215,11 @@ Represents the reply message to get statistics about node
 
 
 
-
-# LatticePK
+## LatticePK
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2013,37 +1238,11 @@ Represents the reply message to get statistics about node
 
 
 
-## LatticePublicKeyTxnReq
+## MessageTxnReq
 
 ```python
 **fixme** Enter Python code here
 ```
-
-
-```javascript
-**fixme** Enter JAVASCRIPT here
-```
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| kyber_pk | [bytes](#bytes) |  |  |
-| dilithium_pk | [bytes](#bytes) |  |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-# MessageTxnReq
-
-```python
-**fixme** Enter Python code here
-```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2063,13 +1262,11 @@ Represents the reply message to get statistics about node
 
 
 
-
-# NodeChainState
+## NodeChainState
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2081,12 +1278,13 @@ Represents the reply message to get statistics about node
 | block_number | [uint64](#uint64) |  |  |
 | header_hash | [bytes](#bytes) |  |  |
 | cumulative_difficulty | [bytes](#bytes) |  |  |
+| version | [string](#string) |  |  |
 | timestamp | [uint64](#uint64) |  |  |
 
 
 
 
-# Node
+
 
 
 ## NodeHeaderHash
@@ -2094,7 +1292,6 @@ Represents the reply message to get statistics about node
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2118,7 +1315,6 @@ Represents the reply message to get statistics about node
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2138,7 +1334,7 @@ Represents the reply message to get statistics about node
 
 
 
-# P2P
+
 
 
 ## P2PAcknowledgement
@@ -2146,7 +1342,6 @@ Represents the reply message to get statistics about node
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2169,7 +1364,6 @@ Represents the reply message to get statistics about node
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2190,7 +1384,6 @@ Represents the reply message to get statistics about node
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2217,7 +1410,6 @@ Represents the reply message to get statistics about node
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2241,7 +1433,6 @@ Represents the reply message to get statistics about node
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2257,109 +1448,14 @@ Represents the reply message to get statistics about node
 
 
 
-# PushTransactionReq
+## PushTransactionReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
-
 ```javascript
-
-// pushTransaction call
-// describe('PushTransaction - TransferCoins', function() {
-//     // this.timeout(50000);
-//     let response;
-//     // call API
-//     before(function() {
-//         this.enableTimeouts(false)
-//         return new Promise((resolve) => {
-//             qrlClient.then( function (qrlClient) {
-//                 // generating a new wallet
-//                 let i
-//                 const randomBytes = require('crypto').randomBytes(48)
-//                 const randomSeed = new qrllib.VectorUChar()
-//                 for (i = 0; i < 48; i += 1) {
-//                     randomSeed.push_back(randomBytes[i])
-//                 }
-//                 // Generate XMSS object
-//                 XMSS_OBJECT = new qrllib.Xmss(randomSeed, 10)
-//                 // stringToBytes(testfromxmsspk);
-//                 xmss_pk = stringToBytes(qrllib.bin2hstr(XMSS_OBJECT.getPK()))
-//
-//                 qrlClient.transferCoins({addresses_to: testtoaddress_bytes, amounts: 10000000000, fee:1000000, xmss_pk: xmss_pk}, (err, res) => {
-//
-//                     if (err){
-//                         console.log("Error: ", err.message);
-//                         return;
-//                     }
-//                     console.log("Sending API call")
-//                     const tx = res;
-//
-//                     // code from the wallet (@scottdonaldau)
-//                     const xmss_pk = XMSS_OBJECT.getPK()
-//                     const thisAddressBytes = XMSS_OBJECT.getAddress()
-//                     XMSS_OBJECT.setIndex(12)
-//
-//                     console.log("Preparing tx to sign...")
-//                     // Concatenate Uint8Arrays
-//                     let concatenatedArrays = concatenateTypedArrays(Uint8Array, tx.extended_transaction_unsigned.addr_from, toBigendianUint64BytesUnsigned(tx.extended_transaction_unsigned.tx.fee))
-//                     // Now append all recipient (outputs) to concatenatedArrays
-//                     const addrsToRaw = tx.extended_transaction_unsigned.tx.transfer.addrs_to
-//                     const amountsRaw = tx.extended_transaction_unsigned.tx.transfer.amounts
-//                     for (var i = 0; i < addrsToRaw.length; i++) {
-//                         concatenatedArrays = concatenateTypedArrays(Uint8Array,concatenatedArrays,addrsToRaw[i]) // Add address
-//                         concatenatedArrays = concatenateTypedArrays(Uint8Array,concatenatedArrays,toBigendianUint64BytesUnsigned(amountsRaw[i])) // Add amount
-//                     }
-//                     // Convert Uint8Array to VectorUChar
-//                     const hashableBytes = new qrllib.VectorUChar()
-//                     for (i = 0; i < concatenatedArrays.length; i += 1) {
-//                         hashableBytes.push_back(concatenatedArrays[i])
-//                     }
-//                     // Create sha256 sum of concatenatedarray
-//                     let shaSum = qrllib.sha2_256(hashableBytes)
-//                     // Sign the sha sum
-//                     tx.extended_transaction_unsigned.tx.signature = binaryToBytes(XMSS_OBJECT.sign(shaSum))
-//                     // Calculate transaction hash
-//                     let txnHashConcat = concatenateTypedArrays(Uint8Array,binaryToBytes(shaSum),tx.extended_transaction_unsigned.tx.signature,binaryToBytes(XMSS_OBJECT.getPK()))
-//
-//                     const txnHashableBytes = new qrllib.VectorUChar()
-//                     for (i = 0; i < txnHashConcat.length; i += 1) {
-//                         txnHashableBytes.push_back(txnHashConcat[i])
-//                     }
-//
-//                     let txnHash = qrllib.bin2hstr(qrllib.sha2_256(txnHashableBytes))
-//
-//                     // transferCoins returns a TransferCoinsResp, one needs to get the Transaction out and sign it
-//                     const confirmTxn = { transaction_signed: res.extended_transaction_unsigned.tx }
-//                     // confirmTxn.transaction_signed.master_addr = testfromaddress_bytes;
-//                     confirmTxn.transaction_signed.fee = tx.extended_transaction_unsigned.tx.fee
-//                     confirmTxn.transaction_signed.public_key = xmss_pk
-//                     confirmTxn.transaction_signed.signature = binaryToBytes(XMSS_OBJECT.sign(shaSum))
-//                     confirmTxn.transaction_signed.nonce = 12
-//                     confirmTxn.transaction_signed.transaction_hash = txnHash
-//                     confirmTxn.transaction_signed.transfer.addrs_to = tx.extended_transaction_unsigned.tx.transfer.addrs_to
-//                     confirmTxn.transaction_signed.transfer.amounts = tx.extended_transaction_unsigned.tx.transfer.amounts
-//
-//                     // pushTransaction API call
-//                     qrlClient.pushTransaction(confirmTxn, (err, res2) => {
-//                         if (err){
-//                             console.log("Error: ", err.message);
-//                             return;
-//                         }
-//                         console.log("RES2 : ", res2)
-//                         response = res2;
-//                         resolve(response);
-//                     });
-//                 });
-//             });
-//         });
-//     });
-//
-//     it('PushTransactionResp has correct *error_code* property', function(){
-//         expect(response).to.have.property('error_code');
-//     });
-// });
+**fixme** Enter JAVASCRIPT here
 ```
 
 
@@ -2379,7 +1475,6 @@ Enter Python code here
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2397,12 +1492,11 @@ Enter Python code here
 
 
 
-# SlaveTxnReq
+## SlaveTxnReq
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2423,12 +1517,11 @@ Enter Python code here
 
 
 
-# StateLoader
+## StateLoader
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2454,7 +1547,6 @@ Enter Python code here
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2470,12 +1562,11 @@ Enter Python code here
 
 
 
-# StoredPeers
+## StoredPeers
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2489,7 +1580,7 @@ Enter Python code here
 
 
 
-# Token
+
 
 
 ## TokenList
@@ -2497,7 +1588,6 @@ Enter Python code here
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2520,7 +1610,6 @@ Enter Python code here
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2539,131 +1628,14 @@ Enter Python code here
 
 ## TokenTxnReq
 
-###GetTokenTxn
-
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-describe('GetTokenTxn', function() {
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getTokenTxn({master_addr: testfromaddress_bytes, symbol:"JSTEST", name:"JSTEST", owner:"Q0105006d232eb403a0248f9d4c0476c06a7d7a1d0425420df2dd915b7fb46cf7da132699c27b93", decimals:10, initial_balances: {address: testtoaddress_bytes, amount: 10000000000} ,fee:1000000, xmss_pk: testfromxmsspk_bytes}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *addr_from* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('addr_from');
-        expect(Buffer.from(response.extended_transaction_unsigned.addr_from).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp has correct *extended_transaction_unsigned* property', function(){
-        expect(response).to.have.property('extended_transaction_unsigned');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *header* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('header');
-        expect(response.extended_transaction_unsigned.header).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *tx* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('tx');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transactionType');
-        expect(response.extended_transaction_unsigned.tx.transactionType).to.equal('token');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *master_addr* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('master_addr');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.master_addr)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.master_addr.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.master_addr).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *fee* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('fee');
-        expect(response.extended_transaction_unsigned.tx.fee).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.fee)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *public_key* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('public_key');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.public_key)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.public_key.length).to.equal(67);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.public_key).toString('hex')).to.equal(testfromxmsspk);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *signature* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('signature');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.signature)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.signature.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *nonce* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('nonce');
-        expect(response.extended_transaction_unsigned.tx.nonce).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.nonce)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transaction_hash* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transaction_hash');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.transaction_hash)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.transaction_hash.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* transfer', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *coinbase* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('coinbase');
-        expect(response.extended_transaction_unsigned.tx.coinbase).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *latticePK* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('latticePK');
-        expect(response.extended_transaction_unsigned.tx.latticePK).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *message* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('message');
-        expect(response.extended_transaction_unsigned.tx.message).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('token');
-        expect(response.extended_transaction_unsigned.tx.token).to.have.all.keys(['symbol','name','owner','decimals','initial_balances']);
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.token.symbol)).to.equal(true);
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.token.name)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.token.decimals).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.token.decimals)).to.be.a('number');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.token.owner)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.token.owner.length).to.equal(59);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer_token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer_token');
-        expect(response.extended_transaction_unsigned.tx.transfer_token).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *slave* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('slave');
-        expect(response.extended_transaction_unsigned.tx.slave).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-        expect(response.extended_transaction_unsigned.tx.transfer).to.equal(null);
-
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *addr_from* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('addr_from');
-        expect(response.extended_transaction_unsigned.addr_from.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.addr_from).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *size* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('size');
-        expect(response.extended_transaction_unsigned.size).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.size)).to.be.a('number');
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -2682,12 +1654,11 @@ describe('GetTokenTxn', function() {
 
 
 
-# Transaction
+## Transaction
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2722,7 +1693,6 @@ describe('GetTokenTxn', function() {
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2744,7 +1714,6 @@ describe('GetTokenTxn', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2768,7 +1737,6 @@ describe('GetTokenTxn', function() {
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2789,7 +1757,6 @@ describe('GetTokenTxn', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2812,7 +1779,6 @@ describe('GetTokenTxn', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2839,7 +1805,6 @@ describe('GetTokenTxn', function() {
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2854,14 +1819,11 @@ describe('GetTokenTxn', function() {
 
 
 
-
-
 ## Transaction.TransferToken
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2886,7 +1848,6 @@ describe('GetTokenTxn', function() {
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -2900,14 +1861,11 @@ describe('GetTokenTxn', function() {
 
 
 
-
-
 ## TransactionCount.CountEntry
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -2923,87 +1881,16 @@ describe('GetTokenTxn', function() {
 
 
 
-
-
 ## TransactionExtended
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-// Test for GetObject for TransactionExtended
-describe('GetObject - TransactionExtended', function() {
-    // example wallet address
-    let response;
-    testtx = stringToBytes('010600e62ec20b7397949a132f7e6efa80ba3fe1e94af646e50035f1db1a5985734fff11284143');
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getObject({query : testtx }, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-    it('GetObjectResp has correct *result* property', function(){
-        expect(response).to.have.property('result');
-        expect(response.result).to.equal('address_state');
-    });
-    it('GetObjectResp has correct *found* property', function(){
-        expect(response).to.have.property('found');
-        expect(response.found).to.equal(true);
-    });
-    it('GetObjectResp has correct *transaction* property', function(){
-        expect(response).to.have.property('transaction');
-        expect(response.transaction).to.equal(null);
-    });
-    it('GetObjectResp has correct *block_extended* property', function(){
-        expect(response).to.have.property('block_extended');
-        expect(response.block_extended).to.equal(null);
-    });
-    it('GetObjectResp has correct *address_state* property', function(){
-        expect(response).to.have.property('address_state');
-        expect(response.address_state).to.have.all.keys(['address','balance','nonce','ots_bitfield','transaction_hashes','tokens','latticePK_list','slave_pks_access_type','ots_counter']);
-    });
-    it('GetObjectResp has correct *AdressState.address* property', function(){
-        expect(Buffer.isBuffer(response.address_state.address)).to.equal(true);
-        expect(response.address_state.address.length).to.equal(39);
-        // check the first three octets values are correct
-    });
-    it('GetObjectResp has correct *AdressState.balance* property', function(){
-        expect(response.address_state.balance).to.be.a('string');
-        expect(parseInt(response.address_state.balance)).to.be.a('number');
-        expect(parseInt(response.address_state.balance)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetObjectResp has correct *AdressState.nonce* property', function(){
-        expect(response.address_state.nonce).to.be.a('string');
-        expect(parseInt(response.address_state.nonce)).to.be.a('number');
-        expect(parseInt(response.address_state.nonce)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetObjectResp has correct *AdressState.ots_counter* property', function(){
-        expect(response.address_state.ots_counter).to.be.a('string');
-        expect(parseInt(response.address_state.ots_counter)).to.be.a('number');
-        expect(parseInt(response.address_state.ots_counter)).to.be.below(18446744073709551617); // uint64
-    });
-    it('GetObjectResp has correct *AdressState.ots_bitfield* property', function(){
-        response.address_state.ots_bitfield.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.address_state.ots_bitfield.forEach(i => expect(i.length).to.equal(1));
-    });
-    it('GetObjectResp has correct *AdressState.transaction_hashes* property', function(){
-        response.address_state.transaction_hashes.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.address_state.transaction_hashes.forEach(i => expect(i.length).to.equal(32));
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -3016,132 +1903,15 @@ describe('GetObject - TransactionExtended', function() {
 
 
 
-# TransferCoins
-
 
 ## TransferCoinsReq
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
-
 ```javascript
-
-let transaction_unsigned;
-// rpc TransferCoins (TransferCoinsReq) returns (TransferCoinsResp);
-describe('TransferCoins', function() {
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.transferCoins({master_addr: testfromaddress_bytes, addresses_to: testtoaddress_bytes, amounts: 100, fee:0.001, xmss_pk: testfromxmsspk_bytes}, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    transaction_unsigned = res.extended_transaction_unsigned.tx;
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-
-    it('TransferCoinsResp has correct *extended_transaction_unsigned* property', function(){
-        expect(response).to.have.property('extended_transaction_unsigned');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *header* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('header');
-        expect(response.extended_transaction_unsigned.header).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *tx* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('tx');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transactionType');
-        expect(response.extended_transaction_unsigned.tx.transactionType).to.equal('transfer');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *master_addr* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('master_addr');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.master_addr)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.master_addr.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.master_addr).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *fee* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('fee');
-        expect(response.extended_transaction_unsigned.tx.fee).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.fee)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *public_key* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('public_key');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.public_key)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.public_key.length).to.equal(67);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.public_key).toString('hex')).to.equal(testfromxmsspk);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *signature* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('signature');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.signature)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.signature.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *nonce* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('nonce');
-        expect(response.extended_transaction_unsigned.tx.nonce).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.nonce)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transaction_hash* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transaction_hash');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.transaction_hash)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.transaction_hash.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* transfer', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *coinbase* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('coinbase');
-        expect(response.extended_transaction_unsigned.tx.coinbase).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *latticePK* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('latticePK');
-        expect(response.extended_transaction_unsigned.tx.latticePK).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *message* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('message');
-        expect(response.extended_transaction_unsigned.tx.message).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('token');
-        expect(response.extended_transaction_unsigned.tx.token).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer_token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer_token');
-        expect(response.extended_transaction_unsigned.tx.transfer_token).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *slave* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('slave');
-        expect(response.extended_transaction_unsigned.tx.slave).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-        expect(response.extended_transaction_unsigned.tx.transfer).to.have.all.keys(['addrs_to','amounts'])
-        response.extended_transaction_unsigned.tx.transfer.addrs_to.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true) );
-        response.extended_transaction_unsigned.tx.transfer.addrs_to.forEach(i => expect(i.length).to.equal(39) );
-        response.extended_transaction_unsigned.tx.transfer.amounts.forEach(i => expect(i).to.be.a('string') );
-        response.extended_transaction_unsigned.tx.transfer.amounts.forEach(i => expect(parseInt(i)).to.be.a('number') );
-
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *addr_from* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('addr_from');
-        expect(response.extended_transaction_unsigned.addr_from.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.addr_from).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *size* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('size');
-        expect(response.extended_transaction_unsigned.size).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.size)).to.be.a('number');
-    });
-});
+**fixme** Enter JAVASCRIPT here
 ```
 
 
@@ -3162,137 +1932,17 @@ describe('TransferCoins', function() {
 ## TransferCoinsResp
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
-
 
 ```javascript
-describe('GetTransferTokenTxn', function() {
-    let response;
-    // call API
-    before(function() {
-        return new Promise((resolve) => {
-            qrlClient.then( function (qrlClient) {
-                qrlClient.getTransferTokenTxn({master_addr: testfromaddress_bytes, addresses_to: testtoaddress_bytes, amounts: 100, fee:0.001, xmss_pk: testfromxmsspk_bytes }, (err, res) => {
-                    if (err){
-                        console.log("Error: ", err.message);
-                        return;
-                    }
-                    response = res;
-                    resolve();
-                });
-            });
-        });
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *addr_from* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('addr_from');
-        expect(Buffer.from(response.extended_transaction_unsigned.addr_from).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp has correct *extended_transaction_unsigned* property', function(){
-        expect(response).to.have.property('extended_transaction_unsigned');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *header* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('header');
-        expect(response.extended_transaction_unsigned.header).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *tx* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('tx');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transactionType');
-        expect(response.extended_transaction_unsigned.tx.transactionType).to.equal('transfer_token');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *master_addr* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('master_addr');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.master_addr)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.master_addr.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.master_addr).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *fee* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('fee');
-        expect(response.extended_transaction_unsigned.tx.fee).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.fee)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *public_key* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('public_key');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.public_key)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.public_key.length).to.equal(67);
-        expect(Buffer.from(response.extended_transaction_unsigned.tx.public_key).toString('hex')).to.equal(testfromxmsspk);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *signature* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('signature');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.signature)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.signature.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *nonce* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('nonce');
-        expect(response.extended_transaction_unsigned.tx.nonce).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.tx.nonce)).to.be.a('number');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transaction_hash* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transaction_hash');
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.transaction_hash)).to.equal(true);
-        expect(response.extended_transaction_unsigned.tx.transaction_hash.length).to.equal(0);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transactionType* transfer', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *coinbase* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('coinbase');
-        expect(response.extended_transaction_unsigned.tx.coinbase).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *latticePK* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('latticePK');
-        expect(response.extended_transaction_unsigned.tx.latticePK).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *message* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('message');
-        expect(response.extended_transaction_unsigned.tx.message).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('token');
-        expect(response.extended_transaction_unsigned.tx.message).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer_token* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer_token');
-        expect(response.extended_transaction_unsigned.tx.transfer_token).to.have.all.keys(['token_txhash','addrs_to','amounts']);
-        expect(Buffer.isBuffer(response.extended_transaction_unsigned.tx.transfer_token.token_txhash)).to.equal(true);
-        expect(typeof(response.extended_transaction_unsigned.tx.transfer_token.addrs_to)).to.equal('object');
-        response.extended_transaction_unsigned.tx.transfer_token.addrs_to.forEach(i => expect(Buffer.isBuffer(i)).to.equal(true));
-        response.extended_transaction_unsigned.tx.transfer_token.addrs_to.forEach(i => expect(i.length).to.equal(39));
-        response.extended_transaction_unsigned.tx.transfer_token.amounts.forEach(i => expect(i).to.be.a('string'));
-        response.extended_transaction_unsigned.tx.transfer_token.amounts.forEach(i => expect(parseInt(i)).to.be.a('number'));
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *slave* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('slave');
-        expect(response.extended_transaction_unsigned.tx.slave).to.equal(null);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned.tx has correct *transfer* property', function(){
-        expect(response.extended_transaction_unsigned.tx).to.have.property('transfer');
-        expect(response.extended_transaction_unsigned.tx.transfer).to.equal(null);
-
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *addr_from* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('addr_from');
-        expect(response.extended_transaction_unsigned.addr_from.length).to.equal(39);
-        expect(Buffer.from(response.extended_transaction_unsigned.addr_from).toString('hex')).to.equal(testfromaddress);
-    });
-    it('TransferCoinsResp.extended_transaction_unsigned has correct *size* property', function(){
-        expect(response.extended_transaction_unsigned).to.have.property('size');
-        expect(response.extended_transaction_unsigned.size).to.be.a('string');
-        expect(parseInt(response.extended_transaction_unsigned.size)).to.be.a('number');
-    });
-
-});
+**fixme** Enter JAVASCRIPT here
 ```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | extended_transaction_unsigned | [TransactionExtended](#qrl.TransactionExtended) |  |  |
-
-
-
-
 
 
 
@@ -3301,7 +1951,6 @@ describe('GetTransferTokenTxn', function() {
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3319,23 +1968,15 @@ describe('GetTransferTokenTxn', function() {
 
 
 
-
-
- 
-
-
-
-# GetLatestDataReq.Filter
+## GetLatestDataReq.Filter
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -3347,12 +1988,11 @@ describe('GetTransferTokenTxn', function() {
 
 
 
-# NodeInfo.State
+## NodeInfo.State
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3370,12 +2010,11 @@ describe('GetTransferTokenTxn', function() {
 
 
 
-# PushTransactionResp.ResponseCode
+## PushTransactionResp.ResponseCode
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3390,13 +2029,17 @@ describe('GetTransferTokenTxn', function() {
 | SUBMITTED | 3 |  |
 
 
- 
 
- 
+## AdminAPI
 
+```python
+**fixme** Enter Python code here
+```
 
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
-# AdminAPI
 
 This is a place holder for testing/instrumentation APIs
 
@@ -3405,12 +2048,11 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-# PublicAPI
+## PublicAPI
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3428,19 +2070,17 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetAddressState | [GetAddressStateReq](#qrl.GetAddressStateReq) | [GetAddressStateResp](#qrl.GetAddressStateReq) |  |
 | GetObject | [GetObjectReq](#qrl.GetObjectReq) | [GetObjectResp](#qrl.GetObjectReq) |  |
 | GetLatestData | [GetLatestDataReq](#qrl.GetLatestDataReq) | [GetLatestDataResp](#qrl.GetLatestDataReq) |  |
-| TransferCoins | [TransferCoinsReq](#qrl.TransferCoinsReq) | [TransferCoinsResp](#qrl.TransferCoinsReq) |  |
 | PushTransaction | [PushTransactionReq](#qrl.PushTransactionReq) | [PushTransactionResp](#qrl.PushTransactionReq) |  |
+| TransferCoins | [TransferCoinsReq](#qrl.TransferCoinsReq) | [TransferCoinsResp](#qrl.TransferCoinsReq) |  |
+| GetAddressFromPK | [GetAddressFromPKReq](#qrl.GetAddressFromPKReq) | [GetAddressFromPKResp](#qrl.GetAddressFromPKReq) |  |
 | GetMessageTxn | [MessageTxnReq](#qrl.MessageTxnReq) | [TransferCoinsResp](#qrl.MessageTxnReq) |  |
 | GetTokenTxn | [TokenTxnReq](#qrl.TokenTxnReq) | [TransferCoinsResp](#qrl.TokenTxnReq) |  |
 | GetTransferTokenTxn | [TransferTokenTxnReq](#qrl.TransferTokenTxnReq) | [TransferCoinsResp](#qrl.TransferTokenTxnReq) |  |
 | GetSlaveTxn | [SlaveTxnReq](#qrl.SlaveTxnReq) | [TransferCoinsResp](#qrl.SlaveTxnReq) |  |
-| GetLatticePublicKeyTxn | [LatticePublicKeyTxnReq](#qrl.LatticePublicKeyTxnReq) | [TransferCoinsResp](#qrl.LatticePublicKeyTxnReq) |  |
-| GetAddressFromPK | [GetAddressFromPKReq](#qrl.GetAddressFromPKReq) | [GetAddressFromPKResp](#qrl.GetAddressFromPKReq) |  |
 
  
 
-
-
+<p align="right"><a href="#top">Top</a></p>
 
 # qrlbase.proto
 
@@ -3450,17 +2090,13 @@ This service describes the Public API used by clients (wallet/cli/etc)
 ## GetNodeInfoReq
 
 
-
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
 
 
 
@@ -3469,7 +2105,6 @@ This service describes the Public API used by clients (wallet/cli/etc)
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3483,22 +2118,11 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 
-
-
- 
-
- 
-
- 
-
-
-
 ## Base
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3513,6 +2137,66 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 
+<p align="right"><a href="#top">Top</a></p>
+
+# qrldebug.proto
+
+
+
+
+## GetFullStateReq
+
+
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+## GetFullStateResp
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| coinbase_state | [AddressState](#qrl.AddressState) |  |  |
+| addresses_state | [AddressState](#qrl.AddressState) | repeated |  |
+
+
+
+
+
+## DebugAPI
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+This service describes the Debug API used for debugging
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetFullState | [GetFullStateReq](#qrl.GetFullStateReq) | [GetFullStateResp](#qrl.GetFullStateReq) |  |
+
+ 
+
+<p align="right"><a href="#top">Top</a></p>
 
 # qrllegacy.proto
 
@@ -3524,7 +2208,6 @@ This service describes the Public API used by clients (wallet/cli/etc)
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3539,15 +2222,11 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 
-
-
-
 ## FBData
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3560,16 +2239,11 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 
-
-
-
-
 ## LegacyMessage
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3606,20 +2280,15 @@ Adding old code to refactor while keeping things working
 
 
 
-
-
-
 ## MRData
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
 
 
 | Field | Type | Label | Description |
@@ -3634,24 +2303,15 @@ Adding old code to refactor while keeping things working
 
 
 
-
-
-
 ## NoData
-
-
-
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
-
 
 
 ## PBData
@@ -3659,7 +2319,6 @@ Adding old code to refactor while keeping things working
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3672,16 +2331,11 @@ Adding old code to refactor while keeping things working
 
 
 
-
-
-
-
 ## PLData
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3696,19 +2350,17 @@ Adding old code to refactor while keeping things working
 
 
 
-
-
-
 ## PONGData
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
+
+
 
 
 ## SYNCData
@@ -3716,7 +2368,6 @@ Adding old code to refactor while keeping things working
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3735,7 +2386,6 @@ Adding old code to refactor while keeping things working
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3756,7 +2406,6 @@ Adding old code to refactor while keeping things working
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3786,7 +2435,13 @@ Adding old code to refactor while keeping things working
 | HEADERHASHES | 18 |  |
 | P2P_ACK | 19 | P2P Acknowledgement |
 
+
+
+
+<p align="right"><a href="#top">Top</a></p>
+
 # qrlmining.proto
+
 
 
 ## GetBlockMiningCompatibleReq
@@ -3794,7 +2449,6 @@ Adding old code to refactor while keeping things working
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3816,7 +2470,6 @@ if height = 0, this means getlastblockheader |
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -3830,15 +2483,11 @@ if height = 0, this means getlastblockheader |
 
 
 
-
-
-
 ## GetBlockToMineReq
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3852,15 +2501,11 @@ if height = 0, this means getlastblockheader |
 
 
 
-
-
-
 ## GetBlockToMineResp
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3877,15 +2522,11 @@ if height = 0, this means getlastblockheader |
 
 
 
-
-
-
 ## GetLastBlockHeaderReq
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3904,7 +2545,6 @@ if height = 0, this means getlastblockheader |
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
@@ -3921,12 +2561,12 @@ if height = 0, this means getlastblockheader |
 
 
 
+
 ## SubmitMinedBlockReq
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3938,12 +2578,14 @@ if height = 0, this means getlastblockheader |
 | blob | [bytes](#bytes) |  | blocktemplate_blob with the correct nonce |
 
 
+
+
+
 ## SubmitMinedBlockResp
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
@@ -3955,17 +2597,17 @@ if height = 0, this means getlastblockheader |
 | error | [bool](#bool) |  | It seems there are no special fields for success/error reporting, does gRPC automatically give me something? |
 
 
+
+
 ## MiningAPI
 
 ```python
 **fixme** Enter Python code here
 ```
 
-
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
-
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -3974,34 +2616,89 @@ if height = 0, this means getlastblockheader |
 | GetBlockToMine | [GetBlockToMineReq](#qrl.GetBlockToMineReq) | [GetBlockToMineResp](#qrl.GetBlockToMineReq) |  |
 | SubmitMinedBlock | [SubmitMinedBlockReq](#qrl.SubmitMinedBlockReq) | [SubmitMinedBlockResp](#qrl.SubmitMinedBlockReq) |  |
 
+ 
 
-# Scalar Value Types
+
+
+<p align="right"><a href="#top">Top</a></p>
+
+# qrlstateinfo.proto
+
+
+## ForkState
 
 ```python
 **fixme** Enter Python code here
 ```
-
 
 ```javascript
 **fixme** Enter JAVASCRIPT here
 ```
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| initiator_headerhash | [bytes](#bytes) |  | Stores the headerhash of the block initiated the fork recovery |
+| fork_point_headerhash | [bytes](#bytes) |  | Stores the headerhash of the block after which forked happened |
+| old_mainchain_hash_path | [bytes](#bytes) | repeated | Stores the hash path of old main chain which needs to be played |
+| new_mainchain_hash_path | [bytes](#bytes) | repeated | if the fork recovery fails
+
+Alternate chain hash path which is eligible to become mainchain |
+
+
+
+
+## LastTransactions
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tx_metadata | [TransactionMetadata](#qrl.TransactionMetadata) | repeated |  |
+
+
+
+
+## TransactionMetadata
+
+```python
+**fixme** Enter Python code here
+```
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| transaction | [Transaction](#qrl.Transaction) |  |  |
+| block_number | [uint64](#uint64) |  |  |
+| timestamp | [uint64](#uint64) |  |  |
+
+
+
+
+# Scalar Value Types
+
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
-| <a name="double" /> double |  | double | double | float |
-| <a name="float" /> float |  | float | float | float |
-| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
-| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
-| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
-| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
-| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
-| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
-| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
-| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
-| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
-| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
-| <a name="bool" /> bool |  | bool | boolean | boolean |
-| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
-| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
+| | | ncoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| ncoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+|  int/long |
+| ong | int/long |
+| alue. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| alue. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| int32 if values are often greater than 2^28. | uint32 | int | int |
+| int64 if values are often greater than 2^56. | uint64 | long | int/long |
+| | ong |
+| | -bit ASCII text. | string | String | str/unicode |
+| tring | ByteString | str |
 
