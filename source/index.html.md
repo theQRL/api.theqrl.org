@@ -302,8 +302,6 @@ Example providing a wallet address (as hex) and the corresponding address as byt
 
 # qrl.proto
 
-# Addresses
-
 
 ## AddressAmount
 
