@@ -52,7 +52,9 @@ This is a work in progress, code may change. Please see the official documentati
 
 
 ```python
-# simple python3 library to allow interaction with remote QRL node using: grpc, xmss, kyber and dilithium, ephemeral
+**fixme**
+
+# simple python3 library to allow interaction with remote QRL node using: 
 
 import qrl_pb2, qrl_pb2_grpc
 import grpc
@@ -81,28 +83,7 @@ class Tree():
         self.height = self.xmss.getHeight()
         self.signatures = 2**self.height
         self.address = self.xmss.getAddress('Q')
-
-    def set_index(self, index=None):
-        if not index or index > 2**self.height:
-            return
-        self.xmss.setIndex(index)
-        return
-
-    def get_index(self):
-        return self.xmss.getIndex()
-
-    def remaining(self):
-        return self.signatures-self.xmss.getIndex()
-
-    def sign(self, message, index=None):
-        if isinstance(message, bytes):                          #if being passed for a tx then it will be bytes already
-            return bytes(self.xmss.sign(tuple(message)))
-        else:
-            return bin2hstr(self.xmss.sign(tuple(message.encode())))
-
-    def verify(self, message, signature, PK):
-        return self.xmss.verify(tuple(message.encode()), hstr2bin(signature), PK)
-
+**fixme**
 ```
 
 ```javascript
@@ -143,7 +124,7 @@ async function fetchRemoteProto(nodeAddr) {
 
 ```
 
-Connecting to the QRL network is fairly simple. Use the examples shown to get started. **fixme** There may be some specific details we should be calling out here!
+Connecting to the QRL network is simple. Use the examples shown to get started. **fixme** There may be some specific details we should be calling out here!
 
 
 <aside class="notice">
@@ -156,13 +137,13 @@ Connecting to the QRL network is fairly simple. Use the examples shown to get st
 ## Important information 
 
 
-> QRL uses XMSS in a merkletree to extend the available OTS keys. You need to be cognisant that you dont run out of available keys in a wallet.
+> QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet.
 
 <aside class="warning">
 Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/">
 </aside>
 
-
+YOu are able to generate a slaves file that is basically an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [docs.theqrl.org](https://docs.theqrl.org/wallet/slaves.json/)
 
 
 # QRL Protocol
@@ -171,13 +152,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 
 ## Functions
 
-Here are some required functions to make the code examples work. 
+Here are some required functions to make the examples below work. 
 
 
 ## getQRLClient()
 
 ```python
-Enter Python code here
+Enter Python code here **fixme**
 ```
 
 
@@ -196,18 +177,14 @@ async function getQRLClient(nodeAddr) {
 
 Connection to the QRL client according to the provide API URL.
 
-> Need to  give tips on usage 
-
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
+> **fixme** Need to  give tips on usage 
 
 
 
 ## stringToBytes
 
 ```python
-Enter Python code here
+Enter Python code here **fixme**
 ```
 
 
@@ -223,19 +200,17 @@ stringToBytes = (convertMe) => {
 
 StringToBytes function converts a string to a byte array. This function requires the hstr2bin function from the qrllib.
 
-> Need to  give tips on usage 
+> **fixme** give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
+
 
 
 
 ## binaryToBytes
 
 ```python
-Enter Python code here
-```
+Enter Python code here **fixme**
+``` 
 
 
 
@@ -255,9 +230,6 @@ binaryToBytes converts a binary to a byte array.
 
 > Need to give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -279,9 +251,6 @@ toBuffer creates a new Buffer and append the given object to it.
 
 > Need to give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -303,9 +272,6 @@ qrlClient variable defines the API URL with the corresponding port. In the examp
 
 > Need to  give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -342,9 +308,6 @@ concatenateTypedArrays function is necessary for some API function calls that re
 
 > Need to  give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -384,9 +347,6 @@ toBigendianUint64BytesUnsigned takes the provided input and converts to an array
 
 > Need to  give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -410,9 +370,6 @@ Example providing a wallet address (as hex) and the corresponding address as byt
 
 > Need to  give tips on usage 
 
-<aside class="notice">
-We need to update this section and give good info for setup and usage.
-</aside>
 
 
 
@@ -424,7 +381,7 @@ We need to update this section and give good info for setup and usage.
 
 ## AddressList
 
-
+**fixme**
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -473,7 +430,8 @@ getAddressState functions takes a wallet address as input (GetAddressStateReq ob
 
 
 <aside class="notice">
-Results shown here.</aside>
+Results shown here.
+</aside>
 
 
 ## result
@@ -494,12 +452,9 @@ Enter Python code here
 ```
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**fixme** Give description of the function here
+
+
 result property
 
 ## found property
@@ -516,13 +471,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## transaction property
@@ -540,13 +491,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## block_extended property
@@ -563,13 +510,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 
@@ -587,13 +530,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## AdressState.address property
@@ -612,13 +551,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## AdressState.balance property
@@ -637,13 +572,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## AdressState.nonce property
@@ -662,13 +593,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## AdressState.ots_counter property
@@ -686,13 +613,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 ## AdressState.ots_bitfield property
 
@@ -708,13 +631,9 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
 
 
 ## AdressState.transaction_hashes property
@@ -731,20 +650,10 @@ Enter Python code here
     });
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-result property
+**fixme** Give description of the function here
+
+
+
 
 
 | Field | Type | Label | Description |
@@ -768,6 +677,18 @@ result property
 ## AddressState.SlavePksAccessTypeEntry
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -783,6 +704,18 @@ result property
 ## AddressState.TokensEntry
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -797,6 +730,18 @@ result property
 # Block
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -810,6 +755,19 @@ result property
 
 
 ## BlockDataPoint
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
+
 BlockDataPoint message definition
 
 
@@ -831,6 +789,17 @@ BlockDataPoint message definition
 
 ## BlockExtended
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -848,6 +817,18 @@ BlockDataPoint message definition
 
 ## BlockHeader
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -871,6 +852,18 @@ BlockDataPoint message definition
 ## BlockHeaderExtended
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -885,6 +878,17 @@ BlockDataPoint message definition
 
 ## BlockHeightData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -901,6 +905,17 @@ BlockDataPoint message definition
 
 ## BlockMetaData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -919,6 +934,17 @@ BlockDataPoint message definition
 
 ## BlockMetaDataList
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -933,6 +959,17 @@ BlockDataPoint message definition
 
 ## BlockNumberMapping
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -947,8 +984,20 @@ BlockDataPoint message definition
 
 
 # Empty
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 Empty message definition
 
+**fixme** Give description of the function here
 
 
 
@@ -957,6 +1006,17 @@ Empty message definition
 
 ## EncryptedEphemeralMessage
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -976,6 +1036,17 @@ Empty message definition
 
 ## EncryptedEphemeralMessage.Channel
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -990,6 +1061,17 @@ Empty message definition
 
 # GenesisBalance
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1005,6 +1087,17 @@ Empty message definition
 
 ## GetAddressFromPKReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1019,6 +1112,19 @@ Empty message definition
 
 ## GetAddressFromPKResp
 
+
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
+**fixme** Give description of the function here
 
 
 | Field | Type | Label | Description |
@@ -1121,6 +1227,14 @@ describe('GetAddressState', function() {
 
 ## GetAddressStateResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1134,6 +1248,17 @@ describe('GetAddressState', function() {
 
 
 ## GetBlockReq
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 NOT USED -&gt; RM?
 
 
@@ -1149,6 +1274,16 @@ NOT USED -&gt; RM?
 
 
 ## GetBlockResp
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 NOT USED -&gt; RM?
 
 
@@ -1394,14 +1529,30 @@ describe('GetLatestData - TransactionExtended', function() {
 ## GetLocalAddressesReq
 
 
+```python
+**fixme** Enter Python code here
+```
 
 
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
+
+**fixme** add a description
 
 
 
 ## GetLocalAddressesResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1498,12 +1649,12 @@ Represents a query to get node state
 
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
 
 ```javascript
-
+**fixme** Enter JAVASCRIPT here
 ```
 
 
@@ -1526,6 +1677,14 @@ Represents the reply message to node state query
 
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 
@@ -1541,6 +1700,16 @@ Represents the reply message to node state query
 
 
 ## GetObjectResp
+
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1560,12 +1729,33 @@ Represents the reply message to node state query
 
 
 ## GetPeersStatReq
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 Represents a query to get connected peers stat
 
 
 
 
 ## GetPeersStatResp
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 Represents the reply message to peers stat query
 
 
@@ -1752,12 +1942,15 @@ Represents a query to get statistics about node
 ## GetStatsResp
 
 ```python
-Enter Python code here
+**fixme** Enter Python code here
 ```
 
 
 ```javascript
+**fixme** Enter JAVASCRIPT here
 ```
+
+
 Represents the reply message to get statistics about node
 
 
@@ -1782,6 +1975,14 @@ Represents the reply message to get statistics about node
 # LRUStateCache
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 
@@ -1790,6 +1991,14 @@ Represents the reply message to get statistics about node
 
 # LatticePK
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1806,6 +2015,14 @@ Represents the reply message to get statistics about node
 
 ## LatticePublicKeyTxnReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1823,6 +2040,14 @@ Represents the reply message to get statistics about node
 
 # MessageTxnReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1841,6 +2066,14 @@ Represents the reply message to get statistics about node
 
 # NodeChainState
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1858,6 +2091,14 @@ Represents the reply message to get statistics about node
 
 ## NodeHeaderHash
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1873,6 +2114,14 @@ Represents the reply message to get statistics about node
 
 ## NodeInfo
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1894,6 +2143,14 @@ Represents the reply message to get statistics about node
 
 ## P2PAcknowledgement
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1908,6 +2165,14 @@ Represents the reply message to get statistics about node
 
 ## Peer
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1922,6 +2187,14 @@ Represents the reply message to get statistics about node
 
 ## PeerInfo
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1940,6 +2213,14 @@ Represents the reply message to get statistics about node
 
 ## PeerStat
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -1956,6 +2237,14 @@ Represents the reply message to get statistics about node
 
 ## Peers
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2086,6 +2375,14 @@ Enter Python code here
 
 ## PushTransactionResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2102,6 +2399,14 @@ Enter Python code here
 
 # SlaveTxnReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2120,6 +2425,14 @@ Enter Python code here
 
 # StateLoader
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2137,6 +2450,14 @@ Enter Python code here
 
 ## StateObjects
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2151,6 +2472,14 @@ Enter Python code here
 
 # StoredPeers
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2165,6 +2494,14 @@ Enter Python code here
 
 ## TokenList
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2179,6 +2516,14 @@ Enter Python code here
 
 ## TokenMetadata
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2202,8 +2547,6 @@ Enter Python code here
 
 
 ```javascript
-
-
 describe('GetTokenTxn', function() {
     let response;
     // call API
@@ -2341,6 +2684,14 @@ describe('GetTokenTxn', function() {
 
 # Transaction
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2367,6 +2718,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.CoinBase
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2382,6 +2741,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.LatticePublicKey
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2397,6 +2764,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.Message
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2411,6 +2786,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.Slave
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2426,6 +2809,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.Token
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2444,6 +2835,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.Transfer
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2459,6 +2858,14 @@ describe('GetTokenTxn', function() {
 
 ## Transaction.TransferToken
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2475,6 +2882,14 @@ describe('GetTokenTxn', function() {
 
 ## TransactionCount
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2489,6 +2904,14 @@ describe('GetTokenTxn', function() {
 
 ## TransactionCount.CountEntry
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2875,6 +3298,14 @@ describe('GetTransferTokenTxn', function() {
 
 ## TransferTokenTxnReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -2896,6 +3327,15 @@ describe('GetTransferTokenTxn', function() {
 
 # GetLatestDataReq.Filter
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -2908,6 +3348,15 @@ describe('GetTransferTokenTxn', function() {
 
 
 # NodeInfo.State
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Name | Number | Description |
@@ -2922,6 +3371,15 @@ describe('GetTransferTokenTxn', function() {
 
 
 # PushTransactionResp.ResponseCode
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Name | Number | Description |
@@ -2939,6 +3397,7 @@ describe('GetTransferTokenTxn', function() {
 
 
 # AdminAPI
+
 This is a place holder for testing/instrumentation APIs
 
 | Method Name | Request Type | Response Type | Description |
@@ -2947,6 +3406,17 @@ This is a place holder for testing/instrumentation APIs
 
 
 # PublicAPI
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 This service describes the Public API used by clients (wallet/cli/etc)
 
 | Method Name | Request Type | Response Type | Description |
@@ -2981,6 +3451,14 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 
@@ -2988,6 +3466,14 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 ## GetNodeInfoResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3009,6 +3495,15 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 ## Base
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -3026,6 +3521,14 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 ## BKData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3041,6 +3544,14 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 ## FBData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3054,6 +3565,17 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 
 ## LegacyMessage
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 Adding old code to refactor while keeping things working
 
 
@@ -3089,6 +3611,15 @@ Adding old code to refactor while keeping things working
 
 ## MRData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 
 | Field | Type | Label | Description |
@@ -3111,12 +3642,28 @@ Adding old code to refactor while keeping things working
 
 
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 
 
 ## PBData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3131,6 +3678,14 @@ Adding old code to refactor while keeping things working
 
 ## PLData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3146,10 +3701,26 @@ Adding old code to refactor while keeping things working
 
 ## PONGData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 ## SYNCData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3161,6 +3732,14 @@ Adding old code to refactor while keeping things working
 
 ## VEData
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3173,6 +3752,15 @@ Adding old code to refactor while keeping things working
 
 
 ## LegacyMessage.FuncName
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Name | Number | Description |
@@ -3203,6 +3791,15 @@ Adding old code to refactor while keeping things working
 
 ## GetBlockMiningCompatibleReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -3214,6 +3811,15 @@ if height = 0, this means getlastblockheader |
 
 
 ## GetBlockMiningCompatibleResp
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3229,6 +3835,14 @@ if height = 0, this means getlastblockheader |
 
 ## GetBlockToMineReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3243,6 +3857,14 @@ if height = 0, this means getlastblockheader |
 
 ## GetBlockToMineResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3260,6 +3882,16 @@ if height = 0, this means getlastblockheader |
 
 ## GetLastBlockHeaderReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | height | [uint64](#uint64) |  |  |
@@ -3268,6 +3900,14 @@ if height = 0, this means getlastblockheader |
 
 ## GetLastBlockHeaderResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Field | Type | Label | Description |
@@ -3283,6 +3923,16 @@ if height = 0, this means getlastblockheader |
 
 ## SubmitMinedBlockReq
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | blob | [bytes](#bytes) |  | blocktemplate_blob with the correct nonce |
@@ -3290,12 +3940,31 @@ if height = 0, this means getlastblockheader |
 
 ## SubmitMinedBlockResp
 
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | error | [bool](#bool) |  | It seems there are no special fields for success/error reporting, does gRPC automatically give me something? |
 
 
 ## MiningAPI
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
 
 
 | Method Name | Request Type | Response Type | Description |
@@ -3307,6 +3976,16 @@ if height = 0, this means getlastblockheader |
 
 
 # Scalar Value Types
+
+```python
+**fixme** Enter Python code here
+```
+
+
+```javascript
+**fixme** Enter JAVASCRIPT here
+```
+
 
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
