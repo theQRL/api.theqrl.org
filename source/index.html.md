@@ -30,6 +30,7 @@ Example Python Code will be shown here.
 Example JavaScript will be shown here.
 ```
 
+The QRL API is organized around [GRCP](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. Our API's protocol data structure is defined in the qrl.proto file. Our PublicAPI service lists the functions available in our API. Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named \*Req) and response (named \*Resp).
 
 Use this documentation to build onto the QRL network. This document covers all of the various API calls QRL supports, with some basic code examples. This is intended to lighten the on-boarding process and get developers up to speed with our API.
 
@@ -150,7 +151,7 @@ async function getQRLClient(nodeAddr) {
 Connection to the QRL client according to the provide API URL.
 
 
-## stringToBytes
+## stringToBytes()
 
 ```python
 Enter Python code here **fixme**
@@ -170,7 +171,7 @@ stringToBytes = (convertMe) => {
 StringToBytes function converts a string to a byte array. This function requires the hstr2bin function from the qrllib.
 
 
-## binaryToBytes
+## binaryToBytes()
 
 ```python
 Enter Python code here **fixme**
@@ -217,7 +218,7 @@ Enter Python code here
 // Connecting to the API
 let qrlClient = getQRLClient('127.0.0.1:10002');
 ```
-qrlClient variable defines the API URL with the corresponding port. In the example above, the API is runnign locally on port 10002.
+qrlClient variable defines the API URL with the corresponding port. In the example, the API is running locally on port 10002.
 
 
 
