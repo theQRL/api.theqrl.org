@@ -135,20 +135,20 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetNodeState | [GetNodeStateReq](#qrl.GetNodeStateReq) | [GetNodeStateResp](#qrl.GetNodeStateReq) |  |
-| GetKnownPeers | [GetKnownPeersReq](#qrl.GetKnownPeersReq) | [GetKnownPeersResp](#qrl.GetKnownPeersReq) |  |
-| GetPeersStat | [GetPeersStatReq](#qrl.GetPeersStatReq) | [GetPeersStatResp](#qrl.GetPeersStatReq) |  |
-| GetStats | [GetStatsReq](#qrl.GetStatsReq) | [GetStatsResp](#qrl.GetStatsReq) |  |
-| GetAddressState | [GetAddressStateReq](#qrl.GetAddressStateReq) | [GetAddressStateResp](#qrl.GetAddressStateReq) |  |
-| GetObject | [GetObjectReq](#qrl.GetObjectReq) | [GetObjectResp](#qrl.GetObjectReq) |  |
-| GetLatestData | [GetLatestDataReq](#qrl.GetLatestDataReq) | [GetLatestDataResp](#qrl.GetLatestDataReq) |  |
-| PushTransaction | [PushTransactionReq](#qrl.PushTransactionReq) | [PushTransactionResp](#qrl.PushTransactionReq) |  |
-| TransferCoins | [TransferCoinsReq](#qrl.TransferCoinsReq) | [TransferCoinsResp](#qrl.TransferCoinsReq) |  |
-| GetAddressFromPK | [GetAddressFromPKReq](#qrl.GetAddressFromPKReq) | [GetAddressFromPKResp](#qrl.GetAddressFromPKReq) |  |
-| GetMessageTxn | [MessageTxnReq](#qrl.MessageTxnReq) | [TransferCoinsResp](#qrl.MessageTxnReq) |  |
-| GetTokenTxn | [TokenTxnReq](#qrl.TokenTxnReq) | [TransferCoinsResp](#qrl.TokenTxnReq) |  |
-| GetTransferTokenTxn | [TransferTokenTxnReq](#qrl.TransferTokenTxnReq) | [TransferCoinsResp](#qrl.TransferTokenTxnReq) |  |
-| GetSlaveTxn | [SlaveTxnReq](#qrl.SlaveTxnReq) | [TransferCoinsResp](#qrl.SlaveTxnReq) |  |
+| GetNodeState | [GetNodeStateReq](#GetNodeStateReq) | [GetNodeStateResp](#GetNodeStateReq) |  |
+| GetKnownPeers | [GetKnownPeersReq](#GetKnownPeersReq) | [GetKnownPeersResp](#GetKnownPeersReq) |  |
+| GetPeersStat | [GetPeersStatReq](#GetPeersStatReq) | [GetPeersStatResp](#GetPeersStatReq) |  |
+| GetStats | [GetStatsReq](#GetStatsReq) | [GetStatsResp](#GetStatsReq) |  |
+| GetAddressState | [GetAddressStateReq](#GetAddressStateReq) | [GetAddressStateResp](#GetAddressStateReq) |  |
+| GetObject | [GetObjectReq](#GetObjectReq) | [GetObjectResp](#GetObjectReq) |  |
+| GetLatestData | [GetLatestDataReq](#GetLatestDataReq) | [GetLatestDataResp](#GetLatestDataReq) |  |
+| PushTransaction | [PushTransactionReq](#PushTransactionReq) | [PushTransactionResp](#PushTransactionReq) |  |
+| TransferCoins | [TransferCoinsReq](#TransferCoinsReq) | [TransferCoinsResp](#TransferCoinsReq) |  |
+| GetAddressFromPK | [GetAddressFromPKReq](#GetAddressFromPKReq) | [GetAddressFromPKResp](#GetAddressFromPKReq) |  |
+| GetMessageTxn | [MessageTxnReq](#MessageTxnReq) | [TransferCoinsResp](#MessageTxnReq) |  |
+| GetTokenTxn | [TokenTxnReq](#TokenTxnReq) | [TransferCoinsResp](#TokenTxnReq) |  |
+| GetTransferTokenTxn | [TransferTokenTxnReq](#TransferTokenTxnReq) | [TransferCoinsResp](#TransferTokenTxnReq) |  |
+| GetSlaveTxn | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
 
@@ -178,7 +178,7 @@ Represents the reply message to node state query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [NodeInfo](#qrl.NodeInfo) |  |  |
+| info | [NodeInfo](#NodeInfo) |  |  |
 
 
 
@@ -213,8 +213,8 @@ Represents the reply message to known peers query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#qrl.NodeInfo) |  | NodeInfo object containing node state information |
-| known_peers | [Peer](#qrl.Peer) | repeated | List of Peer objects containing peer nodes detailed information |
+| node_info | [NodeInfo](#NodeInfo) |  | NodeInfo object containing node state information |
+| known_peers | [Peer](#Peer) | repeated | List of Peer objects containing peer nodes detailed information |
 
 
 
@@ -236,12 +236,13 @@ Represents a query to get connected peers stat
 ```javascript
 message GetPeersStatResp {
     repeated PeerStat peers_stat = 1;
-    ```
+```
+
 Represents the reply message to peers stat query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peers_stat | [PeerStat](#qrl.PeerStat) | repeated | PeerState object contains peer_ip, port and peer state information |
+| peers_stat | [PeerStat](#PeerStat) | repeated | PeerState object contains peer_ip, port and peer state information |
 
 
 
@@ -258,6 +259,7 @@ message GetStatsReq {
     bool include_timeseries = 1;
 }
 ```
+
 Represents a query to get statistics about node
 
 | Field | Type | Label | Description |
@@ -289,7 +291,7 @@ Represents the reply message to get statistics about node
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#qrl.NodeInfo) |  | NodeInfo object containing node state information |
+| node_info | [NodeInfo](#NodeInfo) |  | NodeInfo object containing node state information |
 | epoch | [uint64](#uint64) |  | Current epoch |
 | uptime_network | [uint64](#uint64) |  | Indicates uptime in seconds |
 | block_last_reward | [uint64](#uint64) |  | Block reward |
@@ -297,7 +299,7 @@ Represents the reply message to get statistics about node
 | block_time_sd | [uint64](#uint64) |  | Blocktime standrad deviation |
 | coins_total_supply | [uint64](#uint64) |  | Total coins supply |
 | coins_emitted | [uint64](#uint64) |  | Total coins emitted |
-| block_timeseries | [BlockDataPoint](#qrl.BlockDataPoint) | repeated |  |
+| block_timeseries | [BlockDataPoint](#BlockDataPoint) | repeated |  |
 
 
 
@@ -332,7 +334,7 @@ message GetAddressStateResp {
 ```
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| state | [AddressState](#qrl.AddressState) |  |  |
+| state | [AddressState](#AddressState) |  |  |
 
 
 
@@ -371,9 +373,9 @@ message GetObjectResp {
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | found | [bool](#bool) |  |  |
-| address_state | [AddressState](#qrl.AddressState) |  |  |
-| transaction | [TransactionExtended](#qrl.TransactionExtended) |  |  |
-| block_extended | [BlockExtended](#qrl.BlockExtended) |  |  |
+| address_state | [AddressState](#AddressState) |  |  |
+| transaction | [TransactionExtended](#TransactionExtended) |  |  |
+| block_extended | [BlockExtended](#BlockExtended) |  |  |
 
 
 
@@ -402,7 +404,7 @@ message GetLatestDataReq {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetLatestDataReq.Filter](#qrl.GetLatestDataReq.Filter) |  |  |
+| filter | [GetLatestDataReq.Filter](#GetLatestDataReq.Filter) |  |  |
 | offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
 | quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
 
@@ -422,9 +424,9 @@ message GetLatestDataResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheaders | [BlockHeaderExtended](#qrl.BlockHeaderExtended) | repeated |  |
-| transactions | [TransactionExtended](#qrl.TransactionExtended) | repeated |  |
-| transactions_unconfirmed | [TransactionExtended](#qrl.TransactionExtended) | repeated |  |
+| blockheaders | [BlockHeaderExtended](#BlockHeaderExtended) | repeated |  |
+| transactions | [TransactionExtended](#TransactionExtended) | repeated |  |
+| transactions_unconfirmed | [TransactionExtended](#TransactionExtended) | repeated |  |
 
 
 
@@ -440,7 +442,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| transaction_signed | [Transaction](#qrl.Transaction) |  |  |
+| transaction_signed | [Transaction](#Transaction) |  |  |
 
 ## PushTransactionResp
 
@@ -464,7 +466,7 @@ message PushTransactionResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| error_code | [PushTransactionResp.ResponseCode](#qrl.PushTransactionResp.ResponseCode) |  |  |
+| error_code | [PushTransactionResp.ResponseCode](#PushTransactionResp.ResponseCode) |  |  |
 | error_description | [string](#string) |  |  |
 | tx_hash | [bytes](#bytes) |  |  |
 
@@ -509,7 +511,7 @@ message TransferCoinsResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| extended_transaction_unsigned | [TransactionExtended](#qrl.TransactionExtended) |  |  |
+| extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
 
@@ -585,7 +587,7 @@ message GetAddressFromPKResp {
 | name | [bytes](#bytes) |  |  |
 | owner | [bytes](#bytes) |  |  |
 | decimals | [uint64](#uint64) |  |  |
-| initial_balances | [AddressAmount](#qrl.AddressAmount) | repeated |  |
+| initial_balances | [AddressAmount](#AddressAmount) | repeated |  |
 | fee | [uint64](#uint64) |  |  |
 | xmss_pk | [bytes](#bytes) |  |  |
 
@@ -660,10 +662,10 @@ message GetAddressFromPKResp {
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetBlockMiningCompatible | [GetBlockMiningCompatibleReq](#qrl.GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#qrl.GetBlockMiningCompatibleReq) |  |
-| GetLastBlockHeader | [GetLastBlockHeaderReq](#qrl.GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#qrl.GetLastBlockHeaderReq) |  |
-| GetBlockToMine | [GetBlockToMineReq](#qrl.GetBlockToMineReq) | [GetBlockToMineResp](#qrl.GetBlockToMineReq) |  |
-| SubmitMinedBlock | [SubmitMinedBlockReq](#qrl.SubmitMinedBlockReq) | [SubmitMinedBlockResp](#qrl.SubmitMinedBlockReq) |  |
+| GetBlockMiningCompatible | [GetBlockMiningCompatibleReq](#GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#GetBlockMiningCompatibleReq) |  |
+| GetLastBlockHeader | [GetLastBlockHeaderReq](#GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#GetLastBlockHeaderReq) |  |
+| GetBlockToMine | [GetBlockToMineReq](#GetBlockToMineReq) | [GetBlockToMineResp](#GetBlockToMineReq) |  |
+| SubmitMinedBlock | [SubmitMinedBlockReq](#SubmitMinedBlockReq) | [SubmitMinedBlockResp](#SubmitMinedBlockReq) |  |
 
  
 
@@ -801,9 +803,9 @@ qrlClient.then( function (qrlClient) {
 | nonce | [uint64](#uint64) |  | FIXME: Discuss. 32 or 64 bits? |
 | ots_bitfield | [bytes](#bytes) | repeated |  |
 | transaction_hashes | [bytes](#bytes) | repeated |  |
-| tokens | [AddressState.TokensEntry](#qrl.AddressState.TokensEntry) | repeated |  |
-| latticePK_list | [LatticePK](#qrl.LatticePK) | repeated |  |
-| slave_pks_access_type | [AddressState.SlavePksAccessTypeEntry](#qrl.AddressState.SlavePksAccessTypeEntry) | repeated |  |
+| tokens | [AddressState.TokensEntry](#AddressState.TokensEntry) | repeated |  |
+| latticePK_list | [LatticePK](#LatticePK) | repeated |  |
+| slave_pks_access_type | [AddressState.SlavePksAccessTypeEntry](#AddressState.SlavePksAccessTypeEntry) | repeated |  |
 | ots_counter | [uint64](#uint64) |  |  |
 
 
@@ -869,9 +871,9 @@ qrlClient.then( function (qrlClient) {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#qrl.BlockHeader) |  |  |
-| transactions | [Transaction](#qrl.Transaction) | repeated |  |
-| genesis_balance | [GenesisBalance](#qrl.GenesisBalance) | repeated | This is only applicable to genesis blocks |
+| header | [BlockHeader](#BlockHeader) |  |  |
+| transactions | [Transaction](#Transaction) | repeated |  |
+| genesis_balance | [GenesisBalance](#GenesisBalance) | repeated | This is only applicable to genesis blocks |
 
 
 
@@ -923,9 +925,9 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#qrl.BlockHeader) |  |  |
-| extended_transactions | [TransactionExtended](#qrl.TransactionExtended) | repeated |  |
-| genesis_balance | [GenesisBalance](#qrl.GenesisBalance) | repeated | This is only applicable to genesis blocks |
+| header | [BlockHeader](#BlockHeader) |  |  |
+| extended_transactions | [TransactionExtended](#TransactionExtended) | repeated |  |
+| genesis_balance | [GenesisBalance](#GenesisBalance) | repeated | This is only applicable to genesis blocks |
 | size | [uint64](#uint64) |  |  |
 
 
@@ -976,8 +978,8 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#qrl.BlockHeader) |  |  |
-| transaction_count | [TransactionCount](#qrl.TransactionCount) |  |  |
+| header | [BlockHeader](#BlockHeader) |  |  |
+| transaction_count | [TransactionCount](#TransactionCount) |  |  |
 
 
 
@@ -1045,7 +1047,7 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number_hashes | [BlockMetaData](#qrl.BlockMetaData) | repeated |  |
+| block_number_hashes | [BlockMetaData](#BlockMetaData) | repeated |  |
 
 
 
@@ -1110,7 +1112,7 @@ Empty message definition
 | msg_id | [bytes](#bytes) |  | b&#39;NEW&#39; or PRF |
 | ttl | [uint64](#uint64) |  | Expiry Timestamp in seconds |
 | ttr | [uint64](#uint64) |  | Time to relay |
-| channel | [EncryptedEphemeralMessage.Channel](#qrl.EncryptedEphemeralMessage.Channel) |  |  |
+| channel | [EncryptedEphemeralMessage.Channel](#EncryptedEphemeralMessage.Channel) |  |  |
 | nonce | [uint64](#uint64) |  | nonce |
 | payload | [bytes](#bytes) |  | JSON content, encrypted by aes256_symkey |
 
@@ -1216,8 +1218,8 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#qrl.NodeInfo) |  |  |
-| block | [Block](#qrl.Block) |  |  |
+| node_info | [NodeInfo](#NodeInfo) |  |  |
+| block | [Block](#Block) |  |  |
 
 
 
@@ -1402,7 +1404,7 @@ NOT USED -&gt; RM?
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
-| state | [NodeInfo.State](#qrl.NodeInfo.State) |  |  |
+| state | [NodeInfo.State](#NodeInfo.State) |  |  |
 | num_connections | [uint32](#uint32) |  |  |
 | num_known_peers | [uint32](#uint32) |  |  |
 | uptime | [uint64](#uint64) |  | Uptime in seconds |
@@ -1498,7 +1500,7 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | peer_ip | [bytes](#bytes) |  |  |
 | port | [uint32](#uint32) |  |  |
-| node_chain_state | [NodeChainState](#qrl.NodeChainState) |  |  |
+| node_chain_state | [NodeChainState](#NodeChainState) |  |  |
 
 
 
@@ -1519,7 +1521,7 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer_info_list | [PeerInfo](#qrl.PeerInfo) | repeated |  |
+| peer_info_list | [PeerInfo](#PeerInfo) | repeated |  |
 
 
 
@@ -1587,7 +1589,7 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peers | [Peer](#qrl.Peer) | repeated |  |
+| peers | [Peer](#Peer) | repeated |  |
 
 
 
@@ -1663,13 +1665,13 @@ NOT USED -&gt; RM?
 | signature | [bytes](#bytes) |  |  |
 | nonce | [uint64](#uint64) |  |  |
 | transaction_hash | [bytes](#bytes) |  |  |
-| transfer | [Transaction.Transfer](#qrl.Transaction.Transfer) |  |  |
-| coinbase | [Transaction.CoinBase](#qrl.Transaction.CoinBase) |  |  |
-| latticePK | [Transaction.LatticePublicKey](#qrl.Transaction.LatticePublicKey) |  |  |
-| message | [Transaction.Message](#qrl.Transaction.Message) |  |  |
-| token | [Transaction.Token](#qrl.Transaction.Token) |  |  |
-| transfer_token | [Transaction.TransferToken](#qrl.Transaction.TransferToken) |  |  |
-| slave | [Transaction.Slave](#qrl.Transaction.Slave) |  |  |
+| transfer | [Transaction.Transfer](#Transaction.Transfer) |  |  |
+| coinbase | [Transaction.CoinBase](#Transaction.CoinBase) |  |  |
+| latticePK | [Transaction.LatticePublicKey](#Transaction.LatticePublicKey) |  |  |
+| message | [Transaction.Message](#Transaction.Message) |  |  |
+| token | [Transaction.Token](#Transaction.Token) |  |  |
+| transfer_token | [Transaction.TransferToken](#Transaction.TransferToken) |  |  |
+| slave | [Transaction.Slave](#Transaction.Slave) |  |  |
 
 
 
@@ -1781,7 +1783,7 @@ NOT USED -&gt; RM?
 | name | [bytes](#bytes) |  |  |
 | owner | [bytes](#bytes) |  |  |
 | decimals | [uint64](#uint64) |  |  |
-| initial_balances | [AddressAmount](#qrl.AddressAmount) | repeated |  |
+| initial_balances | [AddressAmount](#AddressAmount) | repeated |  |
 
 
 
@@ -1845,7 +1847,7 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| count | [TransactionCount.CountEntry](#qrl.TransactionCount.CountEntry) | repeated |  |
+| count | [TransactionCount.CountEntry](#TransactionCount.CountEntry) | repeated |  |
 
 
 
@@ -1884,8 +1886,8 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#qrl.BlockHeader) |  |  |
-| tx | [Transaction](#qrl.Transaction) |  |  |
+| header | [BlockHeader](#BlockHeader) |  |  |
+| tx | [Transaction](#Transaction) |  |  |
 | addr_from | [bytes](#bytes) |  |  |
 | size | [uint64](#uint64) |  |  |
 | timestamp_seconds | [uint64](#uint64) |  |  |
@@ -2015,7 +2017,7 @@ NOT USED -&gt; RM?
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetNodeInfo | [GetNodeInfoReq](#qrl.GetNodeInfoReq) | [GetNodeInfoResp](#qrl.GetNodeInfoReq) |  |
+| GetNodeInfo | [GetNodeInfoReq](#GetNodeInfoReq) | [GetNodeInfoResp](#GetNodeInfoReq) |  |
 
  
 
@@ -2054,8 +2056,8 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| coinbase_state | [AddressState](#qrl.AddressState) |  |  |
-| addresses_state | [AddressState](#qrl.AddressState) | repeated |  |
+| coinbase_state | [AddressState](#AddressState) |  |  |
+| addresses_state | [AddressState](#AddressState) | repeated |  |
 
 
 
@@ -2076,7 +2078,7 @@ This service describes the Debug API used for debugging
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetFullState | [GetFullStateReq](#qrl.GetFullStateReq) | [GetFullStateResp](#qrl.GetFullStateReq) |  |
+| GetFullState | [GetFullStateReq](#GetFullStateReq) | [GetFullStateResp](#GetFullStateReq) |  |
 
  
 
@@ -2100,8 +2102,8 @@ This service describes the Debug API used for debugging
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mrData | [MRData](#qrl.MRData) |  |  |
-| block | [Block](#qrl.Block) |  |  |
+| mrData | [MRData](#MRData) |  |  |
+| block | [Block](#Block) |  |  |
 
 
 
@@ -2139,27 +2141,27 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| func_name | [LegacyMessage.FuncName](#qrl.LegacyMessage.FuncName) |  |  |
-| noData | [NoData](#qrl.NoData) |  |  |
-| veData | [VEData](#qrl.VEData) |  |  |
-| plData | [PLData](#qrl.PLData) |  |  |
-| pongData | [PONGData](#qrl.PONGData) |  |  |
-| mrData | [MRData](#qrl.MRData) |  |  |
-| block | [Block](#qrl.Block) |  |  |
-| fbData | [FBData](#qrl.FBData) |  |  |
-| pbData | [PBData](#qrl.PBData) |  |  |
-| bhData | [BlockHeightData](#qrl.BlockHeightData) |  |  |
-| txData | [Transaction](#qrl.Transaction) |  |  |
-| mtData | [Transaction](#qrl.Transaction) |  |  |
-| tkData | [Transaction](#qrl.Transaction) |  |  |
-| ttData | [Transaction](#qrl.Transaction) |  |  |
-| ltData | [Transaction](#qrl.Transaction) |  |  |
-| slData | [Transaction](#qrl.Transaction) |  |  |
-| ephData | [EncryptedEphemeralMessage](#qrl.EncryptedEphemeralMessage) |  |  |
-| syncData | [SYNCData](#qrl.SYNCData) |  |  |
-| chainStateData | [NodeChainState](#qrl.NodeChainState) |  |  |
-| nodeHeaderHash | [NodeHeaderHash](#qrl.NodeHeaderHash) |  |  |
-| p2pAckData | [P2PAcknowledgement](#qrl.P2PAcknowledgement) |  |  |
+| func_name | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  |  |
+| noData | [NoData](#NoData) |  |  |
+| veData | [VEData](#VEData) |  |  |
+| plData | [PLData](#PLData) |  |  |
+| pongData | [PONGData](#PONGData) |  |  |
+| mrData | [MRData](#MRData) |  |  |
+| block | [Block](#Block) |  |  |
+| fbData | [FBData](#FBData) |  |  |
+| pbData | [PBData](#PBData) |  |  |
+| bhData | [BlockHeightData](#BlockHeightData) |  |  |
+| txData | [Transaction](#Transaction) |  |  |
+| mtData | [Transaction](#Transaction) |  |  |
+| tkData | [Transaction](#Transaction) |  |  |
+| ttData | [Transaction](#Transaction) |  |  |
+| ltData | [Transaction](#Transaction) |  |  |
+| slData | [Transaction](#Transaction) |  |  |
+| ephData | [EncryptedEphemeralMessage](#EncryptedEphemeralMessage) |  |  |
+| syncData | [SYNCData](#SYNCData) |  |  |
+| chainStateData | [NodeChainState](#NodeChainState) |  |  |
+| nodeHeaderHash | [NodeHeaderHash](#NodeHeaderHash) |  |  |
+| p2pAckData | [P2PAcknowledgement](#P2PAcknowledgement) |  |  |
 
 
 
@@ -2178,7 +2180,7 @@ Adding old code to refactor while keeping things working
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | hash | [bytes](#bytes) |  | FIXME: rename this to block_headerhash |
-| type | [LegacyMessage.FuncName](#qrl.LegacyMessage.FuncName) |  | FIXME: type/string what is this |
+| type | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  | FIXME: type/string what is this |
 | stake_selector | [bytes](#bytes) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | prev_headerhash | [bytes](#bytes) |  |  |
@@ -2211,7 +2213,7 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [Block](#qrl.Block) |  |  |
+| block | [Block](#Block) |  |  |
 
 
 
@@ -2361,8 +2363,8 @@ if height = 0, this means getlastblockheader |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheader | [BlockHeader](#qrl.BlockHeader) |  |  |
-| blockmetadata | [BlockMetaData](#qrl.BlockMetaData) |  |  |
+| blockheader | [BlockHeader](#BlockHeader) |  |  |
+| blockmetadata | [BlockMetaData](#BlockMetaData) |  |  |
 
 
 
@@ -2526,7 +2528,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tx_metadata | [TransactionMetadata](#qrl.TransactionMetadata) | repeated |  |
+| tx_metadata | [TransactionMetadata](#TransactionMetadata) | repeated |  |
 
 
 
@@ -2544,7 +2546,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| transaction | [Transaction](#qrl.Transaction) |  |  |
+| transaction | [Transaction](#Transaction) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | timestamp | [uint64](#uint64) |  |  |
 
