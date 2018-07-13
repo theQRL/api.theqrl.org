@@ -41,9 +41,6 @@ This is a work in progress, code may change. Please see the official documentati
 </aside>
 
 
-
-
-
 ## Basic Connection
 
 ```python
@@ -118,7 +115,7 @@ You may generate a slaves.json file that is an extension of the main wallet, aut
 
 
 
-# Functions
+# QRL.Proto
 
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
@@ -550,11 +547,92 @@ message GetAddressFromPKResp {
 
 
 
+## MessageTxnReq
+
+```python
+   
+```
+
+```javascript
+   
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| master_addr | [bytes](#bytes) |  |  |
+| message | [bytes](#bytes) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| xmss_pk | [bytes](#bytes) |  |  |
+
+
+
+## TokenTxnReq
+
+```python
+   
+```
+
+```javascript
+   
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| master_addr | [bytes](#bytes) |  |  |
+| symbol | [bytes](#bytes) |  |  |
+| name | [bytes](#bytes) |  |  |
+| owner | [bytes](#bytes) |  |  |
+| decimals | [uint64](#uint64) |  |  |
+| initial_balances | [AddressAmount](#qrl.AddressAmount) | repeated |  |
+| fee | [uint64](#uint64) |  |  |
+| xmss_pk | [bytes](#bytes) |  |  |
 
 
 
 
+## TransferTokenTxnReq
 
+```python
+   
+```
+
+```javascript
+   
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| master_addr | [bytes](#bytes) |  |  |
+| addresses_to | [bytes](#bytes) | repeated |  |
+| token_txhash | [bytes](#bytes) |  |  |
+| amounts | [uint64](#uint64) | repeated |  |
+| fee | [uint64](#uint64) |  |  |
+| xmss_pk | [bytes](#bytes) |  |  |
+
+
+
+
+## SlaveTxnReq
+
+```python
+   
+```
+
+```javascript
+   
+```
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| master_addr | [bytes](#bytes) |  |  |
+| slave_pks | [bytes](#bytes) | repeated |  |
+| access_types | [uint32](#uint32) | repeated |  |
+| fee | [uint64](#uint64) |  |  |
+| xmss_pk | [bytes](#bytes) |  |  |
 
 
 
@@ -1259,26 +1337,6 @@ NOT USED -&gt; RM?
 
 
 
-## MessageTxnReq
-
-```python
-   
-```
-
-```javascript
-   
-```
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| message | [bytes](#bytes) |  |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
-
-
-
 
 
 
@@ -1465,25 +1523,6 @@ NOT USED -&gt; RM?
 
 
 
-## SlaveTxnReq
-
-```python
-   
-```
-
-```javascript
-   
-```
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| slave_pks | [bytes](#bytes) | repeated |  |
-| access_types | [uint32](#uint32) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
-
 
 
 
@@ -1598,28 +1637,6 @@ NOT USED -&gt; RM?
 
 
 
-
-## TokenTxnReq
-
-```python
-   
-```
-
-```javascript
-   
-```
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| symbol | [bytes](#bytes) |  |  |
-| name | [bytes](#bytes) |  |  |
-| owner | [bytes](#bytes) |  |  |
-| decimals | [uint64](#uint64) |  |  |
-| initial_balances | [AddressAmount](#qrl.AddressAmount) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
 
 
 
@@ -1880,26 +1897,6 @@ NOT USED -&gt; RM?
 
 
 
-## TransferTokenTxnReq
-
-```python
-   
-```
-
-```javascript
-   
-```
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| addresses_to | [bytes](#bytes) | repeated |  |
-| token_txhash | [bytes](#bytes) |  |  |
-| amounts | [uint64](#uint64) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
-
 
 
 ## GetLatestDataReq.Filter
@@ -1967,7 +1964,7 @@ NOT USED -&gt; RM?
 
 
 
-<p align="right"><a href="#top">Top</a></p>
+
 
 # qrlbase.proto
 
@@ -2024,7 +2021,7 @@ NOT USED -&gt; RM?
 
 
 
-<p align="right"><a href="#top">Top</a></p>
+   
 
 # qrldebug.proto
 
@@ -2083,7 +2080,7 @@ This service describes the Debug API used for debugging
 
  
 
-<p align="right"><a href="#top">Top</a></p>
+   
 
 # qrllegacy.proto
 
@@ -2325,7 +2322,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<p align="right"><a href="#top">Top</a></p>
+   
 
 # qrlmining.proto
 
@@ -2488,7 +2485,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<p align="right"><a href="#top">Top</a></p>
+   
 
 # qrlstateinfo.proto
 
