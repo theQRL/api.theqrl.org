@@ -116,7 +116,7 @@ You may generate a slaves.json file that is an extension of the main wallet, aut
 
 
 
-# QRL.Proto
+# qrl.proto
 
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
@@ -137,7 +137,7 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetNodeState | [GetNodeStateReq](#GetNodeStateReq) | [GetNodeStateResp](#GetNodeStateReq) |  |
+| [GetNodeState](#GetNodeState) | [GetNodeStateReq](#GetNodeStateReq) | [GetNodeStateResp](#GetNodeStateReq) | Represents a query to get node state |
 | GetKnownPeers | [GetKnownPeersReq](#GetKnownPeersReq) | [GetKnownPeersResp](#GetKnownPeersReq) |  |
 | GetPeersStat | [GetPeersStatReq](#GetPeersStatReq) | [GetPeersStatResp](#GetPeersStatReq) |  |
 | GetStats | [GetStatsReq](#GetStatsReq) | [GetStatsResp](#GetStatsReq) |  |
@@ -153,10 +153,13 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetSlaveTxn | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
+<a name="GetNodeState"/>
+
+## GetNodeState 
+
 <a name="GetNodeStateReq"/>
 
-
-## GetNodeStateReq
+### GetNodeStateReq
 
 ```python
    
@@ -172,7 +175,7 @@ Represents a query to get node state
 <a name="GetNodeStateResp"/>
 
 
-## GetNodeStateResp
+### GetNodeStateResp
 
 ```python
    
@@ -189,10 +192,11 @@ Represents the reply message to node state query
 | info | [NodeInfo](#NodeInfo) |  |  |
 
 
+
 <a name="GetKnownPeersReq"/>
 
-
 ## GetKnownPeersReq
+
 
 ```python
    
