@@ -23,7 +23,6 @@ search: true
 
 ## Introduction
 
-<a name="top"/>
 
 ```python
 Example Code will be shown here.
@@ -42,7 +41,6 @@ Every function requires an object as parameter and returns another object as res
 This is a work in progress, code may change. Please see the official documentation at <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 
-<p align="right"><a href="#top">Top</a></p>
 
 ## Basic Connection
 
@@ -103,7 +101,6 @@ Connecting to the QRL network is simple. Use the examples shown to get started.
 
 
 
-<p align="right"><a href="#top">Top</a></p>
 
 ## Important information 
 
@@ -118,7 +115,6 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 You may generate a slaves.json file that is an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
-<p align="right"><a href="#top">Top</a></p>
 
 # QRL.Proto
 
@@ -126,7 +122,6 @@ You may generate a slaves.json file that is an extension of the main wallet, aut
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
 
 <a name="PublicAPI"/>
-<p align="right"><a href="#top">Top</a></p>
 
 ## PublicAPI
 
@@ -159,7 +154,6 @@ This service describes the Public API used by clients (wallet/cli/etc)
 
  
 <a name="GetNodeStateReq"/>
-<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetNodeStateReq
@@ -176,7 +170,6 @@ Represents a query to get node state
 
 
 <a name="GetNodeStateResp"/>
-<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetNodeStateResp
@@ -197,7 +190,6 @@ Represents the reply message to node state query
 
 
 <a name="GetKnownPeersReq"/>
-<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetKnownPeersReq
