@@ -17,12 +17,13 @@ includes:
 search: true
 ---
 
+
+
 # QRL API Documentation
-
-
 
 ## Introduction
 
+<a name="top"/>
 
 ```python
 Example Code will be shown here.
@@ -41,7 +42,7 @@ Every function requires an object as parameter and returns another object as res
 This is a work in progress, code may change. Please see the official documentation at <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 
-
+<p align="right"><a href="#top">Top</a></p>
 
 ## Basic Connection
 
@@ -102,7 +103,7 @@ Connecting to the QRL network is simple. Use the examples shown to get started.
 
 
 
-
+<p align="right"><a href="#top">Top</a></p>
 
 ## Important information 
 
@@ -117,16 +118,15 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 You may generate a slaves.json file that is an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
-
-<a name="qrl-proto"/>
+<p align="right"><a href="#top">Top</a></p>
 
 # QRL.Proto
 
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
 
-<a name="publicapi"/>
-
+<a name="PublicAPI"/>
+<p align="right"><a href="#top">Top</a></p>
 
 ## PublicAPI
 
@@ -158,8 +158,8 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetSlaveTxn | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
-<a name="getnodestatereq"/>
-
+<a name="GetNodeStateReq"/>
+<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetNodeStateReq
@@ -175,8 +175,8 @@ Represents a query to get node state
 
 
 
-<a name="getnodestateresp"/>
-
+<a name="GetNodeStateResp"/>
+<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetNodeStateResp
@@ -189,7 +189,6 @@ message GetNodeStateResp {
     NodeInfo info = 1;
 }
 ```
-
 Represents the reply message to node state query
 
 | Field | Type | Label | Description |
@@ -197,8 +196,8 @@ Represents the reply message to node state query
 | info | [NodeInfo](#NodeInfo) |  |  |
 
 
-<a name="getknownpeersreq"/>
-
+<a name="GetKnownPeersReq"/>
+<p align="right"><a href="#top">Top</a></p>
 
 
 ## GetKnownPeersReq
@@ -213,7 +212,7 @@ message GetKnownPeersReq { }
 
 Represents a query to get known peers
 
-<a name="getknownpeersresp"/>
+<a name="GetKnownPeersResp"/>
 
 ## GetKnownPeersResp
 
@@ -238,7 +237,7 @@ Represents the reply message to known peers query
 | known_peers | [Peer](#Peer) | repeated | List of Peer objects containing peer nodes detailed information |
 
 
-<a name="getpeersstatreq"/>
+<a name="GetPeersStatReq"/>
 
 ## GetPeersStatReq
 
@@ -250,7 +249,7 @@ message GetPeersStatReq { }
 ```
 Represents a query to get connected peers stat
 
-<a name="getpeersstatresp"/>
+<a name="GetPeersStatResp"/>
 
 ## GetPeersStatResp
 
@@ -271,7 +270,7 @@ Represents the reply message to peers stat query
 
 
 
-<a name="getstatseq"/>
+<a name="GetStatsReq"/>
 
 
 ## GetStatsReq
@@ -291,7 +290,7 @@ Represents a query to get statistics about node
 | ----- | ---- | ----- | ----------- |
 | include_timeseries | [bool](#bool) |  | Boolean to define if block timeseries should be included in reply or not |
 
-<a name="getstatsresp"/>
+<a name="GetStatsResp"/>
 
 
 ## GetStatsResp
@@ -333,7 +332,7 @@ Represents the reply message to get statistics about node
 
 
 
-<a name="getaddressstatereq"/>
+<a name="GetAddressStateReq"/>
 
 
 ## GetAddressStateReq
@@ -350,7 +349,7 @@ message GetAddressStateReq {   bytes address = 1; }
 | ----- | ---- | ----- | ----------- |
 | address | [bytes](#bytes) |  |  |
 
-<a name="getaddressstateresp"/>
+<a name="GetAddressStateResp"/>
 
 ## GetAddressStateResp
 
@@ -370,7 +369,7 @@ message GetAddressStateResp {
 
 
 
-<a name="getobjectreq"/>
+<a name="GetObjectReq"/>
 
 
 ## GetObjectReq
@@ -387,7 +386,7 @@ message GetObjectReq {  bytes query = 1;    }
 | query | [bytes](#bytes) |  |  |
 
 
-<a name="getobjectresp"/>
+<a name="GetObjectResp"/>
 
 ## GetObjectResp
 
@@ -416,7 +415,7 @@ message GetObjectResp {
 
 
 
-<a name="getlatestdatareq"/>
+<a name="GetLatestDataReq"/>
 
 ## GetLatestDataReq
 
@@ -444,7 +443,7 @@ message GetLatestDataReq {
 | offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
 | quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
 
-<a name="getlatestdataresp"/>
+<a name="GetLatestDataResp"/>
 
 ## GetLatestDataResp
 
@@ -467,7 +466,7 @@ message GetLatestDataResp {
 | transactions_unconfirmed | [TransactionExtended](#TransactionExtended) | repeated |  |
 
 
-<a name="pushtransactionreq"/>
+<a name="PushTransactionReq"/>
 
 
 ## PushTransactionReq
@@ -483,7 +482,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 | ----- | ---- | ----- | ----------- |
 | transaction_signed | [Transaction](#Transaction) |  |  |
 
-<a name="pushtransactionresp"/>
+<a name="PushTransactionResp"/>
 
 ## PushTransactionResp
 
@@ -512,7 +511,7 @@ message PushTransactionResp {
 | tx_hash | [bytes](#bytes) |  |  |
 
 
-<a name="transfercoinsreq"/>
+<a name="TransferCoinsReq"/>
 
 
 ## TransferCoinsReq
@@ -539,7 +538,7 @@ message TransferCoinsReq {
 | fee | [uint64](#uint64) |  | Fee. It should be expressed in Shor |
 | xmss_pk | [bytes](#bytes) |  | XMSS Public key |
 
-<a name="transfercoinsresp"/>
+<a name="TransferCoinsResp"/>
 
 ## TransferCoinsResp
 
@@ -557,7 +556,7 @@ message TransferCoinsResp {
 | extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
-<a name="getaddressfrompkreq"/>
+<a name="GetAddressFromPKReq"/>
 
 
 ## GetAddressFromPKReq
@@ -576,7 +575,7 @@ message GetAddressFromPKReq {
 | pk | [bytes](#bytes) |  |  |
 
 
-<a name="getaddressfrompkresp"/>
+<a name="GetAddressFromPKResp"/>
 
 ## GetAddressFromPKResp
 
@@ -594,7 +593,7 @@ message GetAddressFromPKResp {
 | address | [bytes](#bytes) |  |  |
 
 
-<a name="messagetxnreq"/>
+<a name="MessageTxnReq"/>
 
 
 ## MessageTxnReq
@@ -616,7 +615,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-<a name="tokentxnreq"/>
+<a name="TokenTxnReq"/>
 
 ## TokenTxnReq
 
@@ -641,7 +640,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-<a name="transfertokentxnreq"/>
+<a name="TransferTokenTxnReq"/>
 
 ## TransferTokenTxnReq
 
@@ -665,7 +664,7 @@ message GetAddressFromPKResp {
 
 
 
-<a name="slavetxnreq"/>
+<a name="SlaveTxnReq"/>
 
 ## SlaveTxnReq
 
@@ -698,7 +697,7 @@ message GetAddressFromPKResp {
 
 
 
-<a name="miningapi"/>
+<a name="MiningAPI"/>
 
 
 ## MiningAPI
@@ -721,7 +720,7 @@ message GetAddressFromPKResp {
  
 
 
-<a name="adminapi"/>
+<a name="AdminAPI"/>
 
 ## AdminAPI
 
@@ -772,7 +771,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="addressamount"/>
+<a name="AddressAmount"/>
 
 ## AddressAmount
 
@@ -794,7 +793,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="addresslist"/>
+<a name="AddressList"/>
 
 
 ## AddressList
@@ -816,7 +815,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="addressstate"/>
+<a name="AddressState"/>
 
 
 ## AddressState
@@ -868,7 +867,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="addressstate.slavepksaccesstypeentry"/>
+<a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ## AddressState.SlavePksAccessTypeEntry
 
@@ -891,7 +890,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="addressstate.tokensentry"/>
+<a name="AddressState.TokensEntry"/>
 
 ## AddressState.TokensEntry
 
@@ -913,7 +912,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="block"/>
+<a name="Block"/>
 
 
 ## Block
@@ -938,7 +937,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="blockdatapoint"/>
+<a name="BlockDataPoint"/>
 
 ## BlockDataPoint
 
@@ -969,7 +968,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockextended"/>
+<a name="BlockExtended"/>
 
 
 ## BlockExtended
@@ -994,7 +993,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockheader"/>
+<a name="BlockHeader"/>
 
 
 ## BlockHeader
@@ -1024,7 +1023,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockheaderextended"/>
+<a name="BlockHeaderExtended"/>
 
 
 ## BlockHeaderExtended
@@ -1048,7 +1047,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockheightdata"/>
+<a name="BlockHeightData"/>
 
 ## BlockHeightData
 
@@ -1071,7 +1070,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockmetadata"/>
+<a name="BlockMetaData"/>
 
 
 ## BlockMetaData
@@ -1097,7 +1096,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blockmetadatalist"/>
+<a name="BlockMetaDataList"/>
 
 ## BlockMetaDataList
 
@@ -1119,7 +1118,7 @@ BlockDataPoint message definition
 
 
 
-<a name="blocknumbermapping"/>
+<a name="BlockNumberMapping"/>
 
 ## BlockNumberMapping
 
@@ -1141,7 +1140,7 @@ BlockDataPoint message definition
 
 
 
-<a name="empty"/>
+<a name="Empty"/>
 
 
 ## Empty
@@ -1161,7 +1160,7 @@ Empty message definition
 
 
 
-<a name="encryptedephemeralmessage"/>
+<a name="EncryptedEphemeralMessage"/>
 
 
 ## EncryptedEphemeralMessage
@@ -1188,7 +1187,7 @@ Empty message definition
 
 
 
-<a name="encryptedephemeralmessage.channel"/>
+<a name="EncryptedEphemeralMessage.Channel"/>
 
 
 ## EncryptedEphemeralMessage.Channel
@@ -1210,7 +1209,7 @@ Empty message definition
 
 
 
-<a name="genesisbalance"/>
+<a name="GenesisBalance"/>
 
 
 ## GenesisBalance
@@ -1245,7 +1244,7 @@ Empty message definition
 
 
 
-<a name="getblockreq"/>
+<a name="GetBlockReq"/>
 
 
 ## GetBlockReq
@@ -1271,7 +1270,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getblockresp"/>
+<a name="GetBlockResp"/>
 
 
 ## GetBlockResp
@@ -1305,7 +1304,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getlocaladdressesreq"/>
+<a name="GetLocalAddressesReq"/>
 
 
 
@@ -1324,7 +1323,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getlocaladdressesresp"/>
+<a name="GetLocalAddressesResp"/>
 
 ## GetLocalAddressesResp
 
@@ -1372,7 +1371,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="lrustatecache"/>
+<a name="LRUStateCache"/>
 
 
 ## LRUStateCache
@@ -1389,7 +1388,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="latticepk"/>
+<a name="LatticePK"/>
 
 
 ## LatticePK
@@ -1416,7 +1415,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="nodechainstate"/>
+<a name="NodeChainState"/>
 
 
 
@@ -1442,7 +1441,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="nodeheaderhash"/>
+<a name="NodeHeaderHash"/>
 
 
 
@@ -1464,7 +1463,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="nodeinfo"/>
+<a name="NodeInfo"/>
 
 
 
@@ -1495,7 +1494,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="p2packnowledgement"/>
+<a name="P2PAcknowledgement"/>
 
 
 ## P2PAcknowledgement
@@ -1517,7 +1516,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="peer"/>
+<a name="Peer"/>
 
 
 ## Peer
@@ -1540,7 +1539,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="peerinfo"/>
+<a name="PeerInfo"/>
 
 ## PeerInfo
 
@@ -1565,7 +1564,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="peerstat"/>
+<a name="PeerStat"/>
 
 
 ## PeerStat
@@ -1589,7 +1588,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="peers"/>
+<a name="Peers"/>
 
 
 ## Peers
@@ -1613,7 +1612,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="stateloader"/>
+<a name="StateLoader"/>
 
 
 ## StateLoader
@@ -1638,7 +1637,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="stateobjects"/>
+<a name="StateObjects"/>
 
 
 ## StateObjects
@@ -1660,7 +1659,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="storedpeers"/>
+<a name="StoredPeers"/>
 
 
 ## StoredPeers
@@ -1681,7 +1680,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="tokenlist"/>
+<a name="TokenList"/>
 
 
 
@@ -1704,7 +1703,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="tokenmetadata"/>
+<a name="TokenMetadata"/>
 
 
 ## TokenMetadata
@@ -1733,7 +1732,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction"/>
+<a name="Transaction"/>
 
 
 ## Transaction
@@ -1768,7 +1767,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.coinbase"/>
+<a name="Transaction.CoinBase"/>
 
 ## Transaction.CoinBase
 
@@ -1790,7 +1789,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.latticepublickey"/>
+<a name="Transaction.LatticePublicKey"/>
 
 
 ## Transaction.LatticePublicKey
@@ -1814,7 +1813,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.message"/>
+<a name="Transaction.Message"/>
 
 ## Transaction.Message
 
@@ -1836,7 +1835,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.slave"/>
+<a name="Transaction.Slave"/>
 
 ## Transaction.Slave
 
@@ -1859,7 +1858,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.token"/>
+<a name="Transaction.Token"/>
 
 ## Transaction.Token
 
@@ -1884,7 +1883,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.transfer"/>
+<a name="Transaction.Transfer"/>
 
 
 ## Transaction.Transfer
@@ -1905,7 +1904,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transaction.transfertoken"/>
+<a name="Transaction.TransferToken"/>
 
 
 ## Transaction.TransferToken
@@ -1929,7 +1928,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transactioncount"/>
+<a name="TransactionCount"/>
 
 
 ## TransactionCount
@@ -1949,7 +1948,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transactioncount.countentry"/>
+<a name="TransactionCount.CountEntry"/>
 
 
 ## TransactionCount.CountEntry
@@ -1970,7 +1969,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="transactionextended"/>
+<a name="TransactionExtended"/>
 
 
 ## TransactionExtended
@@ -1999,7 +1998,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getlatestdatareq.filter"/>
+<a name="GetLatestDataReq.Filter"/>
 
 
 ## GetLatestDataReq.Filter
@@ -2020,7 +2019,7 @@ NOT USED -&gt; RM?
 | TRANSACTIONS_UNCONFIRMED | 3 |  |
 
 
-<a name="nodeinfo.state"/>
+<a name="NodeInfo.State"/>
 
 
 ## NodeInfo.State
@@ -2044,7 +2043,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="pushtransactionresp.responsecode"/>
+<a name="PushTransactionResp.ResponseCode"/>
 
 ## PushTransactionResp.ResponseCode
 
@@ -2076,7 +2075,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getnodeinforeq"/>
+<a name="GetNodeInfoReq"/>
 
 ## GetNodeInfoReq
 
@@ -2089,7 +2088,7 @@ NOT USED -&gt; RM?
    
 ```
 
-<a name="getnodeinforesp"/>
+<a name="GetNodeInfoResp"/>
 
 
 ## GetNodeInfoResp
@@ -2108,7 +2107,7 @@ NOT USED -&gt; RM?
 | version | [string](#string) |  |  |
 | grpcProto | [string](#string) |  |  |
 
-<a name="base"/>
+<a name="Base"/>
 
 
 ## Base
@@ -2136,7 +2135,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="getfullstatereq"/>
+<a name="GetFullStateReq"/>
 
 ## GetFullStateReq
 
@@ -2150,7 +2149,7 @@ NOT USED -&gt; RM?
    
 ```
 
-<a name="getfullstateresp"/>
+<a name="GetFullStateResp"/>
 
 ## GetFullStateResp
 
@@ -2171,7 +2170,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="debugapi"/>
+<a name="DebugAPI"/>
 
 ## DebugAPI
 
@@ -2218,7 +2217,7 @@ This service describes the Debug API used for debugging
 | block | [Block](#Block) |  |  |
 
 
-<a name="fbdata"/>
+<a name="FBData"/>
 
 ## FBData
 
@@ -2236,7 +2235,7 @@ This service describes the Debug API used for debugging
 | index | [uint64](#uint64) |  |  |
 
 
-<a name="legacymessage"/>
+<a name="LegacyMessage"/>
 
 ## LegacyMessage
 
@@ -2278,7 +2277,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="mrdata"/>
+<a name="MRData"/>
 
 ## MRData
 
@@ -2302,7 +2301,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="nodata"/>
+<a name="NoData"/>
 
 ## NoData
 
@@ -2314,7 +2313,7 @@ Adding old code to refactor while keeping things working
    
 ```
 
-<a name="pbdata"/>
+<a name="PBData"/>
 
 ## PBData
 
@@ -2332,7 +2331,7 @@ Adding old code to refactor while keeping things working
 | block | [Block](#Block) |  |  |
 
 
-<a name="pldata"/>
+<a name="PLData"/>
 
 ## PLData
 
@@ -2352,7 +2351,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="pongdata"/>
+<a name="PONGData"/>
 
 ## PONGData
 
@@ -2365,7 +2364,7 @@ Adding old code to refactor while keeping things working
 ```
 
 
-<a name="syncdata"/>
+<a name="SYNCData"/>
 
 
 ## SYNCData
@@ -2385,7 +2384,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="vedata"/>
+<a name="VEData"/>
 
 ## VEData
 
@@ -2406,7 +2405,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="legacymessage.funcname"/>
+<a name="LegacyMessage.FuncName"/>
 
 ## LegacyMessage.FuncName
 
@@ -2451,7 +2450,7 @@ Adding old code to refactor while keeping things working
 # qrlmining.proto
 
 
-<a name="getblockminingcompatiblereq"/>
+<a name="GetBlockMiningCompatibleReq"/>
 
 ## GetBlockMiningCompatibleReq
 
@@ -2472,7 +2471,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="getblockminingcompatibleresp"/>
+<a name="GetBlockMiningCompatibleResp"/>
 
 ## GetBlockMiningCompatibleResp
 
@@ -2492,7 +2491,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="getblocktominereq"/>
+<a name="GetBlockToMineReq"/>
 
 ## GetBlockToMineReq
 
@@ -2511,7 +2510,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="getblocktomineresp"/>
+<a name="GetBlockToMineResp"/>
 
 ## GetBlockToMineResp
 
@@ -2533,7 +2532,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="getlastblockheaderreq"/>
+<a name="GetLastBlockHeaderReq"/>
 
 ## GetLastBlockHeaderReq
 
@@ -2550,7 +2549,7 @@ if height = 0, this means getlastblockheader |
 | ----- | ---- | ----- | ----------- |
 | height | [uint64](#uint64) |  |  |
 
-<a name="getlastblockheaderresp"/>
+<a name="GetLastBlockHeaderResp"/>
 
 
 ## GetLastBlockHeaderResp
@@ -2575,7 +2574,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="Submitminedblockreq"/>
+<a name="SubmitMinedBlockReq"/>
 
 ## SubmitMinedBlockReq
 
@@ -2595,7 +2594,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="Submitminedblockresp"/>
+<a name="SubmitMinedBlockResp"/>
 
 ## SubmitMinedBlockResp
 
@@ -2621,7 +2620,7 @@ if height = 0, this means getlastblockheader |
 
 # qrlstateinfo.proto
 
-<a name="forkstate"/>
+<a name="ForkState"/>
 
 ## ForkState
 
@@ -2645,7 +2644,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="lasttransactions"/>
+<a name="LastTransactions"/>
 
 ## LastTransactions
 
@@ -2664,7 +2663,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="transactionmetadata"/>
+<a name="TransactionMetadata"/>
 
 ## TransactionMetadata
 
@@ -2685,7 +2684,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="scalarvaluetypes"/>
+<a name="ScalarValueTypes"/>
 
 # Scalar Value Types
 
