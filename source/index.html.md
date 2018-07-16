@@ -18,12 +18,12 @@ search: true
 ---
 
 
+<a name="top"/>
 
 # QRL API Documentation
 
 ## Introduction
 
-<a name="top"/>
 
 ```python
 Example Code will be shown here.
@@ -119,13 +119,14 @@ You may generate a slaves.json file that is an extension of the main wallet, aut
 
 
 <p align="right"><a href="#top">Top</a></p>
+<a name="qrl-proto"/>
 
 # QRL.Proto
 
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
 
-<a name="qrl.PublicAPI"/>
+<a name="publicapi"/>
 <p align="right"><a href="#top">Top</a></p>
 
 ## PublicAPI
@@ -158,7 +159,7 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetSlaveTxn | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
-<a name="qrl.GetNodeStateReq"/>
+<a name="getnodestatereq"/>
 <p align="right"><a href="#top">Top</a></p>
 
 
@@ -175,7 +176,7 @@ Represents a query to get node state
 
 
 
-<a name="qrl.GetNodeStateResp"/>
+<a name="getnodestateresp"/>
 <p align="right"><a href="#top">Top</a></p>
 
 
@@ -189,6 +190,7 @@ message GetNodeStateResp {
     NodeInfo info = 1;
 }
 ```
+
 Represents the reply message to node state query
 
 | Field | Type | Label | Description |
@@ -196,7 +198,7 @@ Represents the reply message to node state query
 | info | [NodeInfo](#NodeInfo) |  |  |
 
 
-<a name="qrl.GetKnownPeersReq"/>
+<a name="getknownpeersreq"/>
 <p align="right"><a href="#top">Top</a></p>
 
 
@@ -212,7 +214,7 @@ message GetKnownPeersReq { }
 
 Represents a query to get known peers
 
-<a name="qrl.GetKnownPeersResp"/>
+<a name="getknownpeersresp"/>
 
 ## GetKnownPeersResp
 
@@ -237,7 +239,7 @@ Represents the reply message to known peers query
 | known_peers | [Peer](#Peer) | repeated | List of Peer objects containing peer nodes detailed information |
 
 
-<a name="qrl.GetPeersStatReq"/>
+<a name="getpeersstatreq"/>
 
 ## GetPeersStatReq
 
@@ -249,7 +251,7 @@ message GetPeersStatReq { }
 ```
 Represents a query to get connected peers stat
 
-<a name="qrl.GetPeersStatResp"/>
+<a name="getpeersstatresp"/>
 
 ## GetPeersStatResp
 
@@ -270,7 +272,7 @@ Represents the reply message to peers stat query
 
 
 
-<a name="qrl.GetStatsReq"/>
+<a name="getstatseq"/>
 
 
 ## GetStatsReq
@@ -290,7 +292,7 @@ Represents a query to get statistics about node
 | ----- | ---- | ----- | ----------- |
 | include_timeseries | [bool](#bool) |  | Boolean to define if block timeseries should be included in reply or not |
 
-<a name="qrl.GetStatsResp"/>
+<a name="getstatsresp"/>
 
 
 ## GetStatsResp
@@ -332,7 +334,7 @@ Represents the reply message to get statistics about node
 
 
 
-<a name="qrl.GetAddressStateReq"/>
+<a name="getaddressstatereq"/>
 
 
 ## GetAddressStateReq
@@ -349,7 +351,7 @@ message GetAddressStateReq {   bytes address = 1; }
 | ----- | ---- | ----- | ----------- |
 | address | [bytes](#bytes) |  |  |
 
-<a name="qrl.GetAddressStateResp"/>
+<a name="getaddressstateresp"/>
 
 ## GetAddressStateResp
 
@@ -369,7 +371,7 @@ message GetAddressStateResp {
 
 
 
-<a name="qrl.GetObjectReq"/>
+<a name="getobjectreq"/>
 
 
 ## GetObjectReq
@@ -386,7 +388,7 @@ message GetObjectReq {  bytes query = 1;    }
 | query | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.GetObjectResp"/>
+<a name="getobjectresp"/>
 
 ## GetObjectResp
 
@@ -415,7 +417,7 @@ message GetObjectResp {
 
 
 
-<a name="qrl.GetLatestDataReq"/>
+<a name="getlatestdatareq"/>
 
 ## GetLatestDataReq
 
@@ -443,7 +445,7 @@ message GetLatestDataReq {
 | offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
 | quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
 
-<a name="qrl.GetLatestDataResp"/>
+<a name="getlatestdataresp"/>
 
 ## GetLatestDataResp
 
@@ -466,7 +468,7 @@ message GetLatestDataResp {
 | transactions_unconfirmed | [TransactionExtended](#TransactionExtended) | repeated |  |
 
 
-<a name="qrl.PushTransactionReq"/>
+<a name="pushtransactionreq"/>
 
 
 ## PushTransactionReq
@@ -482,7 +484,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 | ----- | ---- | ----- | ----------- |
 | transaction_signed | [Transaction](#Transaction) |  |  |
 
-<a name="qrl.PushTransactionResp"/>
+<a name="pushtransactionresp"/>
 
 ## PushTransactionResp
 
@@ -511,7 +513,7 @@ message PushTransactionResp {
 | tx_hash | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.TransferCoinsReq"/>
+<a name="transfercoinsreq"/>
 
 
 ## TransferCoinsReq
@@ -538,7 +540,7 @@ message TransferCoinsReq {
 | fee | [uint64](#uint64) |  | Fee. It should be expressed in Shor |
 | xmss_pk | [bytes](#bytes) |  | XMSS Public key |
 
-<a name="qrl.TransferCoinsResp"/>
+<a name="transfercoinsresp"/>
 
 ## TransferCoinsResp
 
@@ -556,7 +558,7 @@ message TransferCoinsResp {
 | extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
-<a name="qrl.GetAddressFromPKReq"/>
+<a name="getaddressfrompkreq"/>
 
 
 ## GetAddressFromPKReq
@@ -575,7 +577,7 @@ message GetAddressFromPKReq {
 | pk | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.GetAddressFromPKResp"/>
+<a name="getaddressfrompkresp"/>
 
 ## GetAddressFromPKResp
 
@@ -593,7 +595,7 @@ message GetAddressFromPKResp {
 | address | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.MessageTxnReq"/>
+<a name="messagetxnreq"/>
 
 
 ## MessageTxnReq
@@ -615,7 +617,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.TokenTxnReq"/>
+<a name="tokentxnreq"/>
 
 ## TokenTxnReq
 
@@ -640,7 +642,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-<a name="qrl.TransferTokenTxnReq"/>
+<a name="transfertokentxnreq"/>
 
 ## TransferTokenTxnReq
 
@@ -664,7 +666,7 @@ message GetAddressFromPKResp {
 
 
 
-<a name="qrl.SlaveTxnReq"/>
+<a name="slavetxnreq"/>
 
 ## SlaveTxnReq
 
@@ -697,7 +699,7 @@ message GetAddressFromPKResp {
 
 
 
-<a name="qrl.MiningAPI"/>
+<a name="miningapi"/>
 
 
 ## MiningAPI
@@ -720,7 +722,7 @@ message GetAddressFromPKResp {
  
 
 
-<a name="qrl.AdminAPI"/>
+<a name="adminapi"/>
 
 ## AdminAPI
 
@@ -771,7 +773,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="AddressAmount"/>
+<a name="addressamount"/>
 
 ## AddressAmount
 
@@ -793,7 +795,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="qrl.AddressList"/>
+<a name="addresslist"/>
 
 
 ## AddressList
@@ -815,7 +817,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="qrl.AddressState"/>
+<a name="addressstate"/>
 
 
 ## AddressState
@@ -867,7 +869,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="qrl.AddressState.SlavePksAccessTypeEntry"/>
+<a name="addressstate.slavepksaccesstypeentry"/>
 
 ## AddressState.SlavePksAccessTypeEntry
 
@@ -890,7 +892,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="qrl.AddressState.TokensEntry"/>
+<a name="addressstate.tokensentry"/>
 
 ## AddressState.TokensEntry
 
@@ -912,7 +914,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="qrl.Block"/>
+<a name="block"/>
 
 
 ## Block
@@ -937,7 +939,7 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="qrl.BlockDataPoint"/>
+<a name="blockdatapoint"/>
 
 ## BlockDataPoint
 
@@ -968,7 +970,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockExtended"/>
+<a name="blockextended"/>
 
 
 ## BlockExtended
@@ -993,7 +995,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockHeader"/>
+<a name="blockheader"/>
 
 
 ## BlockHeader
@@ -1023,7 +1025,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockHeaderExtended"/>
+<a name="blockheaderextended"/>
 
 
 ## BlockHeaderExtended
@@ -1047,7 +1049,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockHeightData"/>
+<a name="blockheightdata"/>
 
 ## BlockHeightData
 
@@ -1070,7 +1072,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockMetaData"/>
+<a name="blockmetadata"/>
 
 
 ## BlockMetaData
@@ -1096,7 +1098,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockMetaDataList"/>
+<a name="blockmetadatalist"/>
 
 ## BlockMetaDataList
 
@@ -1118,7 +1120,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.BlockNumberMapping"/>
+<a name="blocknumbermapping"/>
 
 ## BlockNumberMapping
 
@@ -1140,7 +1142,7 @@ BlockDataPoint message definition
 
 
 
-<a name="qrl.Empty"/>
+<a name="empty"/>
 
 
 ## Empty
@@ -1160,7 +1162,7 @@ Empty message definition
 
 
 
-<a name="qrl.EncryptedEphemeralMessage"/>
+<a name="encryptedephemeralmessage"/>
 
 
 ## EncryptedEphemeralMessage
@@ -1187,7 +1189,7 @@ Empty message definition
 
 
 
-<a name="qrl.EncryptedEphemeralMessage.Channel"/>
+<a name="encryptedephemeralmessage.channel"/>
 
 
 ## EncryptedEphemeralMessage.Channel
@@ -1209,7 +1211,7 @@ Empty message definition
 
 
 
-<a name="qrl.GenesisBalance"/>
+<a name="genesisbalance"/>
 
 
 ## GenesisBalance
@@ -1244,7 +1246,7 @@ Empty message definition
 
 
 
-<a name="qrl.GetBlockReq"/>
+<a name="getblockreq"/>
 
 
 ## GetBlockReq
@@ -1270,7 +1272,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetBlockResp"/>
+<a name="getblockresp"/>
 
 
 ## GetBlockResp
@@ -1304,7 +1306,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetLocalAddressesReq"/>
+<a name="getlocaladdressesreq"/>
 
 
 
@@ -1323,7 +1325,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetLocalAddressesResp"/>
+<a name="getlocaladdressesresp"/>
 
 ## GetLocalAddressesResp
 
@@ -1371,7 +1373,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.LRUStateCache"/>
+<a name="lrustatecache"/>
 
 
 ## LRUStateCache
@@ -1388,7 +1390,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.LatticePK"/>
+<a name="latticepk"/>
 
 
 ## LatticePK
@@ -1415,7 +1417,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.NodeChainState"/>
+<a name="nodechainstate"/>
 
 
 
@@ -1441,7 +1443,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.NodeHeaderHash"/>
+<a name="nodeheaderhash"/>
 
 
 
@@ -1463,7 +1465,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.NodeInfo"/>
+<a name="nodeinfo"/>
 
 
 
@@ -1494,7 +1496,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.P2PAcknowledgement"/>
+<a name="p2packnowledgement"/>
 
 
 ## P2PAcknowledgement
@@ -1516,7 +1518,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Peer"/>
+<a name="peer"/>
 
 
 ## Peer
@@ -1539,7 +1541,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.PeerInfo"/>
+<a name="peerinfo"/>
 
 ## PeerInfo
 
@@ -1564,7 +1566,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.PeerStat"/>
+<a name="peerstat"/>
 
 
 ## PeerStat
@@ -1588,7 +1590,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Peers"/>
+<a name="peers"/>
 
 
 ## Peers
@@ -1612,7 +1614,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.StateLoader"/>
+<a name="stateloader"/>
 
 
 ## StateLoader
@@ -1637,7 +1639,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.StateObjects"/>
+<a name="stateobjects"/>
 
 
 ## StateObjects
@@ -1659,7 +1661,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.StoredPeers"/>
+<a name="storedpeers"/>
 
 
 ## StoredPeers
@@ -1680,7 +1682,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.TokenList"/>
+<a name="tokenlist"/>
 
 
 
@@ -1703,7 +1705,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.TokenMetadata"/>
+<a name="tokenmetadata"/>
 
 
 ## TokenMetadata
@@ -1732,7 +1734,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction"/>
+<a name="transaction"/>
 
 
 ## Transaction
@@ -1767,7 +1769,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.CoinBase"/>
+<a name="transaction.coinbase"/>
 
 ## Transaction.CoinBase
 
@@ -1789,7 +1791,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.LatticePublicKey"/>
+<a name="transaction.latticepublickey"/>
 
 
 ## Transaction.LatticePublicKey
@@ -1813,7 +1815,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.Message"/>
+<a name="transaction.message"/>
 
 ## Transaction.Message
 
@@ -1835,7 +1837,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.Slave"/>
+<a name="transaction.slave"/>
 
 ## Transaction.Slave
 
@@ -1858,7 +1860,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.Token"/>
+<a name="transaction.token"/>
 
 ## Transaction.Token
 
@@ -1883,7 +1885,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.Transfer"/>
+<a name="transaction.transfer"/>
 
 
 ## Transaction.Transfer
@@ -1904,7 +1906,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.Transaction.TransferToken"/>
+<a name="transaction.transfertoken"/>
 
 
 ## Transaction.TransferToken
@@ -1928,7 +1930,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.TransactionCount"/>
+<a name="transactioncount"/>
 
 
 ## TransactionCount
@@ -1948,7 +1950,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.TransactionCount.CountEntry"/>
+<a name="transactioncount.countentry"/>
 
 
 ## TransactionCount.CountEntry
@@ -1969,7 +1971,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.TransactionExtended"/>
+<a name="transactionextended"/>
 
 
 ## TransactionExtended
@@ -1998,7 +2000,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetLatestDataReq.Filter"/>
+<a name="getlatestdatareq.filter"/>
 
 
 ## GetLatestDataReq.Filter
@@ -2019,7 +2021,7 @@ NOT USED -&gt; RM?
 | TRANSACTIONS_UNCONFIRMED | 3 |  |
 
 
-<a name="qrl.NodeInfo.State"/>
+<a name="nodeinfo.state"/>
 
 
 ## NodeInfo.State
@@ -2043,7 +2045,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.PushTransactionResp.ResponseCode"/>
+<a name="pushtransactionresp.responsecode"/>
 
 ## PushTransactionResp.ResponseCode
 
@@ -2075,7 +2077,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetNodeInfoReq"/>
+<a name="getnodeinforeq"/>
 
 ## GetNodeInfoReq
 
@@ -2088,7 +2090,7 @@ NOT USED -&gt; RM?
    
 ```
 
-<a name="qrl.GetNodeInfoResp"/>
+<a name="getnodeinforesp"/>
 
 
 ## GetNodeInfoResp
@@ -2107,7 +2109,7 @@ NOT USED -&gt; RM?
 | version | [string](#string) |  |  |
 | grpcProto | [string](#string) |  |  |
 
-<a name="qrl.Base"/>
+<a name="base"/>
 
 
 ## Base
@@ -2135,7 +2137,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.GetFullStateReq"/>
+<a name="getfullstatereq"/>
 
 ## GetFullStateReq
 
@@ -2149,7 +2151,7 @@ NOT USED -&gt; RM?
    
 ```
 
-<a name="qrl.GetFullStateResp"/>
+<a name="getfullstateresp"/>
 
 ## GetFullStateResp
 
@@ -2170,7 +2172,7 @@ NOT USED -&gt; RM?
 
 
 
-<a name="qrl.DebugAPI"/>
+<a name="debugapi"/>
 
 ## DebugAPI
 
@@ -2197,7 +2199,7 @@ This service describes the Debug API used for debugging
 # qrllegacy.proto
 
 
-<a name="qrl.BKData"/>
+<a name="BKData"/>
 
 
 ## BKData
@@ -2217,7 +2219,7 @@ This service describes the Debug API used for debugging
 | block | [Block](#Block) |  |  |
 
 
-<a name="qrl.FBData"/>
+<a name="fbdata"/>
 
 ## FBData
 
@@ -2235,7 +2237,7 @@ This service describes the Debug API used for debugging
 | index | [uint64](#uint64) |  |  |
 
 
-<a name="qrl.LegacyMessage"/>
+<a name="legacymessage"/>
 
 ## LegacyMessage
 
@@ -2277,7 +2279,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="qrl.MRData"/>
+<a name="mrdata"/>
 
 ## MRData
 
@@ -2301,7 +2303,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="qrl.NoData"/>
+<a name="nodata"/>
 
 ## NoData
 
@@ -2313,7 +2315,7 @@ Adding old code to refactor while keeping things working
    
 ```
 
-<a name="qrl.PBData"/>
+<a name="pbdata"/>
 
 ## PBData
 
@@ -2331,7 +2333,7 @@ Adding old code to refactor while keeping things working
 | block | [Block](#Block) |  |  |
 
 
-<a name="qrl.PLData"/>
+<a name="pldata"/>
 
 ## PLData
 
@@ -2351,7 +2353,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="qrl.PONGData"/>
+<a name="pongdata"/>
 
 ## PONGData
 
@@ -2364,7 +2366,7 @@ Adding old code to refactor while keeping things working
 ```
 
 
-<a name="qrl.SYNCData"/>
+<a name="syncdata"/>
 
 
 ## SYNCData
@@ -2384,7 +2386,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="qrl.VEData"/>
+<a name="vedata"/>
 
 ## VEData
 
@@ -2405,7 +2407,7 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="qrl.LegacyMessage.FuncName"/>
+<a name="legacymessage.funcname"/>
 
 ## LegacyMessage.FuncName
 
@@ -2450,7 +2452,7 @@ Adding old code to refactor while keeping things working
 # qrlmining.proto
 
 
-<a name="qrl.GetBlockMiningCompatibleReq"/>
+<a name="getblockminingcompatiblereq"/>
 
 ## GetBlockMiningCompatibleReq
 
@@ -2471,7 +2473,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.GetBlockMiningCompatibleResp"/>
+<a name="getblockminingcompatibleresp"/>
 
 ## GetBlockMiningCompatibleResp
 
@@ -2491,7 +2493,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.GetBlockToMineReq"/>
+<a name="getblocktominereq"/>
 
 ## GetBlockToMineReq
 
@@ -2510,7 +2512,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.GetBlockToMineResp"/>
+<a name="getblocktomineresp"/>
 
 ## GetBlockToMineResp
 
@@ -2532,7 +2534,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.GetLastBlockHeaderReq"/>
+<a name="getlastblockheaderreq"/>
 
 ## GetLastBlockHeaderReq
 
@@ -2549,7 +2551,7 @@ if height = 0, this means getlastblockheader |
 | ----- | ---- | ----- | ----------- |
 | height | [uint64](#uint64) |  |  |
 
-<a name="qrl.GetLastBlockHeaderResp"/>
+<a name="getlastblockheaderresp"/>
 
 
 ## GetLastBlockHeaderResp
@@ -2574,7 +2576,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.SubmitMinedBlockReq"/>
+<a name="Submitminedblockreq"/>
 
 ## SubmitMinedBlockReq
 
@@ -2594,7 +2596,7 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="qrl.SubmitMinedBlockResp"/>
+<a name="Submitminedblockresp"/>
 
 ## SubmitMinedBlockResp
 
@@ -2620,7 +2622,7 @@ if height = 0, this means getlastblockheader |
 
 # qrlstateinfo.proto
 
-<a name="qrl.ForkState"/>
+<a name="forkstate"/>
 
 ## ForkState
 
@@ -2644,7 +2646,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="qrl.LastTransactions"/>
+<a name="lasttransactions"/>
 
 ## LastTransactions
 
@@ -2663,7 +2665,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="qrl.TransactionMetadata"/>
+<a name="transactionmetadata"/>
 
 ## TransactionMetadata
 
@@ -2684,7 +2686,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
-<a name="ScalarValueTypes"/>
+<a name="scalarvaluetypes"/>
 
 # Scalar Value Types
 
