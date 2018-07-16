@@ -17,10 +17,10 @@ includes:
 search: true
 ---
 
+# QRL API Documentation
 
 <a name="top"/>
 
-# QRL API Documentation
 
 ## Introduction
 
