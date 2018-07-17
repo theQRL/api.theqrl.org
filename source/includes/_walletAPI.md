@@ -1,26 +1,6 @@
 # WalletAPI
 
-- **AddNewAddress**
-- **AddAddressFromSeed**
-- **ListAddresses**
-- **RemoveAddress**
-- **GetRecoverySeeds**
-- **GetWalletInfo**
-- **RelayTransferTxn**
-- **RelayMessageTxn**
-- **RelayTokenTxn**
-- **RelayTransferTokenTxn**
-- **RelaySlaveTxn**
-- **EncryptWallet**
-- **LockWallet**
-- **UnlockWallet**
-- **ChangePassphrase**
-- **GetTransaction**
-- **GetBalance**
-- **GetOTS**
-- **GetHeight**
-- **GetBlock**
-- **GetBlockByNumber**
+Use the wallet API to interface with the QRL Wallet. 
 
 ## AddNewAddress
 Adds new randomly generated address to the wallet.
