@@ -157,13 +157,15 @@ This service describes the Public API used by clients (wallet/cli/etc)
  
 
 
-<a name="GetNodeState"/>
 
 ## GetNodeState 
 
-<a name="GetNodeStateReq"/>
+<a name="GetNodeState"/>
+
 
 ### GetNodeStateReq
+
+<a name="GetNodeStateReq"/>
 
 ```python
    
@@ -175,9 +177,10 @@ message GetNodeStateReq { }
 
 Represents a query to get node state
 
-<a name="GetNodeStateResp"/>
 
 ### GetNodeStateResp
+
+<a name="GetNodeStateResp"/>
 
 ```python
    
@@ -202,14 +205,15 @@ Represents the reply message to node state query
 
 
 
-<a name="GetKnownPeers"/>
 
 ## GetKnownPeers
 
+<a name="GetKnownPeers"/>
 
-<a name="GetKnownPeersReq"/>
 
 ### GetKnownPeersReq
+
+<a name="GetKnownPeersReq"/>
 
 ```python
    
@@ -221,9 +225,10 @@ message GetKnownPeersReq { }
 
 Represents a query to get known peers
 
-<a name="GetKnownPeersResp"/>
 
 ### GetKnownPeersResp
+
+<a name="GetKnownPeersResp"/>
 
 ```python
    
@@ -251,14 +256,16 @@ Represents the reply message to known peers query
 
 
 
-<a name="GetPeersStat"/>
 
 ## GetPeersStat
 
+<a name="GetPeersStat"/>
 
-<a name="GetPeersStatReq"/>
+
 
 ### GetPeersStatReq
+
+<a name="GetPeersStatReq"/>
 
 ```python
    
@@ -270,9 +277,10 @@ message GetPeersStatReq { }
 
 Represents a query to get connected peers stat
 
-<a name="GetPeersStatResp"/>
 
 ### GetPeersStatResp
+
+<a name="GetPeersStatResp"/>
 
 ```python
    
@@ -291,13 +299,15 @@ Represents the reply message to peers stat query
 
 
 
-<a name="GetStats"/>
 
 ## GetStats
 
-<a name="GetStatsReq"/>
+<a name="GetStats"/>
+
 
 ### GetStatsReq
+
+<a name="GetStatsReq"/>
 
 ```python
    
@@ -315,9 +325,10 @@ Represents a query to get statistics about node
 | ----- | ---- | ----- | ----------- |
 | include_timeseries | [bool](#bool) |  | Boolean to define if block timeseries should be included in reply or not |
 
-<a name="GetStatsResp"/>
 
 ### GetStatsResp
+
+<a name="GetStatsResp"/>
 
 ```python
    
@@ -356,13 +367,15 @@ Represents the reply message to get statistics about node
 
 
 
-<a name="GetAddressState"/>
 
 ## GetAddressState
 
-<a name="GetAddressStateReq"/>
+<a name="GetAddressState"/>
+
 
 ### GetAddressStateReq
+
+<a name="GetAddressStateReq"/>
 
 ```python
    
@@ -376,9 +389,10 @@ message GetAddressStateReq {   bytes address = 1; }
 | ----- | ---- | ----- | ----------- |
 | address | [bytes](#bytes) |  |  |
 
-<a name="GetAddressStateResp"/>
 
 ### GetAddressStateResp
+
+<a name="GetAddressStateResp"/>
 
 ```python
    
@@ -402,13 +416,15 @@ message GetAddressStateResp {
 
 
 
-<a name="GetObjectReq"/>
 
 ## GetObject
 
 <a name="GetObjectReq"/>
 
+
 ### GetObjectReq
+
+<a name="GetObjectReq"/>
 
 ```python
    
@@ -423,9 +439,10 @@ message GetObjectReq {  bytes query = 1;    }
 | query | [bytes](#bytes) |  |  |
 
 
-<a name="GetObjectResp"/>
 
 ### GetObjectResp
+
+<a name="GetObjectResp"/>
 
 ```python
    
@@ -451,13 +468,15 @@ message GetObjectResp {
 
 
 
-<a name="GetLatestData"/>
 
 ## GetLatestData
 
-<a name="GetLatestDataReq"/>
+<a name="GetLatestData"/>
+
 
 ### GetLatestDataReq
+
+<a name="GetLatestDataReq"/>
 
 ```python
    
@@ -483,9 +502,10 @@ message GetLatestDataReq {
 | offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
 | quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
 
-<a name="GetLatestDataResp"/>
 
 ### GetLatestDataResp
+
+<a name="GetLatestDataResp"/>
 
 ```python
    
@@ -507,13 +527,15 @@ message GetLatestDataResp {
 
 
 
-<a name="PushTransaction"/>
 
 ## PushTransaction
 
-<a name="PushTransactionReq"/>
+<a name="PushTransaction"/>
+
 
 ### PushTransactionReq
+
+<a name="PushTransactionReq"/>
 
 ```python
    
@@ -527,9 +549,10 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 | ----- | ---- | ----- | ----------- |
 | transaction_signed | [Transaction](#Transaction) |  |  |
 
-<a name="PushTransactionResp"/>
 
 ### PushTransactionResp
+
+<a name="PushTransactionResp"/>
 
 ```python
    
@@ -559,13 +582,15 @@ message PushTransactionResp {
 
 
 
-<a name="TransferCoins"/>
 
 ## TransferCoins
 
-<a name="TransferCoinsReq"/>
+<a name="TransferCoins"/>
+
 
 ### TransferCoinsReq
+
+<a name="TransferCoinsReq"/>
 
 ```python
    
@@ -589,9 +614,10 @@ message TransferCoinsReq {
 | fee | [uint64](#uint64) |  | Fee. It should be expressed in Shor |
 | xmss_pk | [bytes](#bytes) |  | XMSS Public key |
 
-<a name="TransferCoinsResp"/>
 
 ### TransferCoinsResp
+
+<a name="TransferCoinsResp"/>
 
 ```python
    
@@ -608,14 +634,16 @@ message TransferCoinsResp {
 | extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
-<a name="GetAddressFromPK"/>
 
 ## GetAddressFromPK
 
+<a name="GetAddressFromPK"/>
 
-<a name="GetAddressFromPKReq"/>
+
 
 ### GetAddressFromPKReq
+
+<a name="GetAddressFromPKReq"/>
 
 ```python
    
@@ -632,9 +660,10 @@ message GetAddressFromPKReq {
 | pk | [bytes](#bytes) |  |  |
 
 
-<a name="GetAddressFromPKResp"/>
 
 ### GetAddressFromPKResp
+
+<a name="GetAddressFromPKResp"/>
 
 ```python
    
@@ -652,13 +681,15 @@ message GetAddressFromPKResp {
 
 
 
-<a name="GetMessageTxn"/>
 
 ## GetMessageTxn
 
-<a name="MessageTxnReq"/>
+<a name="GetMessageTxn"/>
+
 
 ### MessageTxnReq
+
+<a name="MessageTxnReq"/>
 
 ```python
    
@@ -683,13 +714,15 @@ message GetAddressFromPKResp {
 
 
 
-<a name="GetTokenTxn"/>
 
 ## GetTokenTxn
 
-<a name="TokenTxnReq"/>
+<a name="GetTokenTxn"/>
+
 
 ### TokenTxnReq
+
+<a name="TokenTxnReq"/>
 
 ```python
    
@@ -714,13 +747,15 @@ message GetAddressFromPKResp {
 
 
 
-<a name="GetTransferTokenTxn"/>
 
 ## GetTransferTokenTxn
 
-<a name="TransferTokenTxnReq"/>
+<a name="GetTransferTokenTxn"/>
+
 
 ### TransferTokenTxnReq
+
+<a name="TransferTokenTxnReq"/>
 
 ```python
    
@@ -742,9 +777,10 @@ message GetAddressFromPKResp {
 
 
 
-<a name="TransferCoinsTxnReq1"/>
 
 ### TransferCoinsResp
+
+<a name="TransferCoinsTxnReq1"/>
 
 ```python
    
@@ -762,13 +798,15 @@ message TransferCoinsResp {
 
 
 
-<a name="GetSlaveTxn"/>
 
 ## GetSlaveTxn
 
-<a name="SlaveTxnReq"/>
+<a name="GetSlaveTxn"/>
+
 
 ### SlaveTxnReq
+
+<a name="SlaveTxnReq"/>
 
 ```python
    
@@ -790,9 +828,10 @@ message TransferCoinsResp {
 
 
 
-<a name="AdminAPI"/>
 
 ## AdminAPI
+
+<a name="AdminAPI"/>
 
 
 This is a place holder for testing/instrumentation APIs
@@ -804,9 +843,10 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="AddressAmount"/>
 
 ## AddressAmount
+
+<a name="AddressAmount"/>
 
 ```python
    
@@ -826,10 +866,11 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="AddressList"/>
 
 
 ## AddressList
+
+<a name="AddressList"/>
 
 ```python
    
@@ -848,10 +889,11 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-<a name="AddressState"/>
 
 
 ## AddressState
+
+<a name="AddressState"/>
 
 ```python
 Enter Python code here
@@ -900,9 +942,10 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ## AddressState.SlavePksAccessTypeEntry
+
+<a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ```python
    
@@ -923,9 +966,10 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="AddressState.TokensEntry"/>
 
 ## AddressState.TokensEntry
+
+<a name="AddressState.TokensEntry"/>
 
 ```python
    
@@ -945,10 +989,11 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="Block"/>
 
 
 ## Block
+
+<a name="Block"/>
 
 ```python
    
@@ -970,9 +1015,10 @@ qrlClient.then( function (qrlClient) {
 
 
 
-<a name="BlockDataPoint"/>
 
 ## BlockDataPoint
+
+<a name="BlockDataPoint"/>
 
 ```python
    
@@ -1001,10 +1047,11 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockExtended"/>
 
 
 ## BlockExtended
+
+<a name="BlockExtended"/>
 
 ```python
    
@@ -1026,10 +1073,11 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockHeader"/>
 
 
 ## BlockHeader
+
+<a name="BlockHeader"/>
 
 ```python
    
@@ -1054,9 +1102,10 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockHeaderExtended"/>
 
 ## BlockHeaderExtended
+
+<a name="BlockHeaderExtended"/>
 
 ```python
    
@@ -1073,9 +1122,10 @@ BlockDataPoint message definition
 | transaction_count | [TransactionCount](#TransactionCount) |  |  |
 
 
-<a name="BlockHeightData"/>
 
 ## BlockHeightData
+
+<a name="BlockHeightData"/>
 
 ```python
    
@@ -1096,10 +1146,11 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockMetaData"/>
 
 
 ## BlockMetaData
+
+<a name="BlockMetaData"/>
 
 ```python
    
@@ -1119,9 +1170,10 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockMetaDataList"/>
 
 ## BlockMetaDataList
+
+<a name="BlockMetaDataList"/>
 
 ```python
    
@@ -1141,9 +1193,10 @@ BlockDataPoint message definition
 
 
 
-<a name="BlockNumberMapping"/>
 
 ## BlockNumberMapping
+
+<a name="BlockNumberMapping"/>
 
 ```python
    
