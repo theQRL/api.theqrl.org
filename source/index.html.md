@@ -138,21 +138,30 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | [GetNodeState](#GetNodeState) | [GetNodeStateReq](#GetNodeStateReq) | [GetNodeStateResp](#GetNodeStateReq) | Represents a query to get node state |
-| GetKnownPeers | [GetKnownPeersReq](#GetKnownPeersReq) | [GetKnownPeersResp](#GetKnownPeersReq) |  |
-| GetPeersStat | [GetPeersStatReq](#GetPeersStatReq) | [GetPeersStatResp](#GetPeersStatReq) |  |
-| GetStats | [GetStatsReq](#GetStatsReq) | [GetStatsResp](#GetStatsReq) |  |
-| GetAddressState | [GetAddressStateReq](#GetAddressStateReq) | [GetAddressStateResp](#GetAddressStateReq) |  |
-| GetObject | [GetObjectReq](#GetObjectReq) | [GetObjectResp](#GetObjectReq) |  |
-| GetLatestData | [GetLatestDataReq](#GetLatestDataReq) | [GetLatestDataResp](#GetLatestDataReq) |  |
-| PushTransaction | [PushTransactionReq](#PushTransactionReq) | [PushTransactionResp](#PushTransactionReq) |  |
-| TransferCoins | [TransferCoinsReq](#TransferCoinsReq) | [TransferCoinsResp](#TransferCoinsReq) |  |
-| GetAddressFromPK | [GetAddressFromPKReq](#GetAddressFromPKReq) | [GetAddressFromPKResp](#GetAddressFromPKReq) |  |
-| GetMessageTxn | [MessageTxnReq](#MessageTxnReq) | [TransferCoinsResp](#MessageTxnReq) |  |
-| GetTokenTxn | [TokenTxnReq](#TokenTxnReq) | [TransferCoinsResp](#TokenTxnReq) |  |
-| GetTransferTokenTxn | [TransferTokenTxnReq](#TransferTokenTxnReq) | [TransferCoinsResp](#TransferTokenTxnReq) |  |
-| GetSlaveTxn | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
+| [GetKnownPeers](#GetKnownPeers) | [GetKnownPeersReq](#GetKnownPeersReq) | [GetKnownPeersResp](#GetKnownPeersReq) |  |
+| [GetPeersStat](#GetPeersStat) | [GetPeersStatReq](#GetPeersStatReq) | [GetPeersStatResp](#GetPeersStatReq) |  |
+| [GetStats](#GetStats) | [GetStatsReq](#GetStatsReq) | [GetStatsResp](#GetStatsReq) |  |
+| [GetAddressState](#GetAddressState) | [GetAddressStateReq](#GetAddressStateReq) | [GetAddressStateResp](#GetAddressStateReq) |  |
+| [GetObject](#GetObject) | [GetObjectReq](#GetObjectReq) | [GetObjectResp](#GetObjectReq) |  |
+| [GetLatestData](#GetLatestData) | [GetLatestDataReq](#GetLatestDataReq) | [GetLatestDataResp](#GetLatestDataReq) |  |
+| [PushTransaction](#PushTransaction) | [PushTransactionReq](#PushTransactionReq) | [PushTransactionResp](#PushTransactionReq) |  |
+| [TransferCoins](#TransferCoins) | [TransferCoinsReq](#TransferCoinsReq) | [TransferCoinsResp](#TransferCoinsReq) |  |
+| [GetAddressFromPK](#GetAddressFromPK) | [GetAddressFromPKReq](#GetAddressFromPKReq) | [GetAddressFromPKResp](#GetAddressFromPKReq) |  |
+| [GetMessageTxn](#GetMessageTxn) | [MessageTxnReq](#MessageTxnReq) | [TransferCoinsResp](#TransferCoinsResp) |  |
+| [GetTokenTxn](#GetTokenTxn) | [TokenTxnReq](#TokenTxnReq) | [TransferCoinsResp](#TokenTxnReq) |  |
+| [GetTransferTokenTxn](#GetTransferTokenTxn) | [TransferTokenTxnReq](#TransferTokenTxnReq) | [TransferCoinsResp](#TransferTokenTxnReq) |  |
+| [GetSlaveTxn](#GetSlaveTxn) | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
+
+
+
+
+
+
+
+
+
 <a name="GetNodeState"/>
 
 ## GetNodeState 
@@ -170,21 +179,20 @@ message GetNodeStateReq { }
 ```
 Represents a query to get node state
 
-
-
 <a name="GetNodeStateResp"/>
-
 
 ### GetNodeStateResp
 
 ```python
    
 ```
+
 ```javascript
 message GetNodeStateResp {
     NodeInfo info = 1;
 }
 ```
+
 Represents the reply message to node state query
 
 | Field | Type | Label | Description |
@@ -193,10 +201,19 @@ Represents the reply message to node state query
 
 
 
+
+
+
+
+
+<a name="GetKnownPeers"/>
+
+## GetKnownPeers
+
+
 <a name="GetKnownPeersReq"/>
 
-## GetKnownPeersReq
-
+### GetKnownPeersReq
 
 ```python
    
@@ -210,7 +227,7 @@ Represents a query to get known peers
 
 <a name="GetKnownPeersResp"/>
 
-## GetKnownPeersResp
+### GetKnownPeersResp
 
 ```python
    
@@ -223,9 +240,7 @@ message GetKnownPeersResp {
 }
 ```
 
-
 Represents the reply message to known peers query
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -233,9 +248,21 @@ Represents the reply message to known peers query
 | known_peers | [Peer](#Peer) | repeated | List of Peer objects containing peer nodes detailed information |
 
 
+
+
+
+
+
+
+
+<a name="GetPeersStat"/>
+
+## GetPeersStat
+
+
 <a name="GetPeersStatReq"/>
 
-## GetPeersStatReq
+### GetPeersStatReq
 
 ```python
    
@@ -247,7 +274,7 @@ Represents a query to get connected peers stat
 
 <a name="GetPeersStatResp"/>
 
-## GetPeersStatResp
+### GetPeersStatResp
 
 ```python
    
@@ -266,14 +293,21 @@ Represents the reply message to peers stat query
 
 
 
+
+
+
+<a name="GetStats"/>
+
+## GetStats
+
 <a name="GetStatsReq"/>
 
-
-## GetStatsReq
+### GetStatsReq
 
 ```python
    
 ```
+
 ```javascript
 message GetStatsReq {
     bool include_timeseries = 1;
@@ -288,8 +322,7 @@ Represents a query to get statistics about node
 
 <a name="GetStatsResp"/>
 
-
-## GetStatsResp
+### GetStatsResp
 
 ```python
    
@@ -328,10 +361,17 @@ Represents the reply message to get statistics about node
 
 
 
+
+
+
+
+<a name="GetAddressState"/>
+
+## GetAddressState
+
 <a name="GetAddressStateReq"/>
 
-
-## GetAddressStateReq
+### GetAddressStateReq
 
 ```python
    
@@ -347,7 +387,7 @@ message GetAddressStateReq {   bytes address = 1; }
 
 <a name="GetAddressStateResp"/>
 
-## GetAddressStateResp
+### GetAddressStateResp
 
 ```python
    
@@ -365,10 +405,18 @@ message GetAddressStateResp {
 
 
 
+
+
+
+
+
 <a name="GetObjectReq"/>
 
+## GetObject
 
-## GetObjectReq
+<a name="GetObjectReq"/>
+
+### GetObjectReq
 
 ```python
    
@@ -384,7 +432,7 @@ message GetObjectReq {  bytes query = 1;    }
 
 <a name="GetObjectResp"/>
 
-## GetObjectResp
+### GetObjectResp
 
 ```python
    
@@ -411,9 +459,18 @@ message GetObjectResp {
 
 
 
+
+
+
+
+
+<a name="GetLatestData"/>
+
+## GetLatestData
+
 <a name="GetLatestDataReq"/>
 
-## GetLatestDataReq
+### GetLatestDataReq
 
 ```python
    
@@ -441,7 +498,7 @@ message GetLatestDataReq {
 
 <a name="GetLatestDataResp"/>
 
-## GetLatestDataResp
+### GetLatestDataResp
 
 ```python
    
@@ -462,10 +519,19 @@ message GetLatestDataResp {
 | transactions_unconfirmed | [TransactionExtended](#TransactionExtended) | repeated |  |
 
 
+
+
+
+
+
+
+<a name="PushTransaction"/>
+
+## PushTransaction
+
 <a name="PushTransactionReq"/>
 
-
-## PushTransactionReq
+### PushTransactionReq
 
 ```python
    
@@ -480,7 +546,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 
 <a name="PushTransactionResp"/>
 
-## PushTransactionResp
+### PushTransactionResp
 
 ```python
    
@@ -507,10 +573,20 @@ message PushTransactionResp {
 | tx_hash | [bytes](#bytes) |  |  |
 
 
+
+
+
+
+
+
+
+<a name="TransferCoins"/>
+
+## TransferCoins
+
 <a name="TransferCoinsReq"/>
 
-
-## TransferCoinsReq
+### TransferCoinsReq
 
 ```python
    
@@ -536,7 +612,7 @@ message TransferCoinsReq {
 
 <a name="TransferCoinsResp"/>
 
-## TransferCoinsResp
+### TransferCoinsResp
 
 ```python
    
@@ -552,10 +628,17 @@ message TransferCoinsResp {
 | extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
+
+<a name="GetAddressFromPK"/>
+
+## GetAddressFromPK
+
+
+
+
 <a name="GetAddressFromPKReq"/>
 
-
-## GetAddressFromPKReq
+### GetAddressFromPKReq
 
 ```python
    
@@ -573,7 +656,7 @@ message GetAddressFromPKReq {
 
 <a name="GetAddressFromPKResp"/>
 
-## GetAddressFromPKResp
+### GetAddressFromPKResp
 
 ```python
    
@@ -589,10 +672,14 @@ message GetAddressFromPKResp {
 | address | [bytes](#bytes) |  |  |
 
 
+
+<a name="GetMessageTxn"/>
+
+## GetMessageTxn
+
 <a name="MessageTxnReq"/>
 
-
-## MessageTxnReq
+### MessageTxnReq
 
 ```python
    
@@ -611,9 +698,19 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
+
+
+
+
+
+
+<a name="GetTokenTxn"/>
+
+## GetTokenTxn
+
 <a name="TokenTxnReq"/>
 
-## TokenTxnReq
+### TokenTxnReq
 
 ```python
    
@@ -636,9 +733,15 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
+
+
+<a name="GetTransferTokenTxnReq"/>
+
+## GetTransferTokenTxn
+
 <a name="TransferTokenTxnReq"/>
 
-## TransferTokenTxnReq
+### TransferTokenTxnReq
 
 ```python
    
