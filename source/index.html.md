@@ -171,6 +171,7 @@ This service describes the Public API used by clients (wallet/cli/etc)
 ```javascript
 message GetNodeStateReq { }
 ```
+
 Represents a query to get node state
 
 <a name="GetNodeStateResp"/>
@@ -261,9 +262,11 @@ Represents the reply message to known peers query
 ```python
    
 ```
+
 ```javascript
 message GetPeersStatReq { }
 ```
+
 Represents a query to get connected peers stat
 
 <a name="GetPeersStatResp"/>
@@ -273,6 +276,7 @@ Represents a query to get connected peers stat
 ```python
    
 ```
+
 ```javascript
 message GetPeersStatResp {
     repeated PeerStat peers_stat = 1;
@@ -283,10 +287,6 @@ Represents the reply message to peers stat query
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | peers_stat | [PeerStat](#PeerStat) | repeated | PeerState object contains peer_ip, port and peer state information |
-
-
-
-
 
 
 
@@ -321,6 +321,7 @@ Represents a query to get statistics about node
 ```python
    
 ```
+
 ```javascript
 message GetStatsResp {
     NodeInfo node_info = 1;                 // NodeInfo object containing node state information
@@ -337,6 +338,7 @@ message GetStatsResp {
     repeated BlockDataPoint block_timeseries = 9;
 }
 ```
+
 Represents the reply message to get statistics about node
 
 | Field | Type | Label | Description |
@@ -350,12 +352,6 @@ Represents the reply message to get statistics about node
 | coins_total_supply | [uint64](#uint64) |  | Total coins supply |
 | coins_emitted | [uint64](#uint64) |  | Total coins emitted |
 | block_timeseries | [BlockDataPoint](#BlockDataPoint) | repeated |  |
-
-
-
-
-
-
 
 
 
@@ -392,6 +388,7 @@ message GetAddressStateResp {
     AddressState state = 1;
 }
 ```
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | state | [AddressState](#AddressState) |  |  |
@@ -419,6 +416,7 @@ message GetAddressStateResp {
 ```javascript
 message GetObjectReq {  bytes query = 1;    }
 ```
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | query | [bytes](#bytes) |  |  |
@@ -442,19 +440,13 @@ message GetObjectResp {
     }
 }
 ```
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | found | [bool](#bool) |  |  |
 | address_state | [AddressState](#AddressState) |  |  |
 | transaction | [TransactionExtended](#TransactionExtended) |  |  |
 | block_extended | [BlockExtended](#BlockExtended) |  |  |
-
-
-
-
-
-
-
 
 
 
@@ -514,11 +506,6 @@ message GetLatestDataResp {
 
 
 
-
-
-
-
-
 <a name="PushTransaction"/>
 
 ## PushTransaction
@@ -530,6 +517,7 @@ message GetLatestDataResp {
 ```python
    
 ```
+
 ```javascript
 message PushTransactionReq {    Transaction transaction_signed = 1;     }
 ```
@@ -545,6 +533,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 ```python
    
 ```
+
 ```javascript
 message PushTransactionResp {
     enum ResponseCode {
@@ -565,11 +554,6 @@ message PushTransactionResp {
 | error_code | [PushTransactionResp.ResponseCode](#PushTransactionResp.ResponseCode) |  |  |
 | error_description | [string](#string) |  |  |
 | tx_hash | [bytes](#bytes) |  |  |
-
-
-
-
-
 
 
 
@@ -611,6 +595,7 @@ message TransferCoinsReq {
 ```python
    
 ```
+
 ```javascript
 message TransferCoinsResp {
     TransactionExtended extended_transaction_unsigned = 1;
@@ -622,12 +607,9 @@ message TransferCoinsResp {
 | extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
 
 
-
 <a name="GetAddressFromPK"/>
 
 ## GetAddressFromPK
-
-
 
 
 <a name="GetAddressFromPKReq"/>
@@ -637,6 +619,7 @@ message TransferCoinsResp {
 ```python
    
 ```
+
 ```javascript
 message GetAddressFromPKReq {
     bytes pk = 1;
@@ -655,6 +638,7 @@ message GetAddressFromPKReq {
 ```python
    
 ```
+
 ```javascript
 message GetAddressFromPKResp {
     bytes address = 1;
@@ -764,6 +748,7 @@ message GetAddressFromPKResp {
 ```python
    
 ```
+
 ```javascript
 message TransferCoinsResp {
     TransactionExtended extended_transaction_unsigned = 1;
@@ -804,22 +789,6 @@ message TransferCoinsResp {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="AdminAPI"/>
 
 ## AdminAPI
@@ -829,43 +798,6 @@ This is a place holder for testing/instrumentation APIs
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1121,10 +1053,7 @@ BlockDataPoint message definition
 
 
 
-
-
 <a name="BlockHeaderExtended"/>
-
 
 ## BlockHeaderExtended
 
@@ -1141,10 +1070,6 @@ BlockDataPoint message definition
 | ----- | ---- | ----- | ----------- |
 | header | [BlockHeader](#BlockHeader) |  |  |
 | transaction_count | [TransactionCount](#TransactionCount) |  |  |
-
-
-
-
 
 
 <a name="BlockHeightData"/>
@@ -1190,9 +1115,6 @@ BlockDataPoint message definition
 | cumulative_difficulty | [bytes](#bytes) |  |  |
 | child_headerhashes | [bytes](#bytes) | repeated |  |
 | last_N_headerhashes | [bytes](#bytes) | repeated | Keeps last N headerhashes, for measurement of timestamp difference |
-
-
-
 
 
 
@@ -1331,19 +1253,6 @@ Empty message definition
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="GetBlockReq"/>
 
 
@@ -1393,20 +1302,7 @@ NOT USED -&gt; RM?
 | block | [Block](#Block) |  |  |
 
 
-
-
-
-
-
-
-
-
-
-
-
 <a name="GetLocalAddressesReq"/>
-
-
 
 ## GetLocalAddressesReq
 
@@ -1439,35 +1335,6 @@ NOT USED -&gt; RM?
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | addresses | [bytes](#bytes) | repeated |  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2206,6 +2073,7 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
 | grpcProto | [string](#string) |  |  |
+
 
 <a name="Base"/>
 
