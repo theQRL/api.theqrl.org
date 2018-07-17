@@ -3,12 +3,13 @@
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
 
+<a name="PublicAPI"/>
 
 ## PublicAPI
 
-<a name="PublicAPI"/>
 
 ```python
+
 ```
 
 ```javascript
@@ -17,6 +18,7 @@ Our API's protocol data structure is defined in the qrl.proto file found in the 
 
 
 This service describes the Public API used by clients (wallet/cli/etc)
+
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
