@@ -17,8 +17,8 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mrData | [MRData](#MRData) |  |  |
-| block | [Block](#Block) |  |  |
+| mrData | [MRData](#mrdata) |  |  |
+| block | [Block](#block) |  |  |
 
 
 <a name="FBData"/>
@@ -57,27 +57,27 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| func_name | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  |  |
-| noData | [NoData](#NoData) |  |  |
-| veData | [VEData](#VEData) |  |  |
-| plData | [PLData](#PLData) |  |  |
-| pongData | [PONGData](#PONGData) |  |  |
-| mrData | [MRData](#MRData) |  |  |
-| block | [Block](#Block) |  |  |
-| fbData | [FBData](#FBData) |  |  |
-| pbData | [PBData](#PBData) |  |  |
-| bhData | [BlockHeightData](#BlockHeightData) |  |  |
-| txData | [Transaction](#Transaction) |  |  |
-| mtData | [Transaction](#Transaction) |  |  |
-| tkData | [Transaction](#Transaction) |  |  |
-| ttData | [Transaction](#Transaction) |  |  |
-| ltData | [Transaction](#Transaction) |  |  |
-| slData | [Transaction](#Transaction) |  |  |
-| ephData | [EncryptedEphemeralMessage](#EncryptedEphemeralMessage) |  |  |
-| syncData | [SYNCData](#SYNCData) |  |  |
-| chainStateData | [NodeChainState](#NodeChainState) |  |  |
-| nodeHeaderHash | [NodeHeaderHash](#NodeHeaderHash) |  |  |
-| p2pAckData | [P2PAcknowledgement](#P2PAcknowledgement) |  |  |
+| func_name | [LegacyMessage.FuncName](#legacymessage.funcname) |  |  |
+| noData | [NoData](#nodata) |  |  |
+| veData | [VEData](#vedata) |  |  |
+| plData | [PLData](#pldata) |  |  |
+| pongData | [PONGData](#pongdata) |  |  |
+| mrData | [MRData](#mrdata) |  |  |
+| block | [Block](#block) |  |  |
+| fbData | [FBData](#fbdata) |  |  |
+| pbData | [PBData](#pbdata) |  |  |
+| bhData | [BlockHeightData](#blockheightdata) |  |  |
+| txData | [Transaction](#transaction) |  |  |
+| mtData | [Transaction](#transaction) |  |  |
+| tkData | [Transaction](#transaction) |  |  |
+| ttData | [Transaction](#transaction) |  |  |
+| ltData | [Transaction](#transaction) |  |  |
+| slData | [Transaction](#transaction) |  |  |
+| ephData | [EncryptedEphemeralMessage](#encryptedephemeralmessage) |  |  |
+| syncData | [SYNCData](#syncdata) |  |  |
+| chainStateData | [NodeChainState](#nodechainstate) |  |  |
+| nodeHeaderHash | [NodeHeaderHash](#nodeheaderhash) |  |  |
+| p2pAckData | [P2PAcknowledgement](#p2packnowledgement) |  |  |
 
 
 
@@ -97,7 +97,7 @@ Adding old code to refactor while keeping things working
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | hash | [bytes](#bytes) |  | FIXME: rename this to block_headerhash |
-| type | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  | FIXME: type/string what is this |
+| type | [LegacyMessage.FuncName](#legacymessage.funcname) |  | FIXME: type/string what is this |
 | stake_selector | [bytes](#bytes) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | prev_headerhash | [bytes](#bytes) |  |  |
@@ -132,7 +132,7 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [Block](#Block) |  |  |
+| block | [Block](#block) |  |  |
 
 
 <a name="PLData"/>

@@ -40,7 +40,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tx_metadata | [TransactionMetadata](#TransactionMetadata) | repeated |  |
+| tx_metadata | [TransactionMetadata](#transactionmetadata) | repeated |  |
 
 
 
@@ -59,6 +59,6 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| transaction | [Transaction](#Transaction) |  |  |
+| transaction | [Transaction](#transaction) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | timestamp | [uint64](#uint64) |  |  |

@@ -51,6 +51,6 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetNodeInfo | [GetNodeInfoReq](#GetNodeInfoReq) | [GetNodeInfoResp](#GetNodeInfoReq) |  |
+| GetNodeInfo | [GetNodeInfoReq](#getnodeinforeq) | [GetNodeInfoResp](#getnodeinforeq) |  |
 
  

@@ -17,10 +17,10 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| [GetBlockMiningCompatible](#GetBlockMiningCompatible) | [GetBlockMiningCompatibleReq](#GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#GetBlockMiningCompatibleReq) |  |
-| [GetLastBlockHeader](#GetLastBlockHeader) | [GetLastBlockHeaderReq](#GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#GetLastBlockHeaderReq) |  |
-| [GetBlockToMine](#GetBlockToMine) | [GetBlockToMineReq](#GetBlockToMineReq) | [GetBlockToMineResp](#GetBlockToMineReq) |  |
-| [SubmitMinedBlock](#SubmitMinedBlock) | [SubmitMinedBlockReq](#SubmitMinedBlockReq) | [SubmitMinedBlockResp](#SubmitMinedBlockReq) |  |
+| [GetBlockMiningCompatible](#getblockminingcompatible) | [GetBlockMiningCompatibleReq](#getblockminingcompatibleReq) | [GetBlockMiningCompatibleResp](#getblockminingcompatibleReq) |  |
+| [GetLastBlockHeader](#getlastblockheader) | [GetLastBlockHeaderReq](#getlastblockheaderReq) | [GetLastBlockHeaderResp](#getlastblockheaderReq) |  |
+| [GetBlockToMine](#getblocktomine) | [GetBlockToMineReq](#getblocktomineReq) | [GetBlockToMineResp](#getblocktomineReq) |  |
+| [SubmitMinedBlock](#submitminedblock) | [SubmitMinedBlockReq](#submitminedblockReq) | [SubmitMinedBlockResp](#submitminedblockReq) |  |
 
  
 <a name="GetBlockMiningCompatible"/>
@@ -60,8 +60,8 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheader | [BlockHeader](#BlockHeader) |  |  |
-| blockmetadata | [BlockMetaData](#BlockMetaData) |  |  |
+| blockheader | [BlockHeader](#blockheader) |  |  |
+| blockmetadata | [BlockMetaData](#blockmetadata) |  |  |
 
 
 

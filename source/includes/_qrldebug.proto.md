@@ -31,8 +31,8 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| coinbase_state | [AddressState](#AddressState) |  |  |
-| addresses_state | [AddressState](#AddressState) | repeated |  |
+| coinbase_state | [AddressState](#addressstate) |  |  |
+| addresses_state | [AddressState](#addressstate) | repeated |  |
 
 
 
@@ -54,4 +54,4 @@ This service describes the Debug API used for debugging
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetFullState | [GetFullStateReq](#GetFullStateReq) | [GetFullStateResp](#GetFullStateReq) |  |
+| GetFullState | [GetFullStateReq](#getfullstatereq) | [GetFullStateResp](#getfullstatereq) |  |
