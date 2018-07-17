@@ -23,20 +23,20 @@ This service describes the Public API used by clients wallet, cli, etc
 
 | Method Name                                    | Request Type                                 | Response Type                                 | Description |
 | -----------                                    | ------------                                 | -------------                                 | ------------|
-| [GetNodeState](#GetNodeState)                  | [GetNodeStateReq](#GetNodeStateReq)          | [GetNodeStateResp](#GetNodeStateReq)          |  |
-| [GetKnownPeers](#GetKnownPeers)                | [GetKnownPeersReq](#GetKnownPeersReq)        | [GetKnownPeersResp](#GetKnownPeersReq)        |  |
-| [GetPeersStat](#GetPeersStat)                  | [GetPeersStatReq](#GetPeersStatReq)          | [GetPeersStatResp](#GetPeersStatReq)          |  |
-| [GetStats](#GetStats)                          | [GetStatsReq](#GetStatsReq)                  | [GetStatsResp](#GetStatsReq)                  |  |
-| [GetAddressState](#GetAddressState)            | [GetAddressStateReq](#GetAddressStateReq)    | [GetAddressStateResp](#GetAddressStateReq)    |  |
-| [GetObject](#GetObject)                        | [GetObjectReq](#GetObjectReq)                | [GetObjectResp](#GetObjectReq)                |  |
-| [GetLatestData](#GetLatestData)                | [GetLatestDataReq](#GetLatestDataReq)        | [GetLatestDataResp](#GetLatestDataReq)        |  |
-| [PushTransaction](#PushTransaction)            | [PushTransactionReq](#PushTransactionReq)    | [PushTransactionResp](#PushTransactionReq)    |  |
-| [TransferCoins](#TransferCoins)                | [TransferCoinsReq](#TransferCoinsReq)        | [TransferCoinsResp](#TransferCoinsReq)        |  |
-| [GetAddressFromPK](#GetAddressFromPK)          | [GetAddressFromPKReq](#GetAddressFromPKReq)  | [GetAddressFromPKResp](#GetAddressFromPKReq)  |  |
-| [GetMessageTxn](#GetMessageTxn)                | [MessageTxnReq](#MessageTxnReq)              | [TransferCoinsResp](#TransferCoinsResp)       |  |
-| [GetTokenTxn](#GetTokenTxn)                    | [TokenTxnReq](#TokenTxnReq)                  | [TransferCoinsResp](#TokenTxnReq)             |  |
-| [GetTransferTokenTxn](#GetTransferTokenTxn)    | [TransferTokenTxnReq](#TransferTokenTxnReq)  | [TransferCoinsResp](#TransferCoinsTxnReq1)    |  |
-| [GetSlaveTxn](#GetSlaveTxn)                    | [SlaveTxnReq](#SlaveTxnReq)                  | [TransferCoinsResp](#SlaveTxnReq)             |  |
+| [GetNodeState](#getnodestate)                  | [GetNodeStateReq](#getnodestatereq)          | [GetNodeStateResp](#getnodestatereq)          |  |
+| [GetKnownPeers](#getpnownpeers)                | [GetKnownPeersReq](#GetKnownPeersReq)        | [GetKnownPeersResp](#GetKnownPeersReq)        |  |
+| [GetPeersStat](#getpeersstat)                  | [GetPeersStatReq](#GetPeersStatReq)          | [GetPeersStatResp](#GetPeersStatReq)          |  |
+| [GetStats](#getstats)                          | [GetStatsReq](#GetStatsReq)                  | [GetStatsResp](#GetStatsReq)                  |  |
+| [GetAddressState](#getaddressstate)            | [GetAddressStateReq](#GetAddressStateReq)    | [GetAddressStateResp](#GetAddressStateReq)    |  |
+| [GetObject](#getobject)                        | [GetObjectReq](#GetObjectReq)                | [GetObjectResp](#GetObjectReq)                |  |
+| [GetLatestData](#getlatestdata)                | [GetLatestDataReq](#GetLatestDataReq)        | [GetLatestDataResp](#GetLatestDataReq)        |  |
+| [PushTransaction](#pushtransaction)            | [PushTransactionReq](#PushTransactionReq)    | [PushTransactionResp](#PushTransactionReq)    |  |
+| [TransferCoins](#transfercoins)                | [TransferCoinsReq](#TransferCoinsReq)        | [TransferCoinsResp](#TransferCoinsReq)        |  |
+| [GetAddressFromPK](#getaddressfrompk)          | [GetAddressFromPKReq](#GetAddressFromPKReq)  | [GetAddressFromPKResp](#GetAddressFromPKReq)  |  |
+| [GetMessageTxn](#getmessagetxn)                | [MessageTxnReq](#MessageTxnReq)              | [TransferCoinsResp](#TransferCoinsResp)       |  |
+| [GetTokenTxn](#gettokentxn)                    | [TokenTxnReq](#TokenTxnReq)                  | [TransferCoinsResp](#TokenTxnReq)             |  |
+| [GetTransferTokenTxn](#gettransfertokentxn)    | [TransferTokenTxnReq](#TransferTokenTxnReq)  | [TransferCoinsResp](#TransferCoinsTxnReq1)    |  |
+| [GetSlaveTxn](#getslavetxn)                    | [SlaveTxnReq](#SlaveTxnReq)                  | [TransferCoinsResp](#SlaveTxnReq)             |  |
 
  
 
@@ -78,7 +78,7 @@ Represents the reply message to node state query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [NodeInfo](#NodeInfo) |  |  |
+| info | [NodeInfo](#nodeinfo) |  |  |
 
 
 
