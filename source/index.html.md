@@ -9,6 +9,7 @@ toc_footers:
   - <a href='https://github.com/theqrl'>QRL Github</a> 
   - <a href='https://theqrl.org'>TheQRL.org - Main Site</a>
   - <a href='https://docs.theqrl.org'>Docs.TheQRL.org - Documentation</a>
+  - <a href='https://discord.gg/DHbZXB8'>Discord Chat</a> 
 
 
 includes:
@@ -149,17 +150,10 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | [GetAddressFromPK](#GetAddressFromPK) | [GetAddressFromPKReq](#GetAddressFromPKReq) | [GetAddressFromPKResp](#GetAddressFromPKReq) |  |
 | [GetMessageTxn](#GetMessageTxn) | [MessageTxnReq](#MessageTxnReq) | [TransferCoinsResp](#TransferCoinsResp) |  |
 | [GetTokenTxn](#GetTokenTxn) | [TokenTxnReq](#TokenTxnReq) | [TransferCoinsResp](#TokenTxnReq) |  |
-| [GetTransferTokenTxn](#GetTransferTokenTxn) | [TransferTokenTxnReq](#TransferTokenTxnReq) | [TransferCoinsResp](#TransferTokenTxnReq) |  |
+| [GetTransferTokenTxn](#GetTransferTokenTxn) | [TransferTokenTxnReq](#TransferTokenTxnReq) | [TransferCoinsResp](#TransferCoinsTxnReq1) |  |
 | [GetSlaveTxn](#GetSlaveTxn) | [SlaveTxnReq](#SlaveTxnReq) | [TransferCoinsResp](#SlaveTxnReq) |  |
 
  
-
-
-
-
-
-
-
 
 
 <a name="GetNodeState"/>
@@ -735,7 +729,7 @@ message GetAddressFromPKResp {
 
 
 
-<a name="GetTransferTokenTxnReq"/>
+<a name="GetTransferTokenTxn"/>
 
 ## GetTransferTokenTxn
 
@@ -763,9 +757,32 @@ message GetAddressFromPKResp {
 
 
 
+<a name="TransferCoinsTxnReq1"/>
+
+### TransferCoinsResp
+
+```python
+   
+```
+```javascript
+message TransferCoinsResp {
+    TransactionExtended extended_transaction_unsigned = 1;
+}
+```
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
+
+
+
+<a name="GetSlaveTxn"/>
+
+## GetSlaveTxn
+
 <a name="SlaveTxnReq"/>
 
-## SlaveTxnReq
+### SlaveTxnReq
 
 ```python
    
@@ -796,27 +813,11 @@ message GetAddressFromPKResp {
 
 
 
-<a name="MiningAPI"/>
 
 
-## MiningAPI
 
-```python
-   
-```
 
-```javascript
-   
-```
 
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| GetBlockMiningCompatible | [GetBlockMiningCompatibleReq](#GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#GetBlockMiningCompatibleReq) |  |
-| GetLastBlockHeader | [GetLastBlockHeaderReq](#GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#GetLastBlockHeaderReq) |  |
-| GetBlockToMine | [GetBlockToMineReq](#GetBlockToMineReq) | [GetBlockToMineResp](#GetBlockToMineReq) |  |
-| SubmitMinedBlock | [SubmitMinedBlockReq](#SubmitMinedBlockReq) | [SubmitMinedBlockResp](#SubmitMinedBlockReq) |  |
-
- 
 
 
 <a name="AdminAPI"/>
@@ -2549,9 +2550,11 @@ Adding old code to refactor while keeping things working
 # qrlmining.proto
 
 
-<a name="GetBlockMiningCompatibleReq"/>
 
-## GetBlockMiningCompatibleReq
+<a name="MiningAPI"/>
+
+
+## MiningAPI
 
 ```python
    
@@ -2561,18 +2564,40 @@ Adding old code to refactor while keeping things working
    
 ```
 
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| [GetBlockMiningCompatible](#GetBlockMiningCompatible) | [GetBlockMiningCompatibleReq](#GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#GetBlockMiningCompatibleReq) |  |
+| [GetLastBlockHeader](#GetLastBlockHeader) | [GetLastBlockHeaderReq](#GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#GetLastBlockHeaderReq) |  |
+| [GetBlockToMine](#GetBlockToMine) | [GetBlockToMineReq](#GetBlockToMineReq) | [GetBlockToMineResp](#GetBlockToMineReq) |  |
+| [SubmitMinedBlock](#SubmitMinedBlock) | [SubmitMinedBlockReq](#SubmitMinedBlockReq) | [SubmitMinedBlockResp](#SubmitMinedBlockReq) |  |
+
+ 
+<a name="GetBlockMiningCompatible"/>
+
+## GetBlockMiningCompatible
+
+
+
+<a name="GetBlockMiningCompatibleReq"/>
+
+### GetBlockMiningCompatibleReq
+
+```python
+   
+```
+
+```javascript
+   
+```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| height | [uint64](#uint64) |  | Used for getlastblockheader and getblockheaderbyheight
-
-if height = 0, this means getlastblockheader |
-
+| height | [uint64](#uint64) |  | Used for getlastblockheader and getblockheaderbyheight if height = 0, this means getlastblockheader |
 
 
 <a name="GetBlockMiningCompatibleResp"/>
 
-## GetBlockMiningCompatibleResp
+### GetBlockMiningCompatibleResp
 
 ```python
    
@@ -2581,7 +2606,6 @@ if height = 0, this means getlastblockheader |
 ```javascript
    
 ```
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -2590,9 +2614,30 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="GetBlockToMineReq"/>
 
-## GetBlockToMineReq
+
+## GetLastBlockHeader
+
+<a name="GetLastBlockHeaderReq"/>
+
+### GetLastBlockHeaderReq
+
+```python
+   
+```
+
+```javascript
+   
+```
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| height | [uint64](#uint64) |  |  |
+
+<a name="GetLastBlockHeaderResp"/>
+
+
+### GetLastBlockHeaderResp
 
 ```python
    
@@ -2605,13 +2650,40 @@ if height = 0, this means getlastblockheader |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| wallet_address | [bytes](#bytes) |  |  |
+| difficulty | [uint64](#uint64) |  |  |
+| height | [uint64](#uint64) |  |  |
+| timestamp | [uint64](#uint64) |  |  |
+| reward | [uint64](#uint64) |  |  |
+| hash | [string](#string) |  |  |
+| depth | [uint64](#uint64) |  |  |
 
+
+<a name="GetBlockToMine"/>
+
+## GetBlockToMine
+
+
+
+<a name="GetBlockToMineReq"/>
+
+### GetBlockToMineReq
+
+```python
+   
+```
+
+```javascript
+   
+```
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| wallet_address | [bytes](#bytes) |  |  |
 
 
 <a name="GetBlockToMineResp"/>
 
-## GetBlockToMineResp
+### GetBlockToMineResp
 
 ```python
    
@@ -2631,45 +2703,14 @@ if height = 0, this means getlastblockheader |
 
 
 
-<a name="GetLastBlockHeaderReq"/>
-
-## GetLastBlockHeaderReq
-
-```python
-   
-```
-
-```javascript
-   
-```
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| height | [uint64](#uint64) |  |  |
 
-<a name="GetLastBlockHeaderResp"/>
+<a name="SubmitMinedBlock"/>
 
-
-## GetLastBlockHeaderResp
-
-```python
-   
-```
-
-```javascript
-   
-```
+## SubmitMinedBlock
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| difficulty | [uint64](#uint64) |  |  |
-| height | [uint64](#uint64) |  |  |
-| timestamp | [uint64](#uint64) |  |  |
-| reward | [uint64](#uint64) |  |  |
-| hash | [string](#string) |  |  |
-| depth | [uint64](#uint64) |  |  |
 
 
 
