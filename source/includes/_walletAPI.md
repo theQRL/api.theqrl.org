@@ -1,4 +1,4 @@
-## WalletAPI
+# WalletAPI
 
 - **AddNewAddress**
 - **AddAddressFromSeed**
