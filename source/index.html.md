@@ -13,6 +13,7 @@ toc_footers:
 
 
 includes:
+  - wallet-api
   - errors
 
 search: true
