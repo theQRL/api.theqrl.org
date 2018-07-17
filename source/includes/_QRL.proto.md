@@ -41,13 +41,11 @@ This service describes the Public API used by clients wallet, cli, etc
  
 
 
-<a name="GetNodeState"/>
 
 ## GetNodeState 
 
 
 
-<a name="GetNodeStateReq"/>
 
 ### GetNodeStateReq
 
@@ -65,7 +63,6 @@ Represents a query to get node state
 
 ### GetNodeStateResp
 
-<a name="GetNodeStateResp"/>
 
 ```python
 # python
