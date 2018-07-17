@@ -157,10 +157,10 @@ This service describes the Public API used by clients (wallet/cli/etc)
  
 
 
+<a name="GetNodeState"/>
 
 ## GetNodeState 
 
-<a name="GetNodeState"/>
 
 Some explination of getnodestate here
 
