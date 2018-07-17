@@ -5,13 +5,12 @@
 
 Our API's protocol data structure is defined in the qrl.proto file found in the source code in our [github repo](https://github.com/theQRL/QRL/blob/master/src/qrl/protos/qrl.proto). Our PublicAPI service lists the functions available in our API. 
 
-<a name="PublicAPI"/>
 
 ## PublicAPI
 
 
 ```python
-
+# python
 ```
 
 ```javascript
@@ -19,25 +18,25 @@ Our API's protocol data structure is defined in the qrl.proto file found in the 
 ```
 
 
-This service describes the Public API used by clients (wallet/cli/etc)
+This service describes the Public API used by clients wallet, cli, etc
 
 
-| Method Name                                    | Request Type                                 | Response Type | Description |
-| -----------                                    | ------------                                 | ------------- | ------------|
-| [GetNodeState](#GetNodeState)                  | [GetNodeStateReq](#GetNodeStateReq)          | [GetNodeStateResp](#GetNodeStateReq) |  |
-| [GetKnownPeers](#GetKnownPeers)                | [GetKnownPeersReq](#GetKnownPeersReq)        | [GetKnownPeersResp](#GetKnownPeersReq) |  |
-| [GetPeersStat](#GetPeersStat)                  | [GetPeersStatReq](#GetPeersStatReq)          | [GetPeersStatResp](#GetPeersStatReq) |  |
-| [GetStats](#GetStats)                          | [GetStatsReq](#GetStatsReq)                  | [GetStatsResp](#GetStatsReq) |  |
-| [GetAddressState](#GetAddressState)            | [GetAddressStateReq](#GetAddressStateReq)    | [GetAddressStateResp](#GetAddressStateReq) |  |
-| [GetObject](#GetObject)                        | [GetObjectReq](#GetObjectReq)                | [GetObjectResp](#GetObjectReq) |  |
-| [GetLatestData](#GetLatestData)                | [GetLatestDataReq](#GetLatestDataReq)        | [GetLatestDataResp](#GetLatestDataReq) |  |
-| [PushTransaction](#PushTransaction)            | [PushTransactionReq](#PushTransactionReq)    | [PushTransactionResp](#PushTransactionReq) |  |
-| [TransferCoins](#TransferCoins)                | [TransferCoinsReq](#TransferCoinsReq)        | [TransferCoinsResp](#TransferCoinsReq) |  |
-| [GetAddressFromPK](#GetAddressFromPK)          | [GetAddressFromPKReq](#GetAddressFromPKReq)  | [GetAddressFromPKResp](#GetAddressFromPKReq) |  |
-| [GetMessageTxn](#GetMessageTxn)                | [MessageTxnReq](#MessageTxnReq)              | [TransferCoinsResp](#TransferCoinsResp) |  |
-| [GetTokenTxn](#GetTokenTxn)                    | [TokenTxnReq](#TokenTxnReq)                  | [TransferCoinsResp](#TokenTxnReq) |  |
-| [GetTransferTokenTxn](#GetTransferTokenTxn)    | [TransferTokenTxnReq](#TransferTokenTxnReq)  | [TransferCoinsResp](#TransferCoinsTxnReq1) |  |
-| [GetSlaveTxn](#GetSlaveTxn)                    | [SlaveTxnReq](#SlaveTxnReq)                  | [TransferCoinsResp](#SlaveTxnReq) |  |
+| Method Name                                    | Request Type                                 | Response Type                                 | Description |
+| -----------                                    | ------------                                 | -------------                                 | ------------|
+| [GetNodeState](#GetNodeState)                  | [GetNodeStateReq](#GetNodeStateReq)          | [GetNodeStateResp](#GetNodeStateReq)          |  |
+| [GetKnownPeers](#GetKnownPeers)                | [GetKnownPeersReq](#GetKnownPeersReq)        | [GetKnownPeersResp](#GetKnownPeersReq)        |  |
+| [GetPeersStat](#GetPeersStat)                  | [GetPeersStatReq](#GetPeersStatReq)          | [GetPeersStatResp](#GetPeersStatReq)          |  |
+| [GetStats](#GetStats)                          | [GetStatsReq](#GetStatsReq)                  | [GetStatsResp](#GetStatsReq)                  |  |
+| [GetAddressState](#GetAddressState)            | [GetAddressStateReq](#GetAddressStateReq)    | [GetAddressStateResp](#GetAddressStateReq)    |  |
+| [GetObject](#GetObject)                        | [GetObjectReq](#GetObjectReq)                | [GetObjectResp](#GetObjectReq)                |  |
+| [GetLatestData](#GetLatestData)                | [GetLatestDataReq](#GetLatestDataReq)        | [GetLatestDataResp](#GetLatestDataReq)        |  |
+| [PushTransaction](#PushTransaction)            | [PushTransactionReq](#PushTransactionReq)    | [PushTransactionResp](#PushTransactionReq)    |  |
+| [TransferCoins](#TransferCoins)                | [TransferCoinsReq](#TransferCoinsReq)        | [TransferCoinsResp](#TransferCoinsReq)        |  |
+| [GetAddressFromPK](#GetAddressFromPK)          | [GetAddressFromPKReq](#GetAddressFromPKReq)  | [GetAddressFromPKResp](#GetAddressFromPKReq)  |  |
+| [GetMessageTxn](#GetMessageTxn)                | [MessageTxnReq](#MessageTxnReq)              | [TransferCoinsResp](#TransferCoinsResp)       |  |
+| [GetTokenTxn](#GetTokenTxn)                    | [TokenTxnReq](#TokenTxnReq)                  | [TransferCoinsResp](#TokenTxnReq)             |  |
+| [GetTransferTokenTxn](#GetTransferTokenTxn)    | [TransferTokenTxnReq](#TransferTokenTxnReq)  | [TransferCoinsResp](#TransferCoinsTxnReq1)    |  |
+| [GetSlaveTxn](#GetSlaveTxn)                    | [SlaveTxnReq](#SlaveTxnReq)                  | [TransferCoinsResp](#SlaveTxnReq)             |  |
 
  
 
@@ -54,7 +53,7 @@ This service describes the Public API used by clients (wallet/cli/etc)
 <a name="GetNodeStateReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -69,7 +68,7 @@ Represents a query to get node state
 <a name="GetNodeStateResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -102,7 +101,7 @@ Represents the reply message to node state query
 <a name="GetKnownPeersReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -117,7 +116,7 @@ Represents a query to get known peers
 <a name="GetKnownPeersResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -154,7 +153,7 @@ Represents the reply message to known peers query
 <a name="GetPeersStatReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -169,7 +168,7 @@ Represents a query to get connected peers stat
 <a name="GetPeersStatResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -196,7 +195,7 @@ Represents the reply message to peers stat query
 <a name="GetStatsReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -217,7 +216,7 @@ Represents a query to get statistics about node
 <a name="GetStatsResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -264,7 +263,7 @@ Represents the reply message to get statistics about node
 <a name="GetAddressStateReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -281,7 +280,7 @@ message GetAddressStateReq {   bytes address = 1; }
 <a name="GetAddressStateResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -313,7 +312,7 @@ message GetAddressStateResp {
 <a name="GetObjectReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -331,7 +330,7 @@ message GetObjectReq {  bytes query = 1;    }
 <a name="GetObjectResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -365,7 +364,7 @@ message GetObjectResp {
 <a name="GetLatestDataReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -394,7 +393,7 @@ message GetLatestDataReq {
 <a name="GetLatestDataResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -424,7 +423,7 @@ message GetLatestDataResp {
 <a name="PushTransactionReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -441,7 +440,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 <a name="PushTransactionResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -479,7 +478,7 @@ message PushTransactionResp {
 <a name="TransferCoinsReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -506,7 +505,7 @@ message TransferCoinsReq {
 <a name="TransferCoinsResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -532,7 +531,7 @@ message TransferCoinsResp {
 <a name="GetAddressFromPKReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -552,7 +551,7 @@ message GetAddressFromPKReq {
 <a name="GetAddressFromPKResp"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -578,7 +577,7 @@ message GetAddressFromPKResp {
 <a name="MessageTxnReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -611,7 +610,7 @@ message GetAddressFromPKResp {
 <a name="TokenTxnReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -644,7 +643,7 @@ message GetAddressFromPKResp {
 <a name="TransferTokenTxnReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -669,7 +668,7 @@ message GetAddressFromPKResp {
 <a name="TransferCoinsTxnReq1"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -695,7 +694,7 @@ message TransferCoinsResp {
 <a name="SlaveTxnReq"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -735,7 +734,7 @@ This is a place holder for testing/instrumentation APIs
 <a name="AddressAmount"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -759,7 +758,7 @@ This is a place holder for testing/instrumentation APIs
 <a name="AddressList"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -834,7 +833,7 @@ qrlClient.then( function (qrlClient) {
 <a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -858,7 +857,7 @@ qrlClient.then( function (qrlClient) {
 <a name="AddressState.TokensEntry"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -882,7 +881,7 @@ qrlClient.then( function (qrlClient) {
 <a name="Block"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -907,7 +906,7 @@ qrlClient.then( function (qrlClient) {
 <a name="BlockDataPoint"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -940,7 +939,7 @@ BlockDataPoint message definition
 <a name="BlockExtended"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -966,7 +965,7 @@ BlockDataPoint message definition
 <a name="BlockHeader"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -994,7 +993,7 @@ BlockDataPoint message definition
 <a name="BlockHeaderExtended"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1014,7 +1013,7 @@ BlockDataPoint message definition
 <a name="BlockHeightData"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1039,7 +1038,7 @@ BlockDataPoint message definition
 <a name="BlockMetaData"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1062,7 +1061,7 @@ BlockDataPoint message definition
 <a name="BlockMetaDataList"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1085,7 +1084,7 @@ BlockDataPoint message definition
 <a name="BlockNumberMapping"/>
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1108,7 +1107,7 @@ BlockDataPoint message definition
 ## Empty
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1128,7 +1127,7 @@ Empty message definition
 ## EncryptedEphemeralMessage
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1155,7 +1154,7 @@ Empty message definition
 ## EncryptedEphemeralMessage.Channel
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1177,7 +1176,7 @@ Empty message definition
 ## GenesisBalance
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1199,7 +1198,7 @@ Empty message definition
 ## GetBlockReq
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1225,7 +1224,7 @@ NOT USED -&gt; RM?
 ## GetBlockResp
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1247,7 +1246,7 @@ NOT USED -&gt; RM?
 ## GetLocalAddressesReq
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1264,7 +1263,7 @@ NOT USED -&gt; RM?
 ## GetLocalAddressesResp
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1286,7 +1285,7 @@ NOT USED -&gt; RM?
 
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1301,7 +1300,7 @@ NOT USED -&gt; RM?
 ## LatticePK
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1329,7 +1328,7 @@ NOT USED -&gt; RM?
 ## NodeChainState
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1355,7 +1354,7 @@ NOT USED -&gt; RM?
 ## NodeHeaderHash
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1378,7 +1377,7 @@ NOT USED -&gt; RM?
 ## NodeInfo
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1407,7 +1406,7 @@ NOT USED -&gt; RM?
 ## P2PAcknowledgement
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1429,7 +1428,7 @@ NOT USED -&gt; RM?
 ## Peer
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1451,7 +1450,7 @@ NOT USED -&gt; RM?
 ## PeerInfo
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1477,7 +1476,7 @@ NOT USED -&gt; RM?
 ## PeerStat
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1501,7 +1500,7 @@ NOT USED -&gt; RM?
 ## Peers
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1525,7 +1524,7 @@ NOT USED -&gt; RM?
 ## StateLoader
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1550,7 +1549,7 @@ NOT USED -&gt; RM?
 ## StateObjects
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1572,7 +1571,7 @@ NOT USED -&gt; RM?
 ## StoredPeers
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1594,7 +1593,7 @@ NOT USED -&gt; RM?
 ## TokenList
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1616,7 +1615,7 @@ NOT USED -&gt; RM?
 ## TokenMetadata
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1645,7 +1644,7 @@ NOT USED -&gt; RM?
 ## Transaction
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1679,7 +1678,7 @@ NOT USED -&gt; RM?
 ## Transaction.CoinBase
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1702,7 +1701,7 @@ NOT USED -&gt; RM?
 ## Transaction.LatticePublicKey
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1725,7 +1724,7 @@ NOT USED -&gt; RM?
 ## Transaction.Message
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1747,7 +1746,7 @@ NOT USED -&gt; RM?
 ## Transaction.Slave
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1770,7 +1769,7 @@ NOT USED -&gt; RM?
 ## Transaction.Token
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1796,7 +1795,7 @@ NOT USED -&gt; RM?
 ## Transaction.Transfer
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1817,7 +1816,7 @@ NOT USED -&gt; RM?
 ## Transaction.TransferToken
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1841,7 +1840,7 @@ NOT USED -&gt; RM?
 ## TransactionCount
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1861,7 +1860,7 @@ NOT USED -&gt; RM?
 ## TransactionCount.CountEntry
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1882,7 +1881,7 @@ NOT USED -&gt; RM?
 ## TransactionExtended
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1911,7 +1910,7 @@ NOT USED -&gt; RM?
 ## GetLatestDataReq.Filter
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1932,7 +1931,7 @@ NOT USED -&gt; RM?
 ## NodeInfo.State
 
 ```python
-   
+# python
 ```
 
 ```javascript
@@ -1955,7 +1954,7 @@ NOT USED -&gt; RM?
 ## PushTransactionResp.ResponseCode
 
 ```python
-   
+# python
 ```
 
 ```javascript
