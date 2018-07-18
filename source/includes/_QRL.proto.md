@@ -90,12 +90,10 @@ Represents the reply message to node state query
 
 ## GetKnownPeers
 
-<a name="GetKnownPeers"/>
 
 
 ### GetKnownPeersReq
 
-<a name="GetKnownPeersReq"/>
 
 ```python
 # python
@@ -109,8 +107,6 @@ Represents a query to get known peers
 
 
 ### GetKnownPeersResp
-
-<a name="GetKnownPeersResp"/>
 
 ```python
 # python
@@ -141,13 +137,11 @@ Represents the reply message to known peers query
 
 ## GetPeersStat
 
-<a name="GetPeersStat"/>
 
 
 
 ### GetPeersStatReq
 
-<a name="GetPeersStatReq"/>
 
 ```python
 # python
@@ -162,7 +156,6 @@ Represents a query to get connected peers stat
 
 ### GetPeersStatResp
 
-<a name="GetPeersStatResp"/>
 
 ```python
 # python
@@ -184,12 +177,10 @@ Represents the reply message to peers stat query
 
 ## GetStats
 
-<a name="GetStats"/>
 
 
 ### GetStatsReq
 
-<a name="GetStatsReq"/>
 
 ```python
 # python
@@ -210,7 +201,6 @@ Represents a query to get statistics about node
 
 ### GetStatsResp
 
-<a name="GetStatsResp"/>
 
 ```python
 # python
@@ -252,12 +242,10 @@ Represents the reply message to get statistics about node
 
 ## GetAddressState
 
-<a name="GetAddressState"/>
 
 
 ### GetAddressStateReq
 
-<a name="GetAddressStateReq"/>
 
 ```python
 # python
@@ -274,7 +262,6 @@ message GetAddressStateReq {   bytes address = 1; }
 
 ### GetAddressStateResp
 
-<a name="GetAddressStateResp"/>
 
 ```python
 # python
@@ -291,22 +278,12 @@ message GetAddressStateResp {
 | state | [AddressState](#addressstate) |  |  |
 
 
-
-
-
-
-
-
-
-
 ## GetObject
 
-<a name="GetObjectReq"/>
 
 
 ### GetObjectReq
 
-<a name="GetObjectReq"/>
 
 ```python
 # python
@@ -324,7 +301,6 @@ message GetObjectReq {  bytes query = 1;    }
 
 ### GetObjectResp
 
-<a name="GetObjectResp"/>
 
 ```python
 # python
@@ -353,12 +329,9 @@ message GetObjectResp {
 
 ## GetLatestData
 
-<a name="GetLatestData"/>
-
 
 ### GetLatestDataReq
 
-<a name="GetLatestDataReq"/>
 
 ```python
 # python
@@ -387,7 +360,6 @@ message GetLatestDataReq {
 
 ### GetLatestDataResp
 
-<a name="GetLatestDataResp"/>
 
 ```python
 # python
@@ -412,12 +384,10 @@ message GetLatestDataResp {
 
 ## PushTransaction
 
-<a name="PushTransaction"/>
 
 
 ### PushTransactionReq
 
-<a name="PushTransactionReq"/>
 
 ```python
 # python
@@ -434,7 +404,6 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 
 ### PushTransactionResp
 
-<a name="PushTransactionResp"/>
 
 ```python
 # python
@@ -463,16 +432,11 @@ message PushTransactionResp {
 
 
 
-
-
 ## TransferCoins
-
-<a name="TransferCoins"/>
 
 
 ### TransferCoinsReq
 
-<a name="TransferCoinsReq"/>
 
 ```python
 # python
@@ -499,8 +463,6 @@ message TransferCoinsReq {
 
 ### TransferCoinsResp
 
-<a name="TransferCoinsResp"/>
-
 ```python
 # python
 ```
@@ -519,13 +481,8 @@ message TransferCoinsResp {
 
 ## GetAddressFromPK
 
-<a name="GetAddressFromPK"/>
-
-
 
 ### GetAddressFromPKReq
-
-<a name="GetAddressFromPKReq"/>
 
 ```python
 # python
@@ -545,7 +502,6 @@ message GetAddressFromPKReq {
 
 ### GetAddressFromPKResp
 
-<a name="GetAddressFromPKResp"/>
 
 ```python
 # python
@@ -566,12 +522,10 @@ message GetAddressFromPKResp {
 
 ## GetMessageTxn
 
-<a name="GetMessageTxn"/>
 
 
 ### MessageTxnReq
 
-<a name="MessageTxnReq"/>
 
 ```python
 # python
@@ -599,12 +553,10 @@ message GetAddressFromPKResp {
 
 ## GetTokenTxn
 
-<a name="GetTokenTxn"/>
 
 
 ### TokenTxnReq
 
-<a name="TokenTxnReq"/>
 
 ```python
 # python
@@ -632,12 +584,10 @@ message GetAddressFromPKResp {
 
 ## GetTransferTokenTxn
 
-<a name="GetTransferTokenTxn"/>
 
 
 ### TransferTokenTxnReq
 
-<a name="TransferTokenTxnReq"/>
 
 ```python
 # python
@@ -658,11 +608,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-
-
 ### TransferCoinsResp
-
-<a name="TransferCoinsTxnReq1"/>
 
 ```python
 # python
@@ -683,12 +629,9 @@ message TransferCoinsResp {
 
 ## GetSlaveTxn
 
-<a name="GetSlaveTxn"/>
-
 
 ### SlaveTxnReq
 
-<a name="SlaveTxnReq"/>
 
 ```python
 # python
@@ -713,8 +656,6 @@ message TransferCoinsResp {
 
 ## AdminAPI
 
-<a name="AdminAPI"/>
-
 
 This is a place holder for testing/instrumentation APIs
 
@@ -722,13 +663,8 @@ This is a place holder for testing/instrumentation APIs
 | ----------- | ------------ | ------------- | ------------|
 
 
-
-
-
-
 ## AddressAmount
 
-<a name="AddressAmount"/>
 
 ```python
 # python
@@ -746,13 +682,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-
-
-
-
 ## AddressList
-
-<a name="AddressList"/>
 
 ```python
 # python
@@ -768,19 +698,12 @@ This is a place holder for testing/instrumentation APIs
 | addresses | [bytes](#bytes) | repeated |  |
 
 
-
-
-
-
-
 ## AddressState
 
-<a name="AddressState"/>
 
 ```python
 Enter Python code here
 ```
-
 
 ```javascript
 testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
@@ -821,13 +744,8 @@ qrlClient.then( function (qrlClient) {
 
 
 
-
-
-
-
 ## AddressState.SlavePksAccessTypeEntry
 
-<a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ```python
 # python
@@ -844,14 +762,8 @@ qrlClient.then( function (qrlClient) {
 | value | [uint32](#uint32) |  |  |
 
 
-
-
-
-
-
 ## AddressState.TokensEntry
 
-<a name="AddressState.TokensEntry"/>
 
 ```python
 # python
@@ -869,13 +781,8 @@ qrlClient.then( function (qrlClient) {
 
 
 
-
-
-
-
 ## Block
 
-<a name="Block"/>
 
 ```python
 # python
@@ -892,15 +799,8 @@ qrlClient.then( function (qrlClient) {
 | transactions | [Transaction](#transaction) | repeated |  |
 | genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
 
-
-
-
-
-
-
 ## BlockDataPoint
 
-<a name="BlockDataPoint"/>
 
 ```python
 # python
@@ -927,13 +827,7 @@ BlockDataPoint message definition
 
 
 
-
-
-
-
 ## BlockExtended
-
-<a name="BlockExtended"/>
 
 ```python
 # python
@@ -952,14 +846,7 @@ BlockDataPoint message definition
 | size | [uint64](#uint64) |  |  |
 
 
-
-
-
-
-
 ## BlockHeader
-
-<a name="BlockHeader"/>
 
 ```python
 # python
@@ -987,7 +874,6 @@ BlockDataPoint message definition
 
 ## BlockHeaderExtended
 
-<a name="BlockHeaderExtended"/>
 
 ```python
 # python
@@ -1006,8 +892,6 @@ BlockDataPoint message definition
 
 
 ## BlockHeightData
-
-<a name="BlockHeightData"/>
 
 ```python
 # python
@@ -1032,8 +916,6 @@ BlockDataPoint message definition
 
 ## BlockMetaData
 
-<a name="BlockMetaData"/>
-
 ```python
 # python
 ```
@@ -1055,7 +937,6 @@ BlockDataPoint message definition
 
 ## BlockMetaDataList
 
-<a name="BlockMetaDataList"/>
 
 ```python
 # python
@@ -1078,7 +959,6 @@ BlockDataPoint message definition
 
 ## BlockNumberMapping
 
-<a name="BlockNumberMapping"/>
 
 ```python
 # python
@@ -1095,12 +975,6 @@ BlockDataPoint message definition
 | prev_headerhash | [bytes](#bytes) |  |  |
 
 
-
-
-
-<a name="Empty"/>
-
-
 ## Empty
 
 ```python
@@ -1113,12 +987,6 @@ BlockDataPoint message definition
 
 
 Empty message definition
-
-
-
-
-
-<a name="EncryptedEphemeralMessage"/>
 
 
 ## EncryptedEphemeralMessage
@@ -1143,11 +1011,6 @@ Empty message definition
 
 
 
-
-
-<a name="EncryptedEphemeralMessage.Channel"/>
-
-
 ## EncryptedEphemeralMessage.Channel
 
 ```python
@@ -1163,11 +1026,6 @@ Empty message definition
 | ----- | ---- | ----- | ----------- |
 | enc_aes256_symkey | [bytes](#bytes) |  | aes256_symkey encrypted by kyber |
 
-
-
-
-
-<a name="GenesisBalance"/>
 
 
 ## GenesisBalance
@@ -1188,10 +1046,6 @@ Empty message definition
 
 
 
-
-<a name="GetBlockReq"/>
-
-
 ## GetBlockReq
 
 ```python
@@ -1202,7 +1056,6 @@ Empty message definition
    
 ```
 
-
 NOT USED -&gt; RM?
 
 
@@ -1210,12 +1063,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | index | [uint64](#uint64) |  | Indicates the index number in mainchain |
 | after_hash | [bytes](#bytes) |  | request the node that comes after hash |
-
-
-
-
-
-<a name="GetBlockResp"/>
 
 
 ## GetBlockResp
@@ -1238,8 +1085,6 @@ NOT USED -&gt; RM?
 | block | [Block](#block) |  |  |
 
 
-<a name="GetLocalAddressesReq"/>
-
 ## GetLocalAddressesReq
 
 ```python
@@ -1250,12 +1095,6 @@ NOT USED -&gt; RM?
    
 ```
 
-
-
-
-
-
-<a name="GetLocalAddressesResp"/>
 
 ## GetLocalAddressesResp
 
@@ -1274,8 +1113,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="LRUStateCache"/>
-
 
 ## LRUStateCache
 
@@ -1290,8 +1127,6 @@ NOT USED -&gt; RM?
 ```
 
 
-
-<a name="LatticePK"/>
 
 
 ## LatticePK
@@ -1310,15 +1145,6 @@ NOT USED -&gt; RM?
 | txhash | [bytes](#bytes) |  |  |
 | dilithium_pk | [bytes](#bytes) |  |  |
 | kyber_pk | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-
-
-<a name="NodeChainState"/>
 
 
 
@@ -1342,12 +1168,6 @@ NOT USED -&gt; RM?
 | timestamp | [uint64](#uint64) |  |  |
 
 
-
-
-<a name="NodeHeaderHash"/>
-
-
-
 ## NodeHeaderHash
 
 ```python
@@ -1363,11 +1183,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | block_number | [uint64](#uint64) |  |  |
 | headerhashes | [bytes](#bytes) | repeated |  |
-
-
-
-<a name="NodeInfo"/>
-
 
 
 
@@ -1397,9 +1212,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="P2PAcknowledgement"/>
-
-
 ## P2PAcknowledgement
 
 ```python
@@ -1419,9 +1231,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="Peer"/>
-
-
 ## Peer
 
 ```python
@@ -1438,11 +1247,6 @@ NOT USED -&gt; RM?
 | ip | [string](#string) |  |  |
 
 
-
-
-
-
-<a name="PeerInfo"/>
 
 ## PeerInfo
 
@@ -1467,9 +1271,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="PeerStat"/>
-
-
 ## PeerStat
 
 ```python
@@ -1490,10 +1291,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="Peers"/>
-
-
 ## Peers
 
 ```python
@@ -1509,13 +1306,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | peer_info_list | [PeerInfo](#peerinfo) | repeated |  |
 
-
-
-
-
-
-
-<a name="StateLoader"/>
 
 
 ## StateLoader
@@ -1538,11 +1328,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-<a name="StateObjects"/>
-
-
 ## StateObjects
 
 ```python
@@ -1560,11 +1345,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-<a name="StoredPeers"/>
-
-
 ## StoredPeers
 
 ```python
@@ -1579,11 +1359,6 @@ NOT USED -&gt; RM?
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | peers | [Peer](#peer) | repeated |  |
-
-
-
-
-<a name="TokenList"/>
 
 
 
@@ -1605,10 +1380,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="TokenMetadata"/>
-
-
 ## TokenMetadata
 
 ```python
@@ -1625,17 +1396,6 @@ NOT USED -&gt; RM?
 | token_txhash | [bytes](#bytes) |  |  |
 | transfer_token_tx_hashes | [bytes](#bytes) | repeated |  |
 
-
-
-
-
-
-
-
-
-
-
-<a name="Transaction"/>
 
 
 ## Transaction
@@ -1667,11 +1427,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-
-<a name="Transaction.CoinBase"/>
-
 ## Transaction.CoinBase
 
 ```python
@@ -1691,10 +1446,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="Transaction.LatticePublicKey"/>
-
-
 ## Transaction.LatticePublicKey
 
 ```python
@@ -1712,12 +1463,6 @@ NOT USED -&gt; RM?
 | dilithium_pk | [bytes](#bytes) |  |  |
 
 
-
-
-
-
-<a name="Transaction.Message"/>
-
 ## Transaction.Message
 
 ```python
@@ -1733,12 +1478,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | message_hash | [bytes](#bytes) |  |  |
 
-
-
-
-
-
-<a name="Transaction.Slave"/>
 
 ## Transaction.Slave
 
@@ -1756,12 +1495,6 @@ NOT USED -&gt; RM?
 | slave_pks | [bytes](#bytes) | repeated |  |
 | access_types | [uint32](#uint32) | repeated |  |
 
-
-
-
-
-
-<a name="Transaction.Token"/>
 
 ## Transaction.Token
 
@@ -1785,10 +1518,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="Transaction.Transfer"/>
-
-
 ## Transaction.Transfer
 
 ```python
@@ -1805,9 +1534,6 @@ NOT USED -&gt; RM?
 | addrs_to | [bytes](#bytes) | repeated |  |
 | amounts | [uint64](#uint64) | repeated |  |
 
-
-
-<a name="Transaction.TransferToken"/>
 
 
 ## Transaction.TransferToken
@@ -1831,9 +1557,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="TransactionCount"/>
-
-
 ## TransactionCount
 
 ```python
@@ -1849,9 +1572,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | count | [TransactionCount.CountEntry](#transactioncount.countentry) | repeated |  |
 
-
-
-<a name="TransactionCount.CountEntry"/>
 
 
 ## TransactionCount.CountEntry
@@ -1870,9 +1590,6 @@ NOT USED -&gt; RM?
 | key | [uint32](#uint32) |  |  |
 | value | [uint32](#uint32) |  |  |
 
-
-
-<a name="TransactionExtended"/>
 
 
 ## TransactionExtended
@@ -1897,13 +1614,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-
-
-<a name="GetLatestDataReq.Filter"/>
-
-
 ## GetLatestDataReq.Filter
 
 ```python
@@ -1921,8 +1631,6 @@ NOT USED -&gt; RM?
 | TRANSACTIONS | 2 |  |
 | TRANSACTIONS_UNCONFIRMED | 3 |  |
 
-
-<a name="NodeInfo.State"/>
 
 
 ## NodeInfo.State
@@ -1946,8 +1654,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="PushTransactionResp.ResponseCode"/>
-
 ## PushTransactionResp.ResponseCode
 
 ```python
@@ -1965,7 +1671,3 @@ NOT USED -&gt; RM?
 | ERROR | 1 |  |
 | VALIDATION_FAILED | 2 |  |
 | SUBMITTED | 3 |  |
-
-
-
-

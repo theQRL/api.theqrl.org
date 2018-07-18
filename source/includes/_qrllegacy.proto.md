@@ -1,9 +1,6 @@
 # qrllegacy.proto
 
 
-<a name="BKData"/>
-
-
 ## BKData
 
 ```python
@@ -14,14 +11,10 @@
    
 ```
 
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | mrData | [MRData](#mrdata) |  |  |
 | block | [Block](#block) |  |  |
-
-
-<a name="FBData"/>
 
 ## FBData
 
@@ -33,13 +26,9 @@
    
 ```
 
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | index | [uint64](#uint64) |  |  |
-
-
-<a name="LegacyMessage"/>
 
 ## LegacyMessage
 
@@ -50,7 +39,6 @@
 ```javascript
    
 ```
-
 
 Adding old code to refactor while keeping things working
 
@@ -81,7 +69,6 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="MRData"/>
 
 ## MRData
 
@@ -105,7 +92,6 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="NoData"/>
 
 ## NoData
 
@@ -117,7 +103,6 @@ Adding old code to refactor while keeping things working
    
 ```
 
-<a name="PBData"/>
 
 ## PBData
 
@@ -135,7 +120,6 @@ Adding old code to refactor while keeping things working
 | block | [Block](#block) |  |  |
 
 
-<a name="PLData"/>
 
 ## PLData
 
@@ -155,8 +139,6 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="PONGData"/>
-
 ## PONGData
 
 ```python
@@ -166,9 +148,6 @@ Adding old code to refactor while keeping things working
 ```javascript
    
 ```
-
-
-<a name="SYNCData"/>
 
 
 ## SYNCData
@@ -186,9 +165,6 @@ Adding old code to refactor while keeping things working
 | ----- | ---- | ----- | ----------- |
 | state | [string](#string) |  |  |
 
-
-
-<a name="VEData"/>
 
 ## VEData
 
@@ -208,8 +184,6 @@ Adding old code to refactor while keeping things working
 | rate_limit | [uint64](#uint64) |  |  |
 
 
-
-<a name="LegacyMessage.FuncName"/>
 
 ## LegacyMessage.FuncName
 

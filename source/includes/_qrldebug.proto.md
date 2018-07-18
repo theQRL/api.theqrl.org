@@ -35,10 +35,6 @@
 | addresses_state | [AddressState](#addressstate) | repeated |  |
 
 
-
-
-<a name="DebugAPI"/>
-
 ## DebugAPI
 
 ```python
