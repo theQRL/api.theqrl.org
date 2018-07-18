@@ -2,7 +2,6 @@
 
 
 
-<a name="GetFullStateReq"/>
 
 ## GetFullStateReq
 
@@ -16,7 +15,6 @@
    
 ```
 
-<a name="GetFullStateResp"/>
 
 ## GetFullStateResp
 
