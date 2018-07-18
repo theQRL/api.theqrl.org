@@ -2,8 +2,6 @@
 
 
 
-<a name="GetNodeInfoReq"/>
-
 ## GetNodeInfoReq
 
 
@@ -14,9 +12,6 @@
 ```javascript
    
 ```
-
-<a name="GetNodeInfoResp"/>
-
 
 ## GetNodeInfoResp
 
@@ -35,9 +30,6 @@
 | grpcProto | [string](#string) |  |  |
 
 
-<a name="Base"/>
-
-
 ## Base
 
 ```python
@@ -51,6 +43,4 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetNodeInfo | [GetNodeInfoReq](#GetNodeInfoReq) | [GetNodeInfoResp](#GetNodeInfoReq) |  |
-
- 
+| GetNodeInfo | [GetNodeInfoReq](#getnodeinforeq) | [GetNodeInfoResp](#getnodeinforeq) |  |

@@ -1,10 +1,6 @@
 # qrlmining.proto
 
 
-
-<a name="MiningAPI"/>
-
-
 ## MiningAPI
 
 ```python
@@ -17,19 +13,16 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| [GetBlockMiningCompatible](#GetBlockMiningCompatible) | [GetBlockMiningCompatibleReq](#GetBlockMiningCompatibleReq) | [GetBlockMiningCompatibleResp](#GetBlockMiningCompatibleReq) |  |
-| [GetLastBlockHeader](#GetLastBlockHeader) | [GetLastBlockHeaderReq](#GetLastBlockHeaderReq) | [GetLastBlockHeaderResp](#GetLastBlockHeaderReq) |  |
-| [GetBlockToMine](#GetBlockToMine) | [GetBlockToMineReq](#GetBlockToMineReq) | [GetBlockToMineResp](#GetBlockToMineReq) |  |
-| [SubmitMinedBlock](#SubmitMinedBlock) | [SubmitMinedBlockReq](#SubmitMinedBlockReq) | [SubmitMinedBlockResp](#SubmitMinedBlockReq) |  |
+| [GetBlockMiningCompatible](#getblockminingcompatible) | [GetBlockMiningCompatibleReq](#getblockminingcompatiblereq) | [GetBlockMiningCompatibleResp](#getblockminingcompatiblereq) |  |
+| [GetLastBlockHeader](#getlastblockheader) | [GetLastBlockHeaderReq](#getlastblockheaderreq) | [GetLastBlockHeaderResp](#getlastblockheaderreq) |  |
+| [GetBlockToMine](#getblocktomine) | [GetBlockToMineReq](#getblocktominereq) | [GetBlockToMineResp](#getblocktominereq) |  |
+| [SubmitMinedBlock](#submitminedblock) | [SubmitMinedBlockReq](#submitminedblockreq) | [SubmitMinedBlockResp](#submitminedblockreq) |  |
 
- 
-<a name="GetBlockMiningCompatible"/>
+
 
 ## GetBlockMiningCompatible
 
 
-
-<a name="GetBlockMiningCompatibleReq"/>
 
 ### GetBlockMiningCompatibleReq
 
@@ -46,7 +39,6 @@
 | height | [uint64](#uint64) |  | Used for getlastblockheader and getblockheaderbyheight if height = 0, this means getlastblockheader |
 
 
-<a name="GetBlockMiningCompatibleResp"/>
 
 ### GetBlockMiningCompatibleResp
 
@@ -60,8 +52,8 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheader | [BlockHeader](#BlockHeader) |  |  |
-| blockmetadata | [BlockMetaData](#BlockMetaData) |  |  |
+| blockheader | [BlockHeader](#blockheader) |  |  |
+| blockmetadata | [BlockMetaData](#blockmetadata) |  |  |
 
 
 
@@ -69,7 +61,7 @@
 
 ## GetLastBlockHeader
 
-<a name="GetLastBlockHeaderReq"/>
+
 
 ### GetLastBlockHeaderReq
 
@@ -85,7 +77,7 @@
 | ----- | ---- | ----- | ----------- |
 | height | [uint64](#uint64) |  |  |
 
-<a name="GetLastBlockHeaderResp"/>
+
 
 
 ### GetLastBlockHeaderResp
@@ -109,13 +101,11 @@
 | depth | [uint64](#uint64) |  |  |
 
 
-<a name="GetBlockToMine"/>
 
 ## GetBlockToMine
 
 
 
-<a name="GetBlockToMineReq"/>
 
 ### GetBlockToMineReq
 
@@ -132,7 +122,6 @@
 | wallet_address | [bytes](#bytes) |  |  |
 
 
-<a name="GetBlockToMineResp"/>
 
 ### GetBlockToMineResp
 
@@ -157,15 +146,8 @@
 
 
 
-<a name="SubmitMinedBlock"/>
-
 ## SubmitMinedBlock
 
-
-
-
-
-<a name="SubmitMinedBlockReq"/>
 
 ## SubmitMinedBlockReq
 
@@ -182,10 +164,6 @@
 | ----- | ---- | ----- | ----------- |
 | blob | [bytes](#bytes) |  | blocktemplate_blob with the correct nonce |
 
-
-
-
-<a name="SubmitMinedBlockResp"/>
 
 ## SubmitMinedBlockResp
 

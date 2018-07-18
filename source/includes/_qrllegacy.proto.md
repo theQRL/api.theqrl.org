@@ -1,9 +1,6 @@
 # qrllegacy.proto
 
 
-<a name="BKData"/>
-
-
 ## BKData
 
 ```python
@@ -14,14 +11,10 @@
    
 ```
 
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mrData | [MRData](#MRData) |  |  |
-| block | [Block](#Block) |  |  |
-
-
-<a name="FBData"/>
+| mrData | [MRData](#mrdata) |  |  |
+| block | [Block](#block) |  |  |
 
 ## FBData
 
@@ -33,13 +26,9 @@
    
 ```
 
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | index | [uint64](#uint64) |  |  |
-
-
-<a name="LegacyMessage"/>
 
 ## LegacyMessage
 
@@ -51,37 +40,35 @@
    
 ```
 
-
 Adding old code to refactor while keeping things working
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| func_name | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  |  |
-| noData | [NoData](#NoData) |  |  |
-| veData | [VEData](#VEData) |  |  |
-| plData | [PLData](#PLData) |  |  |
-| pongData | [PONGData](#PONGData) |  |  |
-| mrData | [MRData](#MRData) |  |  |
-| block | [Block](#Block) |  |  |
-| fbData | [FBData](#FBData) |  |  |
-| pbData | [PBData](#PBData) |  |  |
-| bhData | [BlockHeightData](#BlockHeightData) |  |  |
-| txData | [Transaction](#Transaction) |  |  |
-| mtData | [Transaction](#Transaction) |  |  |
-| tkData | [Transaction](#Transaction) |  |  |
-| ttData | [Transaction](#Transaction) |  |  |
-| ltData | [Transaction](#Transaction) |  |  |
-| slData | [Transaction](#Transaction) |  |  |
-| ephData | [EncryptedEphemeralMessage](#EncryptedEphemeralMessage) |  |  |
-| syncData | [SYNCData](#SYNCData) |  |  |
-| chainStateData | [NodeChainState](#NodeChainState) |  |  |
-| nodeHeaderHash | [NodeHeaderHash](#NodeHeaderHash) |  |  |
-| p2pAckData | [P2PAcknowledgement](#P2PAcknowledgement) |  |  |
+| func_name | [LegacyMessage.FuncName](#legacymessage.funcname) |  |  |
+| noData | [NoData](#nodata) |  |  |
+| veData | [VEData](#vedata) |  |  |
+| plData | [PLData](#pldata) |  |  |
+| pongData | [PONGData](#pongdata) |  |  |
+| mrData | [MRData](#mrdata) |  |  |
+| block | [Block](#block) |  |  |
+| fbData | [FBData](#fbdata) |  |  |
+| pbData | [PBData](#pbdata) |  |  |
+| bhData | [BlockHeightData](#blockheightdata) |  |  |
+| txData | [Transaction](#transaction) |  |  |
+| mtData | [Transaction](#transaction) |  |  |
+| tkData | [Transaction](#transaction) |  |  |
+| ttData | [Transaction](#transaction) |  |  |
+| ltData | [Transaction](#transaction) |  |  |
+| slData | [Transaction](#transaction) |  |  |
+| ephData | [EncryptedEphemeralMessage](#encryptedephemeralmessage) |  |  |
+| syncData | [SYNCData](#syncdata) |  |  |
+| chainStateData | [NodeChainState](#nodechainstate) |  |  |
+| nodeHeaderHash | [NodeHeaderHash](#nodeheaderhash) |  |  |
+| p2pAckData | [P2PAcknowledgement](#p2packnowledgement) |  |  |
 
 
 
-<a name="MRData"/>
 
 ## MRData
 
@@ -97,7 +84,7 @@ Adding old code to refactor while keeping things working
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | hash | [bytes](#bytes) |  | FIXME: rename this to block_headerhash |
-| type | [LegacyMessage.FuncName](#LegacyMessage.FuncName) |  | FIXME: type/string what is this |
+| type | [LegacyMessage.FuncName](#legacymessage.funcname) |  | FIXME: type/string what is this |
 | stake_selector | [bytes](#bytes) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | prev_headerhash | [bytes](#bytes) |  |  |
@@ -105,7 +92,6 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="NoData"/>
 
 ## NoData
 
@@ -117,7 +103,6 @@ Adding old code to refactor while keeping things working
    
 ```
 
-<a name="PBData"/>
 
 ## PBData
 
@@ -132,10 +117,9 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [Block](#Block) |  |  |
+| block | [Block](#block) |  |  |
 
 
-<a name="PLData"/>
 
 ## PLData
 
@@ -155,8 +139,6 @@ Adding old code to refactor while keeping things working
 
 
 
-<a name="PONGData"/>
-
 ## PONGData
 
 ```python
@@ -166,9 +148,6 @@ Adding old code to refactor while keeping things working
 ```javascript
    
 ```
-
-
-<a name="SYNCData"/>
 
 
 ## SYNCData
@@ -186,9 +165,6 @@ Adding old code to refactor while keeping things working
 | ----- | ---- | ----- | ----------- |
 | state | [string](#string) |  |  |
 
-
-
-<a name="VEData"/>
 
 ## VEData
 
@@ -208,8 +184,6 @@ Adding old code to refactor while keeping things working
 | rate_limit | [uint64](#uint64) |  |  |
 
 
-
-<a name="LegacyMessage.FuncName"/>
 
 ## LegacyMessage.FuncName
 

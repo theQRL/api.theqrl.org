@@ -1,8 +1,5 @@
 # qrlstateinfo.proto
 
-
-<a name="ForkState"/>
-
 ## ForkState
 
 ```python
@@ -24,9 +21,6 @@
 Alternate chain hash path which is eligible to become mainchain |
 
 
-
-<a name="LastTransactions"/>
-
 ## LastTransactions
 
 ```python
@@ -40,11 +34,8 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tx_metadata | [TransactionMetadata](#TransactionMetadata) | repeated |  |
+| tx_metadata | [TransactionMetadata](#transactionmetadata) | repeated |  |
 
-
-
-<a name="TransactionMetadata"/>
 
 ## TransactionMetadata
 
@@ -59,6 +50,6 @@ Alternate chain hash path which is eligible to become mainchain |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| transaction | [Transaction](#Transaction) |  |  |
+| transaction | [Transaction](#transaction) |  |  |
 | block_number | [uint64](#uint64) |  |  |
 | timestamp | [uint64](#uint64) |  |  |

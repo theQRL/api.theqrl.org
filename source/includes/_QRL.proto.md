@@ -24,19 +24,19 @@ This service describes the Public API used by clients wallet, cli, etc
 | Method Name                                    | Request Type                                 | Response Type                                 | Description |
 | -----------                                    | ------------                                 | -------------                                 | ------------|
 | [GetNodeState](#getnodestate)                  | [GetNodeStateReq](#getnodestatereq)          | [GetNodeStateResp](#getnodestatereq)          |  |
-| [GetKnownPeers](#getpnownpeers)                | [GetKnownPeersReq](#GetKnownPeersReq)        | [GetKnownPeersResp](#GetKnownPeersReq)        |  |
-| [GetPeersStat](#getpeersstat)                  | [GetPeersStatReq](#GetPeersStatReq)          | [GetPeersStatResp](#GetPeersStatReq)          |  |
-| [GetStats](#getstats)                          | [GetStatsReq](#GetStatsReq)                  | [GetStatsResp](#GetStatsReq)                  |  |
-| [GetAddressState](#getaddressstate)            | [GetAddressStateReq](#GetAddressStateReq)    | [GetAddressStateResp](#GetAddressStateReq)    |  |
-| [GetObject](#getobject)                        | [GetObjectReq](#GetObjectReq)                | [GetObjectResp](#GetObjectReq)                |  |
-| [GetLatestData](#getlatestdata)                | [GetLatestDataReq](#GetLatestDataReq)        | [GetLatestDataResp](#GetLatestDataReq)        |  |
-| [PushTransaction](#pushtransaction)            | [PushTransactionReq](#PushTransactionReq)    | [PushTransactionResp](#PushTransactionReq)    |  |
-| [TransferCoins](#transfercoins)                | [TransferCoinsReq](#TransferCoinsReq)        | [TransferCoinsResp](#TransferCoinsReq)        |  |
-| [GetAddressFromPK](#getaddressfrompk)          | [GetAddressFromPKReq](#GetAddressFromPKReq)  | [GetAddressFromPKResp](#GetAddressFromPKReq)  |  |
-| [GetMessageTxn](#getmessagetxn)                | [MessageTxnReq](#MessageTxnReq)              | [TransferCoinsResp](#TransferCoinsResp)       |  |
-| [GetTokenTxn](#gettokentxn)                    | [TokenTxnReq](#TokenTxnReq)                  | [TransferCoinsResp](#TokenTxnReq)             |  |
-| [GetTransferTokenTxn](#gettransfertokentxn)    | [TransferTokenTxnReq](#TransferTokenTxnReq)  | [TransferCoinsResp](#TransferCoinsTxnReq1)    |  |
-| [GetSlaveTxn](#getslavetxn)                    | [SlaveTxnReq](#SlaveTxnReq)                  | [TransferCoinsResp](#SlaveTxnReq)             |  |
+| [GetKnownPeers](#getpnownpeers)                | [GetKnownPeersReq](#getknownpeersreq)        | [GetKnownPeersResp](#getknownpeersreq)        |  |
+| [GetPeersStat](#getpeersstat)                  | [GetPeersStatReq](#getpeersstatreq)          | [GetPeersStatResp](#getpeersstatreq)          |  |
+| [GetStats](#getstats)                          | [GetStatsReq](#getstatsreq)                  | [GetStatsResp](#getstatsreq)                  |  |
+| [GetAddressState](#getaddressstate)            | [GetAddressStateReq](#getaddressstatereq)    | [GetAddressStateResp](#getaddressstatereq)    |  |
+| [GetObject](#getobject)                        | [GetObjectReq](#getobjectreq)                | [GetObjectResp](#getobjectreq)                |  |
+| [GetLatestData](#getlatestdata)                | [GetLatestDataReq](#getlatestdatareq)        | [GetLatestDataResp](#getlatestdatareq)        |  |
+| [PushTransaction](#pushtransaction)            | [PushTransactionReq](#pushtransactionreq)    | [PushTransactionResp](#pushtransactionreq)    |  |
+| [TransferCoins](#transfercoins)                | [TransferCoinsReq](#transfercoinsreq)        | [TransferCoinsResp](#transfercoinsreq)        |  |
+| [GetAddressFromPK](#getaddressfrompk)          | [GetAddressFromPKReq](#getaddressfrompkreq)  | [GetAddressFromPKResp](#getaddressfrompkreq)  |  |
+| [GetMessageTxn](#getmessagetxn)                | [MessageTxnReq](#messagetxnreq)              | [TransferCoinsResp](#transfercoinsresp)       |  |
+| [GetTokenTxn](#gettokentxn)                    | [TokenTxnReq](#tokentxnreq)                  | [TransferCoinsResp](#tokentxnreq)             |  |
+| [GetTransferTokenTxn](#gettransfertokentxn)    | [TransferTokenTxnReq](#transfertokentxnreq)  | [TransferCoinsResp](#transfercoinstxnreq1)    |  |
+| [GetSlaveTxn](#getslavetxn)                    | [SlaveTxnReq](#slavetxnreq)                  | [TransferCoinsResp](#slavetxnreq)             |  |
 
  
 
@@ -90,12 +90,10 @@ Represents the reply message to node state query
 
 ## GetKnownPeers
 
-<a name="GetKnownPeers"/>
 
 
 ### GetKnownPeersReq
 
-<a name="GetKnownPeersReq"/>
 
 ```python
 # python
@@ -109,8 +107,6 @@ Represents a query to get known peers
 
 
 ### GetKnownPeersResp
-
-<a name="GetKnownPeersResp"/>
 
 ```python
 # python
@@ -127,8 +123,8 @@ Represents the reply message to known peers query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#NodeInfo) |  | NodeInfo object containing node state information |
-| known_peers | [Peer](#Peer) | repeated | List of Peer objects containing peer nodes detailed information |
+| node_info | [NodeInfo](#nodeinfo) |  | NodeInfo object containing node state information |
+| known_peers | [Peer](#peer) | repeated | List of Peer objects containing peer nodes detailed information |
 
 
 
@@ -141,13 +137,11 @@ Represents the reply message to known peers query
 
 ## GetPeersStat
 
-<a name="GetPeersStat"/>
 
 
 
 ### GetPeersStatReq
 
-<a name="GetPeersStatReq"/>
 
 ```python
 # python
@@ -162,7 +156,6 @@ Represents a query to get connected peers stat
 
 ### GetPeersStatResp
 
-<a name="GetPeersStatResp"/>
 
 ```python
 # python
@@ -177,19 +170,17 @@ Represents the reply message to peers stat query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peers_stat | [PeerStat](#PeerStat) | repeated | PeerState object contains peer_ip, port and peer state information |
+| peers_stat | [PeerStat](#peerstat) | repeated | PeerState object contains peer_ip, port and peer state information |
 
 
 
 
 ## GetStats
 
-<a name="GetStats"/>
 
 
 ### GetStatsReq
 
-<a name="GetStatsReq"/>
 
 ```python
 # python
@@ -210,7 +201,6 @@ Represents a query to get statistics about node
 
 ### GetStatsResp
 
-<a name="GetStatsResp"/>
 
 ```python
 # python
@@ -237,7 +227,7 @@ Represents the reply message to get statistics about node
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#NodeInfo) |  | NodeInfo object containing node state information |
+| node_info | [NodeInfo](#nodeinfo) |  | NodeInfo object containing node state information |
 | epoch | [uint64](#uint64) |  | Current epoch |
 | uptime_network | [uint64](#uint64) |  | Indicates uptime in seconds |
 | block_last_reward | [uint64](#uint64) |  | Block reward |
@@ -245,19 +235,17 @@ Represents the reply message to get statistics about node
 | block_time_sd | [uint64](#uint64) |  | Blocktime standrad deviation |
 | coins_total_supply | [uint64](#uint64) |  | Total coins supply |
 | coins_emitted | [uint64](#uint64) |  | Total coins emitted |
-| block_timeseries | [BlockDataPoint](#BlockDataPoint) | repeated |  |
+| block_timeseries | [BlockDataPoint](#blockdatapoint) | repeated |  |
 
 
 
 
 ## GetAddressState
 
-<a name="GetAddressState"/>
 
 
 ### GetAddressStateReq
 
-<a name="GetAddressStateReq"/>
 
 ```python
 # python
@@ -274,7 +262,6 @@ message GetAddressStateReq {   bytes address = 1; }
 
 ### GetAddressStateResp
 
-<a name="GetAddressStateResp"/>
 
 ```python
 # python
@@ -288,25 +275,15 @@ message GetAddressStateResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| state | [AddressState](#AddressState) |  |  |
-
-
-
-
-
-
-
-
+| state | [AddressState](#addressstate) |  |  |
 
 
 ## GetObject
 
-<a name="GetObjectReq"/>
 
 
 ### GetObjectReq
 
-<a name="GetObjectReq"/>
 
 ```python
 # python
@@ -324,7 +301,6 @@ message GetObjectReq {  bytes query = 1;    }
 
 ### GetObjectResp
 
-<a name="GetObjectResp"/>
 
 ```python
 # python
@@ -344,21 +320,18 @@ message GetObjectResp {
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | found | [bool](#bool) |  |  |
-| address_state | [AddressState](#AddressState) |  |  |
-| transaction | [TransactionExtended](#TransactionExtended) |  |  |
-| block_extended | [BlockExtended](#BlockExtended) |  |  |
+| address_state | [AddressState](#addressstate) |  |  |
+| transaction | [TransactionExtended](#transactionextended) |  |  |
+| block_extended | [BlockExtended](#blockextended) |  |  |
 
 
 
 
 ## GetLatestData
 
-<a name="GetLatestData"/>
-
 
 ### GetLatestDataReq
 
-<a name="GetLatestDataReq"/>
 
 ```python
 # python
@@ -380,14 +353,13 @@ message GetLatestDataReq {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| filter | [GetLatestDataReq.Filter](#GetLatestDataReq.Filter) |  |  |
+| filter | [GetLatestDataReq.Filter](#getlatestdatareq.filter) |  |  |
 | offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
 | quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
 
 
 ### GetLatestDataResp
 
-<a name="GetLatestDataResp"/>
 
 ```python
 # python
@@ -403,21 +375,19 @@ message GetLatestDataResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheaders | [BlockHeaderExtended](#BlockHeaderExtended) | repeated |  |
-| transactions | [TransactionExtended](#TransactionExtended) | repeated |  |
-| transactions_unconfirmed | [TransactionExtended](#TransactionExtended) | repeated |  |
+| blockheaders | [BlockHeaderExtended](#blockheaderextended) | repeated |  |
+| transactions | [TransactionExtended](#transactionextended) | repeated |  |
+| transactions_unconfirmed | [TransactionExtended](#transactionextended) | repeated |  |
 
 
 
 
 ## PushTransaction
 
-<a name="PushTransaction"/>
 
 
 ### PushTransactionReq
 
-<a name="PushTransactionReq"/>
 
 ```python
 # python
@@ -429,12 +399,11 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| transaction_signed | [Transaction](#Transaction) |  |  |
+| transaction_signed | [Transaction](#transaction) |  |  |
 
 
 ### PushTransactionResp
 
-<a name="PushTransactionResp"/>
 
 ```python
 # python
@@ -457,22 +426,17 @@ message PushTransactionResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| error_code | [PushTransactionResp.ResponseCode](#PushTransactionResp.ResponseCode) |  |  |
+| error_code | [PushTransactionResp.ResponseCode](#pushtransactionresp.responsecode) |  |  |
 | error_description | [string](#string) |  |  |
 | tx_hash | [bytes](#bytes) |  |  |
 
 
 
-
-
 ## TransferCoins
-
-<a name="TransferCoins"/>
 
 
 ### TransferCoinsReq
 
-<a name="TransferCoinsReq"/>
 
 ```python
 # python
@@ -499,8 +463,6 @@ message TransferCoinsReq {
 
 ### TransferCoinsResp
 
-<a name="TransferCoinsResp"/>
-
 ```python
 # python
 ```
@@ -513,19 +475,14 @@ message TransferCoinsResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
+| extended_transaction_unsigned | [TransactionExtended](#transactionextended) |  |  |
 
 
 
 ## GetAddressFromPK
 
-<a name="GetAddressFromPK"/>
-
-
 
 ### GetAddressFromPKReq
-
-<a name="GetAddressFromPKReq"/>
 
 ```python
 # python
@@ -545,7 +502,6 @@ message GetAddressFromPKReq {
 
 ### GetAddressFromPKResp
 
-<a name="GetAddressFromPKResp"/>
 
 ```python
 # python
@@ -566,12 +522,10 @@ message GetAddressFromPKResp {
 
 ## GetMessageTxn
 
-<a name="GetMessageTxn"/>
 
 
 ### MessageTxnReq
 
-<a name="MessageTxnReq"/>
 
 ```python
 # python
@@ -599,12 +553,10 @@ message GetAddressFromPKResp {
 
 ## GetTokenTxn
 
-<a name="GetTokenTxn"/>
 
 
 ### TokenTxnReq
 
-<a name="TokenTxnReq"/>
 
 ```python
 # python
@@ -622,7 +574,7 @@ message GetAddressFromPKResp {
 | name | [bytes](#bytes) |  |  |
 | owner | [bytes](#bytes) |  |  |
 | decimals | [uint64](#uint64) |  |  |
-| initial_balances | [AddressAmount](#AddressAmount) | repeated |  |
+| initial_balances | [AddressAmount](#addressamount) | repeated |  |
 | fee | [uint64](#uint64) |  |  |
 | xmss_pk | [bytes](#bytes) |  |  |
 
@@ -632,12 +584,10 @@ message GetAddressFromPKResp {
 
 ## GetTransferTokenTxn
 
-<a name="GetTransferTokenTxn"/>
 
 
 ### TransferTokenTxnReq
 
-<a name="TransferTokenTxnReq"/>
 
 ```python
 # python
@@ -658,11 +608,7 @@ message GetAddressFromPKResp {
 | xmss_pk | [bytes](#bytes) |  |  |
 
 
-
-
 ### TransferCoinsResp
-
-<a name="TransferCoinsTxnReq1"/>
 
 ```python
 # python
@@ -676,19 +622,16 @@ message TransferCoinsResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| extended_transaction_unsigned | [TransactionExtended](#TransactionExtended) |  |  |
+| extended_transaction_unsigned | [TransactionExtended](#transactionextended) |  |  |
 
 
 
 
 ## GetSlaveTxn
 
-<a name="GetSlaveTxn"/>
-
 
 ### SlaveTxnReq
 
-<a name="SlaveTxnReq"/>
 
 ```python
 # python
@@ -713,8 +656,6 @@ message TransferCoinsResp {
 
 ## AdminAPI
 
-<a name="AdminAPI"/>
-
 
 This is a place holder for testing/instrumentation APIs
 
@@ -722,13 +663,8 @@ This is a place holder for testing/instrumentation APIs
 | ----------- | ------------ | ------------- | ------------|
 
 
-
-
-
-
 ## AddressAmount
 
-<a name="AddressAmount"/>
 
 ```python
 # python
@@ -746,13 +682,7 @@ This is a place holder for testing/instrumentation APIs
 
 
 
-
-
-
-
 ## AddressList
-
-<a name="AddressList"/>
 
 ```python
 # python
@@ -768,19 +698,12 @@ This is a place holder for testing/instrumentation APIs
 | addresses | [bytes](#bytes) | repeated |  |
 
 
-
-
-
-
-
 ## AddressState
 
-<a name="AddressState"/>
 
 ```python
 Enter Python code here
 ```
-
 
 ```javascript
 testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
@@ -814,20 +737,15 @@ qrlClient.then( function (qrlClient) {
 | nonce | [uint64](#uint64) |  | FIXME: Discuss. 32 or 64 bits? |
 | ots_bitfield | [bytes](#bytes) | repeated |  |
 | transaction_hashes | [bytes](#bytes) | repeated |  |
-| tokens | [AddressState.TokensEntry](#AddressState.TokensEntry) | repeated |  |
-| latticePK_list | [LatticePK](#LatticePK) | repeated |  |
-| slave_pks_access_type | [AddressState.SlavePksAccessTypeEntry](#AddressState.SlavePksAccessTypeEntry) | repeated |  |
+| tokens | [AddressState.TokensEntry](#addressstate.tokensentry) | repeated |  |
+| latticePK_list | [LatticePK](#latticepk) | repeated |  |
+| slave_pks_access_type | [AddressState.SlavePksAccessTypeEntry](#addressstate.slavepksaccesstypeentry) | repeated |  |
 | ots_counter | [uint64](#uint64) |  |  |
-
-
-
-
 
 
 
 ## AddressState.SlavePksAccessTypeEntry
 
-<a name="AddressState.SlavePksAccessTypeEntry"/>
 
 ```python
 # python
@@ -844,14 +762,8 @@ qrlClient.then( function (qrlClient) {
 | value | [uint32](#uint32) |  |  |
 
 
-
-
-
-
-
 ## AddressState.TokensEntry
 
-<a name="AddressState.TokensEntry"/>
 
 ```python
 # python
@@ -869,13 +781,8 @@ qrlClient.then( function (qrlClient) {
 
 
 
-
-
-
-
 ## Block
 
-<a name="Block"/>
 
 ```python
 # python
@@ -888,19 +795,12 @@ qrlClient.then( function (qrlClient) {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#BlockHeader) |  |  |
-| transactions | [Transaction](#Transaction) | repeated |  |
-| genesis_balance | [GenesisBalance](#GenesisBalance) | repeated | This is only applicable to genesis blocks |
-
-
-
-
-
-
+| header | [BlockHeader](#blockheader) |  |  |
+| transactions | [Transaction](#transaction) | repeated |  |
+| genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
 
 ## BlockDataPoint
 
-<a name="BlockDataPoint"/>
 
 ```python
 # python
@@ -927,13 +827,7 @@ BlockDataPoint message definition
 
 
 
-
-
-
-
 ## BlockExtended
-
-<a name="BlockExtended"/>
 
 ```python
 # python
@@ -946,20 +840,13 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#BlockHeader) |  |  |
-| extended_transactions | [TransactionExtended](#TransactionExtended) | repeated |  |
-| genesis_balance | [GenesisBalance](#GenesisBalance) | repeated | This is only applicable to genesis blocks |
+| header | [BlockHeader](#blockheader) |  |  |
+| extended_transactions | [TransactionExtended](#transactionextended) | repeated |  |
+| genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
 | size | [uint64](#uint64) |  |  |
 
 
-
-
-
-
-
 ## BlockHeader
-
-<a name="BlockHeader"/>
 
 ```python
 # python
@@ -987,7 +874,6 @@ BlockDataPoint message definition
 
 ## BlockHeaderExtended
 
-<a name="BlockHeaderExtended"/>
 
 ```python
 # python
@@ -1000,14 +886,12 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#BlockHeader) |  |  |
-| transaction_count | [TransactionCount](#TransactionCount) |  |  |
+| header | [BlockHeader](#blockheader) |  |  |
+| transaction_count | [TransactionCount](#transactioncount) |  |  |
 
 
 
 ## BlockHeightData
-
-<a name="BlockHeightData"/>
 
 ```python
 # python
@@ -1032,8 +916,6 @@ BlockDataPoint message definition
 
 ## BlockMetaData
 
-<a name="BlockMetaData"/>
-
 ```python
 # python
 ```
@@ -1055,7 +937,6 @@ BlockDataPoint message definition
 
 ## BlockMetaDataList
 
-<a name="BlockMetaDataList"/>
 
 ```python
 # python
@@ -1068,7 +949,7 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number_hashes | [BlockMetaData](#BlockMetaData) | repeated |  |
+| block_number_hashes | [BlockMetaData](#blockmetadata) | repeated |  |
 
 
 
@@ -1078,7 +959,6 @@ BlockDataPoint message definition
 
 ## BlockNumberMapping
 
-<a name="BlockNumberMapping"/>
 
 ```python
 # python
@@ -1095,12 +975,6 @@ BlockDataPoint message definition
 | prev_headerhash | [bytes](#bytes) |  |  |
 
 
-
-
-
-<a name="Empty"/>
-
-
 ## Empty
 
 ```python
@@ -1113,12 +987,6 @@ BlockDataPoint message definition
 
 
 Empty message definition
-
-
-
-
-
-<a name="EncryptedEphemeralMessage"/>
 
 
 ## EncryptedEphemeralMessage
@@ -1137,15 +1005,10 @@ Empty message definition
 | msg_id | [bytes](#bytes) |  | b&#39;NEW&#39; or PRF |
 | ttl | [uint64](#uint64) |  | Expiry Timestamp in seconds |
 | ttr | [uint64](#uint64) |  | Time to relay |
-| channel | [EncryptedEphemeralMessage.Channel](#EncryptedEphemeralMessage.Channel) |  |  |
+| channel | [EncryptedEphemeralMessage.Channel](#encryptedephemeralmessage.channel) |  |  |
 | nonce | [uint64](#uint64) |  | nonce |
 | payload | [bytes](#bytes) |  | JSON content, encrypted by aes256_symkey |
 
-
-
-
-
-<a name="EncryptedEphemeralMessage.Channel"/>
 
 
 ## EncryptedEphemeralMessage.Channel
@@ -1163,11 +1026,6 @@ Empty message definition
 | ----- | ---- | ----- | ----------- |
 | enc_aes256_symkey | [bytes](#bytes) |  | aes256_symkey encrypted by kyber |
 
-
-
-
-
-<a name="GenesisBalance"/>
 
 
 ## GenesisBalance
@@ -1188,10 +1046,6 @@ Empty message definition
 
 
 
-
-<a name="GetBlockReq"/>
-
-
 ## GetBlockReq
 
 ```python
@@ -1202,7 +1056,6 @@ Empty message definition
    
 ```
 
-
 NOT USED -&gt; RM?
 
 
@@ -1210,12 +1063,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | index | [uint64](#uint64) |  | Indicates the index number in mainchain |
 | after_hash | [bytes](#bytes) |  | request the node that comes after hash |
-
-
-
-
-
-<a name="GetBlockResp"/>
 
 
 ## GetBlockResp
@@ -1234,11 +1081,9 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| node_info | [NodeInfo](#NodeInfo) |  |  |
-| block | [Block](#Block) |  |  |
+| node_info | [NodeInfo](#nodeinfo) |  |  |
+| block | [Block](#block) |  |  |
 
-
-<a name="GetLocalAddressesReq"/>
 
 ## GetLocalAddressesReq
 
@@ -1250,12 +1095,6 @@ NOT USED -&gt; RM?
    
 ```
 
-
-
-
-
-
-<a name="GetLocalAddressesResp"/>
 
 ## GetLocalAddressesResp
 
@@ -1274,8 +1113,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="LRUStateCache"/>
-
 
 ## LRUStateCache
 
@@ -1290,8 +1127,6 @@ NOT USED -&gt; RM?
 ```
 
 
-
-<a name="LatticePK"/>
 
 
 ## LatticePK
@@ -1310,15 +1145,6 @@ NOT USED -&gt; RM?
 | txhash | [bytes](#bytes) |  |  |
 | dilithium_pk | [bytes](#bytes) |  |  |
 | kyber_pk | [bytes](#bytes) |  |  |
-
-
-
-
-
-
-
-
-<a name="NodeChainState"/>
 
 
 
@@ -1342,12 +1168,6 @@ NOT USED -&gt; RM?
 | timestamp | [uint64](#uint64) |  |  |
 
 
-
-
-<a name="NodeHeaderHash"/>
-
-
-
 ## NodeHeaderHash
 
 ```python
@@ -1366,11 +1186,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="NodeInfo"/>
-
-
-
-
 ## NodeInfo
 
 ```python
@@ -1385,7 +1200,7 @@ NOT USED -&gt; RM?
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
-| state | [NodeInfo.State](#NodeInfo.State) |  |  |
+| state | [NodeInfo.State](#nodeinfo.state) |  |  |
 | num_connections | [uint32](#uint32) |  |  |
 | num_known_peers | [uint32](#uint32) |  |  |
 | uptime | [uint64](#uint64) |  | Uptime in seconds |
@@ -1395,9 +1210,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-<a name="P2PAcknowledgement"/>
 
 
 ## P2PAcknowledgement
@@ -1419,9 +1231,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="Peer"/>
-
-
 ## Peer
 
 ```python
@@ -1438,11 +1247,6 @@ NOT USED -&gt; RM?
 | ip | [string](#string) |  |  |
 
 
-
-
-
-
-<a name="PeerInfo"/>
 
 ## PeerInfo
 
@@ -1467,9 +1271,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="PeerStat"/>
-
-
 ## PeerStat
 
 ```python
@@ -1485,13 +1286,9 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | peer_ip | [bytes](#bytes) |  |  |
 | port | [uint32](#uint32) |  |  |
-| node_chain_state | [NodeChainState](#NodeChainState) |  |  |
+| node_chain_state | [NodeChainState](#nodechainstate) |  |  |
 
 
-
-
-
-<a name="Peers"/>
 
 
 ## Peers
@@ -1507,15 +1304,8 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer_info_list | [PeerInfo](#PeerInfo) | repeated |  |
+| peer_info_list | [PeerInfo](#peerinfo) | repeated |  |
 
-
-
-
-
-
-
-<a name="StateLoader"/>
 
 
 ## StateLoader
@@ -1538,11 +1328,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-<a name="StateObjects"/>
-
-
 ## StateObjects
 
 ```python
@@ -1560,11 +1345,6 @@ NOT USED -&gt; RM?
 
 
 
-
-
-<a name="StoredPeers"/>
-
-
 ## StoredPeers
 
 ```python
@@ -1578,12 +1358,7 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peers | [Peer](#Peer) | repeated |  |
-
-
-
-
-<a name="TokenList"/>
+| peers | [Peer](#peer) | repeated |  |
 
 
 
@@ -1605,10 +1380,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="TokenMetadata"/>
-
-
 ## TokenMetadata
 
 ```python
@@ -1625,17 +1396,6 @@ NOT USED -&gt; RM?
 | token_txhash | [bytes](#bytes) |  |  |
 | transfer_token_tx_hashes | [bytes](#bytes) | repeated |  |
 
-
-
-
-
-
-
-
-
-
-
-<a name="Transaction"/>
 
 
 ## Transaction
@@ -1657,20 +1417,15 @@ NOT USED -&gt; RM?
 | signature | [bytes](#bytes) |  |  |
 | nonce | [uint64](#uint64) |  |  |
 | transaction_hash | [bytes](#bytes) |  |  |
-| transfer | [Transaction.Transfer](#Transaction.Transfer) |  |  |
-| coinbase | [Transaction.CoinBase](#Transaction.CoinBase) |  |  |
-| latticePK | [Transaction.LatticePublicKey](#Transaction.LatticePublicKey) |  |  |
-| message | [Transaction.Message](#Transaction.Message) |  |  |
-| token | [Transaction.Token](#Transaction.Token) |  |  |
-| transfer_token | [Transaction.TransferToken](#Transaction.TransferToken) |  |  |
-| slave | [Transaction.Slave](#Transaction.Slave) |  |  |
+| transfer | [Transaction.Transfer](#transaction.transfer) |  |  |
+| coinbase | [Transaction.CoinBase](#transaction.coinbase) |  |  |
+| latticePK | [Transaction.LatticePublicKey](#transaction.latticepublickey) |  |  |
+| message | [Transaction.Message](#transaction.message) |  |  |
+| token | [Transaction.Token](#transaction.token) |  |  |
+| transfer_token | [Transaction.TransferToken](#transaction.transfertoken) |  |  |
+| slave | [Transaction.Slave](#transaction.slave) |  |  |
 
 
-
-
-
-
-<a name="Transaction.CoinBase"/>
 
 ## Transaction.CoinBase
 
@@ -1691,10 +1446,6 @@ NOT USED -&gt; RM?
 
 
 
-
-<a name="Transaction.LatticePublicKey"/>
-
-
 ## Transaction.LatticePublicKey
 
 ```python
@@ -1712,12 +1463,6 @@ NOT USED -&gt; RM?
 | dilithium_pk | [bytes](#bytes) |  |  |
 
 
-
-
-
-
-<a name="Transaction.Message"/>
-
 ## Transaction.Message
 
 ```python
@@ -1733,12 +1478,6 @@ NOT USED -&gt; RM?
 | ----- | ---- | ----- | ----------- |
 | message_hash | [bytes](#bytes) |  |  |
 
-
-
-
-
-
-<a name="Transaction.Slave"/>
 
 ## Transaction.Slave
 
@@ -1757,12 +1496,6 @@ NOT USED -&gt; RM?
 | access_types | [uint32](#uint32) | repeated |  |
 
 
-
-
-
-
-<a name="Transaction.Token"/>
-
 ## Transaction.Token
 
 ```python
@@ -1780,13 +1513,9 @@ NOT USED -&gt; RM?
 | name | [bytes](#bytes) |  |  |
 | owner | [bytes](#bytes) |  |  |
 | decimals | [uint64](#uint64) |  |  |
-| initial_balances | [AddressAmount](#AddressAmount) | repeated |  |
+| initial_balances | [AddressAmount](#addressamount) | repeated |  |
 
 
-
-
-
-<a name="Transaction.Transfer"/>
 
 
 ## Transaction.Transfer
@@ -1805,9 +1534,6 @@ NOT USED -&gt; RM?
 | addrs_to | [bytes](#bytes) | repeated |  |
 | amounts | [uint64](#uint64) | repeated |  |
 
-
-
-<a name="Transaction.TransferToken"/>
 
 
 ## Transaction.TransferToken
@@ -1831,9 +1557,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="TransactionCount"/>
-
-
 ## TransactionCount
 
 ```python
@@ -1847,11 +1570,8 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| count | [TransactionCount.CountEntry](#TransactionCount.CountEntry) | repeated |  |
+| count | [TransactionCount.CountEntry](#transactioncount.countentry) | repeated |  |
 
-
-
-<a name="TransactionCount.CountEntry"/>
 
 
 ## TransactionCount.CountEntry
@@ -1872,9 +1592,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="TransactionExtended"/>
-
-
 ## TransactionExtended
 
 ```python
@@ -1888,20 +1605,13 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#BlockHeader) |  |  |
-| tx | [Transaction](#Transaction) |  |  |
+| header | [BlockHeader](#blockheader) |  |  |
+| tx | [Transaction](#transaction) |  |  |
 | addr_from | [bytes](#bytes) |  |  |
 | size | [uint64](#uint64) |  |  |
 | timestamp_seconds | [uint64](#uint64) |  |  |
 
 
-
-
-
-
-
-
-<a name="GetLatestDataReq.Filter"/>
 
 
 ## GetLatestDataReq.Filter
@@ -1921,8 +1631,6 @@ NOT USED -&gt; RM?
 | TRANSACTIONS | 2 |  |
 | TRANSACTIONS_UNCONFIRMED | 3 |  |
 
-
-<a name="NodeInfo.State"/>
 
 
 ## NodeInfo.State
@@ -1946,8 +1654,6 @@ NOT USED -&gt; RM?
 
 
 
-<a name="PushTransactionResp.ResponseCode"/>
-
 ## PushTransactionResp.ResponseCode
 
 ```python
@@ -1965,7 +1671,3 @@ NOT USED -&gt; RM?
 | ERROR | 1 |  |
 | VALIDATION_FAILED | 2 |  |
 | SUBMITTED | 3 |  |
-
-
-
-
