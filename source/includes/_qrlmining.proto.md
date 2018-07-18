@@ -1,10 +1,6 @@
 # qrlmining.proto
 
 
-
-<a name="MiningAPI"/>
-
-
 ## MiningAPI
 
 ```python
