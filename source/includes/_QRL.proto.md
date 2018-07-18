@@ -946,7 +946,7 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#Bblockheader) |  |  |
+| header | [BlockHeader](#blockheader) |  |  |
 | extended_transactions | [TransactionExtended](#transactionextended) | repeated |  |
 | genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
 | size | [uint64](#uint64) |  |  |
@@ -1000,7 +1000,7 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#bblockheader) |  |  |
+| header | [BlockHeader](#blockheader) |  |  |
 | transaction_count | [TransactionCount](#transactioncount) |  |  |
 
 
@@ -1888,7 +1888,7 @@ NOT USED -&gt; RM?
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#bblockheader) |  |  |
+| header | [BlockHeader](#blockheader) |  |  |
 | tx | [Transaction](#transaction) |  |  |
 | addr_from | [bytes](#bytes) |  |  |
 | size | [uint64](#uint64) |  |  |
