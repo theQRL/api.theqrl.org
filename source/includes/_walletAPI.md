@@ -5,22 +5,25 @@ Use the wallet API to interface with the QRL Wallet.
 ## AddNewAddress
 Adds new randomly generated address to the wallet.
 
-**Request**
-```
+> **Request**
+
+```curl
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 ```
-**Response**
-```
+
+> **Response**
+
+```curl
 {"address":"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"}
 ```
-**Request**
+### Request
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
 | height | UInt64 | Height of the newly generated XMSS tree |
 | hash_function | String | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
 
-**Response**
+### Response
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
@@ -33,15 +36,17 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 ## AddAddressFromSeed
 Recovers address using seed (hexseed or mnemonic) and adds it to the wallet.
 
-**Request**
-```
+> **Request**
+
+```curl
 curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 {
   "seed": "01050089eb4fc690f1cae55c1e082ae92f2fd39d7b08001162a98c429f14421b50daafb59f5f65dbd21d7bc3f2c7004e4ba53b"
 }'
 ```
-**Response**
-```
+> **Response**
+
+```curl
 {"address":"Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed"}
 ```
 **Request**
