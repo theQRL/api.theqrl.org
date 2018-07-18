@@ -5,7 +5,10 @@ Use the wallet API to interface with the QRL Wallet.
 ## AddNewAddress
 Adds new randomly generated address to the wallet.
 
-### Request
+
+
+
+### AddAddressFromSeedReq
 
 > **Request**
 
@@ -18,6 +21,11 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 | --- | --- | --- |
 | height | UInt64 | Height of the newly generated XMSS tree |
 | hash_function | String | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| seed | [string](#string) |  |  |
+
 
 ### Response
 
@@ -33,6 +41,11 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 | error | String | Error Message. Only appears if any exception is triggered. |
 | address | String | Return the newly added QRL address |
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| address | [string](#string) |  |  |
 
 
 ## AddAddressFromSeed
@@ -54,6 +67,10 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 | --- | --- | --- |
 | seed | String | Seed could be either hexseed or mnemonic. |
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| seed | [string](#string) |  |  |
+
 
 ### Response - Hexseed
 
@@ -70,7 +87,11 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 | error | String | Error Message. Only appears if any exception is triggered. |
 | address | String | Return the newly added QRL address |
 
-
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| address | [string](#string) |  |  |
 
 ### Request - Mnemonic
 
@@ -86,6 +107,10 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
 | seed | String | Seed could be either hexseed or mnemonic. |
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| seed | [string](#string) |  |  |
 
 
 
@@ -104,7 +129,11 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 | address | String | Return the newly added QRL address |
 
 
-
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| address | [string](#string) |  |  |
 
 
 
