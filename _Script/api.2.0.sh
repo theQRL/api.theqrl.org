@@ -59,16 +59,16 @@ git commit -m "AutoUpdating QRL_index.html.md, see the changes in the /_QRL/QRL_
 git push
 
 ## Move the index.html.md file into the build dir
-rsync -azPv ${HOME}/repo/api.theqrl.org/_QRL/index.html.md ${HOME}/repo/api.theqrl.org/source/
+#rsync -azPv ${HOME}/repo/api.theqrl.org/_QRL/QRL_index.html.md ${HOME}/repo/api.theqrl.org/source/
 
 
 ## Build the site
-cd ${HOME}/repo/api.theqrl.org/
-bundle install
+#cd ${HOME}/repo/api.theqrl.org/
+#bundle install
 ## Bundle the slate site up into static files
-bundle exec middleman build --clean 
+#bundle exec middleman build --clean 
 
-cp -r ${HOME}/repo/api.theqrl.org/build/* ${HOME}/manual_site
+#cp -r ${HOME}/repo/api.theqrl.org/build/* ${HOME}/manual_site
 
 ## Move the site into the webroot and assign permissions
 ## Se webRootMove.sh

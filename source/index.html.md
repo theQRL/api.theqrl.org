@@ -4,6 +4,7 @@ title: QRL API
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript: JavaScript
   - python: Python
+  - curl: cURL
 
 toc_footers:
   - <a href='https://github.com/theqrl'>QRL Github</a> 
@@ -14,9 +15,9 @@ toc_footers:
 
 includes:
   - QRL.proto
+  - walletAPI
   - qrlbase.proto
   - qrlstateinfo.proto
-  - walletAPI
   - qrlmining.proto
   - qrldebug.proto
   - qrllegacy.proto
