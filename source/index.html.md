@@ -4,7 +4,7 @@ title: QRL API
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript: JavaScript
   - python: Python
-  - curl: cURL
+  - shell: cURL
 
 toc_footers:
   - <a href='https://github.com/theqrl'>QRL Github</a> 
