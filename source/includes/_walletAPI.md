@@ -36,7 +36,7 @@ Adds new randomly generated address to the wallet.
 
 ## AddAddressFromSeed
 
-> **AddAddressFromSeed Request Hexseed**
+> **AddAddressFromSeed Hexseed Request**
 
 ```curl
 curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
@@ -45,13 +45,13 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 }'
 ```
 
-> **AddAddressFromSeed Response Hexseed**
+> **AddAddressFromSeed Hexseed Response**
 
 ```curl
 {"address":"Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed"}
 ```
 
-> **AddAddressFromSeed Request Mnemonic**
+> **AddAddressFromSeed Mnemonic Request**
 
 ```curl
 curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
@@ -60,7 +60,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 }'
 ```
 
-> **AddAddressFromSeed Response Mnemonic**
+> **AddAddressFromSeed Mnemonic Response**
 
 ```curl
 {"address":"Q0106009f1a88d2f4a2af059c54a4f0fe4fa9d9d6debf6113ce002416e123b7775ce693da09c3da"}
