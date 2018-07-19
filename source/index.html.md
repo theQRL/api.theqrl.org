@@ -15,7 +15,6 @@ toc_footers:
 
 includes:
   - QRL.proto
-  - qrlwallet.proto
   - walletAPI
   - qrlbase.proto
   - qrlstateinfo.proto
