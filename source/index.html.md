@@ -22,7 +22,7 @@ includes:
   - qrldebug.proto
   - qrllegacy.proto
   - ScalarValueTypes
-  - errors
+#  - errors
 
 search: true
 
