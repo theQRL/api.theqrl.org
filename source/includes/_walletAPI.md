@@ -7,15 +7,13 @@
 
 
 - Install QRL Node
-- Run wallet daemon by following command
 
 ```bash
 # Run the wallet daemon
 
 qrl_walletd
  ```
-
-- Clone walletd-rest-proxy from repo https://github.com/theQRL/walletd-rest-proxy
+1. Run wallet daemon by following command
 
 ```bash
 #Clone walletd-rest-proxy
@@ -23,7 +21,8 @@ qrl_walletd
 git clone https://github.com/theQRL/walletd-rest-proxy
 ```
 
-- go get github.com/theQRL/walletd-rest-proxy
+2. Clone walletd-rest-proxy from repo https://github.com/theQRL/walletd-rest-proxy
+
 
 ```bash  
 # go get the walletd-rest-proxy
@@ -33,11 +32,13 @@ cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
 go build
 ```
 
-run the following command:
+3. go get github.com/theQRL/walletd-rest-proxy
+
 
 ```bash
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
 ```
+run the following command:
 
 Where,  `serverIPPort` indicates the IP:Port at which REST API service will be provided. `walletServiceEndpoint` indicates the IP:Port at which the WalletAPIService is running.
 
