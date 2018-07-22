@@ -6,33 +6,32 @@
 **Getting Started**
 
 
-- Install QRL Node
+1. Install QRL Node
+   - Find information at https://docs.theqrl.org/node/QRLnode/
 
 ```bash
 # Run the wallet daemon
-
 qrl_walletd
  ```
-1. Run wallet daemon by following command
+
+2. Run wallet daemon
+
 
 ```bash
 #Clone walletd-rest-proxy
-
 git clone https://github.com/theQRL/walletd-rest-proxy
 ```
 
-2. Clone walletd-rest-proxy from repo https://github.com/theQRL/walletd-rest-proxy
+3. Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy
 
 
 ```bash  
 # go get the walletd-rest-proxy
-
 cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
-
 go build
 ```
 
-3. go get github.com/theQRL/walletd-rest-proxy
+4. go get github.com/theQRL/walletd-rest-proxy
 
 
 ```bash
