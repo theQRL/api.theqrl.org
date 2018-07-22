@@ -59,9 +59,10 @@ go build
 Start the wallet-rest-proxy using your serverIPport
 
 <aside class="success">
-`serverIPPort` indicates the `IP:Port` at which REST API service will be provided. 
 
-`walletServiceEndpoint` indicates the `IP:Port` at which the WalletAPIService is running.
+<code>serverIPPort</code> indicates the `IP:Port` at which REST API service will be provided. 
+<br>
+<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
 </aside>
 
 If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
