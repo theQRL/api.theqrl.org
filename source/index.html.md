@@ -35,13 +35,9 @@ search: true
 ## Introduction
 
 
-```python
-Example Code will be shown here.
-```
+> More information can be found in our documentation site, [https://docs.theqrl.org](https://docs.theqrl.org) 
 
-```javascript
-Example will be shown here.
-```
+> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl)
 
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
 
