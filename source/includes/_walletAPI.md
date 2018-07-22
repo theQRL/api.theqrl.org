@@ -60,14 +60,13 @@ go build
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
 ```
 
-Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. Please contact if you require assistance on any other distributions.
-
+Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
 
 1. Install the QRL Node and sync
-  - Find information at https://docs.theqrl.org/node/QRLnode/
+  - Find information at [https://docs.theqrl.org/node/QRLnode/](https://docs.theqrl.org/node/QRLnode/)
 2. Run the QRL wallet daemon
 3. Install golang-go v1.8 or greater
-3. Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy
+3. Clone walletd-rest-proxy from the repo hosted at [https://github.com/theQRL/walletd-rest-proxy](https://github.com/theQRL/walletd-rest-proxy)
 4. go get github.com/theQRL/walletd-rest-proxy
 5. Start the wallet-rest-proxy 
 6. Send commands using cURL and begin using the QRL!
