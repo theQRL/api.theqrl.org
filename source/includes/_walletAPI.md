@@ -60,8 +60,8 @@ Start the wallet-rest-proxy using your serverIPport
 
 <aside class="success">
 
-<code>serverIPPort</code> indicates the `IP:Port` at which REST API service will be provided. 
-<br>
+<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
+<br><br>
 <code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
 </aside>
 
