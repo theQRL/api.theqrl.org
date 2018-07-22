@@ -222,7 +222,7 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#qrl-api-documentation" class="toc-h1 toc-link" data-title="qrl-api-documentation">QRL API Documentation</a>
+            <a href="#the-qrl-api" class="toc-h1 toc-link" data-title="the-qrl-api">The QRL API</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#introduction" class="toc-h2 toc-link" data-title="introduction">Introduction</a>
@@ -475,6 +475,9 @@
             <a href="#walletapi" class="toc-h1 toc-link" data-title="walletapi">WalletAPI</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#getting-started" class="toc-h2 toc-link" data-title="getting-started">Getting Started</a>
+                  </li>
+                  <li>
                     <a href="#addnewaddress" class="toc-h2 toc-link" data-title="addnewaddress">AddNewAddress</a>
                   </li>
                   <li>
@@ -518,6 +521,9 @@
                   </li>
                   <li>
                     <a href="#changepassphrase" class="toc-h2 toc-link" data-title="changepassphrase">ChangePassphrase</a>
+                  </li>
+                  <li>
+                    <a href="#gettransactionsbyaddress" class="toc-h2 toc-link" data-title="gettransactionsbyaddress">GetTransactionsByAddress</a>
                   </li>
                   <li>
                     <a href="#gettransaction" class="toc-h2 toc-link" data-title="gettransaction">GetTransaction</a>
@@ -706,18 +712,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='qrl-api-documentation'>QRL API Documentation</h1><h2 id='introduction'>Introduction</h2>
-<blockquote>
-<p>More information can be found in our documentation site, <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> </p>
-
-<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a></p>
-</blockquote>
-
+        <h1 id='the-qrl-api'>The QRL API</h1><h2 id='introduction'>Introduction</h2>
 <p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
+
+<blockquote>
+<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration.  </p>
+</blockquote>
 
 <p>Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named *Req) and response (named *Resp).</p>
 
-<aside class="notice">
+<aside class="success">
 This is a work in progress, code may change. Please see the official documentation at <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 <h2 id='basic-connection'>Basic Connection</h2><pre class="highlight python tab-python"><code><span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
@@ -3382,6 +3386,43 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
+<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell"><code><span class="c"># Run the wallet daemon</span>
+qrl_walletd
+
+
+<span class="c">#Clone walletd-rest-proxy</span>
+git clone https://github.com/theQRL/walletd-rest-proxy
+
+
+<span class="c"># go get the walletd-rest-proxy</span>
+<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/theQRL/walletd-rest-proxy
+go build
+
+
+<span class="c"># Run the wallet-rest-proxy</span>
+./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010<span class="sb">`</span>
+</code></pre>
+<ol>
+<li>Install QRL Node
+
+<ul>
+<li>Find information at https://docs.theqrl.org/node/QRLnode/</li>
+</ul></li>
+<li>Run wallet daemon</li>
+<li>Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy</li>
+<li>go get github.com/theQRL/walletd-rest-proxy</li>
+</ol>
+
+<p>Start the wallet-rest-proxy using your serverIPport</p>
+
+<aside class="success">
+
+<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
+<br><br>
+<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
+</aside>
+
+<p>If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.</p>
 <h2 id='addnewaddress'>AddNewAddress</h2>
 <blockquote>
 <p><strong>AddNewAddress Request</strong></p>
@@ -4358,6 +4399,66 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td>error</td>
 <td>String</td>
 <td>Error Message. Only appears if any exception is triggered.</td>
+</tr>
+</tbody></table>
+<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2>
+<blockquote>
+<p><strong>GetTransactionsByAddress Request</strong></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s1">'
+{
+  "address": "Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e"
+}'</span>
+</code></pre>
+<p><strong>GetTransactionsByAddress Response</strong></p>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span><span class="s2">"mini_transactions"</span>:[<span class="o">{</span><span class="s2">"transaction_hash"</span>:<span class="s2">"27d27c36a85f012ec8b906fd3d38de7bc2ec0f01a1dc2cab3bea1b71868dde61"</span>,<span class="s2">"amount"</span>:<span class="s2">"100000"</span><span class="o">}</span>,<span class="o">{</span><span class="s2">"transaction_hash"</span>:<span class="s2">"aad2ba0626c7f1bcf47ea19342bfb888df19e875fcf86b80279be2a9ebdaeb0b"</span>,<span class="s2">"out"</span>:true,<span class="s2">"amount"</span>:<span class="s2">"12"</span><span class="o">}]</span>,<span class="s2">"balance"</span>:<span class="s2">"99988"</span><span class="o">}</span>
+</code></pre>
+<p>Get transactions hash and  other details for a given address.</p>
+
+<p><strong>Request</strong></p>
+
+<table><thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>QRL address</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<table><thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>UInt32</td>
+<td>Error Code. Only appears if any exception is triggered.</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Error Message. Only appears if any exception is triggered.</td>
+</tr>
+<tr>
+<td>mini_transactions</td>
+<td>MiniTransaction[]</td>
+<td>List of MiniTransations which includes, transaction_hash, amount and out.</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>Uint64</td>
+<td>Total balance</td>
 </tr>
 </tbody></table>
 <h2 id='gettransaction'>GetTransaction</h2>
