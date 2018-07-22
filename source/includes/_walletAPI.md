@@ -41,14 +41,14 @@ pip3 install -U qrl
 # Run the wallet daemon
 qrl_walletd
 
-#Clone walletd-rest-proxy
-git clone https://github.com/theQRL/walletd-rest-proxy
-
 # Install go
 apt-get install golang-go
 
+#Clone walletd-rest-proxy
+git clone https://github.com/theQRL/walletd-rest-proxy 
 
 # go get the walletd-rest-proxy
+go get github.com/theQRL/walletd-rest-proxy
 cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
 go build
 
