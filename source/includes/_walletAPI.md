@@ -55,6 +55,17 @@ go build
 
 # Run the wallet-rest-proxy
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
+
+
+
+
+# Alternate paramaters may be passed to through the API
+curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
+
+
+# Example adding an address to a wallet with treeheight 18 and hash_function sha_256
+
+curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_function":"sha2_256"}'
 ```
 
 Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
@@ -75,16 +86,6 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
 <br>
 If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
 </aside>
-
-
-```bash
-curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
-
-
-# Example adding an address to a wallet with treeheight 18 and hash_function sha_256
-
-curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_function":"sha2_256"}'
-```
 
 Alternative parameters may be entered by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
 
