@@ -32,18 +32,25 @@ This service describes the Wallet API
 ## Getting Started
 
 ```bash
+# Install qrl node Ubuntu
+apt update && apt upgrade -y
+apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
+pip3 install -U setuptools
+pip3 install -U qrl
+
 # Run the wallet daemon
 qrl_walletd
 
-
 #Clone walletd-rest-proxy
 git clone https://github.com/theQRL/walletd-rest-proxy
- 
+
+# Install go
+
+
 
 # go get the walletd-rest-proxy
 cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
 go build
-
 
 # Run the wallet-rest-proxy
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
