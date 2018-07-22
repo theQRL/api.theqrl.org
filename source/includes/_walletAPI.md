@@ -45,7 +45,7 @@ qrl_walletd
 git clone https://github.com/theQRL/walletd-rest-proxy
 
 # Install go
-
+apt-get install golang-go
 
 
 # go get the walletd-rest-proxy
