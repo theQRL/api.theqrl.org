@@ -41,8 +41,12 @@ pip3 install -U qrl
 # Run the wallet daemon
 qrl_walletd
 
-# Install go
+# Install golang-go version 1.8 or greater
+# See https://golang.org/doc/install#tarball for more
 apt-get install golang-go
+
+## Make sure the go version is later than 1.8
+go env
 
 #Clone walletd-rest-proxy
 git clone https://github.com/theQRL/walletd-rest-proxy 
@@ -60,6 +64,7 @@ go build
 1. Install QRL Node
   - Find information at https://docs.theqrl.org/node/QRLnode/
 2. Run wallet daemon
+3. Install golang-go v1.8 or greater
 3. Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy
 4. go get github.com/theQRL/walletd-rest-proxy
 

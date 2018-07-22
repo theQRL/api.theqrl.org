@@ -30,7 +30,7 @@ search: true
 
 
 
-# The QRL API 
+# QRL API 
 
 ## Introduction
 
