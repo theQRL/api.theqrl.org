@@ -4,7 +4,13 @@
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
 
-The Kittn API uses the following error codes:
+## QRL Wallet API Errors
+
+
+Error | Cause
+------| -----
+{"code":1,"error":"For BDS traversal, H - K must be even, with H \u003e K \u003e= 2!"} | tree height not large enough. Must be at least 4
+
 
 
 Error Code | Meaning
