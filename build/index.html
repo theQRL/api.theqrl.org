@@ -222,7 +222,7 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#the-qrl-api" class="toc-h1 toc-link" data-title="the-qrl-api">The QRL API</a>
+            <a href="#qrl-api" class="toc-h1 toc-link" data-title="qrl-api">QRL API</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#introduction" class="toc-h2 toc-link" data-title="introduction">Introduction</a>
@@ -712,7 +712,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='the-qrl-api'>The QRL API</h1><h2 id='introduction'>Introduction</h2>
+        <h1 id='qrl-api'>QRL API</h1><h2 id='introduction'>Introduction</h2>
 <p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
 
 <blockquote>
@@ -890,92 +890,77 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <th>Method Name</th>
 <th>Request Type</th>
 <th>Response Type</th>
-<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><a href="#getnodestate">GetNodeState</a></td>
 <td><a href="#getnodestatereq">GetNodeStateReq</a></td>
 <td><a href="#getnodestatereq">GetNodeStateResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getpnownpeers">GetKnownPeers</a></td>
 <td><a href="#getknownpeersreq">GetKnownPeersReq</a></td>
 <td><a href="#getknownpeersreq">GetKnownPeersResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getpeersstat">GetPeersStat</a></td>
 <td><a href="#getpeersstatreq">GetPeersStatReq</a></td>
 <td><a href="#getpeersstatreq">GetPeersStatResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getstats">GetStats</a></td>
 <td><a href="#getstatsreq">GetStatsReq</a></td>
 <td><a href="#getstatsreq">GetStatsResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getaddressstate">GetAddressState</a></td>
 <td><a href="#getaddressstatereq">GetAddressStateReq</a></td>
 <td><a href="#getaddressstatereq">GetAddressStateResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getobject">GetObject</a></td>
 <td><a href="#getobjectreq">GetObjectReq</a></td>
 <td><a href="#getobjectreq">GetObjectResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getlatestdata">GetLatestData</a></td>
 <td><a href="#getlatestdatareq">GetLatestDataReq</a></td>
 <td><a href="#getlatestdatareq">GetLatestDataResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#pushtransaction">PushTransaction</a></td>
 <td><a href="#pushtransactionreq">PushTransactionReq</a></td>
 <td><a href="#pushtransactionreq">PushTransactionResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#transfercoins">TransferCoins</a></td>
 <td><a href="#transfercoinsreq">TransferCoinsReq</a></td>
 <td><a href="#transfercoinsreq">TransferCoinsResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getaddressfrompk">GetAddressFromPK</a></td>
 <td><a href="#getaddressfrompkreq">GetAddressFromPKReq</a></td>
 <td><a href="#getaddressfrompkreq">GetAddressFromPKResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getmessagetxn">GetMessageTxn</a></td>
 <td><a href="#messagetxnreq">MessageTxnReq</a></td>
 <td><a href="#transfercoinsresp">TransferCoinsResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#gettokentxn">GetTokenTxn</a></td>
 <td><a href="#tokentxnreq">TokenTxnReq</a></td>
 <td><a href="#tokentxnreq">TransferCoinsResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#gettransfertokentxn">GetTransferTokenTxn</a></td>
 <td><a href="#transfertokentxnreq">TransferTokenTxnReq</a></td>
 <td><a href="#transfercoinstxnreq1">TransferCoinsResp</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="#getslavetxn">GetSlaveTxn</a></td>
 <td><a href="#slavetxnreq">SlaveTxnReq</a></td>
 <td><a href="#slavetxnreq">TransferCoinsResp</a></td>
-<td></td>
 </tr>
 </tbody></table>
 <h2 id='getnodestate'>GetNodeState</h2><h3 id='getnodestatereq'>GetNodeStateReq</h3><pre class="highlight python tab-python"><code><span class="c"># python</span>
@@ -3386,18 +3371,29 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell"><code><span class="c"># Run the wallet daemon</span>
+<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell"><code><span class="c"># Install qrl node Ubuntu</span>
+apt update <span class="o">&amp;&amp;</span> apt upgrade -y
+apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
+pip3 install -U setuptools
+pip3 install -U qrl
+
+<span class="c"># Run the wallet daemon</span>
 qrl_walletd
 
+<span class="c"># Install golang-go version 1.8 or greater</span>
+<span class="c"># See https://golang.org/doc/install#tarball for more</span>
+apt-get install golang-go
+
+<span class="c">## Make sure the go version is later than 1.8</span>
+go env
 
 <span class="c">#Clone walletd-rest-proxy</span>
-git clone https://github.com/theQRL/walletd-rest-proxy
-
+git clone https://github.com/theQRL/walletd-rest-proxy 
 
 <span class="c"># go get the walletd-rest-proxy</span>
+go get github.com/theQRL/walletd-rest-proxy
 <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/theQRL/walletd-rest-proxy
 go build
-
 
 <span class="c"># Run the wallet-rest-proxy</span>
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010<span class="sb">`</span>
@@ -3409,6 +3405,7 @@ go build
 <li>Find information at https://docs.theqrl.org/node/QRLnode/</li>
 </ul></li>
 <li>Run wallet daemon</li>
+<li>Install golang-go v1.8 or greater</li>
 <li>Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy</li>
 <li>go get github.com/theQRL/walletd-rest-proxy</li>
 </ol>
