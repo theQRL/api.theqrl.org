@@ -2,50 +2,6 @@
 # WalletAPI
 
 
-
-**Getting Started**
-
-
-1. Install QRL Node
-   - Find information at https://docs.theqrl.org/node/QRLnode/
-
-```bash
-# Run the wallet daemon
-qrl_walletd
- ```
-
-2. Run wallet daemon
-
-
-```bash
-#Clone walletd-rest-proxy
-git clone https://github.com/theQRL/walletd-rest-proxy
-```
-
-3. Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy
-
-
-```bash  
-# go get the walletd-rest-proxy
-cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
-go build
-```
-
-4. go get github.com/theQRL/walletd-rest-proxy
-
-
-```bash
-./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
-```
-run the following command:
-
-Where,  `serverIPPort` indicates the IP:Port at which REST API service will be provided. `walletServiceEndpoint` indicates the IP:Port at which the WalletAPIService is running.
-
-If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
-
----
-
-
 This service describes the Wallet API
 
 | Method Name | Request Type | Response Type | Description |
@@ -72,6 +28,43 @@ This service describes the Wallet API
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
 
+
+## Getting Started
+
+```bash
+# Run the wallet daemon
+qrl_walletd
+
+
+#Clone walletd-rest-proxy
+git clone https://github.com/theQRL/walletd-rest-proxy
+ 
+
+# go get the walletd-rest-proxy
+cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
+go build
+
+
+# Run the wallet-rest-proxy
+./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
+```
+
+
+1. Install QRL Node
+  - Find information at https://docs.theqrl.org/node/QRLnode/
+2. Run wallet daemon
+3. Clone walletd-rest-proxy from the repo hosted at https://github.com/theQRL/walletd-rest-proxy
+4. go get github.com/theQRL/walletd-rest-proxy
+
+Start the wallet-rest-proxy using your serverIPport
+
+<aside class="success">
+`serverIPPort` indicates the `IP:Port` at which REST API service will be provided. 
+
+`walletServiceEndpoint` indicates the `IP:Port` at which the WalletAPIService is running.
+</aside>
+
+If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
 
 
 
