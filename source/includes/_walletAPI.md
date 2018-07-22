@@ -1,6 +1,37 @@
 
 # WalletAPI
 
+
+
+**Getting Started**
+
+
+- Install QRL Node
+- Run wallet daemon by following command
+   - qrl_walletd
+- Clone walletd-rest-proxy from repo https://github.com/theQRL/walletd-rest-proxy
+- go get github.com/theQRL/walletd-rest-proxy
+   - cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
+   - go build
+
+run the following command:
+
+`./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
+
+
+Where,  `serverIPPort` indicates the IP:Port at which REST API service will be provided. `walletServiceEndpoint` indicates the IP:Port at which the WalletAPIService is running.
+
+If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
+
+
+
+
+
+
+
+
+
+
 This service describes the Wallet API
 
 | Method Name | Request Type | Response Type | Description |
@@ -601,6 +632,47 @@ Change the passphrase.
 | --- | --- | --- |
 | code | UInt32 | Error Code. Only appears if any exception is triggered. |
 | error | String | Error Message. Only appears if any exception is triggered. |
+
+
+
+## GetTransactionsByAddress
+
+
+>  **GetTransactionsByAddress Request**
+
+```shell
+curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
+{
+  "address": "Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e"
+}'
+```
+
+**GetTransactionsByAddress Response**
+
+```shell
+{"mini_transactions":[{"transaction_hash":"27d27c36a85f012ec8b906fd3d38de7bc2ec0f01a1dc2cab3bea1b71868dde61","amount":"100000"},{"transaction_hash":"aad2ba0626c7f1bcf47ea19342bfb888df19e875fcf86b80279be2a9ebdaeb0b","out":true,"amount":"12"}],"balance":"99988"}
+```
+
+Get transactions hash and  other details for a given address.
+
+**Request**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| address | String | QRL address |
+
+
+
+**Response**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| code | UInt32 | Error Code. Only appears if any exception is triggered. |
+| error | String | Error Message. Only appears if any exception is triggered. |
+| mini_transactions | MiniTransaction[] | List of MiniTransations which includes, transaction_hash, amount and out.|
+| balance | Uint64 | Total balance |
+
+
 
 
 

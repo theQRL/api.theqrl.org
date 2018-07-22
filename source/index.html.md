@@ -30,21 +30,18 @@ search: true
 
 
 
-# QRL API Documentation
+# The QRL API 
 
 ## Introduction
 
-
-> More information can be found in our documentation site, [https://docs.theqrl.org](https://docs.theqrl.org) 
-
-> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl)
-
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
+
+> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration.  
 
 Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named \*Req) and response (named \*Resp).
 
 
-<aside class="notice">
+<aside class="success">
 This is a work in progress, code may change. Please see the official documentation at <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 
