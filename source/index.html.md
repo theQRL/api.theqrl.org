@@ -21,7 +21,7 @@ search: true
 
 
 
-# QRL API 
+# QRL Protocol Documentation 
 
 ## Introduction
 
