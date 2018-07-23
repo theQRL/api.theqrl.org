@@ -10,7 +10,7 @@ This service describes the Wallet API
 | [AddAddressFromSeed](#addaddressfromseed) | [AddAddressFromSeedReq](#addaddressfromseedreq) | [AddAddressFromSeedResp](#addaddressfromseedreq) |  |
 | [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesreq) |  |
 | [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressreq) |  |
-| [EncryptWallet](removeaddress) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletreq) |  |
+| [EncryptWallet](#encryptwalletreq) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletreq) |  |
 | [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletreq) |  |
 | [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletreq) |  |
 | [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsreq) |  |
