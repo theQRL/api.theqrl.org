@@ -52,7 +52,7 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
+      <a href="/"><%= image_tag "logo.png", class: 'logo' %></a>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -70,7 +70,10 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% end %>
+      
+
       <div id="toc" class="toc-list-h1">
+
         <% toc_data(page_content).each do |h1| %>
           <li>
             <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content].to_s.parameterize %>"><%= h1[:content] %></a>
@@ -85,7 +88,28 @@ under the License.
             <% end %>
           </li>
         <% end %>
+
+
+
+        <ul style="padding: 0 15px 0 15px;">
+          <li class="toc-h1 toc-link"><a href="/">QRL API</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrlwallet/">QRL Wallet API</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrlbase/">QRL Base Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrlmining">QRL Mining Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrlwallet">QRL Wallet Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrlstateinfo">QRL State Info Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrllegacy">QRL Legacy Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/qrldebug">QRL Debug Proto</a></li>
+          <li class="toc-h1 toc-link"><a href="/ScalarValueTypes">Scalar Value Types</a></li>
+
+        </ul>
+
+
+
+
       </div>
+      
+
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>

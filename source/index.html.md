@@ -14,13 +14,6 @@ toc_footers:
 
 includes:
   - QRL.proto
-  - walletAPI
-  - qrlbase.proto
-  - qrlstateinfo.proto
-  - qrlmining.proto
-  - qrldebug.proto
-  - qrllegacy.proto
-  - ScalarValueTypes
 #  - errors
 
 search: true
