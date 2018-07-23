@@ -71,12 +71,15 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_fun
 Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
 
 1. Install the QRL Node and sync
+  - This allows a secure connection to the network running on the local server
   - Find information at [https://docs.theqrl.org/node/QRLnode/](https://docs.theqrl.org/node/QRLnode/)
 2. Run the QRL wallet daemon
+  - `qrl_walletd`
 3. Install [golang-go v1.8](https://golang.org/doc/install#tarball) or greater
 3. Clone walletd-rest-proxy from the repo hosted at [https://github.com/theQRL/walletd-rest-proxy](https://github.com/theQRL/walletd-rest-proxy)
-4. go get github.com/theQRL/walletd-rest-proxy
+  - `go get github.com/theQRL/walletd-rest-proxy`
 5. Start the wallet-rest-proxy 
+  - This allows connection to the WalletDaemon
 6. Send commands using cURL and begin using the QRL!
 
 <aside class="success">
