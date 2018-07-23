@@ -53,9 +53,12 @@
     - [GetStatsResp](#qrl.GetStatsResp)
     - [GetTransactionReq](#qrl.GetTransactionReq)
     - [GetTransactionResp](#qrl.GetTransactionResp)
+    - [GetTransactionsByAddressReq](#qrl.GetTransactionsByAddressReq)
+    - [GetTransactionsByAddressResp](#qrl.GetTransactionsByAddressResp)
     - [LRUStateCache](#qrl.LRUStateCache)
     - [LatticePK](#qrl.LatticePK)
     - [MessageTxnReq](#qrl.MessageTxnReq)
+    - [MiniTransaction](#qrl.MiniTransaction)
     - [NodeChainState](#qrl.NodeChainState)
     - [NodeHeaderHash](#qrl.NodeHeaderHash)
     - [NodeInfo](#qrl.NodeInfo)
@@ -194,6 +197,8 @@
     - [RemoveAddressResp](#qrl.RemoveAddressResp)
     - [TransactionReq](#qrl.TransactionReq)
     - [TransactionResp](#qrl.TransactionResp)
+    - [TransactionsByAddressReq](#qrl.TransactionsByAddressReq)
+    - [TransactionsByAddressResp](#qrl.TransactionsByAddressResp)
     - [UnlockWalletReq](#qrl.UnlockWalletReq)
     - [UnlockWalletResp](#qrl.UnlockWalletResp)
   
@@ -986,6 +991,37 @@ Represents the reply message to get statistics about node
 
 
 
+<a name="qrl.GetTransactionsByAddressReq"/>
+
+### GetTransactionsByAddressReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [bytes](#bytes) |  |  |
+
+
+
+
+
+
+<a name="qrl.GetTransactionsByAddressResp"/>
+
+### GetTransactionsByAddressResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mini_transactions | [MiniTransaction](#qrl.MiniTransaction) | repeated |  |
+| balance | [uint64](#uint64) |  |  |
+
+
+
+
+
+
 <a name="qrl.LRUStateCache"/>
 
 ### LRUStateCache
@@ -1025,6 +1061,23 @@ Represents the reply message to get statistics about node
 | message | [bytes](#bytes) |  |  |
 | fee | [uint64](#uint64) |  |  |
 | xmss_pk | [bytes](#bytes) |  |  |
+
+
+
+
+
+
+<a name="qrl.MiniTransaction"/>
+
+### MiniTransaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| transaction_hash | [string](#string) |  |  |
+| out | [bool](#bool) |  |  |
+| amount | [uint64](#uint64) |  |  |
 
 
 
@@ -1678,6 +1731,7 @@ This service describes the Public API used by clients (wallet/cli/etc)
 | GetTokenTxn | [TokenTxnReq](#qrl.TokenTxnReq) | [TransferCoinsResp](#qrl.TokenTxnReq) |  |
 | GetTransferTokenTxn | [TransferTokenTxnReq](#qrl.TransferTokenTxnReq) | [TransferCoinsResp](#qrl.TransferTokenTxnReq) |  |
 | GetSlaveTxn | [SlaveTxnReq](#qrl.SlaveTxnReq) | [TransferCoinsResp](#qrl.SlaveTxnReq) |  |
+| GetTransactionsByAddress | [GetTransactionsByAddressReq](#qrl.GetTransactionsByAddressReq) | [GetTransactionsByAddressResp](#qrl.GetTransactionsByAddressReq) |  |
 | GetTransaction | [GetTransactionReq](#qrl.GetTransactionReq) | [GetTransactionResp](#qrl.GetTransactionReq) |  |
 | GetBalance | [GetBalanceReq](#qrl.GetBalanceReq) | [GetBalanceResp](#qrl.GetBalanceReq) |  |
 | GetOTS | [GetOTSReq](#qrl.GetOTSReq) | [GetOTSResp](#qrl.GetOTSReq) |  |
@@ -2810,6 +2864,39 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 
+<a name="qrl.TransactionsByAddressReq"/>
+
+### TransactionsByAddressReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="qrl.TransactionsByAddressResp"/>
+
+### TransactionsByAddressResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| mini_transactions | [MiniTransaction](#qrl.MiniTransaction) | repeated |  |
+| balance | [uint64](#uint64) |  |  |
+
+
+
+
+
+
 <a name="qrl.UnlockWalletReq"/>
 
 ### UnlockWalletReq
@@ -2869,6 +2956,7 @@ This service describes the Wallet API
 | RelayTransferTokenTxn | [RelayTransferTokenTxnReq](#qrl.RelayTransferTokenTxnReq) | [RelayTxnResp](#qrl.RelayTransferTokenTxnReq) |  |
 | RelaySlaveTxn | [RelaySlaveTxnReq](#qrl.RelaySlaveTxnReq) | [RelayTxnResp](#qrl.RelaySlaveTxnReq) |  |
 | ChangePassphrase | [ChangePassphraseReq](#qrl.ChangePassphraseReq) | [ChangePassphraseResp](#qrl.ChangePassphraseReq) |  |
+| GetTransactionsByAddress | [TransactionsByAddressReq](#qrl.TransactionsByAddressReq) | [TransactionsByAddressResp](#qrl.TransactionsByAddressReq) |  |
 | GetTransaction | [TransactionReq](#qrl.TransactionReq) | [TransactionResp](#qrl.TransactionReq) |  |
 | GetBalance | [BalanceReq](#qrl.BalanceReq) | [BalanceResp](#qrl.BalanceReq) |  |
 | GetOTS | [OTSReq](#qrl.OTSReq) | [OTSResp](#qrl.OTSReq) |  |

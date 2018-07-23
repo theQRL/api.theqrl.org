@@ -1,0 +1,18 @@
+### save this into /etc/systemd/system/qrl.service
+## enable with sudo systemctl enable qrl.service
+## start with sudo systemctl start qrl
+
+[Unit]
+Description=QRL Node
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/home/ubuntu/.local/bin/start_qrl 
+Restart=always 
+
+[Install]
+WantedBy=multi-user.target
+
