@@ -27,11 +27,12 @@ We also serve up the jekyll site at 127.0.0.1:4000 which we proxy through apache
 
 
 I have added the following to the default config to allow the proxy to port 4000
-/etc/apache2/sites-available/test.fr1t2.conf
+/etc/apache2/sites-available/site.site.conf
+
 ```
-        ServerName www.test.fr1t2.com
-        ServerAlias test.fr1t2.com
-        ServerAdmin fr1t2@fr1t2.com
+        ServerName www.site.site.com
+        ServerAlias site.site.com
+        ServerAdmin you@email.com
 
 
         #DocumentRoot /var/www/html
@@ -45,6 +46,7 @@ I have added the following to the default config to allow the proxy to port 4000
 
 
 #### Jekyll
+
 Install jekyll and related dependencies
 
 ```bash
@@ -64,6 +66,7 @@ bundle update jekyll
 ```
 
 ##### Basic useage
+
 ```
 jekyll build
 # => The current folder will be generated into ./_site
@@ -144,9 +147,7 @@ directories in home dir:
 `git clone https://github.com/theqrl/qrl.git`
 
 
-### Slate Docs 
-
-from https://github.com/fr1t2/slate
+### Slate
 
 #### needed:
 
@@ -306,13 +307,6 @@ cp ${HOME}/work/examples/doc/* /var/www/html/
 
 ## Choping the docs up
 
-
-
-
-
-
-
-
 ## Notes
 
 ### Slate Docs
@@ -320,13 +314,7 @@ cp ${HOME}/work/examples/doc/* /var/www/html/
 use includes in the front matter will add the list to the end of the index.html adding each to the docs. 
 
 File name must start with an underscore "\_" in the includes directory...
-
-
-
 could break into small parts and manage here somehow...
-
-
-
 
 
 ## Install jekyll
