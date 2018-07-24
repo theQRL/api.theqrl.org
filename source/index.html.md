@@ -20,7 +20,7 @@ includes:
   - qrlmining.proto
   - qrlstateinfo.proto
   - qrlwallet.proto
-  - WalletAPI
+  - walletAPI
 #  - errors
 
 search: true
