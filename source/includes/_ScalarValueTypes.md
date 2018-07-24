@@ -1,4 +1,4 @@
-# ScalarValueTypes
+# Scalar Value Types
 
 
 ## Double

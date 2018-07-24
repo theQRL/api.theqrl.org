@@ -1,15 +1,9 @@
-# qrllegacy.proto
+# QRL Legacy Protocol
 
 
 ## BKData
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -18,13 +12,7 @@
 
 ## FBData
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -32,13 +20,6 @@
 
 ## LegacyMessage
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 Adding old code to refactor while keeping things working
 
@@ -72,13 +53,6 @@ Adding old code to refactor while keeping things working
 
 ## MRData
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -95,24 +69,11 @@ Adding old code to refactor while keeping things working
 
 ## NoData
 
-```python
-   
-```
-
-```javascript
-   
-```
-
+<aside class="success">What did you expect, some data?</aside>
 
 ## PBData
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -123,13 +84,6 @@ Adding old code to refactor while keeping things working
 
 ## PLData
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -141,24 +95,9 @@ Adding old code to refactor while keeping things working
 
 ## PONGData
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 ## SYNCData
-
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -168,13 +107,6 @@ Adding old code to refactor while keeping things working
 
 ## VEData
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -186,15 +118,6 @@ Adding old code to refactor while keeping things working
 
 
 ## LegacyMessage.FuncName
-
-```python
-   
-```
-
-```javascript
-   
-```
-
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |

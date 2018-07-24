@@ -1,5 +1,4 @@
-# qrldebug.proto
-
+# QRL Debug Protocol
 
 
 
@@ -7,24 +6,10 @@
 
 
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 ## GetFullStateResp
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -35,13 +20,6 @@
 
 ## DebugAPI
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 This service describes the Debug API used for debugging

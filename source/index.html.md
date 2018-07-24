@@ -6,10 +6,10 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python: Python
 
 toc_footers:
-  - <a href='https://github.com/theqrl'>QRL Github</a> 
-  - <a href='https://theqrl.org'>TheQRL.org - Main Site</a>
-  - <a href='https://docs.theqrl.org'>Docs.TheQRL.org - Documentation</a>
-  - <a href='https://discord.gg/DHbZXB8'>Discord Chat</a> 
+  - <a href='https://github.com/theqrl' target="_blank">QRL Github</a> 
+  - <a href='https://theqrl.org' target="_blank">TheQRL.org - Main Site</a>
+  - <a href='https://docs.theqrl.org' target="_blank">Docs.TheQRL.org - Documentation</a>
+  - <a href='https://discord.gg/DHbZXB8' target="_blank">Discord Chat</a> 
 
 
 includes:
@@ -35,13 +35,13 @@ search: true
 
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
 
-> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration.  
+> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration. Our [Discord server](https://discord.gg/HhYKQyD) has a thriving community, and we are ready to help you build something great on the QRL network. 
 
 Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named \*Req) and response (named \*Resp).
 
 
 <aside class="success">
-This is a work in progress, code may change. Please see the official documentation at <a href="https://docs.theqrl.org">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
+This is a work in progress, code may change, site layout is fluid. Please see the QRL  documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 
 
@@ -50,9 +50,9 @@ This is a work in progress, code may change. Please see the official documentati
 ```python
 **fixme**
 
-
 ADD INFO HERE!!
 
+# We need a basic script depicting the connection method
 
 **fixme**
 ```
@@ -100,6 +100,8 @@ Connecting to the QRL network is simple. Use the examples shown to get started.
 
 <aside class="notice">
 **fixme** There may be some specific details we should be calling out here!
+<br>
+This is a community documentation site. If you would like to contribute to the project, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>
 </aside>
 
 
@@ -112,7 +114,7 @@ Connecting to the QRL network is simple. Use the examples shown to get started.
 > QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet.
 
 <aside class="warning">
-Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/">docs.theqrl.org</a>
+Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
 You may generate a slaves.json file that is an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
@@ -133,6 +135,7 @@ Here are some required functions to make the examples below work.
 
 ```python
 Enter Python code here **fixme**
+
 ```
 
 ```javascript

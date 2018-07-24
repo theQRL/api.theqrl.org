@@ -1,4 +1,4 @@
-# QRL.proto
+# QRL Protocol
 
 
 ## Overview
@@ -7,15 +7,6 @@ Our API's protocol data structure is defined in the qrl.proto file found in the 
 
 
 ## PublicAPI
-
-
-```python
-# python
-```
-
-```javascript
-   
-```
 
 
 This service describes the Public API used by clients wallet, cli, etc
@@ -50,9 +41,6 @@ This service describes the Public API used by clients wallet, cli, etc
 ### GetNodeStateReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetNodeStateReq { }
@@ -64,9 +52,6 @@ Represents a query to get node state
 ### GetNodeStateResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetNodeStateResp {
@@ -95,9 +80,6 @@ Represents the reply message to node state query
 ### GetKnownPeersReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetKnownPeersReq { }
@@ -108,9 +90,6 @@ Represents a query to get known peers
 
 ### GetKnownPeersResp
 
-```python
-# python
-```
 
 ```javascript
 message GetKnownPeersResp {
@@ -143,9 +122,6 @@ Represents the reply message to known peers query
 ### GetPeersStatReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetPeersStatReq { }
@@ -157,9 +133,6 @@ Represents a query to get connected peers stat
 ### GetPeersStatResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetPeersStatResp {
@@ -182,9 +155,6 @@ Represents the reply message to peers stat query
 ### GetStatsReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetStatsReq {
@@ -202,9 +172,6 @@ Represents a query to get statistics about node
 ### GetStatsResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetStatsResp {
@@ -247,9 +214,6 @@ Represents the reply message to get statistics about node
 ### GetAddressStateReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetAddressStateReq {   bytes address = 1; }
@@ -263,9 +227,6 @@ message GetAddressStateReq {   bytes address = 1; }
 ### GetAddressStateResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetAddressStateResp {
@@ -285,9 +246,6 @@ message GetAddressStateResp {
 ### GetObjectReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetObjectReq {  bytes query = 1;    }
@@ -302,9 +260,6 @@ message GetObjectReq {  bytes query = 1;    }
 ### GetObjectResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetObjectResp {
@@ -333,9 +288,6 @@ message GetObjectResp {
 ### GetLatestDataReq
 
 
-```python
-# python
-```
 
 ```javascript
 message GetLatestDataReq {
@@ -361,9 +313,6 @@ message GetLatestDataReq {
 ### GetLatestDataResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetLatestDataResp {
@@ -389,9 +338,6 @@ message GetLatestDataResp {
 ### PushTransactionReq
 
 
-```python
-# python
-```
 
 ```javascript
 message PushTransactionReq {    Transaction transaction_signed = 1;     }
@@ -405,9 +351,6 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 ### PushTransactionResp
 
 
-```python
-# python
-```
 
 ```javascript
 message PushTransactionResp {
@@ -438,9 +381,6 @@ message PushTransactionResp {
 ### TransferCoinsReq
 
 
-```python
-# python
-```
 
 ```javascript
 message TransferCoinsReq {
@@ -463,9 +403,6 @@ message TransferCoinsReq {
 
 ### TransferCoinsResp
 
-```python
-# python
-```
 
 ```javascript
 message TransferCoinsResp {
@@ -484,9 +421,6 @@ message TransferCoinsResp {
 
 ### GetAddressFromPKReq
 
-```python
-# python
-```
 
 ```javascript
 message GetAddressFromPKReq {
@@ -503,9 +437,6 @@ message GetAddressFromPKReq {
 ### GetAddressFromPKResp
 
 
-```python
-# python
-```
 
 ```javascript
 message GetAddressFromPKResp {
@@ -527,13 +458,8 @@ message GetAddressFromPKResp {
 ### MessageTxnReq
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -558,13 +484,8 @@ message GetAddressFromPKResp {
 ### TokenTxnReq
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -589,13 +510,8 @@ message GetAddressFromPKResp {
 ### TransferTokenTxnReq
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -610,9 +526,6 @@ message GetAddressFromPKResp {
 
 ### TransferCoinsResp
 
-```python
-# python
-```
 
 ```javascript
 message TransferCoinsResp {
@@ -633,13 +546,8 @@ message TransferCoinsResp {
 ### SlaveTxnReq
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -666,13 +574,8 @@ This is a place holder for testing/instrumentation APIs
 ## AddressAmount
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -684,13 +587,8 @@ This is a place holder for testing/instrumentation APIs
 
 ## AddressList
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -747,13 +645,8 @@ qrlClient.then( function (qrlClient) {
 ## AddressState.SlavePksAccessTypeEntry
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -765,13 +658,8 @@ qrlClient.then( function (qrlClient) {
 ## AddressState.TokensEntry
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -784,13 +672,8 @@ qrlClient.then( function (qrlClient) {
 ## Block
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -802,13 +685,8 @@ qrlClient.then( function (qrlClient) {
 ## BlockDataPoint
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 BlockDataPoint message definition
@@ -829,13 +707,8 @@ BlockDataPoint message definition
 
 ## BlockExtended
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -848,13 +721,8 @@ BlockDataPoint message definition
 
 ## BlockHeader
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -875,13 +743,8 @@ BlockDataPoint message definition
 ## BlockHeaderExtended
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -893,13 +756,8 @@ BlockDataPoint message definition
 
 ## BlockHeightData
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -916,13 +774,8 @@ BlockDataPoint message definition
 
 ## BlockMetaData
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -938,13 +791,8 @@ BlockDataPoint message definition
 ## BlockMetaDataList
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -960,13 +808,8 @@ BlockDataPoint message definition
 ## BlockNumberMapping
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -977,13 +820,8 @@ BlockDataPoint message definition
 
 ## Empty
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 Empty message definition
@@ -991,13 +829,8 @@ Empty message definition
 
 ## EncryptedEphemeralMessage
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1013,13 +846,8 @@ Empty message definition
 
 ## EncryptedEphemeralMessage.Channel
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1030,13 +858,8 @@ Empty message definition
 
 ## GenesisBalance
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1048,13 +871,8 @@ Empty message definition
 
 ## GetBlockReq
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 NOT USED -&gt; RM?
 
@@ -1067,13 +885,8 @@ NOT USED -&gt; RM?
 
 ## GetBlockResp
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 NOT USED -&gt; RM?
@@ -1087,24 +900,14 @@ NOT USED -&gt; RM?
 
 ## GetLocalAddressesReq
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 ## GetLocalAddressesResp
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1118,26 +921,16 @@ NOT USED -&gt; RM?
 
 
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 
 
 ## LatticePK
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1150,13 +943,8 @@ NOT USED -&gt; RM?
 
 ## NodeChainState
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1170,13 +958,8 @@ NOT USED -&gt; RM?
 
 ## NodeHeaderHash
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1188,13 +971,8 @@ NOT USED -&gt; RM?
 
 ## NodeInfo
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1214,13 +992,8 @@ NOT USED -&gt; RM?
 
 ## P2PAcknowledgement
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1233,13 +1006,8 @@ NOT USED -&gt; RM?
 
 ## Peer
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1250,13 +1018,8 @@ NOT USED -&gt; RM?
 
 ## PeerInfo
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1273,13 +1036,8 @@ NOT USED -&gt; RM?
 
 ## PeerStat
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1293,13 +1051,8 @@ NOT USED -&gt; RM?
 
 ## Peers
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1310,13 +1063,8 @@ NOT USED -&gt; RM?
 
 ## StateLoader
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1330,13 +1078,8 @@ NOT USED -&gt; RM?
 
 ## StateObjects
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1347,13 +1090,8 @@ NOT USED -&gt; RM?
 
 ## StoredPeers
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1364,13 +1102,8 @@ NOT USED -&gt; RM?
 
 ## TokenList
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1382,13 +1115,8 @@ NOT USED -&gt; RM?
 
 ## TokenMetadata
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1400,13 +1128,8 @@ NOT USED -&gt; RM?
 
 ## Transaction
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1429,13 +1152,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.CoinBase
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1448,13 +1166,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.LatticePublicKey
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1465,13 +1178,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.Message
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1481,13 +1189,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.Slave
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1498,13 +1201,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.Token
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1520,13 +1218,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.Transfer
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1538,13 +1231,8 @@ NOT USED -&gt; RM?
 
 ## Transaction.TransferToken
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1559,13 +1247,8 @@ NOT USED -&gt; RM?
 
 ## TransactionCount
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1576,13 +1259,8 @@ NOT USED -&gt; RM?
 
 ## TransactionCount.CountEntry
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1594,13 +1272,8 @@ NOT USED -&gt; RM?
 
 ## TransactionExtended
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Field | Type | Label | Description |
@@ -1616,13 +1289,8 @@ NOT USED -&gt; RM?
 
 ## GetLatestDataReq.Filter
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -1635,13 +1303,8 @@ NOT USED -&gt; RM?
 
 ## NodeInfo.State
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Name | Number | Description |
@@ -1656,13 +1319,8 @@ NOT USED -&gt; RM?
 
 ## PushTransactionResp.ResponseCode
 
-```python
-# python
-```
 
-```javascript
-   
-```
+
 
 
 | Name | Number | Description |

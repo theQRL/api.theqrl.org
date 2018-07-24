@@ -1,27 +1,14 @@
-# qrlbase.proto
+# QRL Base Protocol
 
 
 
 ## GetNodeInfoReq
 
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 ## GetNodeInfoResp
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -32,13 +19,6 @@
 
 ## Base
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Method Name | Request Type | Response Type | Description |

@@ -1,15 +1,8 @@
-# qrlmining.proto
+# QRL Mining Protocol
 
 
 ## MiningAPI
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -26,13 +19,7 @@
 
 ### GetBlockMiningCompatibleReq
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -42,13 +29,7 @@
 
 ### GetBlockMiningCompatibleResp
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -65,13 +46,7 @@
 
 ### GetLastBlockHeaderReq
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -82,13 +57,6 @@
 
 ### GetLastBlockHeaderResp
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -109,13 +77,7 @@
 
 ### GetBlockToMineReq
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -125,13 +87,7 @@
 
 ### GetBlockToMineResp
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -151,13 +107,6 @@
 
 ## SubmitMinedBlockReq
 
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -167,13 +116,7 @@
 
 ## SubmitMinedBlockResp
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |

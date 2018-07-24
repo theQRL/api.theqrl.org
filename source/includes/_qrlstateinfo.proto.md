@@ -1,14 +1,6 @@
-# qrlstateinfo.proto
+# QRL State Info Protocol
 
 ## ForkState
-
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -23,13 +15,7 @@ Alternate chain hash path which is eligible to become mainchain |
 
 ## LastTransactions
 
-```python
-   
-```
 
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
@@ -38,14 +24,6 @@ Alternate chain hash path which is eligible to become mainchain |
 
 
 ## TransactionMetadata
-
-```python
-   
-```
-
-```javascript
-   
-```
 
 
 | Field | Type | Label | Description |
