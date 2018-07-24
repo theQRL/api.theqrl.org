@@ -2,10 +2,6 @@
 
 
 
-
-
-# Add New Address
-
 ## AddAddressFromSeedReq
 
 
@@ -25,8 +21,6 @@
 | address | [string](#string) |  |  |
 
 
-
-# AddNewAddress
 
 ## AddNewAddressReq
 
@@ -49,7 +43,6 @@
 
 
 
-# GetBalance
 
 ## BalanceReq
 
@@ -75,9 +68,6 @@
 
 
 
-# GetBlock
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_number | [uint64](#uint64) |  |  |
@@ -100,7 +90,6 @@
 
 
 
-# ChangePassphrase
 
 ## ChangePassphraseReq
 
@@ -118,7 +107,6 @@
 | error | [string](#string) |  |  |
 
 
-# EncryptWallet
 
 ## EncryptWalletReq
 
@@ -135,7 +123,6 @@
 | error | [string](#string) |  |  |
 
 
-# GetRecoverySeeds
 
 ## GetRecoverySeedsReq
 
@@ -154,8 +141,6 @@
 | mnemonic | [string](#string) |  |  |
 
 
-# GetWalletInfo
-
 ## GetWalletInfoReq
 
 
@@ -171,8 +156,6 @@
 
 
 
-# GetHeight
-
 ## HeightReq
 
 ## HeightResp
@@ -184,9 +167,6 @@
 | height | [uint64](#uint64) |  |  |
 
 
-
-
-# ListAddresses
 
 
 ## ListAddressesReq
@@ -201,7 +181,6 @@
 | addresses | [string](#string) | repeated |  |
 
 
-# LockWallet
 
 ## LockWalletReq
 
@@ -212,7 +191,6 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 
-# GetOTS
 
 ## OTSReq
 
@@ -229,7 +207,6 @@
 | ots_bitfield | [bytes](#bytes) | repeated |  |
 | next_unused_ots_index | [uint64](#uint64) |  |  |
 
-# RelayMessageTxn
 
 ## RelayMessageTxnReq
 
@@ -253,8 +230,6 @@
 | ots_index | [uint64](#uint64) |  |  |
 
 
-
-# RelayTokenTxn
 
 ## RelayTokenTxnReq
 
@@ -285,8 +260,6 @@
 
 
 
-# RelayTransferTxn
-
 ## RelayTransferTxnReq
 
 | Field | Type | Label | Description |
@@ -307,7 +280,6 @@
 | error | [string](#string) |  |  |
 | tx | [Transaction](#qrl.Transaction) |  |  |
 
-# RemoveAddress
 
 ## RemoveAddressReq
 
@@ -322,7 +294,6 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 
-# GetTransaction
 
 ## TransactionReq
 
@@ -340,7 +311,6 @@
 | confirmations | [uint64](#uint64) |  |  |
 
 
-# UnlockWallet
 
 ## UnlockWalletReq
 
