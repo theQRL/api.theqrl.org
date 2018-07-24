@@ -2,11 +2,8 @@
 
 
 
-
-
-# Add New Address
-
 ## AddAddressFromSeedReq
+
 
 
 | Field | Type | Label | Description |
@@ -14,9 +11,10 @@
 | seed | [string](#string) |  |  |
 
 
+
+
+
 ## AddAddressFromSeedResp
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -26,7 +24,7 @@
 
 
 
-# AddNewAddress
+
 
 ## AddNewAddressReq
 
@@ -38,8 +36,6 @@
 
 ## AddNewAddressResp
 
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
@@ -47,23 +43,14 @@
 | address | [string](#string) |  |  |
 
 
-
-
-# GetBalance
-
 ## BalanceReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
 
 
-
 ## BalanceResp
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -73,14 +60,12 @@
 
 
 
-
-
-# GetBlock
-
+## BlockByNumberReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_number | [uint64](#uint64) |  |  |
+
 
 
 ## BlockReq
@@ -88,6 +73,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | header_hash | [string](#string) |  |  |
+
 
 
 ## BlockResp
@@ -100,7 +86,6 @@
 
 
 
-# ChangePassphrase
 
 ## ChangePassphraseReq
 
@@ -118,9 +103,8 @@
 | error | [string](#string) |  |  |
 
 
-# EncryptWallet
-
 ## EncryptWalletReq
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -134,8 +118,6 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 
-
-# GetRecoverySeeds
 
 ## GetRecoverySeedsReq
 
@@ -154,9 +136,9 @@
 | mnemonic | [string](#string) |  |  |
 
 
-# GetWalletInfo
 
 ## GetWalletInfoReq
+
 
 
 ## GetWalletInfoResp
@@ -170,9 +152,6 @@
 | is_encrypted | [bool](#bool) |  |  |
 
 
-
-# GetHeight
-
 ## HeightReq
 
 ## HeightResp
@@ -184,13 +163,7 @@
 | height | [uint64](#uint64) |  |  |
 
 
-
-
-# ListAddresses
-
-
 ## ListAddressesReq
-
 
 ## ListAddressesResp
 
@@ -201,8 +174,6 @@
 | addresses | [string](#string) | repeated |  |
 
 
-# LockWallet
-
 ## LockWalletReq
 
 ## LockWalletResp
@@ -212,13 +183,13 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 
-# GetOTS
 
 ## OTSReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
+
 
 ## OTSResp
 
@@ -229,7 +200,6 @@
 | ots_bitfield | [bytes](#bytes) | repeated |  |
 | next_unused_ots_index | [uint64](#uint64) |  |  |
 
-# RelayMessageTxn
 
 ## RelayMessageTxnReq
 
@@ -240,6 +210,7 @@
 | master_address | [string](#string) |  |  |
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
+
 
 ## RelaySlaveTxnReq
 
@@ -252,9 +223,6 @@
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
 
-
-
-# RelayTokenTxn
 
 ## RelayTokenTxnReq
 
@@ -271,6 +239,7 @@
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
 
+
 ## RelayTransferTokenTxnReq
 
 | Field | Type | Label | Description |
@@ -283,9 +252,6 @@
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
 
-
-
-# RelayTransferTxn
 
 ## RelayTransferTxnReq
 
@@ -307,13 +273,14 @@
 | error | [string](#string) |  |  |
 | tx | [Transaction](#qrl.Transaction) |  |  |
 
-# RemoveAddress
+
 
 ## RemoveAddressReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
+
 
 ## RemoveAddressResp
 
@@ -322,13 +289,14 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 
-# GetTransaction
 
 ## TransactionReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | tx_hash | [string](#string) |  |  |
+
+
 
 ## TransactionResp
 
@@ -340,7 +308,24 @@
 | confirmations | [uint64](#uint64) |  |  |
 
 
-# UnlockWallet
+
+## TransactionsByAddressReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+
+
+
+## TransactionsByAddressResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| mini_transactions | [MiniTransaction](#qrl.MiniTransaction) | repeated |  |
+| balance | [uint64](#uint64) |  |  |
+
 
 ## UnlockWalletReq
 
@@ -355,6 +340,3 @@
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
-
-
- 

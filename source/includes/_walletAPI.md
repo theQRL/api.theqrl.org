@@ -10,7 +10,7 @@ This service describes the Wallet API
 | [AddAddressFromSeed](#addaddressfromseed) | [AddAddressFromSeedReq](#addaddressfromseedreq) | [AddAddressFromSeedResp](#addaddressfromseedreq) |  |
 | [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesreq) |  |
 | [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressreq) |  |
-| [EncryptWallet](#encryptwalletreq) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletreq) |  |
+| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletreq) |  |
 | [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletreq) |  |
 | [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletreq) |  |
 | [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsreq) |  |
@@ -27,6 +27,7 @@ This service describes the Wallet API
 | [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightreq) |  |
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
+| [GetAddressFromPK](#getaddressfrompk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
 
 
 ## Getting Started
@@ -38,12 +39,10 @@ apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-con
 pip3 install -U setuptools
 pip3 install -U qrl
 
+
 # Run the wallet daemon
 qrl_walletd
 
-# Install golang-go version 1.8 or greater
-# See https://golang.org/doc/install#tarball for more
-apt-get install golang-go
 
 #Clone walletd-rest-proxy
 git clone https://github.com/theQRL/walletd-rest-proxy 
@@ -57,14 +56,11 @@ go build
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
 
 
-
-
-# Alternate paramaters may be passed to through the API
+# Alternate paramaters may be passed to the API
 curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
 
 
-# Example adding an address to a wallet with treeheight 18 and hash_function sha_256
-
+# Example adding an address to a wallet with height 18 and hash_function sha_256
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_function":"sha2_256"}'
 ```
 
@@ -100,10 +96,8 @@ Alternative parameters may be entered by calling the `-d` flag and using the syn
 # AddNewAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
-```
 
 
-```bash
 # AddNewAddress Response
 
 {"address":"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"}
@@ -138,27 +132,21 @@ curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 {
   "seed": "01050089eb4fc690f1cae55c1e082ae92f2fd39d7b08001162a98c429f14421b50daafb59f5f65dbd21d7bc3f2c7004e4ba53b"
 }'
-```
 
 
-```bash
 # AddAddressFromSeed Hexseed Response
 
 {"address":"Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed"}
-```
 
 
-```bash
 # AddAddressFromSeed Mnemonic Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddAddressFromSeed -d '
 {
   "seed": "absorb grape glance virtue consul aerial total saudi patron mobile whole poppy baron memo react chord string rock agony corps rely fig frock figure scalp girl cup stage holy monkey starve area fiddle warm"
 }'
-```
 
 
-```bash
 # AddAddressFromSeed Mnemonic Response 
 
 {"address":"Q0106009f1a88d2f4a2af059c54a4f0fe4fa9d9d6debf6113ce002416e123b7775ce693da09c3da"}
@@ -192,9 +180,8 @@ Recovers address using seed (hexseed or mnemonic) and adds it to the wallet.
 # ListAddresses Request
 
 curl -XPOST http://127.0.0.1:5359/api/ListAddresses
-```
 
-```bash 
+
 # ListAddresses Response
 
 {"addresses":["Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25",”Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed”]}
@@ -223,9 +210,8 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
 {
   "address": "Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"
 }'
-```
 
-```bash
+
 # RemoveAddress Response
 
 {}
@@ -260,10 +246,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d '
 {
   "address": "Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"
 }'
-```
 
 
-```bash
 # GetRecoverySeeds Response
 
 {"hexseed":"010500f215b136baaeb8e089bf002cdd7df9969ee284981058c8a0dd0ab1eeb6579b370bba299726de70593a26eddf65336f71","mnemonic":"absorb filled verge gather damp prize river angle sash admire syrup taut nor unite lyric locus fulfil memory sword prompt update has orange insane roman ohio chalky took furry petrol unfair warn cried way"}
@@ -296,10 +280,9 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 # GetWalletInfo Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetWalletInfo
-```
 
 
-```bash
+
 # GetWalletInfo Response
 
 {"version":1,"address_count":"4","is_encrypted":true}
@@ -381,7 +364,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
 }'
 ```
 
-
 ```bash
 # RelayMessageTxn Response
 
@@ -431,7 +413,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
   "ots_index": 1
 }'
 ```
-
 
 ```bash
 # RelayTokenTxn Response
@@ -532,7 +513,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
 }'
 ```
 
-
 ```bash
 # RelaySlaveTxn Response
 
@@ -572,9 +552,8 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d '
 {
   "passphrase": "demo123"
 }'
-```
 
-```bash
+
 # EncryptWallet Response
 
 {}
@@ -602,10 +581,9 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 # LockWallet Request
 
 curl -XPOST http://127.0.0.1:5359/api/LockWallet
-```
 
 
-```bash
+
 # LockWallet Response
 
 {}
@@ -632,10 +610,9 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d '
 {
   "passphrase": "demo123"
 }'
-```
 
 
-```bash
+
 # UnlockWallet Response
 
 {}
@@ -671,10 +648,9 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d '
   "oldPassphrase": "demo123", 
   "newPassphrase": "demo234"
 }'
-```
 
 
-```bash
+
 # ChangePassphrase Response
 
 {}
@@ -711,10 +687,9 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
 {
   "address": "Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e"
 }'
-```
 
 
-```bash
+
 # GetTransactionsByAddress Response
 
 {"mini_transactions":[{"transaction_hash":"27d27c36a85f012ec8b906fd3d38de7bc2ec0f01a1dc2cab3bea1b71868dde61","amount":"100000"},{"transaction_hash":"aad2ba0626c7f1bcf47ea19342bfb888df19e875fcf86b80279be2a9ebdaeb0b","out":true,"amount":"12"}],"balance":"99988"}
@@ -755,12 +730,12 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
 }'
 ```
 
-
 ```bash
 # GetTransaction Response
 
 {"tx":{"fee":"10000000","public_key":"AQYA6AzHi//hrXeAjGjoAUIWfAnm3S08CdsXOpscnc8bRB46bKL2Tl1NtVpwF63EJXsJVawv/v/zwCD8BLJ5Nqnl3w==","signature":"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","nonce":"2","transaction_hash":"S98iHa3t18TIZXrWrqiPihGb2f3+GZLfDpwmi0xYPYM=","transfer":{"addrs_to":["AQUAeDCOF2biluiReTdlkN9dxDNjDQIceNK29K/h/BvWIpJcPQAW","AQUAIdHWt8N0l6wTia9ZoDoqK2AgoZmIKBBRvWDlSydI6kfxDEOs"],"amounts":["1000000000","2000000000"]}},"confirmations":"13037"}
 ```
+
 Get transaction details for a given transaction hash with number of confirmations if any.
 
 **Request**
@@ -792,9 +767,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
 {
   "address": "Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"
 }'
-```
 
-```bash
 # GetBalance Response
 
 {"balance":"80709233943462"}
@@ -863,10 +836,8 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 # GetHeight Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetHeight
-```
 
 
-```bash
 # GetHeight Response
 
 {"height":"11854"}
@@ -892,10 +863,9 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d '
 {
   "header_hash": "bc913b7488862d2ff884c26ab3aceb7481568799ef05d98e5fa974337e0d2847"
 }'
-```
 
 
-```bash
+
 # GetBlock Response
 
 {"block":{"header":{"hash_header":"vJE7dIiGLS/4hMJqs6zrdIFWh5nvBdmOX6l0M34NKEc=","block_number":"2","timestamp_seconds":"1531736226","hash_header_prev":"YOS1hpoUALatbNjqDs0s9Ib7Ixfwc10rPdO4vSit+wA=","reward_block":"6656348353","merkle_root":"FNolJIny7K1CwkDXmuh7GFvWv1uSmYaXwpXb9n8DQL4=","mining_nonce":1},"transactions":[{"master_addr":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","nonce":"3","transaction_hash":"FNolJIny7K1CwkDXmuh7GFvWv1uSmYaXwpXb9n8DQL4=","coinbase":{"addr_to":"AQYAqTEwkLi3xj9VsemOsJjSp6hEuig6Hvw0yNqf1oN4NlrzITZz","amount":"6656348353"}}]}}
@@ -929,10 +899,9 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d '
 {
   "block_number": 2
 }'
-```
 
 
-```bash
+
 # GetBlockByNumber Response
 
 {"block":{"header":{"hash_header":"vJE7dIiGLS/4hMJqs6zrdIFWh5nvBdmOX6l0M34NKEc=","block_number":"2","timestamp_seconds":"1531736226","hash_header_prev":"YOS1hpoUALatbNjqDs0s9Ib7Ixfwc10rPdO4vSit+wA=","reward_block":"6656348353","merkle_root":"FNolJIny7K1CwkDXmuh7GFvWv1uSmYaXwpXb9n8DQL4=","mining_nonce":1},"transactions":[{"master_addr":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","nonce":"3","transaction_hash":"FNolJIny7K1CwkDXmuh7GFvWv1uSmYaXwpXb9n8DQL4=","coinbase":{"addr_to":"AQYAqTEwkLi3xj9VsemOsJjSp6hEuig6Hvw0yNqf1oN4NlrzITZz","amount":"6656348353"}}]}}
@@ -955,3 +924,34 @@ Get block details for a given block number.
 | block | Block | Block Details |
 
 
+
+## GetAddressFromPK
+
+Get QRL address for a given public key.
+
+```bash
+# Request
+
+curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
+{
+  "pk": "AQIAFuy585ufQnXVpJ4jI0ahWuL6jFCikn2urBibjF8tGLxOOYO9VkKYxJri5/puKNS5VNjNWTmPEiWwjWFEhUruDg=="
+}'
+
+
+# Response
+
+{"address":"Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"}
+```
+**Request**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| pk | Bytes | Base64 encoded public key |
+
+**Response**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| code | UInt32 | Error Code. Only appears if any exception is triggered. |
+| error | String | Error Message. Only appears if any exception is triggered. |
+| address | String | QRL Address |
