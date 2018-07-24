@@ -1,6 +1,6 @@
 # API Docs site
 
-Install instructions for the development build site. This is probablly broken and should'nt be used but for reference
+Install instructions for the development build site. This is probably broken and shouldn't be used but for reference
 
 ## Build steps
 
@@ -19,7 +19,7 @@ sudo apt install apache2
 sudo nano /etc/apache2/apache2.conf
 ```
 
-> add the `ServerName` to the fiile
+> add the `ServerName` to the file
 
 **serving the default site at /var/www/html to \*:80**
 
@@ -65,7 +65,7 @@ gem list jekyll
 bundle update jekyll
 ```
 
-##### Basic useage
+##### Basic Usage
 
 ```
 jekyll build
@@ -210,7 +210,7 @@ Created scripts for api
 cd ${HOME}/repo/slate
 git fetch origin
 ## Reset the local repo removing any changes before we pull
-## Change the repo to the correcct origin if needed
+## Change the repo to the correct origin if needed
 git reset --hard origin/QRL
 git pull
 
@@ -249,7 +249,7 @@ sed -s -i '1i\\' ${HOME}/manualAPI/examples/doc/out1.txt
 
 grep -vE "(<a name|# Table|<p|# Prot)" ${HOME}/manualAPI/examples/doc/out1.txt > ${HOME}/manualAPI/examples/doc/out2.txt
 
-## converg front matter and API docs file
+## converge front matter and API docs file
 cat ${HOME}/repo/slate/front.txt ${HOME}/manualAPI/examples/doc/out2.txt > ${HOME}/manualAPI/examples/doc/QRL_index.html.md
 
 cd ${HOME}/repo/slate
@@ -305,7 +305,7 @@ cp ${HOME}/work/examples/doc/* /var/www/html/
 
 
 
-## Choping the docs up
+## Chopping the docs up
 
 ## Notes
 
