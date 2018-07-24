@@ -13,9 +13,9 @@ This documentation is build using the [Slate API](https://github.com/lord/slate)
 - Code blocks that show up on the right are first after the section header
 - `<aside class="success"></aside>` gives a call out in the body
 - `>` gives a call out in the code section
-- Code blocks that start with `\`\`\`javascript` will be shown when the javascript is selected
-- Code blocks that start with `\`\`\`python` will be shown when the python is selected
-- Code blocks that start with `\`\`\`bash` will be shown always
+- Code blocks that start with \`\`\`javascript will be shown when the javascript is selected
+- Code blocks that start with \`\`\`python will be shown when the python is selected
+- Code blocks that start with \`\`\`bash will be shown always
 
 
 Drop in the discord if you need to ask a question [QRL Discord Server](https://discord.gg/HhYKQyD)
