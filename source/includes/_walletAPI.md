@@ -27,6 +27,7 @@ This service describes the Wallet API
 | [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightreq) |  |
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
+| [GetAddressFromPK](#getaddressfrompk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
 
 
 ## Getting Started
@@ -923,3 +924,34 @@ Get block details for a given block number.
 | block | Block | Block Details |
 
 
+
+## GetAddressFromPK
+
+Get QRL address for a given public key.
+
+```bash
+# Request
+
+curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
+{
+  "pk": "AQIAFuy585ufQnXVpJ4jI0ahWuL6jFCikn2urBibjF8tGLxOOYO9VkKYxJri5/puKNS5VNjNWTmPEiWwjWFEhUruDg=="
+}'
+
+
+# Response
+
+{"address":"Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"}
+```
+**Request**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| pk | Bytes | Base64 encoded public key |
+
+**Response**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| code | UInt32 | Error Code. Only appears if any exception is triggered. |
+| error | String | Error Message. Only appears if any exception is triggered. |
+| address | String | QRL Address |

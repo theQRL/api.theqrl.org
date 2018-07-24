@@ -5,20 +5,24 @@
 ## AddAddressFromSeedReq
 
 
+
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | seed | [string](#string) |  |  |
 
 
+
+
+
 ## AddAddressFromSeedResp
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | address | [string](#string) |  |  |
+
+
 
 
 
@@ -32,8 +36,6 @@
 
 ## AddNewAddressResp
 
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
@@ -41,22 +43,14 @@
 | address | [string](#string) |  |  |
 
 
-
-
-
 ## BalanceReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
 
 
-
 ## BalanceResp
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -66,11 +60,12 @@
 
 
 
-
+## BlockByNumberReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block_number | [uint64](#uint64) |  |  |
+
 
 
 ## BlockReq
@@ -78,6 +73,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | header_hash | [string](#string) |  |  |
+
 
 
 ## BlockResp
@@ -107,8 +103,8 @@
 | error | [string](#string) |  |  |
 
 
-
 ## EncryptWalletReq
+
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -121,7 +117,6 @@
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
-
 
 
 ## GetRecoverySeedsReq
@@ -141,7 +136,9 @@
 | mnemonic | [string](#string) |  |  |
 
 
+
 ## GetWalletInfoReq
+
 
 
 ## GetWalletInfoResp
@@ -155,7 +152,6 @@
 | is_encrypted | [bool](#bool) |  |  |
 
 
-
 ## HeightReq
 
 ## HeightResp
@@ -167,10 +163,7 @@
 | height | [uint64](#uint64) |  |  |
 
 
-
-
 ## ListAddressesReq
-
 
 ## ListAddressesResp
 
@@ -179,7 +172,6 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | addresses | [string](#string) | repeated |  |
-
 
 
 ## LockWalletReq
@@ -197,6 +189,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
+
 
 ## OTSResp
 
@@ -218,6 +211,7 @@
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
 
+
 ## RelaySlaveTxnReq
 
 | Field | Type | Label | Description |
@@ -228,7 +222,6 @@
 | master_address | [string](#string) |  |  |
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
-
 
 
 ## RelayTokenTxnReq
@@ -246,6 +239,7 @@
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
 
+
 ## RelayTransferTokenTxnReq
 
 | Field | Type | Label | Description |
@@ -257,7 +251,6 @@
 | master_address | [string](#string) |  |  |
 | signer_address | [string](#string) |  |  |
 | ots_index | [uint64](#uint64) |  |  |
-
 
 
 ## RelayTransferTxnReq
@@ -281,11 +274,13 @@
 | tx | [Transaction](#qrl.Transaction) |  |  |
 
 
+
 ## RemoveAddressReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
+
 
 ## RemoveAddressResp
 
@@ -301,6 +296,8 @@
 | ----- | ---- | ----- | ----------- |
 | tx_hash | [string](#string) |  |  |
 
+
+
 ## TransactionResp
 
 | Field | Type | Label | Description |
@@ -310,6 +307,24 @@
 | tx | [Transaction](#qrl.Transaction) |  |  |
 | confirmations | [uint64](#uint64) |  |  |
 
+
+
+## TransactionsByAddressReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+
+
+
+## TransactionsByAddressResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| mini_transactions | [MiniTransaction](#qrl.MiniTransaction) | repeated |  |
+| balance | [uint64](#uint64) |  |  |
 
 
 ## UnlockWalletReq
@@ -325,6 +340,3 @@
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
-
-
- 
