@@ -2,6 +2,8 @@
 
 This is the site hosted at [https://api.theqrl.org](https://api.theqrl.org) serving the protocol documentation for the QRL. This documentation and all of the QRL code is open source. If you find a typo or see an issue that needs corrected, please open a pull request. 
 
+**Static site files can be found in the /build directory**
+
 ## Site Information
 
 This documentation is build using the [Slate API](https://github.com/lord/slate) documentation builder. There are some great instructions on how to edit the site over in the [Slate WIKI](https://github.com/lord/slate/wiki)
