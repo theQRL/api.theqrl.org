@@ -27,7 +27,7 @@ This service describes the Wallet API
 | [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightreq) |  |
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
-| [GetAddressFromPK](#get-address-from-pk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
+| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
 
 
 ## Getting Started
@@ -925,7 +925,7 @@ Get block details for a given block number.
 
 
 
-## Get Address From PK
+## GetAddressFrom PK
 
 Get QRL address for a given public key.
 
