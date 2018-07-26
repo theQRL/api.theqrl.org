@@ -925,7 +925,7 @@ Get block details for a given block number.
 
 
 
-## Wallet GetAddressFromPK
+## Get Address From PK
 
 Get QRL address for a given public key.
 
