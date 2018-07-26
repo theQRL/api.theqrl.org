@@ -27,7 +27,7 @@ This service describes the Wallet API
 | [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightreq) |  |
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
-| [GetAddressFromPK](##get-address-from-pk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
+| [GetAddressFromPK](#get-address-from-pk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
 
 
 ## Getting Started
