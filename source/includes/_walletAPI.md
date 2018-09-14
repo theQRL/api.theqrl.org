@@ -198,8 +198,7 @@ Creates a new address with slaves
 ```bash
 # ListAddresses Request
 
-curl -XPOST http://127.0.0.1:5359/api/ListAddresses
-
+curl -XGET http://127.0.0.1:5359/api/ListAddresses
 
 # ListAddresses Response
 
@@ -304,8 +303,7 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 ```bash
 # GetWalletInfo Request
 
-curl -XPOST http://127.0.0.1:5359/api/GetWalletInfo
-
+curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 
 
 # GetWalletInfo Response
@@ -1015,8 +1013,7 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 ```bash
 # LockWallet Request
 
-curl -XPOST http://127.0.0.1:5359/api/LockWallet
-
+curl -XGET http://127.0.0.1:5359/api/LockWallet
 
 
 # LockWallet Response
@@ -1301,8 +1298,7 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 ```bash
 # GetHeight Request
 
-curl -XPOST http://127.0.0.1:5359/api/GetHeight
-
+curl -XGET http://127.0.0.1:5359/api/GetHeight
 
 # GetHeight Response
 
@@ -1558,7 +1554,8 @@ Checks if a given QRL Address is valid.
 ```bash
 # GetNodeInfo Request
 
-curl -XPOST http://127.0.0.1:5359/api/GetNodeInfo
+curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
+
 ```
 
 
