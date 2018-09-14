@@ -6,44 +6,36 @@ This service describes the Wallet API
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressreq) |  |
-| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressWithSlavesResp](#aaddnewaddresswithslavesreq) |  |
-| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesreq) |  |
-| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressreq) |  |
-| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsreq) |  |
-| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforeq) |  |
-| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnreq) |  |
-| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTransferTxnBySlaveResp](#relaytransfertxnbyslavereq) |  |
-| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaymessagetxnreq) |  |
-| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayMessageTxnBySlaveResp](#relaymessagetxnbyslavereq) |  |
-| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytokentxnreq) |  |
-| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTokenTxnBySlaveResp](#relaytokentxnbyslavereq) |  |
-| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytransfertokentxnreq) |  |
-| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTransferTokenTxnBySlaveResp](#relaytransfertokentxnbyslavereq) |  |
-| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relayslavetxnreq) |  |
-| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelaySlaveTxnBySlaveResp](#relayslavetxnbyslavereq) |  |
-| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletreq) |  |
-| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletreq) |  |
-| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletreq) |  |
-| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphrasereq) |  |
-| [GetTransactionsByAddress](#gettransactionsbyaddress) | [GetTransactionsByAddressReq](#gettransactionsbyaddressreq) | [GetTransactionsByAddressResp](#gettransactionsbyaddressreq) |  |
-| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionreq) |  |
-| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balancereq) |  |
-| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsreq) |  |
-| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightreq) |  |
-| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockreq) |  |
-| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberreq) |  |
-| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#getaddressfrompkreq) | [GetAddressFromPKResp](#getaddressfrompkresp) |  |
-| [IsValidAddress](#isvalidaddress) | [IsValidAddressReq](#isvalidaddressreq) | [IsValidAddressResp](#isvalidaddressreq) |  |
-| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#getnodeinforeq) | [GetNodeInfoResp](#getnodeinforeq) |  |
-
-
-
-
-
-
-
-
+| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressresp) |  |
+| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressResp](#addnewaddressresp) |  |
+| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesresp) |  |
+| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressresp) |  |
+| [IsValidAddress](#isvalidaddress) | [ValidAddressReq](#validaddressreq) | [ValidAddressResp](#validaddressresp) |  |
+| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  |
+| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletresp) |  |
+| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletresp) |  |
+| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |  |
+| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |  |
+| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnresp) |  |
+| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relaytxnresp) |  |
+| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
+| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphraseresp) |  |
+| [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |  |
+| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |  |
+| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |  |
+| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |  |
+| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |  |
+| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |  |
+| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |  |
+| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |  |
+| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |  |
 
 
 
