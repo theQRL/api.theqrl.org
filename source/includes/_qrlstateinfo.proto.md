@@ -15,9 +15,6 @@ Alternate chain hash path which is eligible to become mainchain |
 
 ## LastTransactions
 
-
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | tx_metadata | [TransactionMetadata](#transactionmetadata) | repeated |  |

@@ -6,58 +6,20 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| [GetBlockMiningCompatible](#getblockminingcompatible) | [GetBlockMiningCompatibleReq](#getblockminingcompatiblereq) | [GetBlockMiningCompatibleResp](#getblockminingcompatiblereq) |  |
-| [GetLastBlockHeader](#getlastblockheader) | [GetLastBlockHeaderReq](#getlastblockheaderreq) | [GetLastBlockHeaderResp](#getlastblockheaderreq) |  |
-| [GetBlockToMine](#getblocktomine) | [GetBlockToMineReq](#getblocktominereq) | [GetBlockToMineResp](#getblocktominereq) |  |
-| [SubmitMinedBlock](#submitminedblock) | [SubmitMinedBlockReq](#submitminedblockreq) | [SubmitMinedBlockResp](#submitminedblockreq) |  |
-
-
-
-## GetBlockMiningCompatible
-
-
-
-### GetBlockMiningCompatibleReq
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| height | [uint64](#uint64) |  | Used for getlastblockheader and getblockheaderbyheight if height = 0, this means getlastblockheader |
-
-
-
-### GetBlockMiningCompatibleResp
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| blockheader | [BlockHeader](#blockheader) |  |  |
-| blockmetadata | [BlockMetaData](#blockmetadata) |  |  |
-
-
-
-
+| [GetLastBlockHeader](#getlastblockheader) | [GetLastBlockHeaderReq](#getlastblockheaderreq) | [GetLastBlockHeaderResp](#getlastblockheaderresp) |  |
+| [GetBlockMiningCompatible](#getblockminingcompatible) | [GetBlockMiningCompatibleReq](#getblockminingcompatiblereq) | [GetBlockMiningCompatibleResp](#getblockminingcompatibleresp) |  |
+| [GetBlockToMine](#getblocktomine) | [GetBlockToMineReq](#getblocktominereq) | [GetBlockToMineResp](#getblocktomineresp) |  |
+| [SubmitMinedBlock](#submitminedblock) | [SubmitMinedBlockReq](#submitminedblockreq) | [SubmitMinedBlockResp](#submitminedblockresp) |  |
 
 ## GetLastBlockHeader
 
-
-
 ### GetLastBlockHeaderReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | height | [uint64](#uint64) |  |  |
 
-
-
-
 ### GetLastBlockHeaderResp
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -68,27 +30,30 @@
 | hash | [string](#string) |  |  |
 | depth | [uint64](#uint64) |  |  |
 
+## GetBlockMiningCompatible
 
+### GetBlockMiningCompatibleReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| height | [uint64](#uint64) |  | Used for getlastblockheader and getblockheaderbyheight if height = 0, this means getlastblockheader |
+
+### GetBlockMiningCompatibleResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| blockheader | [BlockHeader](#blockheader) |  |  |
+| blockmetadata | [BlockMetaData](#blockmetadata) |  |  |
 
 ## GetBlockToMine
 
-
-
-
 ### GetBlockToMineReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | wallet_address | [bytes](#bytes) |  |  |
 
-
-
 ### GetBlockToMineResp
-
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -97,27 +62,15 @@
 | height | [uint64](#uint64) |  |  |
 | reserved_offset | [uint32](#uint32) |  |  |
 
-
-
-
-
-
 ## SubmitMinedBlock
 
-
 ## SubmitMinedBlockReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | blob | [bytes](#bytes) |  | blocktemplate_blob with the correct nonce |
 
-
 ## SubmitMinedBlockResp
-
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |

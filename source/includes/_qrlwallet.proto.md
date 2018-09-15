@@ -453,5 +453,3 @@
 | block_height | [uint64](#uint64) |  |  |
 | block_last_hash | [string](#string) |  |  |
 | network_id | [string](#string) |  |  |
-
-
