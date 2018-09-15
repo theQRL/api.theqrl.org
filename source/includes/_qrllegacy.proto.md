@@ -3,8 +3,6 @@
 
 ## BKData
 
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | mrData | [MRData](#mrdata) |  |  |
@@ -12,17 +10,13 @@
 
 ## FBData
 
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | index | [uint64](#uint64) |  |  |
 
 ## LegacyMessage
 
-
 Adding old code to refactor while keeping things working
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -49,11 +43,7 @@ Adding old code to refactor while keeping things working
 | p2pAckData | [P2PAcknowledgement](#p2packnowledgement) |  |  |
 
 
-
-
 ## MRData
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -65,26 +55,17 @@ Adding old code to refactor while keeping things working
 | reveal_hash | [bytes](#bytes) |  |  |
 
 
-
-
 ## NoData
 
 <aside class="success">What did you expect, some data?</aside>
 
 ## PBData
 
-
-
-
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | block | [Block](#block) |  |  |
 
-
-
 ## PLData
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -92,30 +73,21 @@ Adding old code to refactor while keeping things working
 | public_port | [uint32](#uint32) |  |  |
 
 
-
 ## PONGData
 
-
-
 ## SYNCData
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | state | [string](#string) |  |  |
 
-
 ## VEData
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
 | genesis_prev_hash | [bytes](#bytes) |  |  |
 | rate_limit | [uint64](#uint64) |  |  |
-
-
 
 ## LegacyMessage.FuncName
 

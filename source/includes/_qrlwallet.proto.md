@@ -1,17 +1,11 @@
 # qrlwallet.proto
 
 
-
 ## AddAddressFromSeedReq
-
-
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| seed | [string](#string) |  |  |
-
-
-
+| seed | [string](#string) |  | Seed can be either hexseed or mnemonic |
 
 
 ## AddAddressFromSeedResp
@@ -21,9 +15,6 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | address | [string](#string) |  |  |
-
-
-
 
 
 ## AddNewAddressReq
@@ -41,6 +32,16 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | address | [string](#string) |  |  |
+
+
+## AddNewAddressWithSlavesReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| height | [uint64](#uint64) |  | Height of Master Address |
+| number_of_slaves | [uint64](#uint64) |  |  |
+| hash_function | [string](#string) |  |  |
+
 
 
 ## BalanceReq
@@ -340,3 +341,115 @@
 | ----- | ---- | ----- | ----------- |
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
+
+
+
+## ValidAddressReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+
+
+## ValidAddressResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| valid | [string](#string) |  |  |
+
+
+## RelayTransferTxnBySlaveReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses_to | [string](#string) |  |  |
+| amounts | [uint64](#uint64) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| master_address | [string](#string) |  |  |
+
+
+## RelayMessageTxnBySlaveReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| master_address | [string](#string) |  |  |
+
+
+
+## RelayTokenTxnBySlaveReq
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  |  |
+| name | [string](#string) |  |  |
+| owner | [string](#string) |  |  |
+| decimals | [uint64](#uint64) |  |  |
+| addresses | [string](#string) |  |  |
+| amounts | [string](#string) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| master_address | [string](#string) |  |  |
+
+
+## RelayTransferTokenTxnBySlaveReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| addresses_to | [string](#string) |  |  |
+| token_txhash | [uint64](#uint64) |  |  |
+| amounts | [uint64](#uint64) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| master_address | [string](#string) |  |  |
+
+
+
+
+
+## RelaySlaveTxnBySlaveReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| slave_pks | [string](#string) |  |  |
+| access_types | [uint64](#uint64) |  |  |
+| fee | [uint64](#uint64) |  |  |
+| master_address | [string](#string) |  |  |
+
+
+
+## AddressFromPKReq
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| pk | [string](#string) |  | Private Key |
+
+
+## AddressFromPKResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| address | [string](#string) |  |  |
+
+
+
+## NodeInfoReq
+
+
+## NodeInfoResp
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [uint32](#uint32) |  |  |
+| error | [string](#string) |  |  |
+| version | [string](#string) |  |  |
+| num_connections | [uint32](#uint32) |  |  |
+| num_known_peers | [uint32](#uint32) |  |  |
+| uptime | [uint64](#uint64) |  | Uptime in seconds |
+| block_height | [uint64](#uint64) |  |  |
+| block_last_hash | [string](#string) |  |  |
+| network_id | [string](#string) |  |  |
