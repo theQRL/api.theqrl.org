@@ -306,7 +306,7 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | tx | [Transaction](#qrl.Transaction) |  |  |
-| confirmations | [uint64](#uint64) |  |  |
+| confirmations | [string](#string) |  |  |
 
 
 
@@ -447,8 +447,8 @@
 | code | [uint32](#uint32) |  |  |
 | error | [string](#string) |  |  |
 | version | [string](#string) |  |  |
-| num_connections | [uint32](#uint32) |  |  |
-| num_known_peers | [uint32](#uint32) |  |  |
+| num_connections | [string](#string) |  |  |
+| num_known_peers | [string](#string) |  |  |
 | uptime | [uint64](#uint64) |  | Uptime in seconds |
 | block_height | [uint64](#uint64) |  |  |
 | block_last_hash | [string](#string) |  |  |
