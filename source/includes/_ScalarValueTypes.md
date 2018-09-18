@@ -1,17 +1,9 @@
 # Scalar Value Types
 
-## Scalar Block 
-
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-## bool
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| bool |  | bool | boolean | boolean |
+| <a id="scalar-block">Block</a> | | | | |
+| <a id="scalar-bool">bool</a> |  | bool | boolean | boolean |
 
 
 ## bytes
