@@ -1,7 +1,6 @@
 # Scalar Value Types
 
-
-## block
+## Scalar Block 
 
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
