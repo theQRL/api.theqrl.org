@@ -870,89 +870,6 @@
           </li>
           <li>
             <a href="#scalar-value-types" class="toc-h1 toc-link" data-title="scalar-value-types">Scalar Value Types</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#bytes" class="toc-h2 toc-link" data-title="bytes">bytes</a>
-                  </li>
-                  <li>
-                    <a href="#coinbase" class="toc-h2 toc-link" data-title="coinbase">coinbase</a>
-                  </li>
-                  <li>
-                    <a href="#double" class="toc-h2 toc-link" data-title="double">double</a>
-                  </li>
-                  <li>
-                    <a href="#fixed32" class="toc-h2 toc-link" data-title="fixed32">fixed32</a>
-                  </li>
-                  <li>
-                    <a href="#fixed64" class="toc-h2 toc-link" data-title="fixed64">fixed64</a>
-                  </li>
-                  <li>
-                    <a href="#float" class="toc-h2 toc-link" data-title="float">float</a>
-                  </li>
-                  <li>
-                    <a href="#int32" class="toc-h2 toc-link" data-title="int32">int32</a>
-                  </li>
-                  <li>
-                    <a href="#int64" class="toc-h2 toc-link" data-title="int64">int64</a>
-                  </li>
-                  <li>
-                    <a href="#latticepublickey" class="toc-h2 toc-link" data-title="latticepublickey">latticepublickey</a>
-                  </li>
-                  <li>
-                    <a href="#message" class="toc-h2 toc-link" data-title="message">message</a>
-                  </li>
-                  <li>
-                    <a href="#minitransaction" class="toc-h2 toc-link" data-title="minitransaction">minitransaction</a>
-                  </li>
-                  <li>
-                    <a href="#plainaddressamount" class="toc-h2 toc-link" data-title="plainaddressamount">plainaddressamount</a>
-                  </li>
-                  <li>
-                    <a href="#plainblock" class="toc-h2 toc-link" data-title="plainblock">plainblock</a>
-                  </li>
-                  <li>
-                    <a href="#plainblockheader" class="toc-h2 toc-link" data-title="plainblockheader">plainblockheader</a>
-                  </li>
-                  <li>
-                    <a href="#plaintransaction" class="toc-h2 toc-link" data-title="plaintransaction">plaintransaction</a>
-                  </li>
-                  <li>
-                    <a href="#plaingenesisbalance" class="toc-h2 toc-link" data-title="plaingenesisbalance">plaingenesisbalance</a>
-                  </li>
-                  <li>
-                    <a href="#sfixed32" class="toc-h2 toc-link" data-title="sfixed32">sfixed32</a>
-                  </li>
-                  <li>
-                    <a href="#sfixed64" class="toc-h2 toc-link" data-title="sfixed64">sfixed64</a>
-                  </li>
-                  <li>
-                    <a href="#sint32" class="toc-h2 toc-link" data-title="sint32">sint32</a>
-                  </li>
-                  <li>
-                    <a href="#sint64" class="toc-h2 toc-link" data-title="sint64">sint64</a>
-                  </li>
-                  <li>
-                    <a href="#slave" class="toc-h2 toc-link" data-title="slave">slave</a>
-                  </li>
-                  <li>
-                    <a href="#string" class="toc-h2 toc-link" data-title="string">string</a>
-                  </li>
-                  <li>
-                    <a href="#token" class="toc-h2 toc-link" data-title="token">token</a>
-                  </li>
-                  <li>
-                    <a href="#transfer" class="toc-h2 toc-link" data-title="transfer">transfer</a>
-                  </li>
-                  <li>
-                    <a href="#transfertoken" class="toc-h2 toc-link" data-title="transfertoken">transfertoken</a>
-                  </li>
-                  <li>
-                    <a href="#uint32" class="toc-h2 toc-link" data-title="uint32">uint32</a>
-                  </li>
-                  <li>
-                    <a href="#uint64" class="toc-h2 toc-link" data-title="uint64">uint64</a>
-                  </li>
-              </ul>
           </li>
       </div>
         <ul class="toc-footer">
@@ -1231,7 +1148,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1250,7 +1167,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1267,7 +1184,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1350,13 +1267,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>offset</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td>Offset in the result list (works backwards in this case)</td>
 </tr>
 <tr>
 <td>quantity</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td>Number of items to retrive. Capped at 100</td>
 </tr>
@@ -1377,7 +1294,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>blockheaders</td>
-<td><a href="#blockheaderextended">BlockHeaderExtended</a></td>
+<td><a href="#scalar-blockheaderextended">BlockHeaderExtended</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -1405,25 +1322,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>message</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>xmss_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1464,7 +1381,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>query</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1488,7 +1405,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>found</td>
-<td><a href="#bool">bool</a></td>
+<td><a href="#scalar-bool">bool</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1506,7 +1423,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>block_extended</td>
-<td><a href="#blockextended">BlockExtended</a></td>
+<td><a href="#scalar-blockextended">BlockExtended</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1545,31 +1462,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>xmss_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1590,7 +1507,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>include_timeseries</td>
-<td><a href="#bool">bool</a></td>
+<td><a href="#scalar-bool">bool</a></td>
 <td></td>
 <td>Boolean to define if block timeseries should be included in reply or not</td>
 </tr>
@@ -1628,49 +1545,49 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>epoch</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Current epoch</td>
 </tr>
 <tr>
 <td>uptime_network</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Indicates uptime in seconds</td>
 </tr>
 <tr>
 <td>block_last_reward</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Block reward</td>
 </tr>
 <tr>
 <td>block_time_mean</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Blocktime average</td>
 </tr>
 <tr>
 <td>block_time_sd</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Blocktime standrad deviation</td>
 </tr>
 <tr>
 <td>coins_total_supply</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Total coins supply</td>
 </tr>
 <tr>
 <td>coins_emitted</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Total coins emitted</td>
 </tr>
 <tr>
 <td>block_timeseries</td>
-<td><a href="#blockdatapoint">BlockDataPoint</a></td>
+<td><a href="#scalar-blockdatapoint">BlockDataPoint</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -1686,31 +1603,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>symbol</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1722,13 +1639,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>xmss_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1744,37 +1661,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addresses_to</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>token_txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>xmss_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1825,13 +1742,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>error_description</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>tx_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1854,31 +1771,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>Transaction source address</td>
 </tr>
 <tr>
 <td>addresses_to</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td>Transaction destination address</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td>Amount. It should be expressed in Shor</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Fee. It should be expressed in Shor</td>
 </tr>
 <tr>
 <td>xmss_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>XMSS Public key</td>
 </tr>
@@ -1925,13 +1842,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1947,7 +1864,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -1986,31 +1903,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>FIXME: Discuss. 32 or 64 bits?</td>
 </tr>
 <tr>
 <td>ots_bitfield</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>transaction_hashes</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2034,7 +1951,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>ots_counter</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2050,13 +1967,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>key</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>value</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2072,13 +1989,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>key</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>value</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2094,7 +2011,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header</td>
-<td><a href="#blockheader">BlockHeader</a></td>
+<td><a href="#scalar-blockheader">BlockHeader</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2124,49 +2041,49 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Block number</td>
 </tr>
 <tr>
 <td>difficulty</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td>Block difficulty</td>
 </tr>
 <tr>
 <td>timestamp</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Block timestamp</td>
 </tr>
 <tr>
 <td>time_last</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>time_movavg</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>hash_power</td>
-<td><a href="#float">float</a></td>
+<td><a href="#scalar-float">float</a></td>
 <td></td>
 <td>Hash power</td>
 </tr>
 <tr>
 <td>header_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>Block header hash</td>
 </tr>
 <tr>
 <td>header_hash_prev</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>Previous block&#39;s header hash</td>
 </tr>
@@ -2182,7 +2099,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header</td>
-<td><a href="#blockheader">BlockHeader</a></td>
+<td><a href="#scalar-blockheader">BlockHeader</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2200,7 +2117,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>size</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2216,55 +2133,55 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>hash_header</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>Header</td>
 </tr>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>timestamp_seconds</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>hash_header_prev</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>reward_block</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>reward_fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>merkle_root</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>mining_nonce</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>extra_nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2280,7 +2197,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header</td>
-<td><a href="#blockheader">BlockHeader</a></td>
+<td><a href="#scalar-blockheader">BlockHeader</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2302,19 +2219,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_headerhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>cumulative_difficulty</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2330,25 +2247,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_difficulty</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>cumulative_difficulty</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>child_headerhashes</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>last_N_headerhashes</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td>Keeps last N headerhashes, for measurement of timestamp difference</td>
 </tr>
@@ -2364,7 +2281,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_number_hashes</td>
-<td><a href="#blockmetadata">BlockMetaData</a></td>
+<td><a href="#scalar-blockmetadata">BlockMetaData</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2380,13 +2297,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>headerhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>prev_headerhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2404,19 +2321,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>msg_id</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>b&#39;NEW&#39; or PRF</td>
 </tr>
 <tr>
 <td>ttl</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Expiry Timestamp in seconds</td>
 </tr>
 <tr>
 <td>ttr</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Time to relay</td>
 </tr>
@@ -2428,13 +2345,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>nonce</td>
 </tr>
 <tr>
 <td>payload</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>JSON content, encrypted by aes256_symkey</td>
 </tr>
@@ -2450,7 +2367,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>enc_aes256_symkey</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>aes256_symkey encrypted by kyber</td>
 </tr>
@@ -2466,13 +2383,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>Address is string only here to increase visibility</td>
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2488,13 +2405,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Indicates the index number in mainchain</td>
 </tr>
 <tr>
 <td>after_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>request the node that comes after hash</td>
 </tr>
@@ -2516,7 +2433,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2532,7 +2449,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2548,19 +2465,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>dilithium_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>kyber_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2576,31 +2493,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>header_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>cumulative_difficulty</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>version</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>timestamp</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2616,13 +2533,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>headerhashes</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2638,7 +2555,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>version</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2650,37 +2567,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>num_connections</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>num_known_peers</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>uptime</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Uptime in seconds</td>
 </tr>
 <tr>
 <td>block_height</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_last_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>network_id</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2696,7 +2613,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>bytes_processed</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2712,7 +2629,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>ip</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2728,31 +2645,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>peer_ip</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>port</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>banned_timestamp</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>credibility</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>last_connections_timestamp</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2768,13 +2685,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>peer_ip</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>port</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2812,25 +2729,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>token_txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>total_coin_supply</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2846,7 +2763,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>state_loaders</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2878,7 +2795,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2894,13 +2811,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>transfer_token_tx_hashes</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -2916,37 +2833,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>public_key</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signature</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>transaction_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3004,13 +2921,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addr_to</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3026,13 +2943,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>kyber_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>dilithium_pk</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3048,7 +2965,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>message_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3064,13 +2981,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -3086,25 +3003,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3126,13 +3043,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addrs_to</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -3148,19 +3065,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addrs_to</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -3192,13 +3109,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>key</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>value</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3214,7 +3131,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header</td>
-<td><a href="#blockheader">BlockHeader</a></td>
+<td><a href="#scalar-blockheader">BlockHeader</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3226,19 +3143,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>addr_from</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>size</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>timestamp_seconds</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3362,13 +3279,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>version</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>grpcProto</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3430,7 +3347,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3446,7 +3363,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3500,7 +3417,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3600,7 +3517,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td>FIXME: rename this to block_headerhash</td>
 </tr>
@@ -3612,25 +3529,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 <tr>
 <td>stake_selector</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>prev_headerhash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>reveal_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3648,7 +3565,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block</td>
-<td><a href="#block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3664,13 +3581,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>peer_ips</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>public_port</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3686,7 +3603,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>state</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3702,19 +3619,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>version</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>genesis_prev_hash</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>rate_limit</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4135,7 +4052,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>seed</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td>Seed can be either hexseed or mnemonic</td>
 </tr>
@@ -4151,19 +4068,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4179,7 +4096,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td>Private Key</td>
 </tr>
@@ -4195,19 +4112,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4223,13 +4140,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>height</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Seed can be either hexseed or mnemonic</td>
 </tr>
 <tr>
 <td>hash_function</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4245,19 +4162,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4273,19 +4190,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>height</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Height of Master Address</td>
 </tr>
 <tr>
 <td>number_of_slaves</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>hash_function</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4301,7 +4218,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4317,19 +4234,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4345,7 +4262,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4361,7 +4278,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4377,19 +4294,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#PlainBlock">PlainBlock</a></td>
+<td><a href="#scalar-plainblock">PlainBlock</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4405,13 +4322,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>oldPassphrase</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>newPassphrase</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4427,13 +4344,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4449,13 +4366,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addr_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4471,7 +4388,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>passphrase</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4487,13 +4404,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4509,7 +4426,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4525,25 +4442,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>hexseed</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>mnemonic</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4559,31 +4476,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>version</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>address_count</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>is_encrypted</td>
-<td><a href="#bool">bool</a></td>
+<td><a href="#scalar-bool">bool</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4599,19 +4516,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>height</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4627,13 +4544,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>kyber_pk</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>dilithium_pk</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4649,19 +4566,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -4677,13 +4594,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4699,7 +4616,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>message_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4715,55 +4632,55 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>version</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>num_connections</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>num_known_peers</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>uptime</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td>Uptime in seconds</td>
 </tr>
 <tr>
 <td>block_height</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_last_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>network_id</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4779,7 +4696,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4795,25 +4712,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_bitfield</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>next_unused_ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4829,13 +4746,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4851,13 +4768,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4873,19 +4790,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>header</td>
-<td><a href="#PlainBlockHeader">PlainBlockHeader</a></td>
+<td><a href="#scalar-plainblockheader">PlainBlockHeader</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>transactions</td>
-<td><a href="#PlainTransaction">PlainTransaction</a></td>
+<td><a href="#scalar-plaintransaction">PlainTransaction</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>genesis_balance</td>
-<td><a href="#PlainGenesisBalance">PlainGenesisBalance</a></td>
+<td><a href="#scalar-plaingenesisbalance">PlainGenesisBalance</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -4901,55 +4818,55 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>hash_header</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>timestamp_seconds</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>hash_header_prev</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>reward_block</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>reward_fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>merkle_root</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>mining_nonce</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>extra_nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4965,43 +4882,43 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>master_addr</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>public_key</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signature</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>nonce</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>transaction_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_addr</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5017,43 +4934,43 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>transfer</td>
-<td><a href="#transfer">Transfer</a></td>
+<td><a href="#scalar-transfer">Transfer</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>coinbase</td>
-<td><a href="#coinbase">Coinbase</a></td>
+<td><a href="#scalar-coinbase">Coinbase</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>latticePK</td>
-<td><a href="#latticepublicKey">LatticePublicKey</a></td>
+<td><a href="#scalar-latticepublicKey">LatticePublicKey</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>message</td>
-<td><a href="#message">Message</a></td>
+<td><a href="#scalar-message">Message</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>token</td>
-<td><a href="#token">Token</a></td>
+<td><a href="#scalar-token">Token</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>transfer_token</td>
-<td><a href="#transfertoken">TransferToken</a></td>
+<td><a href="#scalar-transfertoken">TransferToken</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>slave</td>
-<td><a href="#slave">Slave</a></td>
+<td><a href="#scalar-slave">Slave</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5069,31 +4986,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5109,19 +5026,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5137,25 +5054,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5171,37 +5088,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">bytes</a></td>
+<td><a href="#scalar-bytes">bytes</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5217,61 +5134,61 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5287,49 +5204,49 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5345,43 +5262,43 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>token_txhash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5397,37 +5314,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5443,25 +5360,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5477,31 +5394,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>token_txhash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5517,19 +5434,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#plaintransaction">PlainTransaction</a></td>
+<td><a href="#scalar-plaintransaction">PlainTransaction</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5545,7 +5462,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5561,13 +5478,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5583,13 +5500,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -5605,31 +5522,31 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>initial_balances</td>
-<td><a href="#plainaddressamount">PlainAddressAmount</a></td>
+<td><a href="#scalar-plainaddressamount">PlainAddressAmount</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -5645,7 +5562,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>tx_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5661,37 +5578,37 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#plaintransaction">PlainTransaction</a></td>
+<td><a href="#scalar-plaintransaction">PlainTransaction</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>confirmations</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>block_header_hash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5707,7 +5624,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5723,25 +5640,25 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>mini_transactions</td>
-<td><a href="#minitransaction">MiniTransaction</a></td>
+<td><a href="#scalar-minitransaction">MiniTransaction</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5757,13 +5674,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>addrs_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -5779,19 +5696,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>addrs_to</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">uint64</a></td>
+<td><a href="#scalar-uint64">uint64</a></td>
 <td>repeated</td>
 <td></td>
 </tr>
@@ -5807,7 +5724,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>passphrase</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5823,13 +5740,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5845,7 +5762,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5861,19 +5778,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">uint32</a></td>
+<td><a href="#scalar-uint32">uint32</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>valid</td>
-<td><a href="#string">string</a></td>
+<td><a href="#scalar-string">string</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -6154,12 +6071,12 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 </thead><tbody>
 <tr>
 <td>height</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Height of the newly generated XMSS tree</td>
 </tr>
 <tr>
 <td>hash_function</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Hash function for XMSS. Possible values are shake128, shake256, sha2_256.</td>
 </tr>
 </tbody></table>
@@ -6175,17 +6092,17 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
@@ -6226,17 +6143,17 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 </thead><tbody>
 <tr>
 <td>height</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Height of the newly generated XMSS tree (Min 8)</td>
 </tr>
 <tr>
 <td>number_of_slaves</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Number of slaves to be generated (Max 100, Default 3)</td>
 </tr>
 <tr>
 <td>hash_function</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Hash function for XMSS. Possible values are shake128, shake256, sha2_256.</td>
 </tr>
 </tbody></table>
@@ -6254,17 +6171,17 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
@@ -6295,12 +6212,12 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>oldPassphrase</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Old Passphrase</td>
 </tr>
 <tr>
 <td>newPassphrase</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>New Passphrase</td>
 </tr>
 </tbody></table>
@@ -6316,12 +6233,12 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
@@ -6350,7 +6267,7 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>passphrase</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Passphrase to encrypt the wallet</td>
 </tr>
 </tbody></table>
@@ -6366,12 +6283,12 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
@@ -6402,7 +6319,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>pk</td>
-<td><a href="#bytes">Bytes</a></td>
+<td><a href="#scalar-bytes">Bytes</a></td>
 <td>Public key</td>
 </tr>
 </tbody></table>
@@ -6418,17 +6335,17 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address</td>
 </tr>
 </tbody></table>
@@ -6458,7 +6375,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address</td>
 </tr>
 </tbody></table>
@@ -6474,17 +6391,17 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Balance in Shor</td>
 </tr>
 </tbody></table>
@@ -6556,7 +6473,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>header_hash</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Block Header Hash</td>
 </tr>
 </tbody></table>
@@ -6572,17 +6489,17 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#Scalar-block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td>Block Details</td>
 </tr>
 </tbody></table>
@@ -6653,7 +6570,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>block_number</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Block Number</td>
 </tr>
 </tbody></table>
@@ -6669,17 +6586,17 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>block</td>
-<td><a href="#block">Block</a></td>
+<td><a href="#scalar-block">Block</a></td>
 <td>Block Details</td>
 </tr>
 </tbody></table>
@@ -6706,17 +6623,17 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>height</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Current Height of the blockchain</td>
 </tr>
 </tbody></table>
@@ -6749,47 +6666,47 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>version</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Node version</td>
 </tr>
 <tr>
 <td>num_connections</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Number of connections to Node</td>
 </tr>
 <tr>
 <td>num_known_peers</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Number of known peers</td>
 </tr>
 <tr>
 <td>uptime</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Node Uptime in seconds</td>
 </tr>
 <tr>
 <td>block_height</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Current block height</td>
 </tr>
 <tr>
 <td>block_last_hash</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Block headerhash for last block</td>
 </tr>
 <tr>
 <td>network_id</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Network ID</td>
 </tr>
 </tbody></table>
@@ -6819,7 +6736,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address</td>
 </tr>
 </tbody></table>
@@ -6835,22 +6752,22 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>ots_bitfield</td>
-<td><a href="#byte">byte</a></td>
+<td><a href="#scalar-byte">byte</a></td>
 <td>Ots bitfield data. Each 0 bit represent the ots key index is unused, while 1 indicates the ots key index has been used.</td>
 </tr>
 <tr>
 <td>next_unused_ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Next Unused OTS Index</td>
 </tr>
 </tbody></table>
@@ -6883,7 +6800,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address</td>
 </tr>
 </tbody></table>
@@ -6899,22 +6816,22 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>hexseed</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Hexseed for the given address</td>
 </tr>
 <tr>
 <td>mnemonic</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Mnemonic words for the given address</td>
 </tr>
 </tbody></table>
@@ -6954,7 +6871,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>tx_hash</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Transaction hash</td>
 </tr>
 </tbody></table>
@@ -6970,22 +6887,22 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Transaction Details</td>
 </tr>
 <tr>
 <td>confirmations</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>The number of confirmations if any</td>
 </tr>
 </tbody></table>
@@ -7028,7 +6945,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address</td>
 </tr>
 </tbody></table>
@@ -7044,12 +6961,12 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
@@ -7059,7 +6976,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 </tr>
 <tr>
 <td>balance</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Total balance</td>
 </tr>
 </tbody></table>
@@ -7089,22 +7006,22 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>version</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Wallet version number</td>
 </tr>
 <tr>
 <td>address_count</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Number of addresses into the wallet</td>
 </tr>
 <tr>
@@ -7138,7 +7055,7 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address</td>
 </tr>
 </tbody></table>
@@ -7154,17 +7071,17 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>valid</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Returns True for valid QRL address otherwise False.</td>
 </tr>
 </tbody></table>
@@ -7191,17 +7108,17 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Return list of addresses added into your wallet</td>
 </tr>
 </tbody></table>
@@ -7227,12 +7144,12 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
@@ -7273,27 +7190,27 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>String Message of maximum 80 bytes.</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address.</td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address signing the transaction. QRL Address must be already added into wallet.</td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>One Time Signature Index to be used to sign the transaction.</td>
 </tr>
 </tbody></table>
@@ -7309,17 +7226,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7360,17 +7277,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>String Message of maximum 80 bytes.</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address whose slave will be signing the transaction. QRL Address must exist into wallet.</td>
 </tr>
 </tbody></table>
@@ -7386,17 +7303,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7443,32 +7360,32 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">Bytes</a></td>
+<td><a href="#scalar-bytes">Bytes</a></td>
 <td>List of Base64 encoded Public Keys which are allowed to act as slave</td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Current supported access_type is 0</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address.</td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address signing the transaction. QRL Address must be already added into wallet.</td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>One Time Signature Index to be used to sign the transaction.</td>
 </tr>
 </tbody></table>
@@ -7484,17 +7401,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7545,22 +7462,22 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>slave_pks</td>
-<td><a href="#bytes">Bytes</a></td>
+<td><a href="#scalar-bytes">Bytes</a></td>
 <td>List of Base64 encoded Public Keys which are allowed to act as slave</td>
 </tr>
 <tr>
 <td>access_types</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Current supported access_type is 0</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address whose slave will be signing the transaction. QRL Address must exist into wallet.</td>
 </tr>
 </tbody></table>
@@ -7576,17 +7493,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7645,52 +7562,52 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Symbol of the token</td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Name of the token</td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address of the token owner</td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Maximum supported decimals</td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of address to whom initial token will be assigned</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of amounts of token to be assigned to addresses. Must be in same order as of addresses</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address.</td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address signing the transaction. QRL Address must be already added into wallet.</td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>One Time Signature Index to be used to sign the transaction.</td>
 </tr>
 </tbody></table>
@@ -7706,17 +7623,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7775,42 +7692,42 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>symbol</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Symbol of the token</td>
 </tr>
 <tr>
 <td>name</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Name of the token</td>
 </tr>
 <tr>
 <td>owner</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address of the token owner</td>
 </tr>
 <tr>
 <td>decimals</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Maximum supported decimals</td>
 </tr>
 <tr>
 <td>addresses</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of address to whom initial token will be assigned</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of amounts of token to be assigned to addresses. Must be in same order as of addresses</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address whose slave will be signing the transaction. QRL Address must exist into wallet.</td>
 </tr>
 </tbody></table>
@@ -7826,17 +7743,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7885,32 +7802,32 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of receiver&#39;s address</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of amounts in Shor to be received by receiver. Must be in same order as of addresses_to</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address.</td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address signing the transaction. QRL Address must be already added into wallet.</td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>One Time Signature Index to be used to sign the transaction.</td>
 </tr>
 </tbody></table>
@@ -7926,17 +7843,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -7985,22 +7902,22 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 </thead><tbody>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of receiver&#39;s address</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of amounts in Shor to be received by receiver. Must be in same order as of addresses_to</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address whose slave will be signing the transaction. QRL Address must exist into wallet.</td>
 </tr>
 </tbody></table>
@@ -8016,17 +7933,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -8075,37 +7992,37 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network.</td>
 </tr>
 <tr>
 <td>addresses_to</td>
-<td>String</td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of receiver&#39;s address</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of Amounts to be received by receiver. Must be in same order as of addresses_to</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address.</td>
 </tr>
 <tr>
 <td>signer_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL Address signing the transaction. QRL Address must be already added into wallet.</td>
 </tr>
 <tr>
 <td>ots_index</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>One Time Signature Index to be used to sign the transaction.</td>
 </tr>
 </tbody></table>
@@ -8121,17 +8038,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -8179,27 +8096,27 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 </thead><tbody>
 <tr>
 <td>token_txhash</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network.</td>
 </tr>
 <tr>
 <td>addresses_to</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>List of receiver&#39;s address</td>
 </tr>
 <tr>
 <td>amounts</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>List of Amounts to be received by receiver. Must be in same order as of addresses_to</td>
 </tr>
 <tr>
 <td>fee</td>
-<td><a href="#uint64">UInt64</a></td>
+<td><a href="#scalar-uint64">UInt64</a></td>
 <td>Transaction Fee in Shor</td>
 </tr>
 <tr>
 <td>master_address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address whose slave will be signing the transaction. QRL Address must exist into wallet.</td>
 </tr>
 </tbody></table>
@@ -8215,17 +8132,17 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>tx</td>
-<td><a href="#transaction">Transaction</a></td>
+<td><a href="#scalar-transaction">Transaction</a></td>
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
@@ -8254,7 +8171,7 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>address</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>QRL address to be removed from the wallet</td>
 </tr>
 </tbody></table>
@@ -8270,12 +8187,12 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
@@ -8305,7 +8222,7 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>passphrase</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Passphrase to unlock the wallet</td>
 </tr>
 </tbody></table>
@@ -8321,12 +8238,12 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 </thead><tbody>
 <tr>
 <td>code</td>
-<td><a href="#uint32">UInt32</a></td>
+<td><a href="#scalar-uint32">UInt32</a></td>
 <td>Error Code. Only appears if any exception is triggered.</td>
 </tr>
 <tr>
 <td>error</td>
-<td><a href="#string">String</a></td>
+<td><a href="#scalar-string">String</a></td>
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
@@ -8348,402 +8265,196 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 <td></td>
 </tr>
 <tr>
-<td><a id="scalar-bool">bool</a></td>
+<td><a id="scalar-bool">Bool</a></td>
 <td></td>
 <td>bool</td>
 <td>boolean</td>
 <td>boolean</td>
 </tr>
-</tbody></table>
-<h2 id='bytes'>bytes</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>bytes</td>
+<td><a id="scalar-bytes">Bytes</a></td>
 <td>May contain any arbitrary sequence of bytes.</td>
 <td>string</td>
 <td>ByteString</td>
 <td>str</td>
 </tr>
-</tbody></table>
-<h2 id='coinbase'>coinbase</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-coinbase">Coinbase</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='double'>double</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>double</td>
+<td><a id="scalar-double">Double</a></td>
 <td></td>
 <td>double</td>
 <td>double</td>
 <td>float</td>
 </tr>
-</tbody></table>
-<h2 id='fixed32'>fixed32</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>fixed32</td>
+<td><a id="scalar-fixed32">Fixed32</a></td>
 <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
 <td>uint32</td>
 <td>int</td>
 <td>int</td>
 </tr>
-</tbody></table>
-<h2 id='fixed64'>fixed64</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>fixed64</td>
+<td><a id="scalar-fixed64">Fixed64</a></td>
 <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
 <td>uint64</td>
 <td>long</td>
 <td>int/long</td>
 </tr>
-</tbody></table>
-<h2 id='float'>float</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>float</td>
+<td><a id="scalar-float">Float</a></td>
 <td></td>
 <td>float</td>
 <td>float</td>
 <td>float</td>
 </tr>
-</tbody></table>
-<h2 id='int32'>int32</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>int32</td>
+<td><a id="scalar-int32">Int32</a></td>
 <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
 <td>int32</td>
 <td>int</td>
 <td>int</td>
 </tr>
-</tbody></table>
-<h2 id='int64'>int64</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>int64</td>
+<td><a id="scalar-int64">Int64</a></td>
 <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
 <td>int64</td>
 <td>long</td>
 <td>int/long</td>
 </tr>
-</tbody></table>
-<h2 id='latticepublickey'>latticepublickey</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-latticepublickey">LatticePublicKey</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='message'>message</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-message">Message</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='minitransaction'>minitransaction</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-minitransaction">MiniTransaction</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='plainaddressamount'>plainaddressamount</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-plainaddressamount">PlainAddressAmount</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='plainblock'>plainblock</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-plainblock">PlainBlock</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='plainblockheader'>plainblockheader</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-plainblockheader">PlainBlockHeader</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='plaintransaction'>plaintransaction</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-plaintransaction">PlainTransaction</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='plaingenesisbalance'>plaingenesisbalance</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-plaingenesisbalance">PlainGenesisBalance</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='sfixed32'>sfixed32</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sfixed32</td>
+<td><a id="scalar-sfixed32">sfixed32</a></td>
 <td>Always four bytes.</td>
 <td>int32</td>
 <td>int</td>
 <td>int</td>
 </tr>
-</tbody></table>
-<h2 id='sfixed64'>sfixed64</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sfixed64</td>
+<td><a id="scalar-sfixed64">sfixed64</a></td>
 <td>Always eight bytes.</td>
 <td>int64</td>
 <td>long</td>
 <td>int/long</td>
 </tr>
-</tbody></table>
-<h2 id='sint32'>sint32</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sint32</td>
+<td><a id="scalar-sint32">sint32</a></td>
 <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
 <td>int32</td>
 <td>int</td>
 <td>int</td>
 </tr>
-</tbody></table>
-<h2 id='sint64'>sint64</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sint64</td>
+<td><a id="scalar-sint64">sint64</a></td>
 <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
 <td>int64</td>
 <td>long</td>
 <td>int/long</td>
 </tr>
-</tbody></table>
-<h2 id='slave'>slave</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-slave">Slave</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='string'>string</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>string</td>
+<td><a id="scalar-string">String</a></td>
 <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
 <td>string</td>
 <td>String</td>
 <td>str/unicode</td>
 </tr>
-</tbody></table>
-<h2 id='token'>token</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-token">Token</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='transfer'>transfer</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-transfer">Transfer</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='transfertoken'>transfertoken</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
+<td><a id="scalar-transfertoken">TransferToken</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-</thead><tbody>
-</tbody></table>
-<h2 id='uint32'>uint32</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>uint32</td>
+<td><a id="scalar-uint32">uint32</a></td>
 <td>Uses variable-length encoding.</td>
 <td>uint32</td>
 <td>int</td>
 <td>int/long</td>
 </tr>
-</tbody></table>
-<h2 id='uint64'>uint64</h2>
-<table><thead>
 <tr>
-<th>.proto Type</th>
-<th>Notes</th>
-<th>C++ Type</th>
-<th>Java Type</th>
-<th>Python Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>uint64</td>
+<td><a id="scalar-uint64">uint64</a></td>
 <td>Uses variable-length encoding.</td>
 <td>uint64</td>
 <td>long</td>
