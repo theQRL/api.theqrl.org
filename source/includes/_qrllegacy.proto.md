@@ -6,13 +6,13 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | mrData | [MRData](#mrdata) |  |  |
-| block | [Block](#block) |  |  |
+| block | [Block](#scalar-block) |  |  |
 
 ## FBData
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| index | [uint64](#uint64) |  |  |
+| index | [uint64](#scalar-uint64) |  |  |
 
 ## LegacyMessage
 
@@ -26,7 +26,7 @@ Adding old code to refactor while keeping things working
 | plData | [PLData](#pldata) |  |  |
 | pongData | [PONGData](#pongdata) |  |  |
 | mrData | [MRData](#mrdata) |  |  |
-| block | [Block](#block) |  |  |
+| block | [Block](#scalar-block) |  |  |
 | fbData | [FBData](#fbdata) |  |  |
 | pbData | [PBData](#pbdata) |  |  |
 | bhData | [BlockHeightData](#blockheightdata) |  |  |
@@ -47,12 +47,12 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| hash | [bytes](#bytes) |  | FIXME: rename this to block_headerhash |
+| hash | [bytes](#scalar-bytes) |  | FIXME: rename this to block_headerhash |
 | type | [LegacyMessage.FuncName](#legacymessage.funcname) |  | FIXME: type/string what is this |
-| stake_selector | [bytes](#bytes) |  |  |
-| block_number | [uint64](#uint64) |  |  |
-| prev_headerhash | [bytes](#bytes) |  |  |
-| reveal_hash | [bytes](#bytes) |  |  |
+| stake_selector | [bytes](#scalar-bytes) |  |  |
+| block_number | [uint64](#scalar-uint64) |  |  |
+| prev_headerhash | [bytes](#scalar-bytes) |  |  |
+| reveal_hash | [bytes](#scalar-bytes) |  |  |
 
 
 ## NoData
@@ -63,14 +63,14 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block | [Block](#block) |  |  |
+| block | [Block](#scalar-block) |  |  |
 
 ## PLData
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer_ips | [string](#string) | repeated |  |
-| public_port | [uint32](#uint32) |  |  |
+| peer_ips | [string](#scalar-string) | repeated |  |
+| public_port | [uint32](#scalar-uint32) |  |  |
 
 
 ## PONGData
@@ -79,15 +79,15 @@ Adding old code to refactor while keeping things working
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| state | [string](#string) |  |  |
+| state | [string](#scalar-string) |  |  |
 
 ## VEData
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [string](#string) |  |  |
-| genesis_prev_hash | [bytes](#bytes) |  |  |
-| rate_limit | [uint64](#uint64) |  |  |
+| version | [string](#scalar-string) |  |  |
+| genesis_prev_hash | [bytes](#scalar-bytes) |  |  |
+| rate_limit | [uint64](#scalar-uint64) |  |  |
 
 ## LegacyMessage.FuncName
 

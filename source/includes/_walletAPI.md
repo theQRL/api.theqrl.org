@@ -114,16 +114,16 @@ Adds new randomly generated address to the wallet.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| height | [UInt64](#uint64) | Height of the newly generated XMSS tree |
-| hash_function | [String](#string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
+| height | [UInt64](#scalar-uint64) | Height of the newly generated XMSS tree |
+| hash_function | [String](#scalar-string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| address | [String](#string) | Return the newly added QRL address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## AddNewAddressWithSlaves
 
@@ -159,9 +159,9 @@ Adds new randomly generated address to the wallet with slaves.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| height | [UInt64](#uint64) | Height of the newly generated XMSS tree (Min 8) |
-| number_of_slaves | [UInt64](#uint64) | Number of slaves to be generated (Max 100, Default 3) |
-| hash_function | [String](#string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
+| height | [UInt64](#scalar-uint64) | Height of the newly generated XMSS tree (Min 8) |
+| number_of_slaves | [UInt64](#scalar-uint64) | Number of slaves to be generated (Max 100, Default 3) |
+| hash_function | [String](#scalar-string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
 
 Creates a new address with slaves
 
@@ -169,9 +169,9 @@ Creates a new address with slaves
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| address | [String](#string) | Return the newly added QRL address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## ChangePassphrase
 
@@ -197,15 +197,15 @@ Change the passphrase.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| oldPassphrase | [String](#string) | Old Passphrase |
-| newPassphrase | [String](#string) | New Passphrase |
+| oldPassphrase | [String](#scalar-string) | Old Passphrase |
+| newPassphrase | [String](#scalar-string) | New Passphrase |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## EncryptWallet
 
@@ -229,14 +229,14 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| passphrase | [String](#string) | Passphrase to encrypt the wallet |
+| passphrase | [String](#scalar-string) | Passphrase to encrypt the wallet |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## GetAddressFrom PK
 
@@ -261,15 +261,15 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| pk | [Bytes](#bytes) | Public key |
+| pk | [Bytes](#scalar-bytes) | Public key |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| address | [String](#string) | QRL Address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | QRL Address |
 
 
 ## GetBalance
@@ -294,15 +294,15 @@ Get the balance of the given QRL address.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| balance | [UInt64](#uint64) | Balance in Shor |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| balance | [UInt64](#scalar-uint64) | Balance in Shor |
 
 ## GetBlock
 
@@ -369,15 +369,15 @@ Get block details for a given header hash.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| header\_hash | [String](#string) | Block Header Hash |
+| header\_hash | [String](#scalar-string) | Block Header Hash |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| block | [Block](#Scalar-block) | Block Details |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| block | [Block](#scalar-block) | Block Details |
 
 ## GetBlockByNumber
 
@@ -443,15 +443,15 @@ Get block details for a given block number.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| block\_number | [UInt64](#uint64) | Block Number |
+| block\_number | [UInt64](#scalar-uint64) | Block Number |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| block | [Block](#block) | Block Details |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| block | [Block](#scalar-block) | Block Details |
 
 ## GetHeight
 
@@ -473,9 +473,9 @@ Get current blockchain height.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| height | [UInt64](#uint64) | Current Height of the blockchain |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| height | [UInt64](#scalar-uint64) | Current Height of the blockchain |
 
 ## GetNodeInfo
 
@@ -506,15 +506,15 @@ Get QRL node information.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| version | [String](#string) | Node version |
-| num_connections | [String](#string) | Number of connections to Node |
-| num_known_peers | [String](#string) | Number of known peers |
-| uptime | [String](#string) | Node Uptime in seconds |
-| block_height | [String](#string) | Current block height |
-| block_last_hash | [String](#string) | Block headerhash for last block |
-| network_id | [String](#string) | Network ID |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| version | [String](#scalar-string) | Node version |
+| num_connections | [String](#scalar-string) | Number of connections to Node |
+| num_known_peers | [String](#scalar-string) | Number of known peers |
+| uptime | [String](#scalar-string) | Node Uptime in seconds |
+| block_height | [String](#scalar-string) | Current block height |
+| block_last_hash | [String](#scalar-string) | Block headerhash for last block |
+| network_id | [String](#scalar-string) | Network ID |
 
 ## GetOTS
 
@@ -542,16 +542,16 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| ots\_bitfield | [byte](#byte) | Ots bitfield data. Each 0 bit represent the ots key index is unused, while 1 indicates the ots key index has been used. |
-| next\_unused\_ots\_index | [UInt64](#uint64) | Next Unused OTS Index |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| ots\_bitfield | [byte](#scalar-byte) | Ots bitfield data. Each 0 bit represent the ots key index is unused, while 1 indicates the ots key index has been used. |
+| next\_unused\_ots\_index | [UInt64](#scalar-uint64) | Next Unused OTS Index |
 
 ## GetRecoverySeeds
 
@@ -579,16 +579,16 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| hexseed | [String](#string) | Hexseed for the given address |
-| mnemonic | [String](#string) | Mnemonic words for the given address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| hexseed | [String](#scalar-string) | Hexseed for the given address |
+| mnemonic | [String](#scalar-string) | Mnemonic words for the given address |
 
 ## GetTransaction
 
@@ -626,16 +626,16 @@ Get transaction details for a given transaction hash with number of confirmation
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| tx\_hash | [String](#string) | Transaction hash |
+| tx\_hash | [String](#scalar-string) | Transaction hash |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Transaction Details |
-| confirmations | [UInt64](#uint64) | The number of confirmations if any |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Transaction Details |
+| confirmations | [UInt64](#scalar-uint64) | The number of confirmations if any |
 
 ## GetTransactionsByAddress
 
@@ -673,16 +673,16 @@ Get transactions hash and  other details for a given address.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL address |
+| address | [String](#scalar-string) | QRL address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 | mini_transactions | MiniTransaction | List of MiniTransations which includes, transaction_hash, amount and out.|
-| balance | [UInt64](#uint64) | Total balance |
+| balance | [UInt64](#scalar-uint64) | Total balance |
 
 ## GetWalletInfo
 
@@ -707,10 +707,10 @@ Get wallet information.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| version | [UInt32](#uint32) | Wallet version number |
-| address\_count | [UInt64](#uint64) | Number of addresses into the wallet |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| version | [UInt32](#scalar-uint32) | Wallet version number |
+| address\_count | [UInt64](#scalar-uint64) | Number of addresses into the wallet |
 | is\_encrypted | Boolean | True if wallet is already encryptedFalse if wallet is not encrypted |
 
 ## IsValidAddress
@@ -738,15 +738,15 @@ Checks if a given QRL Address is valid.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| valid | [String](#string) | Returns True for valid QRL address otherwise False. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| valid | [String](#scalar-string) | Returns True for valid QRL address otherwise False. |
 
 ## ListAddresses
 
@@ -768,9 +768,9 @@ List all addresses into the wallet.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| addresses | [String](#string) | Return list of addresses added into your wallet |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| addresses | [String](#scalar-string) | Return list of addresses added into your wallet |
 
 ## LockWallet
 
@@ -791,8 +791,8 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## RelayMessageTxn
 
@@ -831,19 +831,19 @@ Creates the signed message transaction and relay it to the network. Signer addre
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| message | [String](#string) | String Message of maximum 80 bytes. |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | [String](#string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | [UInt64](#uint64) | One Time Signature Index to be used to sign the transaction. |
+| message | [String](#scalar-string) | String Message of maximum 80 bytes. |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayMessageTxnBySlave
  
@@ -882,17 +882,17 @@ Creates the signed message transaction using one of the slaves and relay it to t
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| message | [String](#string) | String Message of maximum 80 bytes. |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| message | [String](#scalar-string) | String Message of maximum 80 bytes. |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelaySlaveTxn
@@ -940,20 +940,20 @@ Creates the signed slave transaction and relay it to the network. Signer address
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| slave\_pks | [Bytes](#bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
-| access\_types | [UInt64](#uint64) | Current supported access\_type is 0 |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | [String](#string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | [UInt64](#uint64) | One Time Signature Index to be used to sign the transaction. |
+| slave\_pks | [Bytes](#scalar-bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
+| access\_types | [UInt64](#scalar-uint64) | Current supported access\_type is 0 |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelaySlaveTxnBySlave
 
@@ -1003,18 +1003,18 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| slave\_pks | [Bytes](#bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
-| access\_types | [UInt64](#uint64) | Current supported access\_type is 0 |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| slave\_pks | [Bytes](#scalar-bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
+| access\_types | [UInt64](#scalar-uint64) | Current supported access\_type is 0 |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTokenTxn
@@ -1072,25 +1072,25 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| symbol | [String](#string) | Symbol of the token |
-| name | [String](#string) | Name of the token |
-| owner | [String](#string) | QRL Address of the token owner |
-| decimals | [UInt64](#uint64) | Maximum supported decimals |
-| addresses | [String](#string) | List of address to whom initial token will be assigned |
-| amounts | [UInt64](#uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | [String](#string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | [UInt64](#uint64) | One Time Signature Index to be used to sign the transaction. |
+| symbol | [String](#scalar-string) | Symbol of the token |
+| name | [String](#scalar-string) | Name of the token |
+| owner | [String](#scalar-string) | QRL Address of the token owner |
+| decimals | [UInt64](#scalar-uint64) | Maximum supported decimals |
+| addresses | [String](#scalar-string) | List of address to whom initial token will be assigned |
+| amounts | [UInt64](#scalar-uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTokenTxnBySlave
@@ -1148,22 +1148,22 @@ Creates the signed token transaction using one of the slave and relay it to the 
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| symbol | [String](#string) | Symbol of the token |
-| name | [String](#string) | Name of the token |
-| owner | [String](#string) | QRL Address of the token owner |
-| decimals | [UInt64](#uint64) | Maximum supported decimals |
-| addresses | [String](#string) | List of address to whom initial token will be assigned |
-| amounts | [UInt64](#uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| symbol | [String](#scalar-string) | Symbol of the token |
+| name | [String](#scalar-string) | Name of the token |
+| owner | [String](#scalar-string) | QRL Address of the token owner |
+| decimals | [UInt64](#scalar-uint64) | Maximum supported decimals |
+| addresses | [String](#scalar-string) | List of address to whom initial token will be assigned |
+| amounts | [UInt64](#scalar-uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTransferTxn
@@ -1211,20 +1211,20 @@ Creates the signed transfer transaction and relay it to the network. Signer addr
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| addresses\_to | [String](#string) | List of receiver&#39;s address |
-| amounts | [UInt64](#uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | [String](#string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | [UInt64](#uint64) | One Time Signature Index to be used to sign the transaction. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayTransferTxnBySlave
 
@@ -1273,18 +1273,18 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| addresses\_to | [String](#string) | List of receiver&#39;s address |
-| amounts | [UInt64](#uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayTransferTokenTxn
 
@@ -1332,21 +1332,21 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| token\_txhash | [String](#string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
-| addresses\_to | String| List of receiver&#39;s address |
-| amounts | [UInt64](#uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | [String](#string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | [UInt64](#uint64) | One Time Signature Index to be used to sign the transaction. |
+| token\_txhash | [String](#scalar-string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTransferTokenTxnBySlave
@@ -1394,19 +1394,19 @@ Creates the signed transfer token transaction using one of the slave and relay i
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| token\_txhash | [String](#string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
-| addresses\_to | [String](#string) | List of receiver&#39;s address |
-| amounts | [UInt64](#uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
-| fee | [UInt64](#uint64) | Transaction Fee in Shor |
-| master\_address | [String](#string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| token\_txhash | [String](#scalar-string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| tx  | [Transaction](#transaction) | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RemoveAddress
 
@@ -1430,14 +1430,14 @@ Removes the address from the wallet.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | [String](#string) | QRL address to be removed from the wallet |
+| address | [String](#scalar-string) | QRL address to be removed from the wallet |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 
 ## UnlockWallet
@@ -1464,7 +1464,7 @@ Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| passphrase | [String](#string) | Passphrase to unlock the wallet |
+| passphrase | [String](#scalar-string) | Passphrase to unlock the wallet |
 
 
 
@@ -1472,6 +1472,6 @@ Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
-| error | [String](#string) | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 

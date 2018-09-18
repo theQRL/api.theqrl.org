@@ -3,216 +3,34 @@
 | .proto Type | Notes | C++ Type | Java Type | Python Type |
 | ----------- | ----- | -------- | --------- | ----------- |
 | <a id="scalar-block">Block</a> | | | | |
-| <a id="scalar-bool">bool</a> |  | bool | boolean | boolean |
-
-
-## bytes
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-|  bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
-
-
-
-## coinbase
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## double
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| double |  | double | double | float |
-
-## fixed32 
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
-
-## fixed64
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
-
-
-## float
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| float |  | float | float | float |
-
-## int32
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
-
-## int64
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
-
-
-
-
-
-## latticepublickey
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## message
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## minitransaction
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## plainaddressamount
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-
-## plainblock
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-
-## plainblockheader
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## plaintransaction
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-
-## plaingenesisbalance
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-
-
-## sfixed32
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| sfixed32 | Always four bytes. | int32 | int | int |
-
-## sfixed64
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| sfixed64 | Always eight bytes. | int64 | long | int/long |
-
-
-## sint32
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
-
-## sint64
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
-
-
-
-
-
-## slave
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## string
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
-
-
-
-## token
-
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-## transfer
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-
-## transfertoken
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-
-
-
-
-## uint32
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| uint32 | Uses variable-length encoding. | uint32 | int | int/long |
-
-## uint64
-
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| uint64 | Uses variable-length encoding. | uint64 | long | int/long |
+| <a id="scalar-bool">Bool</a> |  | bool | boolean | boolean |
+|  <a id="scalar-bytes">Bytes</a> | May contain any arbitrary sequence of bytes. | string | ByteString | str |
+| <a id="scalar-coinbase">Coinbase</a> | | | | |
+| <a id="scalar-double">Double</a> |  | double | double | float |
+| <a id="scalar-fixed32">Fixed32</a> | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
+| <a id="scalar-fixed64">Fixed64</a> | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
+| <a id="scalar-float">Float</a> |  | float | float | float |
+| <a id="scalar-int32">Int32</a> | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| <a id="scalar-int64">Int64</a> | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+| <a id="scalar-latticepublickey">LatticePublicKey</a> | | | | |
+| <a id="scalar-message">Message</a> | | | | |
+| <a id="scalar-minitransaction">MiniTransaction</a> | | | | |
+| <a id="scalar-plainaddressamount">PlainAddressAmount</a> | | | | |
+| <a id="scalar-plainblock">PlainBlock</a> | | | | |
+| <a id="scalar-plainblockheader">PlainBlockHeader</a> | | | | |
+| <a id="scalar-plaintransaction">PlainTransaction</a> | | | | |
+| <a id="scalar-plaingenesisbalance">PlainGenesisBalance</a> | | | | |
+| <a id="scalar-sfixed32">sfixed32</a> | Always four bytes. | int32 | int | int |
+| <a id="scalar-sfixed64">sfixed64</a> | Always eight bytes. | int64 | long | int/long |
+| <a id="scalar-sint32">sint32</a> | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| <a id="scalar-sint64">sint64</a> | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| <a id="scalar-slave">Slave</a> | | | | |
+| <a id="scalar-string">String</a> | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
+| <a id="scalar-token">Token</a> | | | | |
+| <a id="scalar-transfer">Transfer</a> | | | | |
+| <a id="scalar-transfertoken">TransferToken</a> | | | | |
+| <a id="scalar-uint32">uint32</a> | Uses variable-length encoding. | uint32 | int | int/long |
+| <a id="scalar-uint64">uint64</a> | Uses variable-length encoding. | uint64 | long | int/long |
 
 
 

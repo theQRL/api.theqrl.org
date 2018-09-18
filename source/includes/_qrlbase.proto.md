@@ -12,5 +12,5 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [string](#string) |  |  |
-| grpcProto | [string](#string) |  |  |
+| version | [string](#scalar-string) |  |  |
+| grpcProto | [string](#scalar-string) |  |  |

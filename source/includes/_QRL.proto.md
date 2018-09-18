@@ -40,7 +40,7 @@ message GetAddressFromPKReq {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| pk | [bytes](#bytes) |  |  |
+| pk | [bytes](#scalar-bytes) |  |  |
 
 ### GetAddressFromPKResp
 
@@ -52,7 +52,7 @@ message GetAddressFromPKResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [bytes](#bytes) |  |  |
+| address | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -66,7 +66,7 @@ message GetAddressStateReq {   bytes address = 1; }
 ```
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [bytes](#bytes) |  |  |
+| address | [bytes](#scalar-bytes) |  |  |
 
 ### GetAddressStateResp
 
@@ -133,8 +133,8 @@ message GetLatestDataReq {
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | filter | [GetLatestDataReq.Filter](#getlatestdatareq.filter) |  |  |
-| offset | [uint32](#uint32) |  | Offset in the result list (works backwards in this case) |
-| quantity | [uint32](#uint32) |  | Number of items to retrive. Capped at 100 |
+| offset | [uint32](#scalar-uint32) |  | Offset in the result list (works backwards in this case) |
+| quantity | [uint32](#scalar-uint32) |  | Number of items to retrive. Capped at 100 |
 
 ### GetLatestDataResp
 
@@ -148,7 +148,7 @@ message GetLatestDataResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| blockheaders | [BlockHeaderExtended](#blockheaderextended) | repeated |  |
+| blockheaders | [BlockHeaderExtended](#scalar-blockheaderextended) | repeated |  |
 | transactions | [TransactionExtended](#transactionextended) | repeated |  |
 | transactions_unconfirmed | [TransactionExtended](#transactionextended) | repeated |  |
 
@@ -161,10 +161,10 @@ message GetLatestDataResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| message | [bytes](#bytes) |  |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
+| master_addr | [bytes](#scalar-bytes) |  |  |
+| message | [bytes](#scalar-bytes) |  |  |
+| fee | [uint64](#scalar-uint64) |  |  |
+| xmss_pk | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -206,7 +206,7 @@ message GetObjectReq {  bytes query = 1;    }
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [bytes](#bytes) |  |  |
+| query | [bytes](#scalar-bytes) |  |  |
 
 ### GetObjectResp
 
@@ -223,10 +223,10 @@ message GetObjectResp {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| found | [bool](#bool) |  |  |
+| found | [bool](#scalar-bool) |  |  |
 | address_state | [AddressState](#addressstate) |  |  |
 | transaction | [TransactionExtended](#transactionextended) |  |  |
-| block_extended | [BlockExtended](#blockextended) |  |  |
+| block_extended | [BlockExtended](#scalar-blockextended) |  |  |
 
 
 
@@ -262,11 +262,11 @@ Represents the reply message to peers stat query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| slave_pks | [bytes](#bytes) | repeated |  |
-| access_types | [uint32](#uint32) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
+| master_addr | [bytes](#scalar-bytes) |  |  |
+| slave_pks | [bytes](#scalar-bytes) | repeated |  |
+| access_types | [uint32](#scalar-uint32) | repeated |  |
+| fee | [uint64](#scalar-uint64) |  |  |
+| xmss_pk | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -285,7 +285,7 @@ Represents a query to get statistics about node
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| include_timeseries | [bool](#bool) |  | Boolean to define if block timeseries should be included in reply or not |
+| include_timeseries | [bool](#scalar-bool) |  | Boolean to define if block timeseries should be included in reply or not |
 
 ### GetStatsResp
 
@@ -311,14 +311,14 @@ Represents the reply message to get statistics about node
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | node_info | [NodeInfo](#nodeinfo) |  | NodeInfo object containing node state information |
-| epoch | [uint64](#uint64) |  | Current epoch |
-| uptime_network | [uint64](#uint64) |  | Indicates uptime in seconds |
-| block_last_reward | [uint64](#uint64) |  | Block reward |
-| block_time_mean | [uint64](#uint64) |  | Blocktime average |
-| block_time_sd | [uint64](#uint64) |  | Blocktime standrad deviation |
-| coins_total_supply | [uint64](#uint64) |  | Total coins supply |
-| coins_emitted | [uint64](#uint64) |  | Total coins emitted |
-| block_timeseries | [BlockDataPoint](#blockdatapoint) | repeated |  |
+| epoch | [uint64](#scalar-uint64) |  | Current epoch |
+| uptime_network | [uint64](#scalar-uint64) |  | Indicates uptime in seconds |
+| block_last_reward | [uint64](#scalar-uint64) |  | Block reward |
+| block_time_mean | [uint64](#scalar-uint64) |  | Blocktime average |
+| block_time_sd | [uint64](#scalar-uint64) |  | Blocktime standrad deviation |
+| coins_total_supply | [uint64](#scalar-uint64) |  | Total coins supply |
+| coins_emitted | [uint64](#scalar-uint64) |  | Total coins emitted |
+| block_timeseries | [BlockDataPoint](#scalar-blockdatapoint) | repeated |  |
 
 
 
@@ -329,14 +329,14 @@ Represents the reply message to get statistics about node
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| symbol | [bytes](#bytes) |  |  |
-| name | [bytes](#bytes) |  |  |
-| owner | [bytes](#bytes) |  |  |
-| decimals | [uint64](#uint64) |  |  |
+| master_addr | [bytes](#scalar-bytes) |  |  |
+| symbol | [bytes](#scalar-bytes) |  |  |
+| name | [bytes](#scalar-bytes) |  |  |
+| owner | [bytes](#scalar-bytes) |  |  |
+| decimals | [uint64](#scalar-uint64) |  |  |
 | initial_balances | [AddressAmount](#addressamount) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
+| fee | [uint64](#scalar-uint64) |  |  |
+| xmss_pk | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -346,12 +346,12 @@ Represents the reply message to get statistics about node
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| addresses_to | [bytes](#bytes) | repeated |  |
-| token_txhash | [bytes](#bytes) |  |  |
-| amounts | [uint64](#uint64) | repeated |  |
-| fee | [uint64](#uint64) |  |  |
-| xmss_pk | [bytes](#bytes) |  |  |
+| master_addr | [bytes](#scalar-bytes) |  |  |
+| addresses_to | [bytes](#scalar-bytes) | repeated |  |
+| token_txhash | [bytes](#scalar-bytes) |  |  |
+| amounts | [uint64](#scalar-uint64) | repeated |  |
+| fee | [uint64](#scalar-uint64) |  |  |
+| xmss_pk | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -389,8 +389,8 @@ message PushTransactionResp {
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | error_code | [PushTransactionResp.ResponseCode](#pushtransactionresp.responsecode) |  |  |
-| error_description | [string](#string) |  |  |
-| tx_hash | [bytes](#bytes) |  |  |
+| error_description | [string](#scalar-string) |  |  |
+| tx_hash | [bytes](#scalar-bytes) |  |  |
 
 
 
@@ -412,11 +412,11 @@ message TransferCoinsReq {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  | Transaction source address |
-| addresses_to | [bytes](#bytes) | repeated | Transaction destination address |
-| amounts | [uint64](#uint64) | repeated | Amount. It should be expressed in Shor |
-| fee | [uint64](#uint64) |  | Fee. It should be expressed in Shor |
-| xmss_pk | [bytes](#bytes) |  | XMSS Public key |
+| master_addr | [bytes](#scalar-bytes) |  | Transaction source address |
+| addresses_to | [bytes](#scalar-bytes) | repeated | Transaction destination address |
+| amounts | [uint64](#scalar-uint64) | repeated | Amount. It should be expressed in Shor |
+| fee | [uint64](#scalar-uint64) |  | Fee. It should be expressed in Shor |
+| xmss_pk | [bytes](#scalar-bytes) |  | XMSS Public key |
 
 ### TransferCoinsResp
 
@@ -445,14 +445,14 @@ This is a place holder for testing/instrumentation APIs
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [bytes](#bytes) |  |  |
-| amount | [uint64](#uint64) |  |  |
+| address | [bytes](#scalar-bytes) |  |  |
+| amount | [uint64](#scalar-uint64) |  |  |
 
 ## AddressList
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [bytes](#bytes) | repeated |  |
+| addresses | [bytes](#scalar-bytes) | repeated |  |
 
 ## AddressState
 
@@ -487,36 +487,36 @@ qrlClient.then( function (qrlClient) {
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [bytes](#bytes) |  |  |
-| balance | [uint64](#uint64) |  |  |
-| nonce | [uint64](#uint64) |  | FIXME: Discuss. 32 or 64 bits? |
-| ots_bitfield | [bytes](#bytes) | repeated |  |
-| transaction_hashes | [bytes](#bytes) | repeated |  |
+| address | [bytes](#scalar-bytes) |  |  |
+| balance | [uint64](#scalar-uint64) |  |  |
+| nonce | [uint64](#scalar-uint64) |  | FIXME: Discuss. 32 or 64 bits? |
+| ots_bitfield | [bytes](#scalar-bytes) | repeated |  |
+| transaction_hashes | [bytes](#scalar-bytes) | repeated |  |
 | tokens | [AddressState.TokensEntry](#addressstate.tokensentry) | repeated |  |
 | latticePK_list | [LatticePK](#latticepk) | repeated |  |
 | slave_pks_access_type | [AddressState.SlavePksAccessTypeEntry](#addressstate.slavepksaccesstypeentry) | repeated |  |
-| ots_counter | [uint64](#uint64) |  |  |
+| ots_counter | [uint64](#scalar-uint64) |  |  |
 
 
 ## AddressState.SlavePksAccessTypeEntry
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [uint32](#uint32) |  |  |
+| key | [string](#scalar-string) |  |  |
+| value | [uint32](#scalar-uint32) |  |  |
 
 ## AddressState.TokensEntry
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [uint64](#uint64) |  |  |
+| key | [string](#scalar-string) |  |  |
+| value | [uint64](#scalar-uint64) |  |  |
 
 ## Block
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#blockheader) |  |  |
+| header | [BlockHeader](#scalar-blockheader) |  |  |
 | transactions | [Transaction](#transaction) | repeated |  |
 | genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
 
@@ -527,74 +527,74 @@ BlockDataPoint message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| number | [uint64](#uint64) |  | Block number |
-| difficulty | [string](#string) |  | Block difficulty |
-| timestamp | [uint64](#uint64) |  | Block timestamp |
-| time_last | [uint64](#uint64) |  |  |
-| time_movavg | [uint64](#uint64) |  |  |
-| hash_power | [float](#float) |  | Hash power |
-| header_hash | [bytes](#bytes) |  | Block header hash |
-| header_hash_prev | [bytes](#bytes) |  | Previous block&#39;s header hash |
+| number | [uint64](#scalar-uint64) |  | Block number |
+| difficulty | [string](#scalar-string) |  | Block difficulty |
+| timestamp | [uint64](#scalar-uint64) |  | Block timestamp |
+| time_last | [uint64](#scalar-uint64) |  |  |
+| time_movavg | [uint64](#scalar-uint64) |  |  |
+| hash_power | [float](#scalar-float) |  | Hash power |
+| header_hash | [bytes](#scalar-bytes) |  | Block header hash |
+| header_hash_prev | [bytes](#scalar-bytes) |  | Previous block&#39;s header hash |
 
 ## BlockExtended
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#blockheader) |  |  |
+| header | [BlockHeader](#scalar-blockheader) |  |  |
 | extended_transactions | [TransactionExtended](#transactionextended) | repeated |  |
 | genesis_balance | [GenesisBalance](#genesisbalance) | repeated | This is only applicable to genesis blocks |
-| size | [uint64](#uint64) |  |  |
+| size | [uint64](#scalar-uint64) |  |  |
 
 ## BlockHeader
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| hash_header | [bytes](#bytes) |  | Header |
-| block_number | [uint64](#uint64) |  |  |
-| timestamp_seconds | [uint64](#uint64) |  |  |
-| hash_header_prev | [bytes](#bytes) |  |  |
-| reward_block | [uint64](#uint64) |  |  |
-| reward_fee | [uint64](#uint64) |  |  |
-| merkle_root | [bytes](#bytes) |  |  |
-| mining_nonce | [uint32](#uint32) |  |  |
-| extra_nonce | [uint64](#uint64) |  |  |
+| hash_header | [bytes](#scalar-bytes) |  | Header |
+| block_number | [uint64](#scalar-uint64) |  |  |
+| timestamp_seconds | [uint64](#scalar-uint64) |  |  |
+| hash_header_prev | [bytes](#scalar-bytes) |  |  |
+| reward_block | [uint64](#scalar-uint64) |  |  |
+| reward_fee | [uint64](#scalar-uint64) |  |  |
+| merkle_root | [bytes](#scalar-bytes) |  |  |
+| mining_nonce | [uint32](#scalar-uint32) |  |  |
+| extra_nonce | [uint64](#scalar-uint64) |  |  |
 
 ## BlockHeaderExtended
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#blockheader) |  |  |
+| header | [BlockHeader](#scalar-blockheader) |  |  |
 | transaction_count | [TransactionCount](#transactioncount) |  |  |
 
 ## BlockHeightData
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number | [uint64](#uint64) |  |  |
-| block_headerhash | [bytes](#bytes) |  |  |
-| cumulative_difficulty | [bytes](#bytes) |  |  |
+| block_number | [uint64](#scalar-uint64) |  |  |
+| block_headerhash | [bytes](#scalar-bytes) |  |  |
+| cumulative_difficulty | [bytes](#scalar-bytes) |  |  |
 
 ## BlockMetaData
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_difficulty | [bytes](#bytes) |  |  |
-| cumulative_difficulty | [bytes](#bytes) |  |  |
-| child_headerhashes | [bytes](#bytes) | repeated |  |
-| last_N_headerhashes | [bytes](#bytes) | repeated | Keeps last N headerhashes, for measurement of timestamp difference |
+| block_difficulty | [bytes](#scalar-bytes) |  |  |
+| cumulative_difficulty | [bytes](#scalar-bytes) |  |  |
+| child_headerhashes | [bytes](#scalar-bytes) | repeated |  |
+| last_N_headerhashes | [bytes](#scalar-bytes) | repeated | Keeps last N headerhashes, for measurement of timestamp difference |
 
 ## BlockMetaDataList
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number_hashes | [BlockMetaData](#blockmetadata) | repeated |  |
+| block_number_hashes | [BlockMetaData](#scalar-blockmetadata) | repeated |  |
 
 ## BlockNumberMapping
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| headerhash | [bytes](#bytes) |  |  |
-| prev_headerhash | [bytes](#bytes) |  |  |
+| headerhash | [bytes](#scalar-bytes) |  |  |
+| prev_headerhash | [bytes](#scalar-bytes) |  |  |
 
 ## Empty
 
@@ -604,39 +604,39 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| msg_id | [bytes](#bytes) |  | b&#39;NEW&#39; or PRF |
-| ttl | [uint64](#uint64) |  | Expiry Timestamp in seconds |
-| ttr | [uint64](#uint64) |  | Time to relay |
+| msg_id | [bytes](#scalar-bytes) |  | b&#39;NEW&#39; or PRF |
+| ttl | [uint64](#scalar-uint64) |  | Expiry Timestamp in seconds |
+| ttr | [uint64](#scalar-uint64) |  | Time to relay |
 | channel | [EncryptedEphemeralMessage.Channel](#encryptedephemeralmessage.channel) |  |  |
-| nonce | [uint64](#uint64) |  | nonce |
-| payload | [bytes](#bytes) |  | JSON content, encrypted by aes256_symkey |
+| nonce | [uint64](#scalar-uint64) |  | nonce |
+| payload | [bytes](#scalar-bytes) |  | JSON content, encrypted by aes256_symkey |
 
 ## EncryptedEphemeralMessage.Channel
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| enc_aes256_symkey | [bytes](#bytes) |  | aes256_symkey encrypted by kyber |
+| enc_aes256_symkey | [bytes](#scalar-bytes) |  | aes256_symkey encrypted by kyber |
 
 ## GenesisBalance
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| address | [bytes](#bytes) |  | Address is string only here to increase visibility |
-| balance | [uint64](#uint64) |  |  |
+| address | [bytes](#scalar-bytes) |  | Address is string only here to increase visibility |
+| balance | [uint64](#scalar-uint64) |  |  |
 
 ## GetBlockReq
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| index | [uint64](#uint64) |  | Indicates the index number in mainchain |
-| after_hash | [bytes](#bytes) |  | request the node that comes after hash |
+| index | [uint64](#scalar-uint64) |  | Indicates the index number in mainchain |
+| after_hash | [bytes](#scalar-bytes) |  | request the node that comes after hash |
 
 ## GetBlockResp
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | node_info | [NodeInfo](#nodeinfo) |  |  |
-| block | [Block](#block) |  |  |
+| block | [Block](#scalar-block) |  |  |
 
 ## GetLocalAddressesReq
 
@@ -644,7 +644,7 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [bytes](#bytes) | repeated |  |
+| addresses | [bytes](#scalar-bytes) | repeated |  |
 
 ## LRUStateCache
 
@@ -652,68 +652,68 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| txhash | [bytes](#bytes) |  |  |
-| dilithium_pk | [bytes](#bytes) |  |  |
-| kyber_pk | [bytes](#bytes) |  |  |
+| txhash | [bytes](#scalar-bytes) |  |  |
+| dilithium_pk | [bytes](#scalar-bytes) |  |  |
+| kyber_pk | [bytes](#scalar-bytes) |  |  |
 
 ## NodeChainState
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number | [uint64](#uint64) |  |  |
-| header_hash | [bytes](#bytes) |  |  |
-| cumulative_difficulty | [bytes](#bytes) |  |  |
-| version | [string](#string) |  |  |
-| timestamp | [uint64](#uint64) |  |  |
+| block_number | [uint64](#scalar-uint64) |  |  |
+| header_hash | [bytes](#scalar-bytes) |  |  |
+| cumulative_difficulty | [bytes](#scalar-bytes) |  |  |
+| version | [string](#scalar-string) |  |  |
+| timestamp | [uint64](#scalar-uint64) |  |  |
 
 ## NodeHeaderHash
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| block_number | [uint64](#uint64) |  |  |
-| headerhashes | [bytes](#bytes) | repeated |  |
+| block_number | [uint64](#scalar-uint64) |  |  |
+| headerhashes | [bytes](#scalar-bytes) | repeated |  |
 
 ## NodeInfo
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version | [string](#string) |  |  |
+| version | [string](#scalar-string) |  |  |
 | state | [NodeInfo.State](#nodeinfo.state) |  |  |
-| num_connections | [uint32](#uint32) |  |  |
-| num_known_peers | [uint32](#uint32) |  |  |
-| uptime | [uint64](#uint64) |  | Uptime in seconds |
-| block_height | [uint64](#uint64) |  |  |
-| block_last_hash | [bytes](#bytes) |  |  |
-| network_id | [string](#string) |  |  |
+| num_connections | [uint32](#scalar-uint32) |  |  |
+| num_known_peers | [uint32](#scalar-uint32) |  |  |
+| uptime | [uint64](#scalar-uint64) |  | Uptime in seconds |
+| block_height | [uint64](#scalar-uint64) |  |  |
+| block_last_hash | [bytes](#scalar-bytes) |  |  |
+| network_id | [string](#scalar-string) |  |  |
 
 ## P2PAcknowledgement
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bytes_processed | [uint32](#uint32) |  |  |
+| bytes_processed | [uint32](#scalar-uint32) |  |  |
 
 ## Peer
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ip | [string](#string) |  |  |
+| ip | [string](#scalar-string) |  |  |
 
 ## PeerInfo
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer_ip | [bytes](#bytes) |  |  |
-| port | [uint32](#uint32) |  |  |
-| banned_timestamp | [uint32](#uint32) |  |  |
-| credibility | [uint32](#uint32) |  |  |
-| last_connections_timestamp | [uint32](#uint32) | repeated |  |
+| peer_ip | [bytes](#scalar-bytes) |  |  |
+| port | [uint32](#scalar-uint32) |  |  |
+| banned_timestamp | [uint32](#scalar-uint32) |  |  |
+| credibility | [uint32](#scalar-uint32) |  |  |
+| last_connections_timestamp | [uint32](#scalar-uint32) | repeated |  |
 
 ## PeerStat
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer_ip | [bytes](#bytes) |  |  |
-| port | [uint32](#uint32) |  |  |
+| peer_ip | [bytes](#scalar-bytes) |  |  |
+| port | [uint32](#scalar-uint32) |  |  |
 | node_chain_state | [NodeChainState](#nodechainstate) |  |  |
 
 ## Peers
@@ -726,16 +726,16 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addresses | [bytes](#bytes) | repeated |  |
-| token_txhash | [bytes](#bytes) | repeated |  |
-| txhash | [bytes](#bytes) | repeated |  |
-| total_coin_supply | [uint64](#uint64) |  |  |
+| addresses | [bytes](#scalar-bytes) | repeated |  |
+| token_txhash | [bytes](#scalar-bytes) | repeated |  |
+| txhash | [bytes](#scalar-bytes) | repeated |  |
+| total_coin_supply | [uint64](#scalar-uint64) |  |  |
 
 ## StateObjects
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| state_loaders | [bytes](#bytes) | repeated |  |
+| state_loaders | [bytes](#scalar-bytes) | repeated |  |
 
 ## StoredPeers
 
@@ -747,25 +747,25 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| token_txhash | [bytes](#bytes) | repeated |  |
+| token_txhash | [bytes](#scalar-bytes) | repeated |  |
 
 ## TokenMetadata
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| token_txhash | [bytes](#bytes) |  |  |
-| transfer_token_tx_hashes | [bytes](#bytes) | repeated |  |
+| token_txhash | [bytes](#scalar-bytes) |  |  |
+| transfer_token_tx_hashes | [bytes](#scalar-bytes) | repeated |  |
 
 ## Transaction
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| master_addr | [bytes](#bytes) |  |  |
-| fee | [uint64](#uint64) |  |  |
-| public_key | [bytes](#bytes) |  |  |
-| signature | [bytes](#bytes) |  |  |
-| nonce | [uint64](#uint64) |  |  |
-| transaction_hash | [bytes](#bytes) |  |  |
+| master_addr | [bytes](#scalar-bytes) |  |  |
+| fee | [uint64](#scalar-uint64) |  |  |
+| public_key | [bytes](#scalar-bytes) |  |  |
+| signature | [bytes](#scalar-bytes) |  |  |
+| nonce | [uint64](#scalar-uint64) |  |  |
+| transaction_hash | [bytes](#scalar-bytes) |  |  |
 | transfer | [Transaction.Transfer](#transaction.transfer) |  |  |
 | coinbase | [Transaction.CoinBase](#transaction.coinbase) |  |  |
 | latticePK | [Transaction.LatticePublicKey](#transaction.latticepublickey) |  |  |
@@ -778,53 +778,53 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addr_to | [bytes](#bytes) |  |  |
-| amount | [uint64](#uint64) |  |  |
+| addr_to | [bytes](#scalar-bytes) |  |  |
+| amount | [uint64](#scalar-uint64) |  |  |
 
 ## Transaction.LatticePublicKey
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kyber_pk | [bytes](#bytes) |  |  |
-| dilithium_pk | [bytes](#bytes) |  |  |
+| kyber_pk | [bytes](#scalar-bytes) |  |  |
+| dilithium_pk | [bytes](#scalar-bytes) |  |  |
 
 ## Transaction.Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message_hash | [bytes](#bytes) |  |  |
+| message_hash | [bytes](#scalar-bytes) |  |  |
 
 ## Transaction.Slave
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| slave_pks | [bytes](#bytes) | repeated |  |
-| access_types | [uint32](#uint32) | repeated |  |
+| slave_pks | [bytes](#scalar-bytes) | repeated |  |
+| access_types | [uint32](#scalar-uint32) | repeated |  |
 
 ## Transaction.Token
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| symbol | [bytes](#bytes) |  |  |
-| name | [bytes](#bytes) |  |  |
-| owner | [bytes](#bytes) |  |  |
-| decimals | [uint64](#uint64) |  |  |
+| symbol | [bytes](#scalar-bytes) |  |  |
+| name | [bytes](#scalar-bytes) |  |  |
+| owner | [bytes](#scalar-bytes) |  |  |
+| decimals | [uint64](#scalar-uint64) |  |  |
 | initial_balances | [AddressAmount](#addressamount) | repeated |  |
 
 ## Transaction.Transfer
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| addrs_to | [bytes](#bytes) | repeated |  |
-| amounts | [uint64](#uint64) | repeated |  |
+| addrs_to | [bytes](#scalar-bytes) | repeated |  |
+| amounts | [uint64](#scalar-uint64) | repeated |  |
 
 ## Transaction.TransferToken
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| token_txhash | [bytes](#bytes) |  |  |
-| addrs_to | [bytes](#bytes) | repeated |  |
-| amounts | [uint64](#uint64) | repeated |  |
+| token_txhash | [bytes](#scalar-bytes) |  |  |
+| addrs_to | [bytes](#scalar-bytes) | repeated |  |
+| amounts | [uint64](#scalar-uint64) | repeated |  |
 
 ## TransactionCount
 
@@ -836,18 +836,18 @@ Empty message definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [uint32](#uint32) |  |  |
-| value | [uint32](#uint32) |  |  |
+| key | [uint32](#scalar-uint32) |  |  |
+| value | [uint32](#scalar-uint32) |  |  |
 
 ## TransactionExtended
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| header | [BlockHeader](#blockheader) |  |  |
+| header | [BlockHeader](#scalar-blockheader) |  |  |
 | tx | [Transaction](#transaction) |  |  |
-| addr_from | [bytes](#bytes) |  |  |
-| size | [uint64](#uint64) |  |  |
-| timestamp_seconds | [uint64](#uint64) |  |  |
+| addr_from | [bytes](#scalar-bytes) |  |  |
+| size | [uint64](#scalar-uint64) |  |  |
+| timestamp_seconds | [uint64](#scalar-uint64) |  |  |
 
 ## GetLatestDataReq.Filter
 
