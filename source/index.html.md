@@ -21,6 +21,7 @@ includes:
   - qrlstateinfo.proto
   - qrlwallet.proto
   - walletAPI
+  - ScalarValueTypes
 #  - errors
 
 search: true
