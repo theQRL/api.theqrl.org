@@ -377,7 +377,7 @@ Get block details for a given header hash.
 | --- | --- | --- |
 | code | [UInt32](#uint32) | Error Code. Only appears if any exception is triggered. |
 | error | [String](#string) | Error Message. Only appears if any exception is triggered. |
-| block | [Block](#block) | Block Details |
+| block | [Block](#Scalar-block) | Block Details |
 
 ## GetBlockByNumber
 
