@@ -892,15 +892,14 @@
 <p>Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named *Req) and response (named *Resp).</p>
 
 <aside class="success">
-This is a work in progress, code may change, site layout is fluid. Please see the QRL  documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
+QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
-<h2 id='basic-connection'>Basic Connection</h2><pre class="highlight python tab-python"><code><span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
-
-<span class="n">ADD</span> <span class="n">INFO</span> <span class="n">HERE</span><span class="err">!!</span>
-
-<span class="c"># We need a basic script depicting the connection method</span>
-
-<span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
+<h3 id='open-source'>Open Source</h3>
+<aside class="notice">
+This is an open source project.<br>
+We are looking for contributers. If you would like to help your fellow developers out, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>. As a community we can only get stronger.
+</aside>
+<h2 id='basic-connection'>Basic Connection</h2><pre class="highlight python tab-python"><code><span class="c">## Python Code will be shown here.</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// required libraries</span>
 <span class="kd">let</span> <span class="nx">grpc</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'grpc'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'temp'</span><span class="p">).</span><span class="nx">track</span><span class="p">();</span>
@@ -937,28 +936,24 @@ This is a work in progress, code may change, site layout is fluid. Please see th
 <span class="p">}</span>
 
 </code></pre>
-<p>Connecting to the QRL network is simple. Use the examples shown to get started. </p>
+<p>Connecting to the QRL network is simple. The network consists of various nodes, communicating via P2P comunication protocols. All nodes sync with each other, sharing the blockchain data and valdating each block. </p>
 
-<aside class="notice">
-**fixme** There may be some specific details we should be calling out here!
-<br>
-This is a community documentation site. If you would like to contribute to the project, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>
-</aside>
+<p>For security reasions, it is recomended that you run a private QRL node for your application to connect to. You can find the qrl api running at <code>127.0.0.1:19009</code> on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documantation for <a href="https://docs.theqrl.org/node/QRLnode/">running a full node</a>, and setting up a <a href="https://docs.theqrl.org/node/configuration/">configuration file</a>.</p>
 <h2 id='important-information'>Important information</h2>
 <p><strong>OTS Keys</strong></p>
 
 <blockquote>
-<p>QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don&#39;t run out of available keys in a wallet.</p>
+<p>QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don&#39;t run out of available keys in a wallet. By default the wallet will not allow you to make transactions with the </p>
 </blockquote>
 
 <aside class="warning">
 Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
-<p>You may generate a slaves.json file that is an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information <a href="https://docs.theqrl.org/wallet/slaves.json/">slave.json documentation</a></p>
+<p>The <a href="#wallet-api">WalletAPI</a> has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. This creates multiple merkle tree&#39;s from your origional address and privatekey. See the documentation for more information <a href="https://docs.theqrl.org/wallet/slaves.json/">slave.json documentation</a></p>
 <h2 id='functions'>Functions</h2>
 <p>Here are some required functions to make the examples below work. </p>
-<h2 id='getqrlclient'>getQRLClient()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span> <span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
+<h2 id='getqrlclient'>getQRLClient()</h2><pre class="highlight python tab-python"><code><span class="c">## ## Enter Python code here</span>
 
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">getQRLClient</span><span class="p">(</span><span class="nx">nodeAddr</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -971,7 +966,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <span class="p">}</span>
 </code></pre>
 <p>Connection to the QRL client according to the provide API URL.</p>
-<h2 id='stringtobytes'>stringToBytes()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span> <span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
+<h2 id='stringtobytes'>stringToBytes()</h2><pre class="highlight python tab-python"><code><span class="c">## Enter Python code here </span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">stringToBytes</span> <span class="o">=</span> <span class="p">(</span><span class="nx">convertMe</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Convert String to Binary First</span>
   <span class="kr">const</span> <span class="nx">thisBinary</span> <span class="o">=</span> <span class="nx">qrllib</span><span class="p">.</span><span class="nx">hstr2bin</span><span class="p">(</span><span class="nx">convertMe</span><span class="p">)</span>
@@ -980,7 +975,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <span class="p">}</span>
 </code></pre>
 <p>StringToBytes function converts a string to a byte array. This function requires the hstr2bin function from the qrllib.</p>
-<h2 id='binarytobytes'>binaryToBytes()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span> <span class="o">**</span><span class="n">fixme</span><span class="o">**</span>
+<h2 id='binarytobytes'>binaryToBytes()</h2><pre class="highlight python tab-python"><code><span class="c">## ## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Convert Binary object to Bytes</span>
 <span class="nx">binaryToBytes</span> <span class="o">=</span> <span class="p">(</span><span class="nx">convertMe</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Convert Binary to Bytes</span>
@@ -992,19 +987,19 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <span class="p">}</span>
 </code></pre>
 <p>binaryToBytes converts a binary to a byte array.</p>
-<h2 id='tobuffer'>toBuffer()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
+<h2 id='tobuffer'>toBuffer()</h2><pre class="highlight python tab-python"><code><span class="c">## ## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">toBuffer</span><span class="p">(</span><span class="nx">ab</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">ab</span><span class="p">)</span>
   <span class="k">return</span> <span class="nx">buffer</span>
 <span class="p">}</span>
 </code></pre>
 <p>toBuffer creates a new Buffer and append the given object to it.</p>
-<h2 id='connecting-to-the-api'>Connecting to the API</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
+<h2 id='connecting-to-the-api'>Connecting to the API</h2><pre class="highlight python tab-python"><code><span class="c">## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Connecting to the API</span>
 <span class="kd">let</span> <span class="nx">qrlClient</span> <span class="o">=</span> <span class="nx">getQRLClient</span><span class="p">(</span><span class="s1">'127.0.0.1:10002'</span><span class="p">);</span>
 </code></pre>
 <p>qrlClient variable defines the API URL with the corresponding port. In the example, the API is running locally on port 10002.</p>
-<h2 id='concatenatetypedarrays'>concatenateTypedArrays()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
+<h2 id='concatenatetypedarrays'>concatenateTypedArrays()</h2><pre class="highlight python tab-python"><code><span class="c">## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Concatenates multiple typed arrays into one.</span>
 <span class="nx">concatenateTypedArrays</span> <span class="o">=</span> <span class="p">(</span><span class="nx">resultConstructor</span><span class="p">,</span> <span class="p">...</span><span class="nx">arrays</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">totalLength</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1021,7 +1016,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <span class="p">}</span>
 </code></pre>
 <p>concatenateTypedArrays function is necessary for some API function calls that requires a concatenated array (that is signed later on in the code).</p>
-<h2 id='tobigendianuint64bytesunsigned'>toBigendianUint64BytesUnsigned()</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
+<h2 id='tobigendianuint64bytesunsigned'>toBigendianUint64BytesUnsigned()</h2><pre class="highlight python tab-python"><code><span class="c">## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Take input and convert to unsigned uint64 bigendian bytes</span>
 <span class="nx">toBigendianUint64BytesUnsigned</span> <span class="o">=</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="nx">input</span><span class="p">))</span> <span class="p">{</span>
@@ -1044,7 +1039,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 
 </code></pre>
 <p>toBigendianUint64BytesUnsigned takes the provided input and converts to an array of unsigned uint64 bigendian bytes.</p>
-<h2 id='initiating-test-wallets'>Initiating Test Wallets</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
+<h2 id='initiating-test-wallets'>Initiating Test Wallets</h2><pre class="highlight python tab-python"><code><span class="c">## Enter Python code here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// initiating the test wallets to use</span>
 <span class="kd">var</span> <span class="nx">testfromaddress</span> <span class="o">=</span> <span class="s1">'0105006d232eb403a0248f9d4c0476c06a7d7a1d0425420df2dd915b7fb46cf7da132699c27b93'</span>
 <span class="kd">var</span> <span class="nx">testfromaddress_bytes</span> <span class="o">=</span> <span class="nx">stringToBytes</span><span class="p">(</span><span class="nx">testfromaddress</span><span class="p">);</span>
@@ -6000,6 +5995,14 @@ go build
 </ul></li>
 <li>Send commands using cURL and begin using the QRL!</li>
 </ol>
+
+<aside class="success">
+<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
+<br>
+<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
+<br>
+If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
+</aside>
 <pre class="highlight shell"><code><span class="c"># Alternate paramaters may be passed to the API</span>
 
 curl -XPOST http://127.0.0.1:5359/api/<span class="o">{</span>METHOD<span class="o">}</span> -d <span class="s1">'{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'</span>
@@ -6008,16 +6011,9 @@ curl -XPOST http://127.0.0.1:5359/api/<span class="o">{</span>METHOD<span class=
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"height":"18","hash_function":"sha2_256"}'</span>
 
 </code></pre>
-<aside class="success">
-<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
-<br>
-<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
-<br>
-If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
-</aside>
-
-<p>Alternative parameters may be entered by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
-<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
+<p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
+<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 
@@ -6075,7 +6071,8 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
+<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
 
@@ -6154,7 +6151,8 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
+<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 {
@@ -6211,7 +6209,8 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
+<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 {
@@ -6261,9 +6260,8 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2>
-<p>Get QRL address for a given public key.</p>
-<pre class="highlight shell"><code><span class="c"># Request</span>
+<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 {
@@ -6277,6 +6275,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
   <span class="s2">"address"</span>: <span class="s2">"Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"</span>
 <span class="o">}</span>
 </code></pre>
+<p>Get QRL address for a given public key.</p>
+
 <p><strong>Request</strong></p>
 
 <table><thead>
@@ -6318,7 +6318,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 <td>QRL Address</td>
 </tr>
 </tbody></table>
-<h2 id='getbalance'>GetBalance</h2><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
+<h2 id='getbalance'>GetBalance</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 {
@@ -6374,7 +6375,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <td>Balance in Shor</td>
 </tr>
 </tbody></table>
-<h2 id='getblock'>GetBlock</h2><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
+<h2 id='getblock'>GetBlock</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 {
@@ -6472,7 +6474,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
+<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 {
@@ -6569,7 +6572,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getheight'>GetHeight</h2><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
+<h2 id='getheight'>GetHeight</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
 
@@ -6606,7 +6610,8 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 <td>Current Height of the blockchain</td>
 </tr>
 </tbody></table>
-<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
+<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 
@@ -6679,7 +6684,8 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 <td>Network ID</td>
 </tr>
 </tbody></table>
-<h2 id='getots'>GetOTS</h2><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
+<h2 id='getots'>GetOTS</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 {
@@ -6740,7 +6746,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 <td>Next Unused OTS Index</td>
 </tr>
 </tbody></table>
-<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
+<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 {
@@ -6804,7 +6811,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 <td>Mnemonic words for the given address</td>
 </tr>
 </tbody></table>
-<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
+<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 {
@@ -6875,7 +6883,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 <td>The number of confirmations if any</td>
 </tr>
 </tbody></table>
-<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
+<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s1">'
 {
@@ -6949,7 +6958,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 <td>Total balance</td>
 </tr>
 </tbody></table>
-<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
+<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 
@@ -6999,7 +7009,8 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 <td>True if wallet is already encryptedFalse if wallet is not encrypted</td>
 </tr>
 </tbody></table>
-<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
+<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 {
@@ -7054,7 +7065,8 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 <td>Returns True for valid QRL address otherwise False.</td>
 </tr>
 </tbody></table>
-<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
+<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
 
@@ -7091,7 +7103,8 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 <td>Return list of addresses added into your wallet</td>
 </tr>
 </tbody></table>
-<h2 id='lockwallet'>LockWallet</h2><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
+<h2 id='lockwallet'>LockWallet</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
 
@@ -7122,7 +7135,8 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
+<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 {
@@ -7209,7 +7223,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
+<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1">'
 {
@@ -7286,7 +7301,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
+<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 {
@@ -7384,9 +7400,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2>
-<p><strong>Request</strong></p>
-<pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
+<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 {
@@ -7476,7 +7491,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
+<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 {
@@ -7606,7 +7622,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
+<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 {
   "symbol": "TEST",
@@ -7726,7 +7743,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
+<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 {
@@ -7826,7 +7844,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
+<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1">'
 {
@@ -7916,7 +7935,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
+<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">'
 {
@@ -8021,7 +8041,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
+<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span class="s1">'
 {
@@ -8115,7 +8136,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
+<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 {
@@ -8165,7 +8187,8 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
+<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight plaintext"><code>
+</code></pre><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 {
