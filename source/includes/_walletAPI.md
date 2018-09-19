@@ -95,7 +95,7 @@ Alternative parameters may be sent via `curl` by calling the `-d` flag and using
 
 ## AddNewAddress
 
-```pyhton
+```python
 
 ```
 
@@ -132,7 +132,7 @@ Adds new randomly generated address to the wallet.
 
 ## AddNewAddressWithSlaves
 
-```pyhton
+```python
 
 ```
 
@@ -184,7 +184,7 @@ Creates a new address with slaves
 
 ## ChangePassphrase
 
-```pyhton
+```python
 
 ```
 
@@ -222,7 +222,7 @@ Change the passphrase.
 
 ## EncryptWallet
 
-```pyhton
+```python
 
 ```
 
@@ -257,7 +257,25 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 
 ## GetAddressFrom PK
 
-```pyhton
+```python
+def getAddress():
+  import requests
+  import json
+
+  apiCall = requests.post("http://127.0.0.1:5359/api/ListAddresses")
+  apiText = apiCall.text
+  json = json.loads(apiText)
+  FaucetWallet = (json['addresses'])
+  return(FaucetWallet)
+  pass
+
+
+getAddress()
+
+## Response
+
+['Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188']
+
 
 ```
 
@@ -296,7 +314,7 @@ Get QRL address for a given public key.
 
 ## GetBalance
 
-```pyhton
+```python
 
 ```
 
@@ -332,7 +350,7 @@ Get the balance of the given QRL address.
 
 ## GetBlock
 
-```pyhton
+```python
 
 ```
 
@@ -411,7 +429,7 @@ Get block details for a given header hash.
 
 ## GetBlockByNumber
 
-```pyhton
+```python
 
 ```
 
@@ -489,7 +507,7 @@ Get block details for a given block number.
 
 ## GetHeight
 
-```pyhton
+```python
 
 ```
 
@@ -517,7 +535,7 @@ Get current blockchain height.
 
 ## GetNodeInfo
 
-```pyhton
+```python
 
 ```
 
@@ -560,7 +578,7 @@ Get QRL node information.
 
 ## GetOTS
 
-```pyhton
+```python
 
 ```
 
@@ -601,7 +619,7 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 
 ## GetRecoverySeeds
 
-```pyhton
+```python
 
 ```
 
@@ -642,7 +660,7 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 
 ## GetTransaction
 
-```pyhton
+```python
 
 ```
 
@@ -693,7 +711,7 @@ Get transaction details for a given transaction hash with number of confirmation
 
 ## GetTransactionsByAddress
 
-```pyhton
+```python
 
 ```
 
@@ -744,7 +762,7 @@ Get transactions hash and  other details for a given address.
 
 ## GetWalletInfo
 
-```pyhton
+```python
 
 ```
 
@@ -777,7 +795,7 @@ Get wallet information.
 
 ## IsValidAddress
 
-```pyhton
+```python
 
 ```
 
@@ -816,7 +834,7 @@ Checks if a given QRL Address is valid.
 
 ## ListAddresses
 
-```pyhton
+```python
 
 ```
 
@@ -844,7 +862,7 @@ List all addresses into the wallet.
 
 ## LockWallet
 
-```pyhton
+```python
 
 ```
 
@@ -870,7 +888,7 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 ## RelayMessageTxn
 
-```pyhton
+```python
 
 ```
 
@@ -925,7 +943,7 @@ Creates the signed message transaction and relay it to the network. Signer addre
 
 ## RelayMessageTxnBySlave
 
-```pyhton
+```python
 
 ```
  
@@ -979,7 +997,7 @@ Creates the signed message transaction using one of the slaves and relay it to t
 
 ## RelaySlaveTxn
 
-```pyhton
+```python
 
 ```
 
@@ -1043,7 +1061,7 @@ Creates the signed slave transaction and relay it to the network. Signer address
 
 ## RelaySlaveTxnBySlave
 
-```pyhton
+```python
 
 ```
 
@@ -1109,7 +1127,7 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 ## RelayTokenTxn
 
-```pyhton
+```python
 
 ```
 
@@ -1189,7 +1207,7 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 ## RelayTokenTxnBySlave
 
-```pyhton
+```python
 
 ```
 
@@ -1266,7 +1284,7 @@ Creates the signed token transaction using one of the slave and relay it to the 
 
 ## RelayTransferTxn
 
-```pyhton
+```python
 
 ```
 
@@ -1330,7 +1348,7 @@ Creates the signed transfer transaction and relay it to the network. Signer addr
 
 ## RelayTransferTxnBySlave
 
-```pyhton
+```python
 
 ```
 
@@ -1393,7 +1411,7 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 
 ## RelayTransferTokenTxn
 
-```pyhton
+```python
 
 ```
 
@@ -1460,7 +1478,7 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 
 ## RelayTransferTokenTxnBySlave
 
-```pyhton
+```python
 
 ```
 
@@ -1523,7 +1541,7 @@ Creates the signed transfer token transaction using one of the slave and relay i
 
 ## RemoveAddress
 
-```pyhton
+```python
 
 ```
 
@@ -1559,7 +1577,7 @@ Removes the address from the wallet.
 
 ## UnlockWallet
 
-```pyhton
+```python
 
 ```
 
