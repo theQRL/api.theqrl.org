@@ -73,6 +73,13 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
   - This allows connection to the WalletDaemon
 6. Send commands using cURL and begin using the QRL!
 
+<aside class="success">
+<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
+<br>
+<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
+<br>
+If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
+</aside>
 
 ```bash
 # Alternate paramaters may be passed to the API
@@ -84,17 +91,13 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_fun
 
 ```
 
-<aside class="success">
-<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
-<br>
-<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
-<br>
-If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
-</aside>
-
-Alternative parameters may be entered by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
+Alternative parameters may be sent via `curl` by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
 
 ## AddNewAddress
+
+```pyhton
+
+```
 
 ```bash
 # AddNewAddress Request
@@ -107,6 +110,8 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 {"address":"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"}
 
 ```
+
+
 
 Adds new randomly generated address to the wallet.
 
@@ -126,6 +131,10 @@ Adds new randomly generated address to the wallet.
 | address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## AddNewAddressWithSlaves
+
+```pyhton
+
+```
 
 ```bash
 # AddNewAddressWithSlaves Request
@@ -175,6 +184,10 @@ Creates a new address with slaves
 
 ## ChangePassphrase
 
+```pyhton
+
+```
+
 ```bash
 # ChangePassphrase Request
 
@@ -209,6 +222,10 @@ Change the passphrase.
 
 ## EncryptWallet
 
+```pyhton
+
+```
+
 ```bash
 # EncryptWallet Request
 
@@ -240,7 +257,9 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 
 ## GetAddressFrom PK
 
-Get QRL address for a given public key.
+```pyhton
+
+```
 
 ```bash
 # Request
@@ -257,6 +276,9 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
   "address": "Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"
 }
 ```
+
+Get QRL address for a given public key.
+
 **Request**
 
 | **Parameter** | **Type** | **Description** |
@@ -273,6 +295,10 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
 
 
 ## GetBalance
+
+```pyhton
+
+```
 
 ```bash
 # GetBalance Request
@@ -305,6 +331,10 @@ Get the balance of the given QRL address.
 | balance | [UInt64](#scalar-uint64) | Balance in Shor |
 
 ## GetBlock
+
+```pyhton
+
+```
 
 ```bash
 # GetBlock Request
@@ -381,6 +411,10 @@ Get block details for a given header hash.
 
 ## GetBlockByNumber
 
+```pyhton
+
+```
+
 ```bash
 # GetBlockByNumber Request
 
@@ -455,6 +489,10 @@ Get block details for a given block number.
 
 ## GetHeight
 
+```pyhton
+
+```
+
 ```bash
 # GetHeight Request
 
@@ -478,6 +516,10 @@ Get current blockchain height.
 | height | [UInt64](#scalar-uint64) | Current Height of the blockchain |
 
 ## GetNodeInfo
+
+```pyhton
+
+```
 
 ```bash
 # GetNodeInfo Request
@@ -518,6 +560,10 @@ Get QRL node information.
 
 ## GetOTS
 
+```pyhton
+
+```
+
 ```bash
 # GetOTS Request
 
@@ -555,6 +601,10 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 
 ## GetRecoverySeeds
 
+```pyhton
+
+```
+
 ```bash
 # GetRecoverySeeds Request
 
@@ -591,6 +641,10 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 | mnemonic | [String](#scalar-string) | Mnemonic words for the given address |
 
 ## GetTransaction
+
+```pyhton
+
+```
 
 ```bash
 # GetTransaction Request
@@ -639,6 +693,10 @@ Get transaction details for a given transaction hash with number of confirmation
 
 ## GetTransactionsByAddress
 
+```pyhton
+
+```
+
 ```bash
 # GetTransactionsByAddress Request
 
@@ -686,6 +744,10 @@ Get transactions hash and  other details for a given address.
 
 ## GetWalletInfo
 
+```pyhton
+
+```
+
 ```bash
 # GetWalletInfo Request
 
@@ -714,6 +776,10 @@ Get wallet information.
 | is\_encrypted | Boolean | True if wallet is already encryptedFalse if wallet is not encrypted |
 
 ## IsValidAddress
+
+```pyhton
+
+```
 
 ```bash
 # IsValidAddress Request
@@ -750,6 +816,10 @@ Checks if a given QRL Address is valid.
 
 ## ListAddresses
 
+```pyhton
+
+```
+
 ```bash
 # ListAddresses Request
 
@@ -774,6 +844,10 @@ List all addresses into the wallet.
 
 ## LockWallet
 
+```pyhton
+
+```
+
 ```bash
 # LockWallet Request
 
@@ -795,6 +869,10 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 | error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## RelayMessageTxn
+
+```pyhton
+
+```
 
 ```bash
 # RelayMessageTxn Request
@@ -846,6 +924,10 @@ Creates the signed message transaction and relay it to the network. Signer addre
 | tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayMessageTxnBySlave
+
+```pyhton
+
+```
  
 ```bash
 # RelayMessageTxnBySlave Request
@@ -896,6 +978,10 @@ Creates the signed message transaction using one of the slaves and relay it to t
 
 
 ## RelaySlaveTxn
+
+```pyhton
+
+```
 
 ```bash
 # RelaySlaveTxn Request
@@ -957,8 +1043,11 @@ Creates the signed slave transaction and relay it to the network. Signer address
 
 ## RelaySlaveTxnBySlave
 
+```pyhton
 
-**Request**
+```
+
+
 
 ```bash
 # RelaySlaveTxnBySlave Request
@@ -1001,6 +1090,7 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 **Request**
 
+
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
 | slave\_pks | [Bytes](#scalar-bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
@@ -1018,6 +1108,10 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 
 ## RelayTokenTxn
+
+```pyhton
+
+```
 
 ```bash
 # RelayTokenTxn Request
@@ -1095,6 +1189,10 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 ## RelayTokenTxnBySlave
 
+```pyhton
+
+```
+
 ```bash
 #  RelayTokenTxnBySlave Request
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
@@ -1168,6 +1266,10 @@ Creates the signed token transaction using one of the slave and relay it to the 
 
 ## RelayTransferTxn
 
+```pyhton
+
+```
+
 ```bash
 # RelayTransferTxn Request
 
@@ -1228,6 +1330,9 @@ Creates the signed transfer transaction and relay it to the network. Signer addr
 
 ## RelayTransferTxnBySlave
 
+```pyhton
+
+```
 
 ```bash
 # RelayTransferTxnBySlave Request
@@ -1287,6 +1392,10 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 | tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayTransferTokenTxn
+
+```pyhton
+
+```
 
 ```bash
 # RelayTransferTokenTxn Request
@@ -1351,6 +1460,10 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 
 ## RelayTransferTokenTxnBySlave
 
+```pyhton
+
+```
+
 
 ```bash
 # RelayTransferTokenTxnBySlave Request
@@ -1410,6 +1523,10 @@ Creates the signed transfer token transaction using one of the slave and relay i
 
 ## RemoveAddress
 
+```pyhton
+
+```
+
 ```bash
 # RemoveAddress Request 
 
@@ -1441,6 +1558,10 @@ Removes the address from the wallet.
 
 
 ## UnlockWallet
+
+```pyhton
+
+```
 
 
 ```bash

@@ -42,20 +42,21 @@ Every function requires an object as parameter and returns another object as res
 
 
 <aside class="success">
-This is a work in progress, code may change, site layout is fluid. Please see the QRL  documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
+QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
+</aside>
+
+### Open Source 
+
+<aside class="notice">
+This is an open source project.<br>
+We are looking for contributers. If you would like to help your fellow developers out, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>. As a community we can only get stronger.
 </aside>
 
 
 ## Basic Connection
 
 ```python
-**fixme**
-
-ADD INFO HERE!!
-
-# We need a basic script depicting the connection method
-
-**fixme**
+## Python Code will be shown here.
 ```
 
 ```javascript
@@ -96,14 +97,11 @@ async function fetchRemoteProto(nodeAddr) {
 
 ```
 
-Connecting to the QRL network is simple. Use the examples shown to get started. 
+Connecting to the QRL network is simple. The network consists of various nodes, communicating via P2P comunication protocols. All nodes sync with each other, sharing the blockchain data and valdating each block. 
 
 
-<aside class="notice">
-**fixme** There may be some specific details we should be calling out here!
-<br>
-This is a community documentation site. If you would like to contribute to the project, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>
-</aside>
+For security reasions, it is recomended that you run a private QRL node for your application to connect to. You can find the qrl api running at `127.0.0.1:19009` on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documantation for [running a full node](https://docs.theqrl.org/node/QRLnode/), and setting up a [configuration file](https://docs.theqrl.org/node/configuration/).
+
 
 
 
@@ -112,18 +110,13 @@ This is a community documentation site. If you would like to contribute to the p
 
 **OTS Keys**
 
-> QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet.
+> QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet. By default the wallet will not allow you to make transactions with the 
 
 <aside class="warning">
 Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
-You may generate a slaves.json file that is an extension of the main wallet, authorized to make transactions for the main wallet address. See the docs for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
-
-
-
-
- 
+The [WalletAPI](#wallet-api) has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. This creates multiple merkle tree's from your origional address and privatekey. See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
 
@@ -135,7 +128,7 @@ Here are some required functions to make the examples below work.
 ## getQRLClient()
 
 ```python
-Enter Python code here **fixme**
+## ## Enter Python code here
 
 ```
 
@@ -157,7 +150,7 @@ Connection to the QRL client according to the provide API URL.
 ## stringToBytes()
 
 ```python
-Enter Python code here **fixme**
+## Enter Python code here 
 ```
 
 
@@ -177,7 +170,7 @@ StringToBytes function converts a string to a byte array. This function requires
 ## binaryToBytes()
 
 ```python
-Enter Python code here **fixme**
+## ## Enter Python code here
 ``` 
 
 ```javascript
@@ -198,7 +191,7 @@ binaryToBytes converts a binary to a byte array.
 ## toBuffer()
 
 ```python
-Enter Python code here
+## ## Enter Python code here
 ```
 
 ```javascript
@@ -214,7 +207,7 @@ toBuffer creates a new Buffer and append the given object to it.
 ## Connecting to the API
 
 ```python
-Enter Python code here
+## Enter Python code here
 ```
 
 ```javascript
@@ -228,7 +221,7 @@ qrlClient variable defines the API URL with the corresponding port. In the examp
 ## concatenateTypedArrays()
 
 ```python
-Enter Python code here
+## Enter Python code here
 ```
 
 ```javascript
@@ -255,7 +248,7 @@ concatenateTypedArrays function is necessary for some API function calls that re
 ## toBigendianUint64BytesUnsigned()
 
 ```python
-Enter Python code here
+## Enter Python code here
 ```
 
 
@@ -290,7 +283,7 @@ toBigendianUint64BytesUnsigned takes the provided input and converts to an array
 ## Initiating Test Wallets
 
 ```python
-Enter Python code here
+## Enter Python code here
 ```
 
 
@@ -301,13 +294,3 @@ var testfromaddress_bytes = stringToBytes(testfromaddress);
 
 ```
 Example providing a wallet address (as hex) and the corresponding address as byte using the stringToBytes() function.   
-
-
-
-
-
-
-
-
-
-
