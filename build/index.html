@@ -6012,7 +6012,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"heigh
 
 </code></pre>
 <p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
-<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight plaintext"><code>
+<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
@@ -6071,7 +6071,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight plaintext"><code>
+<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
@@ -6151,7 +6151,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight plaintext"><code>
+<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
@@ -6209,7 +6209,7 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight plaintext"><code>
+<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
@@ -6260,7 +6260,25 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight plaintext"><code>
+<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getAddress</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+
+  <span class="n">apiCall</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ListAddresses"</span><span class="p">)</span>
+  <span class="n">apiText</span> <span class="o">=</span> <span class="n">apiCall</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">apiText</span><span class="p">)</span>
+  <span class="n">FaucetWallet</span> <span class="o">=</span> <span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">])</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">FaucetWallet</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">getAddress</span><span class="p">()</span>
+
+<span class="c">## Response</span>
+
+<span class="p">[</span><span class="s">'Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188'</span><span class="p">]</span>
+
+
 </code></pre><pre class="highlight shell"><code><span class="c"># Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
@@ -6318,7 +6336,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 <td>QRL Address</td>
 </tr>
 </tbody></table>
-<h2 id='getbalance'>GetBalance</h2><pre class="highlight plaintext"><code>
+<h2 id='getbalance'>GetBalance</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
@@ -6375,7 +6393,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <td>Balance in Shor</td>
 </tr>
 </tbody></table>
-<h2 id='getblock'>GetBlock</h2><pre class="highlight plaintext"><code>
+<h2 id='getblock'>GetBlock</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
@@ -6474,7 +6492,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight plaintext"><code>
+<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
@@ -6572,7 +6590,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getheight'>GetHeight</h2><pre class="highlight plaintext"><code>
+<h2 id='getheight'>GetHeight</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
@@ -6610,7 +6628,7 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 <td>Current Height of the blockchain</td>
 </tr>
 </tbody></table>
-<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight plaintext"><code>
+<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
@@ -6684,7 +6702,7 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 <td>Network ID</td>
 </tr>
 </tbody></table>
-<h2 id='getots'>GetOTS</h2><pre class="highlight plaintext"><code>
+<h2 id='getots'>GetOTS</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
@@ -6746,7 +6764,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 <td>Next Unused OTS Index</td>
 </tr>
 </tbody></table>
-<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight plaintext"><code>
+<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
@@ -6811,7 +6829,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 <td>Mnemonic words for the given address</td>
 </tr>
 </tbody></table>
-<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight plaintext"><code>
+<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
@@ -6883,7 +6901,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 <td>The number of confirmations if any</td>
 </tr>
 </tbody></table>
-<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight plaintext"><code>
+<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s1">'
@@ -6958,7 +6976,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 <td>Total balance</td>
 </tr>
 </tbody></table>
-<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight plaintext"><code>
+<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
@@ -7009,7 +7027,7 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 <td>True if wallet is already encryptedFalse if wallet is not encrypted</td>
 </tr>
 </tbody></table>
-<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight plaintext"><code>
+<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
@@ -7065,7 +7083,7 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 <td>Returns True for valid QRL address otherwise False.</td>
 </tr>
 </tbody></table>
-<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight plaintext"><code>
+<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
@@ -7103,7 +7121,7 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 <td>Return list of addresses added into your wallet</td>
 </tr>
 </tbody></table>
-<h2 id='lockwallet'>LockWallet</h2><pre class="highlight plaintext"><code>
+<h2 id='lockwallet'>LockWallet</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
@@ -7135,7 +7153,7 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight plaintext"><code>
+<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
@@ -7223,7 +7241,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight plaintext"><code>
+<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1">'
@@ -7301,7 +7319,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight plaintext"><code>
+<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
@@ -7400,7 +7418,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight plaintext"><code>
+<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
@@ -7491,7 +7509,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
@@ -7622,7 +7640,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 {
@@ -7743,7 +7761,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
@@ -7844,7 +7862,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1">'
@@ -7935,7 +7953,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">'
@@ -8041,7 +8059,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight plaintext"><code>
+<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span class="s1">'
@@ -8136,7 +8154,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight plaintext"><code>
+<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
@@ -8187,7 +8205,7 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight plaintext"><code>
+<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
