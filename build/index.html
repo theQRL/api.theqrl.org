@@ -6197,17 +6197,18 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
   <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'oldPassphrase'</span><span class="p">:</span> <span class="n">oldPassphrase</span><span class="p">,</span> <span class="s">'newPassphrase'</span><span class="p">:</span> <span class="n">newPassphrase</span> <span class="p">}</span>
-  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/ChangePassphrase"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ChangePassphrase"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">lockWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">lockWalletResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
   <span class="k">pass</span>
 
-<span class="n">changePassphrase</span><span class="p">(</span><span class="n">test123</span><span class="p">,</span> <span class="n">BetterTest123</span><span class="p">)</span> 
+<span class="n">changePassphrase</span><span class="p">(</span><span class="n">demo123</span><span class="p">,</span> <span class="n">demo234</span><span class="p">)</span> 
 
 <span class="c"># Response </span>
 
+<span class="p">{}</span>
 
 </code></pre>
 <p>Change the passphrase that encrypts the wallet.</p>
@@ -6268,7 +6269,7 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
   <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'passphrase'</span><span class="p">:</span> <span class="n">passphrase</span><span class="p">}</span>
-  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/EncryptWallet"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/EncryptWallet"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">encryptWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">encryptWalletResp</span>
@@ -6335,14 +6336,19 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
   <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'pk'</span><span class="p">:</span> <span class="n">pk</span><span class="p">,}</span>
-  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetAddressFromPK"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetAddressFromPK"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
-  <span class="n">getAddressFromPKResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">getAddressFromPKResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getAddressFromPKResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
   <span class="k">pass</span>
 
 <span class="n">getAddressFromPK</span><span class="p">(</span><span class="s">"01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e"</span><span class="p">)</span>
+
+<span class="c"># Response</span>
+
+<span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343'</span><span class="p">}</span>
+
 </code></pre>
 <p>Get QRL address for a given private key.</p>
 
@@ -6397,13 +6403,13 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <span class="c"># GetBalance Response</span>
 
 <span class="o">{</span>
-  <span class="s2">"balance"</span>: <span class="s2">"80709233943462"</span>
+  <span class="s2">"balance"</span>: <span class="s2">"53599233943462"</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getBalance</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
   <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
-  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetBalance"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetBalance"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">getBalance</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBalance</span><span class="p">[</span><span class="s">'balance'</span><span class="p">]</span>
@@ -6412,6 +6418,10 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 
 <span class="n">getBalance</span><span class="p">(</span><span class="s">"Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"</span><span class="p">)</span>
 
+
+<span class="c"># Response</span>
+
+<span class="s">'0'</span>
 </code></pre>
 <p>Get the balance of the given QRL address.</p>
 
@@ -6514,7 +6524,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
   <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'header_hash'</span><span class="p">:</span> <span class="n">header_hash</span><span class="p">,}</span>
-  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetBlock"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetBlock"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">getBlockResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBlockResp</span>
@@ -6678,8 +6688,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getheight'>GetHeight</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
+<h2 id='getheight'>GetHeight</h2><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
 
@@ -6688,6 +6697,18 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 <span class="o">{</span>
   <span class="s2">"height"</span>: <span class="s2">"11854"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getHeight</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetHeight"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">heightResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">heightResp</span><span class="p">[</span><span class="s">'height'</span><span class="p">]</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getHeight</span><span class="p">()</span>
+
 </code></pre>
 <p>Get current blockchain height.</p>
 
@@ -6716,12 +6737,12 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 <td>Current Height of the blockchain</td>
 </tr>
 </tbody></table>
-<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
+<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 
-</code></pre><pre class="highlight shell"><code><span class="c"># GetNodeInfo Response</span>
+
+<span class="c"># GetNodeInfo Response</span>
 
 <span class="o">{</span>
   <span class="s2">"version"</span>: <span class="s2">"1.1.4"</span>,
@@ -6732,6 +6753,30 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
   <span class="s2">"block_last_hash"</span>: <span class="s2">"8f1e7bc73fab84421351219b8d5dd0d279479b426aa0eae7274c8843284f1e70"</span>,
   <span class="s2">"network_id"</span>: <span class="s2">"The sleeper must awaken"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getNodeInfo</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetNodeInfo"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">nodeInfoResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">nodeInfoResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getNodeInfo</span><span class="p">()</span>
+
+
+<span class="c"># Response</span>
+
+<span class="p">{</span>
+  <span class="s">'block_height'</span><span class="p">:</span> <span class="s">'126706'</span><span class="p">,</span> 
+  <span class="s">'network_id'</span><span class="p">:</span> <span class="s">'The sleeper must awaken'</span><span class="p">,</span> 
+  <span class="s">'version'</span><span class="p">:</span> <span class="s">'1.1.6'</span><span class="p">,</span> 
+  <span class="s">'block_last_hash'</span><span class="p">:</span> <span class="s">'50bc0ada04055b9ee19d3e5a0086bddbfd039c7b3351d8c7851c0d170c000000'</span><span class="p">,</span> 
+  <span class="s">'num_connections'</span><span class="p">:</span> <span class="s">'15'</span><span class="p">,</span> 
+  <span class="s">'num_known_peers'</span><span class="p">:</span> <span class="s">'481'</span><span class="p">,</span> 
+  <span class="s">'uptime'</span><span class="p">:</span> <span class="s">'15835'</span>
+<span class="p">}</span>
 </code></pre>
 <p>Get QRL node information.</p>
 
@@ -6790,19 +6835,33 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 <td>Network ID</td>
 </tr>
 </tbody></table>
-<h2 id='getots'>GetOTS</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
+<h2 id='getots'>GetOTS</h2><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 {
   "address": "Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetOTS Response</span>
+
+
+<span class="c"># GetOTS Response</span>
 
 <span class="o">{</span>
   <span class="s2">"ots_bitfield"</span>: <span class="o">[</span><span class="s2">"Aw=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span>, <span class="s2">"AA=="</span><span class="o">]</span>,
   <span class="s2">"next_unused_ots_index"</span>: <span class="s2">"2"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getOTS</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetOTS"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getOTSResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getOTSResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getOTS</span><span class="p">(</span><span class="s">"Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"</span><span class="p">)</span>
+
 </code></pre>
 <p>Get OTS bitfield and next unused OTS key index for a given QRL address.</p>
 
@@ -6852,8 +6911,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 <td>Next Unused OTS Index</td>
 </tr>
 </tbody></table>
-<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
+<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 {
@@ -6868,6 +6926,18 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
   <span class="s2">"mnemonic"</span>: <span class="s2">"absorb filled verge gather damp prize river angle sash admire syrup taut nor unite lyric locus fulfil memory sword prompt update has orange insane roman ohio chalky took furry petrol unfair warn cried way"</span>
 <span class="o">}</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getRecoverySeeds</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetRecoverySeeds"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">recoverySeedResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">recoverySeedResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getRecoverySeeds</span><span class="p">(</span><span class="s">"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"</span><span class="p">)</span>
 </code></pre>
 <p>Get hexseeds and mnemonic seeds for an address exist into wallet.</p>
 
@@ -6917,14 +6987,15 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 <td>Mnemonic words for the given address</td>
 </tr>
 </tbody></table>
-<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
+<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 {
   "tx_hash": "931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetTransaction Response</span>
+
+
+<span class="c"># GetTransaction Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -6940,6 +7011,35 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
   <span class="s2">"block_number"</span>:<span class="s2">"550"</span>,
   <span class="s2">"block_header_hash"</span>:<span class="s2">"1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getTransaction</span><span class="p">(</span><span class="n">tx_hash</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'tx_hash'</span><span class="p">:</span> <span class="n">tx_hash</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetTransaction"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getTransactionByAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getTransactionByAddressResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getTransaction</span><span class="p">(</span><span class="s">"931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc"</span><span class="p">)</span>
+
+<span class="c"># Response</span>
+<span class="p">{</span>
+  <span class="s">'confirmations'</span><span class="p">:</span> <span class="s">'126173'</span><span class="p">,</span> 
+  <span class="s">'block_number'</span><span class="p">:</span> <span class="s">'550'</span><span class="p">,</span> 
+  <span class="s">'block_header_hash'</span><span class="p">:</span> <span class="s">'1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000'</span><span class="p">,</span> 
+  <span class="s">'tx'</span><span class="p">:{</span>
+    <span class="s">'coinbase'</span><span class="p">:{</span>
+        <span class="s">'addr_to'</span><span class="p">:</span> <span class="s">'Q0106001d34628da087339ddd650a843e131fa4a3f3b107e9b6222d609f6dad3860b4798cc5b361'</span><span class="p">,</span> 
+        <span class="s">'amount'</span><span class="p">:</span> <span class="s">'6656741376'</span>
+    <span class="p">},</span> 
+  <span class="s">'nonce'</span><span class="p">:</span> <span class="s">'551'</span><span class="p">,</span> 
+  <span class="s">'transaction_hash'</span><span class="p">:</span> <span class="s">'931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc'</span><span class="p">,</span> 
+  <span class="s">'master_addr'</span><span class="p">:</span> <span class="s">'Q0000000000000000000000000000000000000000000000000000000000000000'</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Get transaction details for a given transaction hash with number of confirmations if any.</p>
 
@@ -6989,8 +7089,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 <td>The number of confirmations if any</td>
 </tr>
 </tbody></table>
-<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
+<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s1">'
 {
@@ -7015,6 +7114,19 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
   <span class="o">]</span>,
   <span class="s2">"balance"</span>:<span class="s2">"99988"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getTransactionsByAddress</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetTransactionsByAddress"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getTransactionByAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getTransactionByAddressResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getTransactionsByAddress</span><span class="p">(</span><span class="s">"Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e"</span><span class="p">)</span>
+
 </code></pre>
 <p>Get transactions hash and  other details for a given address.</p>
 
@@ -7064,8 +7176,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 <td>Total balance</td>
 </tr>
 </tbody></table>
-<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
+<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 
@@ -7077,6 +7188,18 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
   <span class="s2">"address_count"</span>: <span class="s2">"4"</span>,
   <span class="s2">"is_encrypted"</span>: <span class="nb">true</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getWalletInfo</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetWalletInfo"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">walletLSResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">walletLSResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getWalletInfo</span><span class="p">()</span>
+
 </code></pre>
 <p>Get wallet information.</p>
 
@@ -7115,18 +7238,37 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 <td>True if wallet is already encryptedFalse if wallet is not encrypted</td>
 </tr>
 </tbody></table>
-<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
+<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 {
   "address": "Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># IsValidAddress Response</span>
+
+
+<span class="c"># IsValidAddress Response</span>
 
 <span class="o">{</span>
   <span class="s2">"valid"</span>: <span class="s2">"True"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getWalletInfo</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/IsValidAddress"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">walletInfoResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">walletInfoResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getWalletInfo</span><span class="p">(</span><span class="s">"Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76"</span><span class="p">)</span>
+
+
+<span class="c"># Response</span>
+
+<span class="p">{</span><span class="s">'valid'</span><span class="p">:</span> <span class="s">'True'</span><span class="p">}</span>
+
 </code></pre>
 <p>Checks if a given QRL Address is valid.</p>
 
@@ -7183,11 +7325,11 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 </code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">listAddresses</span><span class="p">():</span>
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
-  <span class="n">apiCall</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ListAddresses"</span><span class="p">)</span>
-  <span class="n">apiText</span> <span class="o">=</span> <span class="n">apiCall</span><span class="o">.</span><span class="n">text</span>
-  <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">apiText</span><span class="p">)</span>
-  <span class="n">FaucetWallet</span> <span class="o">=</span> <span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">])</span>
-  <span class="k">return</span><span class="p">(</span><span class="n">FaucetWallet</span><span class="p">)</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ListAddresses"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">listAddressesResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">listAddressesResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
   <span class="k">pass</span>
 
 
@@ -7195,9 +7337,12 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 
 <span class="c">## Response</span>
 
-<span class="p">[</span><span class="s">'Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188'</span><span class="p">,</span> <span class="s">'Q0105008d32580160b7471740e57733a739f17aa363900b53c232301aa056af63959a041d5f2caf'</span><span class="p">]</span>
-
-
+<span class="p">{</span>
+  <span class="s">'addresses'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s">'Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25'</span><span class="p">,</span> 
+    <span class="s">'Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed'</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </code></pre>
 <p>List all addresses into the wallet.</p>
 
@@ -7226,8 +7371,7 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 <td>Return list of addresses added into your wallet</td>
 </tr>
 </tbody></table>
-<h2 id='lockwallet'>LockWallet</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
+<h2 id='lockwallet'>LockWallet</h2><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
 
@@ -7235,6 +7379,13 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <span class="c"># LockWallet Response</span>
 
 <span class="o">{}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">lockWallet</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/LockWallet"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">lockWallet</span><span class="p">()</span>
 </code></pre>
 <p>Locks the wallet and removes the passphrase from the memory of wallet daemon.</p>
 
@@ -7258,8 +7409,7 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
+<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 {
@@ -7268,7 +7418,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 11
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Response</span>
+
+<span class="c"># RelayMessageTxn Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -7282,6 +7433,20 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayMessageTxn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayMessageTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayMessageTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayMessageTxnResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"Hello World!!!"</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
 </code></pre>
 <p>Creates the signed message transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.</p>
 
@@ -7346,8 +7511,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
+<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1">'
 {
@@ -7355,7 +7519,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Response</span>
+
+<span class="c"># RelayMessageTxnBySlave Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -7370,6 +7535,21 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayMessageTxnBySlave</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span><span class="p">:</span> <span class="n">master_address</span> <span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayMessageTxnBySlave"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayMessageTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayMessageTxnBySlaveResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"Hello World!!!"</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>
+
+
 </code></pre>
 <p>Creates the signed message transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
 
@@ -7424,8 +7604,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
+<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 {
@@ -7435,7 +7614,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 16
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Response</span>
+
+<span class="c"># RelaySlaveTxn Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -7454,6 +7634,22 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code>
+<span class="k">def</span> <span class="nf">relaySlaveTxn</span><span class="p">(</span><span class="n">slave_pks</span><span class="p">,</span> <span class="n">access_types</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'slave_pks'</span><span class="p">:</span> <span class="p">[</span><span class="n">slave_pks</span><span class="p">],</span> <span class="s">'access_types'</span><span class="p">:</span> <span class="p">[</span><span class="n">access_types</span><span class="p">],</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span> <span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelaySlaveTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relaySlaveTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relaySlaveTxnResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"AQYAPYdez4/TrVmOUecaVLlpZnn1a+ltrfzMPCtQnhZzBtBxEEmp4/Qk199XQs0NMRcttHJ3JSI4qs5XSxEUKbXzWQ=="</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+
 </code></pre>
 <p>Creates the signed slave transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.</p>
 
@@ -7523,8 +7719,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
+<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 {
@@ -7555,6 +7750,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <p>Creates the signed slave transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
 
@@ -7614,8 +7810,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
+<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 {
@@ -7629,7 +7824,9 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 12
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Response</span>
+
+
+<span class="c"># RelayTokenTxn Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -7656,6 +7853,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <p>Creates the signed token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.</p>
 
@@ -7745,8 +7943,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
+<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 {
   "symbol": "TEST",
@@ -7758,9 +7955,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'</span>
-</code></pre>
-<p><strong>Response</strong></p>
-<pre class="highlight shell"><code> <span class="c"># RelayTokenTxnBySlave Response</span>
+</code></pre><pre class="highlight shell"><code> <span class="c"># RelayTokenTxnBySlave Response</span>
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
     <span class="s2">"master_addr"</span>:<span class="s2">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span>,
@@ -7787,6 +7982,18 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTokenTxnBySlave</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">decimals</span><span class="p">,</span> <span class="n">addresses</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'symbol'</span><span class="p">:</span> <span class="n">symbol</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">'owner'</span><span class="p">:</span> <span class="n">owner</span><span class="p">,</span> <span class="s">'decimals'</span><span class="p">:</span> <span class="n">decimals</span><span class="p">,</span> <span class="s">'addresses'</span><span class="p">:</span> <span class="s">'['</span><span class="n">addresses</span><span class="s">']'</span><span class="p">,</span> <span class="s">'amounts'</span> <span class="s">'['</span><span class="n">amounts</span><span class="s">']'</span> <span class="p">,</span> <span class="s">'fee'</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span> <span class="n">master_address</span> <span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayTokenTxnBySlave"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayTokenTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTokenTxnBySlaveResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">relayTokenTxnBySlave</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">decimals</span><span class="p">,</span> <span class="n">addresses</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">)</span>
 </code></pre>
 <p>Creates the signed token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
 
@@ -7866,8 +8073,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
+<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 {
@@ -7898,6 +8104,16 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTransferTxn</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="s">'['</span><span class="n">addresses_to</span><span class="s">']'</span><span class="p">,</span> <span class="s">'amounts'</span> <span class="s">'['</span> <span class="n">amounts</span> <span class="s">']'</span> <span class="p">,</span> <span class="s">'fee'</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span> <span class="n">ots_index</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayTransferTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayTransferTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTxnResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
 </code></pre>
 <p>Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. </p>
 
@@ -7967,8 +8183,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
+<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1">'
 {
@@ -7999,6 +8214,18 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTransferTxnBySlave</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">,):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="s">'['</span><span class="n">addresses_to</span><span class="s">']'</span><span class="p">,</span> <span class="s">'amounts'</span> <span class="s">'['</span><span class="n">amounts</span><span class="s">']'</span> <span class="p">,</span> <span class="s">'fee'</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span> <span class="n">master_address</span> <span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayTransferTxnBySlave"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayTransferTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTxnBySlaveResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">relayTransferTxnBySlave</span><span class="p">(</span><span class="s">'"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"'</span><span class="p">,</span> <span class="s">'1000000000, 10000000000'</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>  
 </code></pre>
 <p>Creates the signed transfer transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100. </p>
 
@@ -8058,8 +8285,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
+<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">'
 {
@@ -8090,6 +8316,20 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTransferTokenTxn</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="n">addresses_to</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="n">amounts</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/TransferTokenTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayTransferTokenTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTokenTxnResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">relayTransferTokenTxn</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
 </code></pre>
 <p>Creates the signed transfer token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.</p>
 
@@ -8164,8 +8404,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
+<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span class="s1">'
 {
@@ -8195,6 +8434,26 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTransferTokenTxnBySlave</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">)</span>
+  <span class="n">am</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+  <span class="n">tt</span> <span class="o">=</span> <span class="n">token_txhash</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">fee</span>
+  <span class="n">w</span> <span class="o">=</span> <span class="n">signer_address</span>
+  <span class="n">o</span> <span class="o">=</span> <span class="n">ots_index</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="n">addresses_to</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="n">amounts</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span><span class="p">:</span> <span class="n">master_address</span><span class="p">}</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">relayTokenTxResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">resp</span> <span class="o">=</span> <span class="n">relayTokenTxResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">relayTransferTokenTxnBySlave</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>
+
 </code></pre>
 <p>Creates the signed transfer token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
 
@@ -8259,8 +8518,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
+<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 {
@@ -8271,6 +8529,7 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <span class="c"># RemoveAddress Response</span>
 
 <span class="o">{}</span>
+</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <p>Removes the address from the wallet.</p>
 
@@ -8310,8 +8569,7 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
+<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 {
@@ -8323,6 +8581,18 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 <span class="c"># UnlockWallet Response</span>
 
 <span class="o">{}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">unlockWallet</span><span class="p">(</span><span class="n">passphrase</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'passphrase'</span><span class="p">:</span> <span class="n">passphrase</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/UnlockWallet"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">unlockWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">unlockWalletResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">unlockWallet</span><span class="p">(</span><span class="s">"demo123"</span><span class="p">)</span> 
 </code></pre>
 <p>Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.</p>
 
