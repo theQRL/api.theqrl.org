@@ -40,7 +40,7 @@ This service describes the Wallet API
 
 ## Getting Started
 
-```bash
+```shell
 # Install qrl node Ubuntu
 apt update && apt upgrade -y
 apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
@@ -81,7 +81,7 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
 If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
 </aside>
 
-```bash
+```shell
 # Alternate paramaters may be passed to the API
 
 curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
@@ -95,7 +95,7 @@ Alternative parameters may be sent via `curl` by calling the `-d` flag and using
 
 ## AddNewAddress
 
-```bash
+```shell
 # AddNewAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
@@ -146,7 +146,7 @@ Adds new randomly generated address to the wallet.
 
 ## AddNewAddressWithSlaves
 
-```bash
+```shell
 # AddNewAddressWithSlaves Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
@@ -216,7 +216,7 @@ Adds new randomly generated address to the wallet with slaves. Height, Number of
 
 
 
-```bash
+```shell
 # ChangePassphrase Request
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d '
@@ -269,7 +269,7 @@ Change the passphrase that encrypts the wallet.
 ## EncryptWallet
 
 
-```bash
+```shell
 # EncryptWallet Request
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d '
@@ -320,7 +320,7 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 
 ## GetAddressFrom PK
 
-```bash
+```shell
 # Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
@@ -377,7 +377,7 @@ Get QRL address for a given private key.
 ## GetBalance
 
 
-```bash
+```shell
 # GetBalance Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
@@ -430,7 +430,7 @@ Get the balance of the given QRL address.
 
 ## GetBlock
 
-```bash
+```shell
 # GetBlock Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d '
@@ -523,7 +523,7 @@ Get block details for a given header hash.
 ## GetBlockByNumber
 
 
-```bash
+```shell
 # GetBlockByNumber Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d '
@@ -613,7 +613,7 @@ Get block details for a given block number.
 
 ## GetHeight
 
-```bash
+```shell
 # GetHeight Request
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
@@ -652,7 +652,7 @@ Get current blockchain height.
 
 ## GetNodeInfo
 
-```bash
+```shell
 # GetNodeInfo Request
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
@@ -716,7 +716,7 @@ Get QRL node information.
 
 ## GetOTS
 
-```bash
+```shell
 # GetOTS Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d '
@@ -768,7 +768,7 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 ## GetRecoverySeeds
 
 
-```bash
+```shell
 # GetRecoverySeeds Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d '
@@ -820,7 +820,7 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 
 ## GetTransaction
 
-```bash
+```shell
 # GetTransaction Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
@@ -898,7 +898,7 @@ Get transaction details for a given transaction hash with number of confirmation
 
 ## GetTransactionsByAddress
 
-```bash
+```shell
 # GetTransactionsByAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
@@ -961,7 +961,7 @@ Get transactions hash and  other details for a given address.
 
 ## GetWalletInfo
 
-```bash
+```shell
 # GetWalletInfo Request
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
@@ -1006,7 +1006,7 @@ Get wallet information.
 
 ## IsValidAddress
 
-```bash
+```shell
 # IsValidAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d '
@@ -1062,7 +1062,7 @@ Checks if a given QRL Address is valid.
 
 ## ListAddresses
 
-```bash
+```shell
 # ListAddresses Request
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
@@ -1111,7 +1111,7 @@ List all addresses into the wallet.
 
 ## LockWallet
 
-```bash
+```shell
 # LockWallet Request
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
@@ -1143,7 +1143,7 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 ## RelayMessageTxn
 
-```bash
+```shell
 # RelayMessageTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
@@ -1209,7 +1209,7 @@ Creates the signed message transaction and relay it to the network. Signer addre
 
 ## RelayMessageTxnBySlave
  
-```bash
+```shell
 # RelayMessageTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
@@ -1275,7 +1275,7 @@ Creates the signed message transaction using one of the slaves and relay it to t
 
 ## RelaySlaveTxn
 
-```bash
+```shell
 # RelaySlaveTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
@@ -1352,7 +1352,7 @@ Creates the signed slave transaction and relay it to the network. Signer address
 ## RelaySlaveTxnBySlave
 
 
-```bash
+```shell
 # RelaySlaveTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
@@ -1366,7 +1366,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
 
 **Response**
 
-```bash
+```shell
 # RelaySlaveTxnBySlave Response
 
 {
@@ -1417,7 +1417,7 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 ## RelayTokenTxn
 
-```bash
+```shell
 # RelayTokenTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
@@ -1496,7 +1496,7 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 ## RelayTokenTxnBySlave
 
-```bash
+```shell
 #  RelayTokenTxnBySlave Request
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 {
@@ -1511,7 +1511,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 }'
 ```
 
-```bash
+```shell
  # RelayTokenTxnBySlave Response
 {
   "tx":{
@@ -1582,7 +1582,7 @@ Creates the signed token transaction using one of the slave and relay it to the 
 
 ## RelayTransferTxn
 
-```bash
+```shell
 # RelayTransferTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
@@ -1595,7 +1595,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTxn Response
 
 {
@@ -1659,7 +1659,7 @@ Creates the signed transfer transaction and relay it to the network. Signer addr
 
 
 
-```bash
+```shell
 # RelayTransferTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
@@ -1671,7 +1671,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTxnBySlave Response
 
 {
@@ -1734,7 +1734,7 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 ## RelayTransferTokenTxn
 
 
-```bash
+```shell
 # RelayTransferTokenTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
@@ -1749,7 +1749,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 ```
 
 
-```bash
+```shell
 # RelayTransferTokenTxn Response
 
 {
@@ -1815,7 +1815,7 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 ## RelayTransferTokenTxnBySlave
 
 
-```bash
+```shell
 # RelayTransferTokenTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
@@ -1828,7 +1828,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTokenTxnBySlave Response
 {
   "tx":{
@@ -1898,7 +1898,7 @@ Creates the signed transfer token transaction using one of the slave and relay i
 ## RemoveAddress
 
 
-```bash
+```shell
 # RemoveAddress Request 
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
@@ -1935,7 +1935,7 @@ Removes the address from the wallet.
 ## UnlockWallet
 
 
-```bash
+```shell
 # UnlockWallet Request
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d '
