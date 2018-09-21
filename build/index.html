@@ -6012,8 +6012,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"heigh
 
 </code></pre>
 <p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
-<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
+<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 
@@ -6021,6 +6020,23 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 <span class="c"># AddNewAddress Response</span>
 
 <span class="o">{</span><span class="s2">"address"</span>:<span class="s2">"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"</span><span class="o">}</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">addNewAddress</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/AddNewAddress"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">NewAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">NewAddressResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">addNewAddress</span><span class="p">()</span>
+
+<span class="c"># Response</span>
+
+<span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'Q010500529aa61cb19c88c3bcf780385228c6afd0fd4735497aef8c5245b692c08e87d35522452d'</span><span class="p">}</span>
 
 </code></pre>
 <p>Adds new randomly generated address to the wallet.</p>
@@ -6071,8 +6087,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
+<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
 
@@ -6095,8 +6110,26 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 
 <span class="o">{</span><span class="s2">"address"</span>:<span class="s2">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="o">}</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">addNewAddressWithSlaves</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">number_of_slaves</span><span class="p">,</span> <span class="n">hash_function</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'height'</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span> <span class="s">'number_of_slaves'</span><span class="p">:</span> <span class="n">number_of_slaves</span><span class="p">,</span> <span class="s">'hash_function'</span><span class="p">:</span> <span class="n">hash_function</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/AddNewAddressWithSlaves"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">addNewAddressWithSlavesResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">addNewAddressWithSlavesResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="c"># Add address with height 18, and 100 slaves using sha2_256</span>
+<span class="n">addNewAddressWithSlaves</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"sha2_256"</span><span class="p">)</span>
+
+<span class="c"># Response</span>
+
+<span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="s">'Q00050097a8a01a5269f570ff3c3914aaff0cf0a8e9869804c9190768fe123a6b547cc739a9558d'</span><span class="p">}</span>
+
 </code></pre>
-<p>Adds new randomly generated address to the wallet with slaves.</p>
+<p>Adds new randomly generated address to the wallet with slaves. Height, Number of slaves and hash_function may be selected. By default the command without any options will create a wallet with height XX, XX slaves and a XX hash_function.</p>
 
 <p><strong>Request</strong></p>
 
@@ -6124,8 +6157,6 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 </tr>
 </tbody></table>
 
-<p>Creates a new address with slaves</p>
-
 <p><strong>Response</strong></p>
 
 <table><thead>
@@ -6151,8 +6182,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
+<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 {
@@ -6160,13 +6190,27 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
   "newPassphrase": "demo234"
 }'</span>
 
-
-
 <span class="c"># ChangePassphrase Response</span>
 
 <span class="o">{}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">changePassphrase</span><span class="p">(</span><span class="n">oldPassphrase</span><span class="p">,</span> <span class="n">newPassphrase</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'oldPassphrase'</span><span class="p">:</span> <span class="n">oldPassphrase</span><span class="p">,</span> <span class="s">'newPassphrase'</span><span class="p">:</span> <span class="n">newPassphrase</span> <span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/ChangePassphrase"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">lockWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">lockWalletResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">changePassphrase</span><span class="p">(</span><span class="n">test123</span><span class="p">,</span> <span class="n">BetterTest123</span><span class="p">)</span> 
+
+<span class="c"># Response </span>
+
+
 </code></pre>
-<p>Change the passphrase.</p>
+<p>Change the passphrase that encrypts the wallet.</p>
 
 <p><strong>Request</strong></p>
 
@@ -6209,8 +6253,7 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
+<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 {
@@ -6221,6 +6264,21 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 <span class="c"># EncryptWallet Response</span>
 
 <span class="o">{}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">encryptWallet</span><span class="p">(</span><span class="n">passphrase</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'passphrase'</span><span class="p">:</span> <span class="n">passphrase</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/EncryptWallet"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">encryptWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">encryptWalletResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">encryptWallet</span><span class="p">(</span><span class="s">"test123"</span><span class="p">)</span>
+
+<span class="c"># response</span>
+<span class="p">{}</span>
 </code></pre>
 <p>Encrypts the wallet with the given passphrase. This API only need to called once for encrypting the wallet first time.</p>
 
@@ -6260,26 +6318,7 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getAddress</span><span class="p">():</span>
-  <span class="kn">import</span> <span class="nn">requests</span>
-  <span class="kn">import</span> <span class="nn">json</span>
-
-  <span class="n">apiCall</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ListAddresses"</span><span class="p">)</span>
-  <span class="n">apiText</span> <span class="o">=</span> <span class="n">apiCall</span><span class="o">.</span><span class="n">text</span>
-  <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">apiText</span><span class="p">)</span>
-  <span class="n">FaucetWallet</span> <span class="o">=</span> <span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">])</span>
-  <span class="k">return</span><span class="p">(</span><span class="n">FaucetWallet</span><span class="p">)</span>
-  <span class="k">pass</span>
-
-
-<span class="n">getAddress</span><span class="p">()</span>
-
-<span class="c">## Response</span>
-
-<span class="p">[</span><span class="s">'Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188'</span><span class="p">]</span>
-
-
-</code></pre><pre class="highlight shell"><code><span class="c"># Request</span>
+<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight shell"><code><span class="c"># Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 {
@@ -6292,8 +6331,20 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 <span class="o">{</span>
   <span class="s2">"address"</span>: <span class="s2">"Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getAddressFromPK</span><span class="p">(</span><span class="n">pk</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'pk'</span><span class="p">:</span> <span class="n">pk</span><span class="p">,}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetAddressFromPK"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getAddressFromPKResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getAddressFromPKResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getAddressFromPK</span><span class="p">(</span><span class="s">"01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e"</span><span class="p">)</span>
 </code></pre>
-<p>Get QRL address for a given public key.</p>
+<p>Get QRL address for a given private key.</p>
 
 <p><strong>Request</strong></p>
 
@@ -6336,8 +6387,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 <td>QRL Address</td>
 </tr>
 </tbody></table>
-<h2 id='getbalance'>GetBalance</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
+<h2 id='getbalance'>GetBalance</h2><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 {
@@ -6349,6 +6399,19 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <span class="o">{</span>
   <span class="s2">"balance"</span>: <span class="s2">"80709233943462"</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getBalance</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'address'</span><span class="p">:</span> <span class="n">address</span><span class="p">}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetBalance"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getBalance</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBalance</span><span class="p">[</span><span class="s">'balance'</span><span class="p">]</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+<span class="n">getBalance</span><span class="p">(</span><span class="s">"Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"</span><span class="p">)</span>
+
 </code></pre>
 <p>Get the balance of the given QRL address.</p>
 
@@ -6393,8 +6456,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <td>Balance in Shor</td>
 </tr>
 </tbody></table>
-<h2 id='getblock'>GetBlock</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
+<h2 id='getblock'>GetBlock</h2><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 {
@@ -6448,6 +6510,20 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
     <span class="o">]</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getBlock</span><span class="p">(</span><span class="n">header_hash</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'header_hash'</span><span class="p">:</span> <span class="n">header_hash</span><span class="p">,}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:8070/api/GetBlock"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getBlockResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBlockResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">getBlock</span><span class="p">(</span><span class="s">"1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000"</span><span class="p">)</span>
+
 </code></pre>
 <p>Get block details for a given header hash.</p>
 
@@ -6492,8 +6568,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
+<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 {
@@ -6546,6 +6621,19 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
     <span class="o">]</span>
   <span class="o">}</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">getBlockByNumber</span><span class="p">(</span><span class="n">block_number</span><span class="p">):</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'block_number'</span><span class="p">:</span> <span class="n">block_number</span><span class="p">,}</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetBlockByNumber"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">getBlockByNumberResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBlockByNumberResp</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">getBlockByNumber</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 </code></pre>
 <p>Get block details for a given block number.</p>
 
@@ -7083,8 +7171,7 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 <td>Returns True for valid QRL address otherwise False.</td>
 </tr>
 </tbody></table>
-<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight python tab-python"><code>
-</code></pre><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
+<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
 
@@ -7093,6 +7180,24 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 <span class="o">{</span>
   <span class="s2">"addresses"</span>: <span class="o">[</span><span class="s2">"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"</span>, ”Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed”]
 <span class="o">}</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">listAddresses</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">apiCall</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/ListAddresses"</span><span class="p">)</span>
+  <span class="n">apiText</span> <span class="o">=</span> <span class="n">apiCall</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">apiText</span><span class="p">)</span>
+  <span class="n">FaucetWallet</span> <span class="o">=</span> <span class="p">(</span><span class="n">json</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">])</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">FaucetWallet</span><span class="p">)</span>
+  <span class="k">pass</span>
+
+
+<span class="n">listAddresses</span><span class="p">()</span>
+
+<span class="c">## Response</span>
+
+<span class="p">[</span><span class="s">'Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188'</span><span class="p">,</span> <span class="s">'Q0105008d32580160b7471740e57733a739f17aa363900b53c232301aa056af63959a041d5f2caf'</span><span class="p">]</span>
+
+
 </code></pre>
 <p>List all addresses into the wallet.</p>
 
