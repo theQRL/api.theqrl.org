@@ -3,7 +3,7 @@ title: QRL API
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript: JavaScript
-  - bash: cURL
+  - shell: cURL
   - python: Python
 
 toc_footers:
@@ -58,6 +58,10 @@ We are looking for contributers. If you would like to help your fellow developer
 
 ```python
 ## Python Code will be shown here.
+```
+
+```shell
+#shell Code Here
 ```
 
 ```javascript
