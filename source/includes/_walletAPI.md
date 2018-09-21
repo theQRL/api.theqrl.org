@@ -95,10 +95,6 @@ Alternative parameters may be sent via `curl` by calling the `-d` flag and using
 
 ## AddNewAddress
 
-```python
-
-```
-
 ```bash
 # AddNewAddress Request
 
@@ -111,7 +107,25 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 
 ```
 
+```python
+def addNewAddress():
+  import requests
+  import json
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/AddNewAddress")
+  response = QRLrequest.text
+  NewAddressResp = json.loads(response)
+  jsonResponse = NewAddressResp
+  return(jsonResponse)
+  pass
 
+
+addNewAddress()
+
+# Response
+
+{'address': 'Q010500529aa61cb19c88c3bcf780385228c6afd0fd4735497aef8c5245b692c08e87d35522452d'}
+
+```
 
 Adds new randomly generated address to the wallet.
 
@@ -131,10 +145,6 @@ Adds new randomly generated address to the wallet.
 | address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## AddNewAddressWithSlaves
-
-```python
-
-```
 
 ```bash
 # AddNewAddressWithSlaves Request
@@ -162,7 +172,29 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d '
 
 ```
 
-Adds new randomly generated address to the wallet with slaves.
+```python
+def addNewAddressWithSlaves(height, number_of_slaves, hash_function):
+  import requests
+  import json
+  payload = {'height': height, 'number_of_slaves': number_of_slaves, 'hash_function': hash_function}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/AddNewAddressWithSlaves", json=payload)
+  response = QRLrequest.text
+  addNewAddressWithSlavesResp = json.loads(response)
+  jsonResponse = addNewAddressWithSlavesResp
+  return(jsonResponse)
+  pass
+
+# Add address with height 18, and 100 slaves using sha2_256
+addNewAddressWithSlaves(18, 100, "sha2_256")
+
+# Response
+
+{'address': 'Q00050097a8a01a5269f570ff3c3914aaff0cf0a8e9869804c9190768fe123a6b547cc739a9558d'}
+
+```
+
+
+Adds new randomly generated address to the wallet with slaves. Height, Number of slaves and hash_function may be selected. By default the command without any options will create a wallet with height XX, XX slaves and a XX hash_function.
 
 **Request**
 
@@ -171,8 +203,6 @@ Adds new randomly generated address to the wallet with slaves.
 | height | [UInt64](#scalar-uint64) | Height of the newly generated XMSS tree (Min 8) |
 | number_of_slaves | [UInt64](#scalar-uint64) | Number of slaves to be generated (Max 100, Default 3) |
 | hash_function | [String](#scalar-string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
-
-Creates a new address with slaves
 
 **Response**
 
@@ -184,9 +214,7 @@ Creates a new address with slaves
 
 ## ChangePassphrase
 
-```python
 
-```
 
 ```bash
 # ChangePassphrase Request
@@ -197,14 +225,31 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d '
   "newPassphrase": "demo234"
 }'
 
-
-
 # ChangePassphrase Response
 
 {}
 ```
 
-Change the passphrase.
+```python
+def changePassphrase(oldPassphrase, newPassphrase):
+  import requests
+  import json
+  payload = {'oldPassphrase': oldPassphrase, 'newPassphrase': newPassphrase }
+  QRLrequest = requests.post("http://127.0.0.1:8070/api/ChangePassphrase", json=payload)
+  response = QRLrequest.text
+  lockWalletResp = json.loads(response)
+  jsonResponse = lockWalletResp
+  return(jsonResponse)
+  pass
+
+changePassphrase(test123, BetterTest123) 
+
+# Response 
+
+
+```
+
+Change the passphrase that encrypts the wallet.
 
 **Request**
 
@@ -222,9 +267,6 @@ Change the passphrase.
 
 ## EncryptWallet
 
-```python
-
-```
 
 ```bash
 # EncryptWallet Request
@@ -239,6 +281,26 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d '
 
 {}
 ```
+
+
+```python
+def encryptWallet(passphrase):
+  import requests
+  import json
+  payload = {'passphrase': passphrase}
+  QRLrequest = requests.post("http://127.0.0.1:8070/api/EncryptWallet", json=payload)
+  response = QRLrequest.text
+  encryptWalletResp = json.loads(response)
+  jsonResponse = encryptWalletResp
+  return(jsonResponse)
+  pass
+
+encryptWallet("test123")
+
+# response
+{}
+```
+
 
 Encrypts the wallet with the given passphrase. This API only need to called once for encrypting the wallet first time.
 
@@ -257,28 +319,6 @@ Encrypts the wallet with the given passphrase. This API only need to called once
 
 ## GetAddressFrom PK
 
-```python
-def getAddress():
-  import requests
-  import json
-
-  apiCall = requests.post("http://127.0.0.1:5359/api/ListAddresses")
-  apiText = apiCall.text
-  json = json.loads(apiText)
-  FaucetWallet = (json['addresses'])
-  return(FaucetWallet)
-  pass
-
-
-getAddress()
-
-## Response
-
-['Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188']
-
-
-```
-
 ```bash
 # Request
 
@@ -295,7 +335,23 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
 }
 ```
 
-Get QRL address for a given public key.
+```python
+def getAddressFromPK(pk):
+  import requests
+  import json
+  payload = {'pk': pk,}
+  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetAddressFromPK", json=payload)
+  response = QRLrequest.text
+  getAddressFromPKResp = json.loads(y)
+  jsonResponse = getAddressFromPKResp
+  return(jsonResponse)
+  pass
+
+getAddressFromPK("01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e")
+```
+
+
+Get QRL address for a given private key.
 
 **Request**
 
@@ -314,9 +370,6 @@ Get QRL address for a given public key.
 
 ## GetBalance
 
-```python
-
-```
 
 ```bash
 # GetBalance Request
@@ -332,6 +385,23 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
   "balance": "80709233943462"
 }
 ```
+
+```python
+def getBalance(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetBalance", json=payload)
+  response = QRLrequest.text
+  getBalance = json.loads(response)
+  jsonResponse = getBalance['balance']
+  return(jsonResponse)
+  pass
+
+getBalance("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
+
+```
+
 Get the balance of the given QRL address.
 
 **Request**
@@ -349,10 +419,6 @@ Get the balance of the given QRL address.
 | balance | [UInt64](#scalar-uint64) | Balance in Shor |
 
 ## GetBlock
-
-```python
-
-```
 
 ```bash
 # GetBlock Request
@@ -411,6 +477,23 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d '
 }
 ```
 
+```python
+def getBlock(header_hash):
+  import requests
+  import json
+  payload = {'header_hash': header_hash,}
+  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetBlock", json=payload)
+  response = QRLrequest.text
+  getBlockResp = json.loads(response)
+  jsonResponse = getBlockResp
+  return(jsonResponse)
+  pass
+
+
+getBlock("1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000")
+
+```
+
 Get block details for a given header hash.
 
 **Request**
@@ -429,9 +512,6 @@ Get block details for a given header hash.
 
 ## GetBlockByNumber
 
-```python
-
-```
 
 ```bash
 # GetBlockByNumber Request
@@ -487,6 +567,22 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d '
     ]
   }
 }
+```
+
+```python
+def getBlockByNumber(block_number):
+  import requests
+  import json
+  payload = {'block_number': block_number,}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBlockByNumber", json=payload)
+  response = QRLrequest.text
+  getBlockByNumberResp = json.loads(response)
+  jsonResponse = getBlockByNumberResp
+  return(jsonResponse)
+  pass
+
+
+getBlockByNumber(150)
 ```
 
 Get block details for a given block number.
@@ -834,10 +930,6 @@ Checks if a given QRL Address is valid.
 
 ## ListAddresses
 
-```python
-
-```
-
 ```bash
 # ListAddresses Request
 
@@ -849,6 +941,28 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
   "addresses": ["Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25", ”Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed”]
 }
 ```
+
+```python
+def listAddresses():
+  import requests
+  import json
+  apiCall = requests.post("http://127.0.0.1:5359/api/ListAddresses")
+  apiText = apiCall.text
+  json = json.loads(apiText)
+  FaucetWallet = (json['addresses'])
+  return(FaucetWallet)
+  pass
+
+
+listAddresses()
+
+## Response
+
+['Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188', 'Q0105008d32580160b7471740e57733a739f17aa363900b53c232301aa056af63959a041d5f2caf']
+
+
+```
+
 
 List all addresses into the wallet.
 
