@@ -5952,7 +5952,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td><a href="#unlockwalletresp">UnlockWalletResp</a></td>
 </tr>
 </tbody></table>
-<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell"><code><span class="c"># Install qrl node Ubuntu</span>
+<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell tab-shell"><code><span class="c"># Install qrl node Ubuntu</span>
 apt update <span class="o">&amp;&amp;</span> apt upgrade -y
 apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
 pip3 install -U setuptools
@@ -6004,7 +6004,7 @@ go build
 <br>
 If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
 </aside>
-<pre class="highlight shell"><code><span class="c"># Alternate paramaters may be passed to the API</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># Alternate paramaters may be passed to the API</span>
 
 curl -XPOST http://127.0.0.1:5359/api/<span class="o">{</span>METHOD<span class="o">}</span> -d <span class="s1">'{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'</span>
 
@@ -6013,7 +6013,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"heigh
 
 </code></pre>
 <p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
-<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight shell"><code><span class="c"># AddNewAddress Request</span>
+<h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight shell tab-shell"><code><span class="c"># AddNewAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 
@@ -6088,7 +6088,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
+<h2 id='addnewaddresswithslaves'>AddNewAddressWithSlaves</h2><pre class="highlight shell tab-shell"><code><span class="c"># AddNewAddressWithSlaves Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
 
@@ -6183,7 +6183,7 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
 <td>Return the newly added QRL address</td>
 </tr>
 </tbody></table>
-<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight shell"><code><span class="c"># ChangePassphrase Request</span>
+<h2 id='changepassphrase'>ChangePassphrase</h2><pre class="highlight shell tab-shell"><code><span class="c"># ChangePassphrase Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 {
@@ -6255,7 +6255,7 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight shell"><code><span class="c"># EncryptWallet Request</span>
+<h2 id='encryptwallet'>EncryptWallet</h2><pre class="highlight shell tab-shell"><code><span class="c"># EncryptWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 {
@@ -6320,7 +6320,7 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight shell"><code><span class="c"># Request</span>
+<h2 id='getaddressfrom-pk'>GetAddressFrom PK</h2><pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 {
@@ -6394,7 +6394,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
 <td>QRL Address</td>
 </tr>
 </tbody></table>
-<h2 id='getbalance'>GetBalance</h2><pre class="highlight shell"><code><span class="c"># GetBalance Request</span>
+<h2 id='getbalance'>GetBalance</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetBalance Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 {
@@ -6467,7 +6467,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
 <td>Balance in Shor</td>
 </tr>
 </tbody></table>
-<h2 id='getblock'>GetBlock</h2><pre class="highlight shell"><code><span class="c"># GetBlock Request</span>
+<h2 id='getblock'>GetBlock</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetBlock Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 {
@@ -6579,7 +6579,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight shell"><code><span class="c"># GetBlockByNumber Request</span>
+<h2 id='getblockbynumber'>GetBlockByNumber</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetBlockByNumber Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 {
@@ -6689,7 +6689,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
 <td>Block Details</td>
 </tr>
 </tbody></table>
-<h2 id='getheight'>GetHeight</h2><pre class="highlight shell"><code><span class="c"># GetHeight Request</span>
+<h2 id='getheight'>GetHeight</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetHeight Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
 
@@ -6738,7 +6738,7 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 <td>Current Height of the blockchain</td>
 </tr>
 </tbody></table>
-<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight shell"><code><span class="c"># GetNodeInfo Request</span>
+<h2 id='getnodeinfo'>GetNodeInfo</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetNodeInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 
@@ -6836,7 +6836,7 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 <td>Network ID</td>
 </tr>
 </tbody></table>
-<h2 id='getots'>GetOTS</h2><pre class="highlight shell"><code><span class="c"># GetOTS Request</span>
+<h2 id='getots'>GetOTS</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetOTS Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 {
@@ -6912,7 +6912,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
 <td>Next Unused OTS Index</td>
 </tr>
 </tbody></table>
-<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight shell"><code><span class="c"># GetRecoverySeeds Request</span>
+<h2 id='getrecoveryseeds'>GetRecoverySeeds</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetRecoverySeeds Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 {
@@ -6988,7 +6988,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 <td>Mnemonic words for the given address</td>
 </tr>
 </tbody></table>
-<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell"><code><span class="c"># GetTransaction Request</span>
+<h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetTransaction Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 {
@@ -7090,7 +7090,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
 <td>The number of confirmations if any</td>
 </tr>
 </tbody></table>
-<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight shell"><code><span class="c"># GetTransactionsByAddress Request</span>
+<h2 id='gettransactionsbyaddress'>GetTransactionsByAddress</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetTransactionsByAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s1">'
 {
@@ -7177,7 +7177,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
 <td>Total balance</td>
 </tr>
 </tbody></table>
-<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight shell"><code><span class="c"># GetWalletInfo Request</span>
+<h2 id='getwalletinfo'>GetWalletInfo</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetWalletInfo Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 
@@ -7239,7 +7239,7 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 <td>True if wallet is already encryptedFalse if wallet is not encrypted</td>
 </tr>
 </tbody></table>
-<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight shell"><code><span class="c"># IsValidAddress Request</span>
+<h2 id='isvalidaddress'>IsValidAddress</h2><pre class="highlight shell tab-shell"><code><span class="c"># IsValidAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 {
@@ -7314,7 +7314,7 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
 <td>Returns True for valid QRL address otherwise False.</td>
 </tr>
 </tbody></table>
-<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight shell"><code><span class="c"># ListAddresses Request</span>
+<h2 id='listaddresses'>ListAddresses</h2><pre class="highlight shell tab-shell"><code><span class="c"># ListAddresses Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
 
@@ -7372,7 +7372,7 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 <td>Return list of addresses added into your wallet</td>
 </tr>
 </tbody></table>
-<h2 id='lockwallet'>LockWallet</h2><pre class="highlight shell"><code><span class="c"># LockWallet Request</span>
+<h2 id='lockwallet'>LockWallet</h2><pre class="highlight shell tab-shell"><code><span class="c"># LockWallet Request</span>
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
 
@@ -7410,7 +7410,7 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxn Request</span>
+<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayMessageTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 {
@@ -7512,7 +7512,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
+<h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1">'
 {
@@ -7605,7 +7605,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight shell"><code><span class="c"># RelaySlaveTxn Request</span>
+<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 {
@@ -7720,7 +7720,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
+<h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 {
@@ -7731,7 +7731,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 }'</span>
 </code></pre>
 <p><strong>Response</strong></p>
-<pre class="highlight shell"><code><span class="c"># RelaySlaveTxnBySlave Response</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxnBySlave Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -7811,7 +7811,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTokenTxn Request</span>
+<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 {
@@ -7944,7 +7944,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
+<h2 id='relaytokentxnbyslave'>RelayTokenTxnBySlave</h2><pre class="highlight shell tab-shell"><code><span class="c">#  RelayTokenTxnBySlave Request</span>
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 {
   "symbol": "TEST",
@@ -7956,7 +7956,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'</span>
-</code></pre><pre class="highlight shell"><code> <span class="c"># RelayTokenTxnBySlave Response</span>
+</code></pre><pre class="highlight shell tab-shell"><code> <span class="c"># RelayTokenTxnBySlave Response</span>
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
     <span class="s2">"master_addr"</span>:<span class="s2">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span>,
@@ -8074,7 +8074,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Request</span>
+<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 {
@@ -8084,7 +8084,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 4
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxn Response</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxn Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -8184,7 +8184,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
+<h2 id='relaytransfertxnbyslave'>RelayTransferTxnBySlave</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1">'
 {
@@ -8193,7 +8193,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTxnBySlave Response</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxnBySlave Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -8286,7 +8286,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
+<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">'
 {
@@ -8297,7 +8297,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 14
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxn Response</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxn Response</span>
 
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
@@ -8405,7 +8405,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
+<h2 id='relaytransfertokentxnbyslave'>RelayTransferTokenTxnBySlave</h2><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxnBySlave Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span class="s1">'
 {
@@ -8415,7 +8415,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
   "fee": 100000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># RelayTransferTokenTxnBySlave Response</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxnBySlave Response</span>
 <span class="o">{</span>
   <span class="s2">"tx"</span>:<span class="o">{</span>
     <span class="s2">"master_addr"</span>:<span class="s2">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span>,
@@ -8519,7 +8519,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight shell"><code><span class="c"># RemoveAddress Request </span>
+<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight shell tab-shell"><code><span class="c"># RemoveAddress Request </span>
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 {
@@ -8570,7 +8570,7 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight shell"><code><span class="c"># UnlockWallet Request</span>
+<h2 id='unlockwallet'>UnlockWallet</h2><pre class="highlight shell tab-shell"><code><span class="c"># UnlockWallet Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 {
