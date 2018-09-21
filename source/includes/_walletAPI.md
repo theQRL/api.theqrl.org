@@ -235,17 +235,18 @@ def changePassphrase(oldPassphrase, newPassphrase):
   import requests
   import json
   payload = {'oldPassphrase': oldPassphrase, 'newPassphrase': newPassphrase }
-  QRLrequest = requests.post("http://127.0.0.1:8070/api/ChangePassphrase", json=payload)
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/ChangePassphrase", json=payload)
   response = QRLrequest.text
   lockWalletResp = json.loads(response)
   jsonResponse = lockWalletResp
   return(jsonResponse)
   pass
 
-changePassphrase(test123, BetterTest123) 
+changePassphrase(demo123, demo234) 
 
 # Response 
 
+{}
 
 ```
 
@@ -288,7 +289,7 @@ def encryptWallet(passphrase):
   import requests
   import json
   payload = {'passphrase': passphrase}
-  QRLrequest = requests.post("http://127.0.0.1:8070/api/EncryptWallet", json=payload)
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/EncryptWallet", json=payload)
   response = QRLrequest.text
   encryptWalletResp = json.loads(response)
   jsonResponse = encryptWalletResp
@@ -340,14 +341,19 @@ def getAddressFromPK(pk):
   import requests
   import json
   payload = {'pk': pk,}
-  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetAddressFromPK", json=payload)
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetAddressFromPK", json=payload)
   response = QRLrequest.text
-  getAddressFromPKResp = json.loads(y)
+  getAddressFromPKResp = json.loads(response)
   jsonResponse = getAddressFromPKResp
   return(jsonResponse)
   pass
 
 getAddressFromPK("01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e")
+
+# Response
+
+{'address': 'Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343'}
+
 ```
 
 
@@ -382,7 +388,7 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
 # GetBalance Response
 
 {
-  "balance": "80709233943462"
+  "balance": "53599233943462"
 }
 ```
 
@@ -391,7 +397,7 @@ def getBalance(address):
   import requests
   import json
   payload = {'address': address}
-  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetBalance", json=payload)
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBalance", json=payload)
   response = QRLrequest.text
   getBalance = json.loads(response)
   jsonResponse = getBalance['balance']
@@ -400,6 +406,10 @@ def getBalance(address):
 
 getBalance("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
 
+
+# Response
+
+'0'
 ```
 
 Get the balance of the given QRL address.
@@ -482,7 +492,7 @@ def getBlock(header_hash):
   import requests
   import json
   payload = {'header_hash': header_hash,}
-  QRLrequest = requests.post("http://127.0.0.1:8070/api/GetBlock", json=payload)
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBlock", json=payload)
   response = QRLrequest.text
   getBlockResp = json.loads(response)
   jsonResponse = getBlockResp
@@ -603,10 +613,6 @@ Get block details for a given block number.
 
 ## GetHeight
 
-```python
-
-```
-
 ```bash
 # GetHeight Request
 
@@ -617,6 +623,21 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 {
   "height": "11854"
 }
+```
+
+```python
+def getHeight():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetHeight")
+  response = QRLrequest.text
+  heightResp = json.loads(response)
+  jsonResponse = heightResp['height']
+  return(jsonResponse)
+  pass
+
+getHeight()
+
 ```
 
 Get current blockchain height.
@@ -631,18 +652,12 @@ Get current blockchain height.
 
 ## GetNodeInfo
 
-```python
-
-```
-
 ```bash
 # GetNodeInfo Request
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 
-```
 
-```bash
 # GetNodeInfo Response
 
 {
@@ -653,6 +668,33 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
   "block_height": "18098",
   "block_last_hash": "8f1e7bc73fab84421351219b8d5dd0d279479b426aa0eae7274c8843284f1e70",
   "network_id": "The sleeper must awaken"
+}
+```
+
+```python
+def getNodeInfo():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetNodeInfo")
+  response = QRLrequest.text
+  nodeInfoResp = json.loads(response)
+  jsonResponse = nodeInfoResp
+  return(jsonResponse)
+  pass
+
+getNodeInfo()
+
+
+# Response
+
+{
+  'block_height': '126706', 
+  'network_id': 'The sleeper must awaken', 
+  'version': '1.1.6', 
+  'block_last_hash': '50bc0ada04055b9ee19d3e5a0086bddbfd039c7b3351d8c7851c0d170c000000', 
+  'num_connections': '15', 
+  'num_known_peers': '481', 
+  'uptime': '15835'
 }
 ```
 
@@ -674,10 +716,6 @@ Get QRL node information.
 
 ## GetOTS
 
-```python
-
-```
-
 ```bash
 # GetOTS Request
 
@@ -685,15 +723,29 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d '
 {
   "address": "Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"
 }'
-```
 
-```bash
+
 # GetOTS Response
 
 {
   "ots_bitfield": ["Aw==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA=="],
   "next_unused_ots_index": "2"
 }
+```
+```python
+def getOTS(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetOTS", json=payload)
+  response = QRLrequest.text
+  getOTSResp = json.loads(response)
+  jsonResponse = getOTSResp
+  return(jsonResponse)
+  pass
+
+getOTS("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
+
 ```
 
 Get OTS bitfield and next unused OTS key index for a given QRL address.
@@ -715,9 +767,6 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 
 ## GetRecoverySeeds
 
-```python
-
-```
 
 ```bash
 # GetRecoverySeeds Request
@@ -735,6 +784,21 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d '
   "mnemonic": "absorb filled verge gather damp prize river angle sash admire syrup taut nor unite lyric locus fulfil memory sword prompt update has orange insane roman ohio chalky took furry petrol unfair warn cried way"
 }
 
+```
+
+```python
+def getRecoverySeeds(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetRecoverySeeds", json=payload)
+  response = QRLrequest.text
+  recoverySeedResp = json.loads(response)
+  jsonResponse = recoverySeedResp
+  return(jsonResponse)
+  pass
+
+getRecoverySeeds("Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25")
 ```
 
 Get hexseeds and mnemonic seeds for an address exist into wallet.
@@ -756,10 +820,6 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 
 ## GetTransaction
 
-```python
-
-```
-
 ```bash
 # GetTransaction Request
 
@@ -767,9 +827,8 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
 {
   "tx_hash": "931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc"
 }'
-```
 
-```bash
+
 # GetTransaction Response
 
 {
@@ -786,6 +845,38 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
   "block_number":"550",
   "block_header_hash":"1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000"
 }
+```
+
+```python
+def getTransaction(tx_hash):
+  import requests
+  import json
+  payload = {'tx_hash': tx_hash}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetTransaction", json=payload)
+  response = QRLrequest.text
+  getTransactionByAddressResp = json.loads(response)
+  jsonResponse = getTransactionByAddressResp
+  return(jsonResponse)
+  pass
+
+getTransaction("931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc")
+
+# Response
+{
+  'confirmations': '126173', 
+  'block_number': '550', 
+  'block_header_hash': '1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000', 
+  'tx':{
+    'coinbase':{
+        'addr_to': 'Q0106001d34628da087339ddd650a843e131fa4a3f3b107e9b6222d609f6dad3860b4798cc5b361', 
+        'amount': '6656741376'
+    }, 
+  'nonce': '551', 
+  'transaction_hash': '931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc', 
+  'master_addr': 'Q0000000000000000000000000000000000000000000000000000000000000000'
+  }
+}
+
 ```
 
 Get transaction details for a given transaction hash with number of confirmations if any.
@@ -806,10 +897,6 @@ Get transaction details for a given transaction hash with number of confirmation
 | confirmations | [UInt64](#scalar-uint64) | The number of confirmations if any |
 
 ## GetTransactionsByAddress
-
-```python
-
-```
 
 ```bash
 # GetTransactionsByAddress Request
@@ -839,6 +926,22 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
 }
 ```
 
+```python
+def getTransactionsByAddress(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetTransactionsByAddress", json=payload)
+  response = QRLrequest.text
+  getTransactionByAddressResp = json.loads(response)
+  jsonResponse = getTransactionByAddressResp
+  return(jsonResponse)
+  pass
+
+getTransactionsByAddress("Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e")
+
+```
+
 Get transactions hash and  other details for a given address.
 
 **Request**
@@ -858,10 +961,6 @@ Get transactions hash and  other details for a given address.
 
 ## GetWalletInfo
 
-```python
-
-```
-
 ```bash
 # GetWalletInfo Request
 
@@ -877,6 +976,22 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 }
 ```
 
+```python
+def getWalletInfo():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetWalletInfo")
+  response = QRLrequest.text
+  walletLSResp = json.loads(response)
+  jsonResponse = walletLSResp
+  return(jsonResponse)
+  pass
+
+getWalletInfo()
+
+```
+
+
 Get wallet information.
 
 **Response**
@@ -891,10 +1006,6 @@ Get wallet information.
 
 ## IsValidAddress
 
-```python
-
-```
-
 ```bash
 # IsValidAddress Request
 
@@ -902,14 +1013,35 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d '
 {
   "address": "Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76"
 }'
-```
 
-```bash
+
 # IsValidAddress Response
 
 {
   "valid": "True"
 }
+```
+
+
+```python
+def getWalletInfo(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/IsValidAddress", json=payload)
+  response = QRLrequest.text
+  walletInfoResp = json.loads(response)
+  jsonResponse = walletInfoResp
+  return(jsonResponse)
+  pass
+
+getWalletInfo("Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76")
+
+
+# Response
+
+{'valid': 'True'}
+
 ```
 
 Checks if a given QRL Address is valid.
@@ -946,11 +1078,11 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 def listAddresses():
   import requests
   import json
-  apiCall = requests.post("http://127.0.0.1:5359/api/ListAddresses")
-  apiText = apiCall.text
-  json = json.loads(apiText)
-  FaucetWallet = (json['addresses'])
-  return(FaucetWallet)
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/ListAddresses")
+  response = QRLrequest.text
+  listAddressesResp = json.loads(response)
+  jsonResponse = listAddressesResp
+  return(jsonResponse)
   pass
 
 
@@ -958,9 +1090,12 @@ listAddresses()
 
 ## Response
 
-['Q010500c049132399d72c3e50a60f91bfd4df8b891d4bd73f1aff36010e8510d8ea7ccacf282188', 'Q0105008d32580160b7471740e57733a739f17aa363900b53c232301aa056af63959a041d5f2caf']
-
-
+{
+  'addresses': [
+    'Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25', 
+    'Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed'
+  ]
+}
 ```
 
 
@@ -976,10 +1111,6 @@ List all addresses into the wallet.
 
 ## LockWallet
 
-```python
-
-```
-
 ```bash
 # LockWallet Request
 
@@ -989,6 +1120,16 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 # LockWallet Response
 
 {}
+```
+
+```python
+def lockWallet():
+  import requests
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/LockWallet")
+  response = QRLrequest.text
+  return(response)
+
+lockWallet()
 ```
 
 Locks the wallet and removes the passphrase from the memory of wallet daemon.
@@ -1002,10 +1143,6 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 ## RelayMessageTxn
 
-```python
-
-```
-
 ```bash
 # RelayMessageTxn Request
 
@@ -1016,9 +1153,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 11
 }'
-```
 
-```bash
 # RelayMessageTxn Response
 
 {
@@ -1033,6 +1168,23 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
     }
   }
 }
+```
+
+```python
+def relayMessageTxn(message, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'message': message, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayMessageTxn", json=payload)
+  response = QRLrequest.text
+  relayMessageTxnResp = json.loads(response)
+  jsonResponse = relayMessageTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("Hello World!!!", 1000000000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 11)
+
 ```
 
 Creates the signed message transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
@@ -1056,10 +1208,6 @@ Creates the signed message transaction and relay it to the network. Signer addre
 | tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayMessageTxnBySlave
-
-```python
-
-```
  
 ```bash
 # RelayMessageTxnBySlave Request
@@ -1070,9 +1218,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'
-```
 
-```bash
 # RelayMessageTxnBySlave Response
 
 {
@@ -1088,6 +1234,24 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
     }
   }
 }
+```
+
+```python
+def relayMessageTxnBySlave(message, fee, master_address):
+  import requests
+  import json
+  payload = {'message': message, 'fee': fee, 'master_address': master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayMessageTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayMessageTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayMessageTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("Hello World!!!", 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+
+
 ```
 
 Creates the signed message transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
@@ -1111,10 +1275,6 @@ Creates the signed message transaction using one of the slaves and relay it to t
 
 ## RelaySlaveTxn
 
-```python
-
-```
-
 ```bash
 # RelaySlaveTxn Request
 
@@ -1126,9 +1286,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 16
 }'
-```
 
-```bash
 # RelaySlaveTxn Response
 
 {
@@ -1150,6 +1308,24 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
 }
 ```
 
+```python
+
+def relaySlaveTxn(slave_pks, access_types, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'slave_pks': [slave_pks], 'access_types': [access_types], 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelaySlaveTxn", json=payload)
+  response = QRLrequest.text
+  relaySlaveTxnResp = json.loads(response)
+  jsonResponse = relaySlaveTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("AQYAPYdez4/TrVmOUecaVLlpZnn1a+ltrfzMPCtQnhZzBtBxEEmp4/Qk199XQs0NMRcttHJ3JSI4qs5XSxEUKbXzWQ==", 0, 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 16)
+
+
+```
 
 Creates the signed slave transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
@@ -1174,11 +1350,6 @@ Creates the signed slave transaction and relay it to the network. Signer address
 | tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelaySlaveTxnBySlave
-
-```python
-
-```
-
 
 
 ```bash
@@ -1218,6 +1389,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
 }
 ```
 
+```python
+
+```
+
+
 Creates the signed slave transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
@@ -1241,10 +1417,6 @@ Creates the signed slave transaction using one of the slave and relay it to the 
 
 ## RelayTokenTxn
 
-```python
-
-```
-
 ```bash
 # RelayTokenTxn Request
 
@@ -1260,9 +1432,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 12
 }'
-```
 
-```bash
+
 # RelayTokenTxn Response
 
 {
@@ -1290,6 +1461,10 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
     }
   }
 }
+```
+
+```python
+
 ```
 
 Creates the signed token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
@@ -1321,10 +1496,6 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 ## RelayTokenTxnBySlave
 
-```python
-
-```
-
 ```bash
 #  RelayTokenTxnBySlave Request
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
@@ -1339,8 +1510,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'
 ```
-
-**Response**
 
 ```bash
  # RelayTokenTxnBySlave Response
@@ -1372,6 +1541,21 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 }
 ```
 
+```python
+def relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee, master_address):
+  import requests
+  import json
+  payload = {'symbol': symbol, 'name': name, 'owner': owner, 'decimals': decimals, 'addresses': '['addresses']', 'amounts' '['amounts']' , 'fee' fee, 'master_address' master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTokenTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayTokenTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayTokenTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee, master_address)
+```
+
 Creates the signed token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
@@ -1397,10 +1581,6 @@ Creates the signed token transaction using one of the slave and relay it to the 
 
 
 ## RelayTransferTxn
-
-```python
-
-```
 
 ```bash
 # RelayTransferTxn Request
@@ -1439,6 +1619,21 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
 }
 ```
 
+
+
+```python
+def relayTransferTxn(addresses_to, amounts, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'addresses_to': '['addresses_to']', 'amounts' '[' amounts ']' , 'fee' fee, 'signer_address' signer_address, 'ots_index' ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTransferTxn", json=payload)
+  response = QRLrequest.text
+  relayTransferTxnResp = json.loads(response)
+  jsonResponse = relayTransferTxnResp
+  return(jsonResponse)
+  pass
+```
+
 Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. 
 
 **Request**
@@ -1462,9 +1657,7 @@ Creates the signed transfer transaction and relay it to the network. Signer addr
 
 ## RelayTransferTxnBySlave
 
-```python
 
-```
 
 ```bash
 # RelayTransferTxnBySlave Request
@@ -1503,6 +1696,21 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
 }
 ```
 
+```python
+def relayTransferTxnBySlave(addresses_to, amounts, fee, master_address,):
+  import requests
+  import json
+  payload = {'addresses_to': '['addresses_to']', 'amounts' '['amounts']' , 'fee' fee, 'master_address' master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTransferTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayTransferTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayTransferTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+relayTransferTxnBySlave('"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"', '1000000000, 10000000000', 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")  
+```
+
 
 Creates the signed transfer transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100. 
 
@@ -1525,9 +1733,6 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 
 ## RelayTransferTokenTxn
 
-```python
-
-```
 
 ```bash
 # RelayTransferTokenTxn Request
@@ -1567,6 +1772,23 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 }
 ```
 
+```python
+def relayTransferTokenTxn(addresses_to, amounts, token_txhash, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/TransferTokenTxn", json=payload)
+  response = QRLrequest.text
+  relayTransferTokenTxnResp = json.loads(response)
+  jsonResponse = relayTransferTokenTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
+
+```
+
 Creates the signed transfer token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
 **Request**
@@ -1591,10 +1813,6 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 
 
 ## RelayTransferTokenTxnBySlave
-
-```python
-
-```
 
 
 ```bash
@@ -1633,6 +1851,30 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
 }
 ```
 
+```python
+def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, master_address):
+  import requests
+  import json
+  a = json.dumps(addresses_to)
+  am = json.dumps(amounts)
+  tt = token_txhash
+  f = fee
+  w = signer_address
+  o = ots_index
+  p = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
+  r = requests.post("http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave", json=p)
+  y = r.text
+  relayTokenTxResp = json.loads(y)
+  resp = relayTokenTxResp
+  return(resp)
+  pass
+
+
+relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+
+```
+
+
 Creates the signed transfer token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
@@ -1655,9 +1897,6 @@ Creates the signed transfer token transaction using one of the slave and relay i
 
 ## RemoveAddress
 
-```python
-
-```
 
 ```bash
 # RemoveAddress Request 
@@ -1671,6 +1910,10 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
 # RemoveAddress Response
 
 {}
+```
+
+```python
+
 ```
 
 Removes the address from the wallet.
@@ -1691,10 +1934,6 @@ Removes the address from the wallet.
 
 ## UnlockWallet
 
-```python
-
-```
-
 
 ```bash
 # UnlockWallet Request
@@ -1709,6 +1948,21 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d '
 # UnlockWallet Response
 
 {}
+```
+
+```python
+def unlockWallet(passphrase):
+  import requests
+  import json
+  payload = {'passphrase': passphrase}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/UnlockWallet", json=payload)
+  response = QRLrequest.text
+  unlockWalletResp = json.loads(response)
+  jsonResponse = unlockWalletResp
+  return(jsonResponse)
+  pass
+
+unlockWallet("demo123") 
 ```
 
 Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.
