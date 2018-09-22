@@ -37,7 +37,7 @@ search: true
 
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
 
-> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration. Our [Discord server](https://discord.gg/HhYKQyD) has a thriving community, and we are ready to help you build something great on the QRL network. 
+> Use the language tabs above to select between code examples. They will show here. If you dont see something you would like, please contact us!
 
 Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named \*Req) and response (named \*Resp).
 
@@ -47,6 +47,8 @@ QRL is under active development, code may change, site layout is fluid. Please s
 </aside>
 
 ### Open Source 
+
+> Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration. Our [Discord server](https://discord.gg/HhYKQyD) has a thriving community, and we are ready to help you build something great on the QRL network. 
 
 <aside class="notice">
 This is an open source project.<br>
@@ -121,7 +123,9 @@ For security reasions, it is recomended that you run a private QRL node for your
 Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
-The [WalletAPI](#wallet-api) has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. This creates multiple merkle tree's from your origional address and privatekey. See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
+The [WalletAPI](#wallet-api) has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. If you use the wallet daemon and generate an address with slaves, the last 5 keys will not be consumed, allowing you to transfer the remaining funds to a new wallet.
+
+See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
 

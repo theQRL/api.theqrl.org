@@ -2,40 +2,13 @@
 # Wallet API
 
 
-This service describes the Wallet API
+This service describes the Wallet API. This is intended to simplify the programmatic interaction with the QRL wallet. This will allow further development with automated services.
 
-| Method Name | Request Type | Response Type | 
-| ----------- | ------------ | ------------- | 
-| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressresp) | 
-| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressResp](#addnewaddressresp) | 
-| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphraseresp) |
-| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  
-| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |
-| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |
-| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |
-| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |
-| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |
-| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |
-| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |
-| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |
-| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |
-| [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |
-| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |
-| [IsValidAddress](#isvalidaddress) | [ValidAddressReq](#validaddressreq) | [ValidAddressResp](#validaddressresp) |
-| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesresp) |
-| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletresp) |
-| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
-| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relaytxnresp) |
-| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnresp) |
-| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytxnresp) |
-| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
-| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressresp) |
-| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletresp) |
+
+<aside class="success">
+The WalletAPI and Wallet Daemon now include automatic slave key transactions and lockout management. The last 5 slave keys are not automatically consumed. This allows manual address migration once all current address slave keys have been consumed. For more information drop a line to <a href="mailto://info@theqrl.org">info@theqrl.org</a>
+</aside>
+
 
 
 ## Getting Started
@@ -92,6 +65,43 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_fun
 ```
 
 Alternative parameters may be sent via `curl` by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
+
+## WalletAPI Methods
+
+| Method Name | Request Type | Response Type | 
+| ----------- | ------------ | ------------- | 
+| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressresp) | 
+| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressResp](#addnewaddressresp) | 
+| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphraseresp) |
+| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  
+| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |
+| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |
+| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |
+| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |
+| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |
+| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |
+| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |
+| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |
+| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |
+| [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |
+| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |
+| [IsValidAddress](#isvalidaddress) | [ValidAddressReq](#validaddressreq) | [ValidAddressResp](#validaddressresp) |
+| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesresp) |
+| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletresp) |
+| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnresp) |
+| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressresp) |
+| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletresp) |
+
+
 
 ## AddNewAddress
 

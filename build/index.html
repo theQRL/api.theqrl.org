@@ -778,6 +778,9 @@
                     <a href="#getting-started" class="toc-h2 toc-link" data-title="getting-started">Getting Started</a>
                   </li>
                   <li>
+                    <a href="#walletapi-methods" class="toc-h2 toc-link" data-title="walletapi-methods">WalletAPI Methods</a>
+                  </li>
+                  <li>
                     <a href="#addnewaddress" class="toc-h2 toc-link" data-title="addnewaddress">AddNewAddress</a>
                   </li>
                   <li>
@@ -887,7 +890,7 @@
 <p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
 
 <blockquote>
-<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration. Our <a href="https://discord.gg/HhYKQyD">Discord server</a> has a thriving community, and we are ready to help you build something great on the QRL network. </p>
+<p>Use the language tabs above to select between code examples. They will show here. If you dont see something you would like, please contact us!</p>
 </blockquote>
 
 <p>Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named *Req) and response (named *Resp).</p>
@@ -896,6 +899,10 @@
 QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 </aside>
 <h3 id='open-source'>Open Source</h3>
+<blockquote>
+<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration. Our <a href="https://discord.gg/HhYKQyD">Discord server</a> has a thriving community, and we are ready to help you build something great on the QRL network. </p>
+</blockquote>
+
 <aside class="notice">
 This is an open source project.<br>
 We are looking for contributers. If you would like to help your fellow developers out, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>. As a community we can only get stronger.
@@ -952,7 +959,9 @@ We are looking for contributers. If you would like to help your fellow developer
 Warning! If you use all OTS keys the remaining funds will be locked. Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
-<p>The <a href="#wallet-api">WalletAPI</a> has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. This creates multiple merkle tree&#39;s from your origional address and privatekey. See the documentation for more information <a href="https://docs.theqrl.org/wallet/slaves.json/">slave.json documentation</a></p>
+<p>The <a href="#wallet-api">WalletAPI</a> has been redeveloped to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. If you use the wallet daemon and generate an address with slaves, the last 5 keys will not be consumed, allowing you to transfer the remaining funds to a new wallet.</p>
+
+<p>See the documentation for more information <a href="https://docs.theqrl.org/wallet/slaves.json/">slave.json documentation</a></p>
 <h2 id='functions'>Functions</h2>
 <p>Here are some required functions to make the examples below work. </p>
 <h2 id='getqrlclient'>getQRLClient()</h2><pre class="highlight python tab-python"><code><span class="c">## ## Enter Python code here</span>
@@ -5793,8 +5802,73 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 </tr>
 </tbody></table>
 <h1 id='wallet-api'>Wallet API</h1>
-<p>This service describes the Wallet API</p>
+<p>This service describes the Wallet API. This is intended to simplify the programmatic interaction with the QRL wallet. This will allow further development with automated services.</p>
 
+<aside class="success">
+The WalletAPI and Wallet Daemon now include automatic slave key transactions and lockout management. The last 5 slave keys are not automatically consumed. This allows manual address migration once all current address slave keys have been consumed. For more information drop a line to <a href="mailto://info@theqrl.org">info@theqrl.org</a>
+</aside>
+<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell tab-shell"><code><span class="c"># Install qrl node Ubuntu</span>
+apt update <span class="o">&amp;&amp;</span> apt upgrade -y
+apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
+pip3 install -U setuptools
+pip3 install -U qrl
+
+<span class="c"># Run the wallet daemon</span>
+qrl_walletd
+
+<span class="c"># go get the walletd-rest-proxy</span>
+go get github.com/theQRL/walletd-rest-proxy
+<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/theQRL/walletd-rest-proxy
+go build
+
+<span class="c"># Run the wallet-rest-proxy</span>
+./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010<span class="sb">`</span>
+</code></pre>
+<p>Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. </p>
+
+<ol>
+<li>Install the QRL Node and sync
+
+<ul>
+<li>This allows a secure connection to the network running on the local server</li>
+<li>Find information at <a href="https://docs.theqrl.org/node/QRLnode/">https://docs.theqrl.org/node/QRLnode/</a></li>
+</ul></li>
+<li>Run the QRL wallet daemon
+
+<ul>
+<li><code>qrl_walletd</code></li>
+</ul></li>
+<li>Install <a href="https://golang.org/doc/install#tarball">golang-go v1.8</a> or greater</li>
+<li>Clone walletd-rest-proxy from the repo hosted at <a href="https://github.com/theQRL/walletd-rest-proxy">https://github.com/theQRL/walletd-rest-proxy</a>
+
+<ul>
+<li><code>go get github.com/theQRL/walletd-rest-proxy</code></li>
+</ul></li>
+<li>Start the wallet-rest-proxy 
+
+<ul>
+<li>This allows connection to the WalletDaemon</li>
+</ul></li>
+<li>Send commands using cURL and begin using the QRL!</li>
+</ol>
+
+<aside class="success">
+<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
+<br>
+<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
+<br>
+If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
+</aside>
+<pre class="highlight shell tab-shell"><code><span class="c"># Alternate paramaters may be passed to the API</span>
+
+curl -XPOST http://127.0.0.1:5359/api/<span class="o">{</span>METHOD<span class="o">}</span> -d <span class="s1">'{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'</span>
+
+<span class="c"># Example adding an address to a wallet with height 18 and hash_function sha_256</span>
+curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"height":"18","hash_function":"sha2_256"}'</span>
+
+</code></pre>
+<p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
+<h2 id='walletapi-methods'>WalletAPI Methods</h2>
 <table><thead>
 <tr>
 <th>Method Name</th>
@@ -5953,67 +6027,6 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td><a href="#unlockwalletresp">UnlockWalletResp</a></td>
 </tr>
 </tbody></table>
-<h2 id='getting-started'>Getting Started</h2><pre class="highlight shell tab-shell"><code><span class="c"># Install qrl node Ubuntu</span>
-apt update <span class="o">&amp;&amp;</span> apt upgrade -y
-apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
-pip3 install -U setuptools
-pip3 install -U qrl
-
-<span class="c"># Run the wallet daemon</span>
-qrl_walletd
-
-<span class="c"># go get the walletd-rest-proxy</span>
-go get github.com/theQRL/walletd-rest-proxy
-<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/theQRL/walletd-rest-proxy
-go build
-
-<span class="c"># Run the wallet-rest-proxy</span>
-./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010<span class="sb">`</span>
-</code></pre>
-<p>Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. </p>
-
-<ol>
-<li>Install the QRL Node and sync
-
-<ul>
-<li>This allows a secure connection to the network running on the local server</li>
-<li>Find information at <a href="https://docs.theqrl.org/node/QRLnode/">https://docs.theqrl.org/node/QRLnode/</a></li>
-</ul></li>
-<li>Run the QRL wallet daemon
-
-<ul>
-<li><code>qrl_walletd</code></li>
-</ul></li>
-<li>Install <a href="https://golang.org/doc/install#tarball">golang-go v1.8</a> or greater</li>
-<li>Clone walletd-rest-proxy from the repo hosted at <a href="https://github.com/theQRL/walletd-rest-proxy">https://github.com/theQRL/walletd-rest-proxy</a>
-
-<ul>
-<li><code>go get github.com/theQRL/walletd-rest-proxy</code></li>
-</ul></li>
-<li>Start the wallet-rest-proxy 
-
-<ul>
-<li>This allows connection to the WalletDaemon</li>
-</ul></li>
-<li>Send commands using cURL and begin using the QRL!</li>
-</ol>
-
-<aside class="success">
-<code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
-<br>
-<code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
-<br>
-If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
-</aside>
-<pre class="highlight shell tab-shell"><code><span class="c"># Alternate paramaters may be passed to the API</span>
-
-curl -XPOST http://127.0.0.1:5359/api/<span class="o">{</span>METHOD<span class="o">}</span> -d <span class="s1">'{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'</span>
-
-<span class="c"># Example adding an address to a wallet with height 18 and hash_function sha_256</span>
-curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"height":"18","hash_function":"sha2_256"}'</span>
-
-</code></pre>
-<p>Alternative parameters may be sent via <code>curl</code> by calling the <code>-d</code> flag and using the syntax shown to the right. You may call multiple parameters separated by <code>,</code></p>
 <h2 id='addnewaddress'>AddNewAddress</h2><pre class="highlight shell tab-shell"><code><span class="c"># AddNewAddress Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
