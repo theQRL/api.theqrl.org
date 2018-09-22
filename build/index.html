@@ -778,11 +778,7 @@
                     <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting Started">Getting Started</a>
                   </li>
                   <li>
-
-                    <a href="#walletapi-methods" class="toc-h2 toc-link" data-title="walletapi-methods">WalletAPI Methods</a>
-                  </li>
-                  <li>
-                    <a href="#addnewaddress" class="toc-h2 toc-link" data-title="addnewaddress">AddNewAddress</a>
+                    <a href="#walletapi-methods" class="toc-h2 toc-link" data-title="WalletAPI Methods">WalletAPI Methods</a>
                   </li>
                   <li>
                     <a href="#addnewaddress" class="toc-h2 toc-link" data-title="AddNewAddress">AddNewAddress</a>
@@ -897,9 +893,17 @@
 
 <p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
 
+<blockquote>
+<p>Use the language tabs above to select between code examples. They will show here. If you dont see something you would like, please contact us!</p>
+</blockquote>
+
 <p>Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named *Req) and response (named *Resp).</p>
 
 <p>QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a></p>
+
+<blockquote>
+<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration. Our <a href="https://discord.gg/HhYKQyD">Discord server</a> has a thriving community, and we are ready to help you build something great on the QRL network. </p>
+</blockquote>
 
 <aside class="success">
 This is an open source project.<br>
@@ -911,7 +915,11 @@ We are looking for contributers. If you would like to help your fellow developer
 </blockquote>
 <h2 id='basic-connection'>Basic Connection</h2><pre class="highlight python tab-python"><code><span class="c">## Python Code will be shown here.</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c">#shell Code Here</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// required libraries</span>
+</code></pre>
+<blockquote>
+<p>Some basic connection details.</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// required libraries</span>
 <span class="kd">let</span> <span class="nx">grpc</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'grpc'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'temp'</span><span class="p">).</span><span class="nx">track</span><span class="p">();</span>
 <span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs-extra"</span><span class="p">);</span>
@@ -5838,7 +5846,6 @@ go build
 <li>Find information at <a href="https://docs.theqrl.org/node/QRLnode/">https://docs.theqrl.org/node/QRLnode/</a></li>
 </ul></li>
 <li>Run the QRL wallet daemon
-
 
 <ul>
 <li><code>qrl_walletd</code></li>
