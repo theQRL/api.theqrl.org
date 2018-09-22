@@ -1,5 +1,7 @@
 # QRL API DOCUMENTATION
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/38c5562150254c0086b333417403bd9c)](https://app.codacy.com/app/fr1t2/api.theqrl.org?utm_source=github.com&utm_medium=referral&utm_content=fr1t2/api.theqrl.org&utm_campaign=Badge_Grade_Settings)
+
 This is the site hosted at [https://api.theqrl.org](https://api.theqrl.org) serving the protocol documentation for the QRL. This documentation and all of the QRL code is open source. If you find a typo or see an issue that needs corrected, please open a pull request. 
 
 **Static site files can be found in the /build directory**
