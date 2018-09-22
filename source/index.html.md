@@ -50,7 +50,11 @@ QRL is under active development, code may change, site layout is fluid. Please s
 
 > Jump right in to the code, find the main QRL repository at [GitHub](https://github.com/theqrl/qrl). QRL is an open source project, we encourage open collaboration. Our [Discord server](https://discord.gg/HhYKQyD) has a thriving community, and we are ready to help you build something great on the QRL network. 
 
-<aside class="notice">
+
+
+
+
+<aside class="success">
 This is an open source project.<br>
 We are looking for contributers. If you would like to help your fellow developers out, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>. As a community we can only get stronger.
 </aside>
