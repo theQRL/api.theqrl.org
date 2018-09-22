@@ -32,7 +32,7 @@ This service describes the Public API used by clients wallet, cli, etc
 
 ### GetAddressFromPKReq
 
-```javascript
+```protouf
 message GetAddressFromPKReq {
     bytes pk = 1;
 }
@@ -44,7 +44,7 @@ message GetAddressFromPKReq {
 
 ### GetAddressFromPKResp
 
-```javascript
+```protouf
 message GetAddressFromPKResp {
     bytes address = 1;
 }
@@ -61,8 +61,10 @@ message GetAddressFromPKResp {
 
 ### GetAddressStateReq
 
-```javascript
-message GetAddressStateReq {   bytes address = 1; }
+```protouf
+message GetAddressStateReq {   
+    bytes address = 1; 
+}
 ```
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
@@ -70,7 +72,7 @@ message GetAddressStateReq {   bytes address = 1; }
 
 ### GetAddressStateResp
 
-```javascript
+```protouf
 message GetAddressStateResp {
     AddressState state = 1;
 }
@@ -87,7 +89,7 @@ message GetAddressStateResp {
 
 ### GetKnownPeersReq
 
-```javascript
+```protouf
 message GetKnownPeersReq { }
 ```
 
@@ -95,7 +97,7 @@ Represents a query to get known peers
 
 ### GetKnownPeersResp
 
-```javascript
+```protouf
 message GetKnownPeersResp {
     NodeInfo node_info = 1;
     repeated Peer known_peers = 2;
@@ -116,7 +118,7 @@ Represents the reply message to known peers query
 
 ### GetLatestDataReq
 
-```javascript
+```protouf
 message GetLatestDataReq {
     enum Filter {
         ALL = 0;
@@ -138,7 +140,7 @@ message GetLatestDataReq {
 
 ### GetLatestDataResp
 
-```javascript
+```protouf
 message GetLatestDataResp {
     repeated BlockHeaderExtended blockheaders = 1;
     repeated TransactionExtended transactions = 2;
@@ -173,7 +175,7 @@ message GetLatestDataResp {
 
 ### GetNodeStateReq
 
-```javascript
+```protouf
 message GetNodeStateReq { }
 ```
 
@@ -181,7 +183,7 @@ Represents a query to get node state
 
 ### GetNodeStateResp
 
-```javascript
+```protouf
 message GetNodeStateResp {
     NodeInfo info = 1;
 }
@@ -200,7 +202,7 @@ Represents the reply message to node state query
 
 ### GetObjectReq
 
-```javascript
+```protouf
 message GetObjectReq {  bytes query = 1;    }
 ```
 
@@ -210,7 +212,7 @@ message GetObjectReq {  bytes query = 1;    }
 
 ### GetObjectResp
 
-```javascript
+```protouf
 message GetObjectResp {
     bool found = 1;
     oneof result {
@@ -235,14 +237,14 @@ message GetObjectResp {
 
 ### GetPeersStatReq
 
-```javascript
+```protouf
 message GetPeersStatReq { }
 ```
 Represents a query to get connected peers stat
 
 ### GetPeersStatResp
 
-```javascript
+```protouf
 message GetPeersStatResp {
     repeated PeerStat peers_stat = 1;
 ```
@@ -275,7 +277,7 @@ Represents the reply message to peers stat query
 
 ### GetStatsReq
 
-```javascript
+```protouf
 message GetStatsReq {
     bool include_timeseries = 1;
 }
@@ -289,7 +291,7 @@ Represents a query to get statistics about node
 
 ### GetStatsResp
 
-```javascript
+```protouf
 message GetStatsResp {
     NodeInfo node_info = 1;                 // NodeInfo object containing node state information
     uint64 epoch = 2;                       // Current epoch
@@ -361,7 +363,7 @@ Represents the reply message to get statistics about node
 
 ### PushTransactionReq
 
-```javascript
+```protouf
 message PushTransactionReq {    Transaction transaction_signed = 1;     }
 ```
 
@@ -371,7 +373,7 @@ message PushTransactionReq {    Transaction transaction_signed = 1;     }
 
 ### PushTransactionResp
 
-```javascript
+```protouf
 message PushTransactionResp {
     enum ResponseCode {
         UNKNOWN = 0;
@@ -400,7 +402,7 @@ message PushTransactionResp {
 
 ### TransferCoinsReq
 
-```javascript
+```protouf
 message TransferCoinsReq {
     bytes master_addr = 1;                 // Transaction source address
     repeated bytes addresses_to = 2;                   // Transaction destination address
@@ -420,7 +422,7 @@ message TransferCoinsReq {
 
 ### TransferCoinsResp
 
-```javascript
+```protouf
 message TransferCoinsResp {
     TransactionExtended extended_transaction_unsigned = 1;
 }
@@ -456,11 +458,11 @@ This is a place holder for testing/instrumentation APIs
 
 ## AddressState
 
-```python
+```protouf
 Enter Python code here
 ```
 
-```javascript
+```protouf
 testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
 qrlClient.then( function (qrlClient) {
     qrlClient.getAddressState({address : testaddress}, (err, res) => {

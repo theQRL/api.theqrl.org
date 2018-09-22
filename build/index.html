@@ -887,26 +887,24 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='qrl-api'>QRL API</h1><h2 id='introduction'>Introduction</h2>
-<p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
-
 <blockquote>
 <p>Use the language tabs above to select between code examples. They will show here. If you dont see something you would like, please contact us!</p>
 </blockquote>
 
+<p>The QRL API is organized around <a href="https://grpc.io/">GRPC</a>. GRPC uses <a href="https://developers.google.com/protocol-buffers/docs/overview">protocol buffers</a> for serializing structured data. </p>
+
 <p>Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named *Req) and response (named *Resp).</p>
 
-<aside class="success">
-QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
-</aside>
-<h3 id='open-source'>Open Source</h3>
-<blockquote>
-<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration. Our <a href="https://discord.gg/HhYKQyD">Discord server</a> has a thriving community, and we are ready to help you build something great on the QRL network. </p>
-</blockquote>
+<p>QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a></p>
 
-<aside class="notice">
+<aside class="success">
 This is an open source project.<br>
 We are looking for contributers. If you would like to help your fellow developers out, send any commits to the code hosted at <a href="https://github.com/theqrl/api.theqrl.org" target="_blank">github.com/theqrl/api.theqrl.org</a>. As a community we can only get stronger.
 </aside>
+
+<blockquote>
+<p>Jump right in to the code, find the main QRL repository at <a href="https://github.com/theqrl/qrl">GitHub</a>. QRL is an open source project, we encourage open collaboration. Our <a href="https://discord.gg/HhYKQyD">Discord server</a> has a thriving community, and we are ready to help you build something great on the QRL network. </p>
+</blockquote>
 <h2 id='basic-connection'>Basic Connection</h2><pre class="highlight python tab-python"><code><span class="c">## Python Code will be shown here.</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c">#shell Code Here</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// required libraries</span>
@@ -1140,9 +1138,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td><a href="#transfercoinsresp">TransferCoinsResp</a></td>
 </tr>
 </tbody></table>
-<h2 id='getaddressfrompk'>GetAddressFromPK</h2><h3 id='getaddressfrompkreq'>GetAddressFromPKReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetAddressFromPKReq</span> <span class="p">{</span>
-    <span class="nx">bytes</span> <span class="nx">pk</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h2 id='getaddressfrompk'>GetAddressFromPK</h2><h3 id='getaddressfrompkreq'>GetAddressFromPKReq</h3><pre class="highlight plaintext"><code>message GetAddressFromPKReq {
+    bytes pk = 1;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1159,9 +1157,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='getaddressfrompkresp'>GetAddressFromPKResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetAddressFromPKResp</span> <span class="p">{</span>
-    <span class="nx">bytes</span> <span class="nx">address</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='getaddressfrompkresp'>GetAddressFromPKResp</h3><pre class="highlight plaintext"><code>message GetAddressFromPKResp {
+    bytes address = 1;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1178,7 +1176,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getaddressstate'>GetAddressState</h2><h3 id='getaddressstatereq'>GetAddressStateReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetAddressStateReq</span> <span class="p">{</span>   <span class="nx">bytes</span> <span class="nx">address</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+<h2 id='getaddressstate'>GetAddressState</h2><h3 id='getaddressstatereq'>GetAddressStateReq</h3><pre class="highlight plaintext"><code>message GetAddressStateReq {   
+    bytes address = 1; 
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1195,9 +1195,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='getaddressstateresp'>GetAddressStateResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetAddressStateResp</span> <span class="p">{</span>
-    <span class="nx">AddressState</span> <span class="nx">state</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='getaddressstateresp'>GetAddressStateResp</h3><pre class="highlight plaintext"><code>message GetAddressStateResp {
+    AddressState state = 1;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1214,13 +1214,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getknownpeers'>GetKnownPeers</h2><h3 id='getknownpeersreq'>GetKnownPeersReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetKnownPeersReq</span> <span class="p">{</span> <span class="p">}</span>
+<h2 id='getknownpeers'>GetKnownPeers</h2><h3 id='getknownpeersreq'>GetKnownPeersReq</h3><pre class="highlight plaintext"><code>message GetKnownPeersReq { }
 </code></pre>
 <p>Represents a query to get known peers</p>
-<h3 id='getknownpeersresp'>GetKnownPeersResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetKnownPeersResp</span> <span class="p">{</span>
-    <span class="nx">NodeInfo</span> <span class="nx">node_info</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">repeated</span> <span class="nx">Peer</span> <span class="nx">known_peers</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='getknownpeersresp'>GetKnownPeersResp</h3><pre class="highlight plaintext"><code>message GetKnownPeersResp {
+    NodeInfo node_info = 1;
+    repeated Peer known_peers = 2;
+}
 </code></pre>
 <p>Represents the reply message to known peers query</p>
 
@@ -1245,17 +1245,17 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td>List of Peer objects containing peer nodes detailed information</td>
 </tr>
 </tbody></table>
-<h2 id='getlatestdata'>GetLatestData</h2><h3 id='getlatestdatareq'>GetLatestDataReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetLatestDataReq</span> <span class="p">{</span>
-    <span class="kr">enum</span> <span class="nx">Filter</span> <span class="p">{</span>
-        <span class="nx">ALL</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nx">BLOCKHEADERS</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="nx">TRANSACTIONS</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="nx">TRANSACTIONS_UNCONFIRMED</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Filter</span> <span class="nx">filter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">uint32</span> <span class="nx">offset</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>                      <span class="c1">// Offset in the result list (works backwards in this case)</span>
-    <span class="nx">uint32</span> <span class="nx">quantity</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>                    <span class="c1">// Number of items to retrive. Capped at 100</span>
-<span class="p">}</span>
+<h2 id='getlatestdata'>GetLatestData</h2><h3 id='getlatestdatareq'>GetLatestDataReq</h3><pre class="highlight plaintext"><code>message GetLatestDataReq {
+    enum Filter {
+        ALL = 0;
+        BLOCKHEADERS = 1;
+        TRANSACTIONS = 2;
+        TRANSACTIONS_UNCONFIRMED = 3;
+    }
+    Filter filter = 1;
+    uint32 offset = 2;                      // Offset in the result list (works backwards in this case)
+    uint32 quantity = 3;                    // Number of items to retrive. Capped at 100
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1284,11 +1284,11 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td>Number of items to retrive. Capped at 100</td>
 </tr>
 </tbody></table>
-<h3 id='getlatestdataresp'>GetLatestDataResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetLatestDataResp</span> <span class="p">{</span>
-    <span class="nx">repeated</span> <span class="nx">BlockHeaderExtended</span> <span class="nx">blockheaders</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">repeated</span> <span class="nx">TransactionExtended</span> <span class="nx">transactions</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="nx">repeated</span> <span class="nx">TransactionExtended</span> <span class="nx">transactions_unconfirmed</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='getlatestdataresp'>GetLatestDataResp</h3><pre class="highlight plaintext"><code>message GetLatestDataResp {
+    repeated BlockHeaderExtended blockheaders = 1;
+    repeated TransactionExtended transactions = 2;
+    repeated TransactionExtended transactions_unconfirmed = 3;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1351,12 +1351,12 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getnodestate'>GetNodeState</h2><h3 id='getnodestatereq'>GetNodeStateReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetNodeStateReq</span> <span class="p">{</span> <span class="p">}</span>
+<h2 id='getnodestate'>GetNodeState</h2><h3 id='getnodestatereq'>GetNodeStateReq</h3><pre class="highlight plaintext"><code>message GetNodeStateReq { }
 </code></pre>
 <p>Represents a query to get node state</p>
-<h3 id='getnodestateresp'>GetNodeStateResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetNodeStateResp</span> <span class="p">{</span>
-    <span class="nx">NodeInfo</span> <span class="nx">info</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='getnodestateresp'>GetNodeStateResp</h3><pre class="highlight plaintext"><code>message GetNodeStateResp {
+    NodeInfo info = 1;
+}
 </code></pre>
 <p>Represents the reply message to node state query</p>
 
@@ -1375,7 +1375,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getobject'>GetObject</h2><h3 id='getobjectreq'>GetObjectReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetObjectReq</span> <span class="p">{</span>  <span class="nx">bytes</span> <span class="nx">query</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="p">}</span>
+<h2 id='getobject'>GetObject</h2><h3 id='getobjectreq'>GetObjectReq</h3><pre class="highlight plaintext"><code>message GetObjectReq {  bytes query = 1;    }
 </code></pre>
 <table><thead>
 <tr>
@@ -1392,14 +1392,14 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='getobjectresp'>GetObjectResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetObjectResp</span> <span class="p">{</span>
-    <span class="nx">bool</span> <span class="nx">found</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">oneof</span> <span class="nx">result</span> <span class="p">{</span>
-        <span class="nx">AddressState</span> <span class="nx">address_state</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="nx">TransactionExtended</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-        <span class="nx">BlockExtended</span> <span class="nx">block_extended</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<h3 id='getobjectresp'>GetObjectResp</h3><pre class="highlight plaintext"><code>message GetObjectResp {
+    bool found = 1;
+    oneof result {
+        AddressState address_state = 2;
+        TransactionExtended transaction = 3;
+        BlockExtended block_extended = 4;
+    }
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1434,11 +1434,11 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getpeersstat'>GetPeersStat</h2><h3 id='getpeersstatreq'>GetPeersStatReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetPeersStatReq</span> <span class="p">{</span> <span class="p">}</span>
+<h2 id='getpeersstat'>GetPeersStat</h2><h3 id='getpeersstatreq'>GetPeersStatReq</h3><pre class="highlight plaintext"><code>message GetPeersStatReq { }
 </code></pre>
 <p>Represents a query to get connected peers stat</p>
-<h3 id='getpeersstatresp'>GetPeersStatResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetPeersStatResp</span> <span class="p">{</span>
-    <span class="nx">repeated</span> <span class="nx">PeerStat</span> <span class="nx">peers_stat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<h3 id='getpeersstatresp'>GetPeersStatResp</h3><pre class="highlight plaintext"><code>message GetPeersStatResp {
+    repeated PeerStat peers_stat = 1;
 </code></pre>
 <p>Represents the reply message to peers stat query</p>
 
@@ -1497,9 +1497,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='getstats'>GetStats</h2><h3 id='getstatsreq'>GetStatsReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetStatsReq</span> <span class="p">{</span>
-    <span class="nx">bool</span> <span class="nx">include_timeseries</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h2 id='getstats'>GetStats</h2><h3 id='getstatsreq'>GetStatsReq</h3><pre class="highlight plaintext"><code>message GetStatsReq {
+    bool include_timeseries = 1;
+}
 </code></pre>
 <p>Represents a query to get statistics about node</p>
 
@@ -1518,20 +1518,20 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td>Boolean to define if block timeseries should be included in reply or not</td>
 </tr>
 </tbody></table>
-<h3 id='getstatsresp'>GetStatsResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">GetStatsResp</span> <span class="p">{</span>
-    <span class="nx">NodeInfo</span> <span class="nx">node_info</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                 <span class="c1">// NodeInfo object containing node state information</span>
-    <span class="nx">uint64</span> <span class="nx">epoch</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>                       <span class="c1">// Current epoch</span>
-    <span class="nx">uint64</span> <span class="nx">uptime_network</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>              <span class="c1">// Indicates uptime in seconds</span>
+<h3 id='getstatsresp'>GetStatsResp</h3><pre class="highlight plaintext"><code>message GetStatsResp {
+    NodeInfo node_info = 1;                 // NodeInfo object containing node state information
+    uint64 epoch = 2;                       // Current epoch
+    uint64 uptime_network = 3;              // Indicates uptime in seconds
 
-    <span class="nx">uint64</span> <span class="nx">block_last_reward</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>           <span class="c1">// Block reward</span>
-    <span class="nx">uint64</span> <span class="nx">block_time_mean</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>             <span class="c1">// Blocktime average</span>
-    <span class="nx">uint64</span> <span class="nx">block_time_sd</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>               <span class="c1">// Blocktime standrad deviation</span>
+    uint64 block_last_reward = 4;           // Block reward
+    uint64 block_time_mean = 5;             // Blocktime average
+    uint64 block_time_sd = 6;               // Blocktime standrad deviation
 
-    <span class="nx">uint64</span> <span class="nx">coins_total_supply</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>          <span class="c1">// Total coins supply</span>
-    <span class="nx">uint64</span> <span class="nx">coins_emitted</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>               <span class="c1">// Total coins emitted</span>
+    uint64 coins_total_supply = 7;          // Total coins supply
+    uint64 coins_emitted = 8;               // Total coins emitted
 
-    <span class="nx">repeated</span> <span class="nx">BlockDataPoint</span> <span class="nx">block_timeseries</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
-<span class="p">}</span>
+    repeated BlockDataPoint block_timeseries = 9;
+}
 </code></pre>
 <p>Represents the reply message to get statistics about node</p>
 
@@ -1702,7 +1702,7 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='pushtransaction'>PushTransaction</h2><h3 id='pushtransactionreq'>PushTransactionReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">PushTransactionReq</span> <span class="p">{</span>    <span class="nx">Transaction</span> <span class="nx">transaction_signed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>     <span class="p">}</span>
+<h2 id='pushtransaction'>PushTransaction</h2><h3 id='pushtransactionreq'>PushTransactionReq</h3><pre class="highlight plaintext"><code>message PushTransactionReq {    Transaction transaction_signed = 1;     }
 </code></pre>
 <table><thead>
 <tr>
@@ -1719,18 +1719,18 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='pushtransactionresp'>PushTransactionResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">PushTransactionResp</span> <span class="p">{</span>
-    <span class="kr">enum</span> <span class="nx">ResponseCode</span> <span class="p">{</span>
-        <span class="nx">UNKNOWN</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nx">ERROR</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="nx">VALIDATION_FAILED</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="nx">SUBMITTED</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="p">}</span>
+<h3 id='pushtransactionresp'>PushTransactionResp</h3><pre class="highlight plaintext"><code>message PushTransactionResp {
+    enum ResponseCode {
+        UNKNOWN = 0;
+        ERROR = 1;
+        VALIDATION_FAILED = 2;
+        SUBMITTED = 3;
+    }
 
-    <span class="nx">ResponseCode</span> <span class="nx">error_code</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">string</span> <span class="nx">error_description</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="nx">bytes</span> <span class="nx">tx_hash</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="p">}</span>
+    ResponseCode error_code = 1;
+    string error_description = 2;
+    bytes tx_hash = 3;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1759,13 +1759,13 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='transfercoins'>TransferCoins</h2><h3 id='transfercoinsreq'>TransferCoinsReq</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">TransferCoinsReq</span> <span class="p">{</span>
-    <span class="nx">bytes</span> <span class="nx">master_addr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                 <span class="c1">// Transaction source address</span>
-    <span class="nx">repeated</span> <span class="nx">bytes</span> <span class="nx">addresses_to</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>                   <span class="c1">// Transaction destination address</span>
-    <span class="nx">repeated</span> <span class="nx">uint64</span> <span class="nx">amounts</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>                      <span class="c1">// Amount. It should be expressed in Shor</span>
-    <span class="nx">uint64</span> <span class="nx">fee</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>                         <span class="c1">// Fee. It should be expressed in Shor</span>
-    <span class="nx">bytes</span> <span class="nx">xmss_pk</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                      <span class="c1">// XMSS Public key</span>
-<span class="p">}</span>
+<h2 id='transfercoins'>TransferCoins</h2><h3 id='transfercoinsreq'>TransferCoinsReq</h3><pre class="highlight plaintext"><code>message TransferCoinsReq {
+    bytes master_addr = 1;                 // Transaction source address
+    repeated bytes addresses_to = 2;                   // Transaction destination address
+    repeated uint64 amounts = 3;                      // Amount. It should be expressed in Shor
+    uint64 fee = 4;                         // Fee. It should be expressed in Shor
+    bytes xmss_pk = 5;                      // XMSS Public key
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1806,9 +1806,9 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td>XMSS Public key</td>
 </tr>
 </tbody></table>
-<h3 id='transfercoinsresp'>TransferCoinsResp</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">message</span> <span class="nx">TransferCoinsResp</span> <span class="p">{</span>
-    <span class="nx">TransactionExtended</span> <span class="nx">extended_transaction_unsigned</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<h3 id='transfercoinsresp'>TransferCoinsResp</h3><pre class="highlight plaintext"><code>message TransferCoinsResp {
+    TransactionExtended extended_transaction_unsigned = 1;
+}
 </code></pre>
 <table><thead>
 <tr>
@@ -1875,29 +1875,29 @@ Warning! If you use all OTS keys the remaining funds will be locked. Please see 
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='addressstate'>AddressState</h2><pre class="highlight python tab-python"><code><span class="n">Enter</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">here</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">testaddress</span> <span class="o">=</span> <span class="nx">stringToBytes</span><span class="p">(</span><span class="s1">'01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446'</span><span class="p">);</span>
-<span class="nx">qrlClient</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">qrlClient</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">qrlClient</span><span class="p">.</span><span class="nx">getAddressState</span><span class="p">({</span><span class="na">address</span> <span class="p">:</span> <span class="nx">testaddress</span><span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Error: "</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="c1">// res is a GetAddressStateResp object</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
-        <span class="c1">// the resulting GetAddressStateResp object contains the following attributes</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">balance</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">nonce</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">ots_bitfield</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">transaction_hashes</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tokens</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">latticePK_list</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">slave_pks_access_type</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">ots_counter</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">});</span>
+<h2 id='addressstate'>AddressState</h2><pre class="highlight plaintext"><code>Enter Python code here
+</code></pre><pre class="highlight plaintext"><code>testaddress = stringToBytes('01050048a8b31d8dda8a25c5c0d02994fe87e54032ba67910657ade9114d0cdff2eeb5f6285446');
+qrlClient.then( function (qrlClient) {
+    qrlClient.getAddressState({address : testaddress}, (err, res) =&gt; {
+        if (err){
+            console.log("Error: ", err.message);
+            return;
+        }
+        // res is a GetAddressStateResp object
+        console.log(res);
+        // the resulting GetAddressStateResp object contains the following attributes
+        console.log(res.state);
+        console.log(res.state.address);
+        console.log(res.state.balance);
+        console.log(res.state.nonce);
+        console.log(res.state.ots_bitfield);
+        console.log(res.state.transaction_hashes);
+        console.log(res.state.tokens);
+        console.log(res.state.latticePK_list);
+        console.log(res.state.slave_pks_access_type);
+        console.log(res.state.ots_counter);
+    });
+});
 </code></pre>
 <table><thead>
 <tr>
