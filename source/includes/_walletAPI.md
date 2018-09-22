@@ -46,7 +46,7 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
   - This allows connection to the WalletDaemon
 6. Send commands using cURL and begin using the QRL!
 
-<aside class="success">
+<aside class="notice">
 <code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
 <br>
 <code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
