@@ -1,14 +1,7 @@
-# QRL API DOCUMENTATION v1.0.1
+# QRL API DOCUMENTATION  | v1.0.1 | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/38c5562150254c0086b333417403bd9c)](https://app.codacy.com/app/fr1t2/api.theqrl.org?utm_source=github.com&utm_medium=referral&utm_content=fr1t2/api.theqrl.org&utm_campaign=Badge_Grade_Settings)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/38c5562150254c0086b333417403bd9c)](https://app.codacy.com/app/fr1t2/api.theqrl.org?utm_source=github.com&utm_medium=referral&utm_content=fr1t2/api.theqrl.org&utm_campaign=Badge_Grade_Settings)
+This site serves the protocol documentation for [theQRL](https://github.com/theQRL/QRL). The site is hosted at [https://api.theqrl.org](https://api.theqrl.org)
 
-This site serves the protocol documentation for [theQRL](https://github.com/theQRL/QRL). 
-
-> This is the site hosted at [https://api.theqrl.org](https://api.theqrl.org)
-
-## Getting Started
-
- 
 This documentation is build using the [Slate API](https://github.com/lord/slate) documentation builder. 
 
 <p align="center">
