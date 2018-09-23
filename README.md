@@ -1,4 +1,4 @@
-# QRL API DOCUMENTATION
+# QRL API DOCUMENTATION v1.0.1
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/38c5562150254c0086b333417403bd9c)](https://app.codacy.com/app/fr1t2/api.theqrl.org?utm_source=github.com&utm_medium=referral&utm_content=fr1t2/api.theqrl.org&utm_campaign=Badge_Grade_Settings)
 
