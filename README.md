@@ -2,16 +2,13 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/38c5562150254c0086b333417403bd9c)](https://app.codacy.com/app/fr1t2/api.theqrl.org?utm_source=github.com&utm_medium=referral&utm_content=fr1t2/api.theqrl.org&utm_campaign=Badge_Grade_Settings)
 
-
-# Project Title
-
 This site serves the protocol documentation for [theQRL](https://github.com/theQRL/QRL). 
+
+> This is the site hosted at [https://api.theqrl.org](https://api.theqrl.org)
 
 ## Getting Started
 
-> This is the site hosted at [https://api.theqrl.org](https://api.theqrl.org) 
-
-
+ 
 This documentation is build using the [Slate API](https://github.com/lord/slate) documentation builder. 
 
 <p align="center">
@@ -138,7 +135,7 @@ This will take any new changes in the /source direcctory and build it into the /
 
 ## Authors
 
-* **James Gordon** - *Site Layout and development* - [fr1t2]](https://github.com/fr1t2)
+* **James Gordon** - *Site Layout and development* - [fr1t2](https://github.com/fr1t2)
 
 See also the list of [contributors](https://github.com/theqrl/api.theqrl.org/graphs/contributors) who participated in this project.
 
