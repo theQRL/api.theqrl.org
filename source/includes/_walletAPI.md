@@ -2,45 +2,18 @@
 # Wallet API
 
 
-This service describes the Wallet API
+This service describes the Wallet API. This is intended to simplify the programmatic interaction with the QRL wallet. This will allow further development with automated services.
 
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressresp) |  |
-| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressResp](#addnewaddressresp) |  |
-| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphraseresp) |  |
-| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  |
-| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |  |
-| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |  |
-| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |  |
-| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |  |
-| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |  |
-| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |  |
-| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |  |
-| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |  |
-| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |  |
-| [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |  |
-| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |  |
-| [IsValidAddress](#isvalidaddress) | [ValidAddressReq](#validaddressreq) | [ValidAddressResp](#validaddressresp) |  |
-| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesresp) |  |
-| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletresp) |  |
-| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnresp) |  |
-| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |  |
-| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressresp) |  |
-| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletresp) |  |
+
+<aside class="success">
+The WalletAPI and Wallet Daemon now include automatic slave key transactions and lockout management. The last 5 slave keys are not automatically consumed. This allows manual address migration once all current address slave keys have been consumed. For more information drop a line to <a href="mailto://info@theqrl.org">info@theqrl.org</a>
+</aside>
+
 
 
 ## Getting Started
 
-```bash
+```shell
 # Install qrl node Ubuntu
 apt update && apt upgrade -y
 apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
@@ -59,16 +32,6 @@ go build
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
 ```
 
-```bash
-# Alternate paramaters may be passed to the API
-
-curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
-
-# Example adding an address to a wallet with height 18 and hash_function sha_256
-curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_function":"sha2_256"}'
-
-```
-
 Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
 
 1. Install the QRL Node and sync
@@ -83,7 +46,7 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
   - This allows connection to the WalletDaemon
 6. Send commands using cURL and begin using the QRL!
 
-<aside class="success">
+<aside class="notice">
 <code>serverIPPort</code> indicates the <code>IP:Port</code> at which REST API service will be provided. 
 <br>
 <code>walletServiceEndpoint</code> indicates the <code>IP:Port</code> at which the WalletAPIService is running.
@@ -91,11 +54,58 @@ Interfacing with the qrlWalletAPI is simple and straight forward. Follow the ste
 If you have not changed the host and port at config.yml of QRL Node, then the above command should work fine.
 </aside>
 
-Alternative parameters may be entered by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
+```shell
+# Alternate paramaters may be passed to the API
+
+curl -XPOST http://127.0.0.1:5359/api/{METHOD} -d '{"{PARAMATER1}":"{SETTING1}","{PARAMATER2}":"{SETTING2}"}'
+
+# Example adding an address to a wallet with height 18 and hash_function sha_256
+curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d '{"height":"18","hash_function":"sha2_256"}'
+
+```
+
+Alternative parameters may be sent via `curl` by calling the `-d` flag and using the syntax shown to the right. You may call multiple parameters separated by `,`
+
+## WalletAPI Methods
+
+| Method Name | Request Type | Response Type | 
+| ----------- | ------------ | ------------- | 
+| [AddNewAddress](#addnewaddress) | [AddNewAddressReq](#addnewaddressreq) | [AddNewAddressResp](#addnewaddressresp) | 
+| [AddNewAddressWithSlaves](#addnewaddresswithslaves) | [AddNewAddressWithSlavesReq](#addnewaddresswithslavesreq) | [AddNewAddressResp](#addnewaddressresp) | 
+| [ChangePassphrase](#changepassphrase) | [ChangePassphraseReq](#changepassphrasereq) | [ChangePassphraseResp](#changepassphraseresp) |
+| [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  
+| [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |
+| [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |
+| [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |
+| [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |
+| [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |
+| [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |
+| [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |
+| [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |
+| [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |
+| [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |
+| [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |
+| [IsValidAddress](#isvalidaddress) | [ValidAddressReq](#validaddressreq) | [ValidAddressResp](#validaddressresp) |
+| [ListAddresses](#listaddresses) | [ListAddressesReq](#listaddressesreq) | [ListAddressesResp](#listaddressesresp) |
+| [LockWallet](#lockwallet) | [LockWalletReq](#lockwalletreq) | [LockWalletResp](#lockwalletresp) |
+| [RelayMessageTxn](#relaymessagetxn) | [RelayMessageTxnReq](#relaymessagetxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayMessageTxnBySlave](#relaymessagetxnbyslave) | [RelayMessageTxnBySlaveReq](#relaymessagetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelaySlaveTxn](#relayslavetxn) | [RelaySlaveTxnReq](#relayslavetxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelaySlaveTxnBySlave](#relayslavetxnbyslave) | [RelaySlaveTxnBySlaveReq](#relayslavetxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTokenTxn](#relaytokentxn) | [RelayTokenTxnReq](#relaytokentxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTokenTxnBySlave](#relaytokentxnbyslave) | [RelayTokenTxnBySlaveReq](#relaytokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTxn](#relaytransfertxn) | [RelayTransferTxnReq](#relaytransfertxnreq) | [RelayTxnResp](#relaytransfertxnresp) |
+| [RelayTransferTxnBySlave](#relaytransfertxnbyslave) | [RelayTransferTxnBySlaveReq](#relaytransfertxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTokenTxn](#relaytransfertokentxn) | [RelayTransferTokenTxnReq](#relaytransfertokentxnreq) | [RelayTxnResp](#relaytxnresp) |
+| [RelayTransferTokenTxnBySlave](#relaytransfertokentxnbyslave) | [RelayTransferTokenTxnBySlaveReq](#relaytransfertokentxnbyslavereq) | [RelayTxnResp](#relaytxnresp) |
+| [RemoveAddress](#removeaddress) | [RemoveAddressReq](#removeaddressreq) | [RemoveAddressResp](#removeaddressresp) |
+| [UnlockWallet](#unlockwallet) | [UnlockWalletReq](#unlockwalletreq) | [UnlockWalletResp](#unlockwalletresp) |
+
+
 
 ## AddNewAddress
 
-```bash
+```shell
 # AddNewAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
@@ -107,26 +117,46 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
 
 ```
 
+```python
+def addNewAddress():
+  import requests
+  import json
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/AddNewAddress")
+  response = QRLrequest.text
+  NewAddressResp = json.loads(response)
+  jsonResponse = NewAddressResp
+  return(jsonResponse)
+  pass
+
+
+addNewAddress()
+
+# Response
+
+{'address': 'Q010500529aa61cb19c88c3bcf780385228c6afd0fd4735497aef8c5245b692c08e87d35522452d'}
+
+```
+
 Adds new randomly generated address to the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| height | UInt64 | Height of the newly generated XMSS tree |
-| hash_function | String | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
+| height | [UInt64](#scalar-uint64) | Height of the newly generated XMSS tree |
+| hash_function | [String](#scalar-string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| address | String | Return the newly added QRL address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## AddNewAddressWithSlaves
 
-```bash
+```shell
 # AddNewAddressWithSlaves Request
 
 curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves
@@ -152,29 +182,51 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d '
 
 ```
 
-Adds new randomly generated address to the wallet with slaves.
+```python
+def addNewAddressWithSlaves(height, number_of_slaves, hash_function):
+  import requests
+  import json
+  payload = {'height': height, 'number_of_slaves': number_of_slaves, 'hash_function': hash_function}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/AddNewAddressWithSlaves", json=payload)
+  response = QRLrequest.text
+  addNewAddressWithSlavesResp = json.loads(response)
+  jsonResponse = addNewAddressWithSlavesResp
+  return(jsonResponse)
+  pass
+
+# Add address with height 18, and 100 slaves using sha2_256
+addNewAddressWithSlaves(18, 100, "sha2_256")
+
+# Response
+
+{'address': 'Q00050097a8a01a5269f570ff3c3914aaff0cf0a8e9869804c9190768fe123a6b547cc739a9558d'}
+
+```
+
+
+Adds new randomly generated address to the wallet with slaves. Height, Number of slaves and hash_function may be selected. By default the command without any options will create a wallet with height XX, XX slaves and a XX hash_function.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| height | UInt64 | Height of the newly generated XMSS tree (Min 8) |
-| number_of_slaves | UInt64 | Number of slaves to be generated (Max 100, Default 3) |
-| hash_function | String | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
-
-Creates a new address with slaves
+| height | [UInt64](#scalar-uint64) | Height of the newly generated XMSS tree (Min 8) |
+| number_of_slaves | [UInt64](#scalar-uint64) | Number of slaves to be generated (Max 100, Default 3) |
+| hash_function | [String](#scalar-string) | Hash function for XMSS. Possible values are shake128, shake256, sha2_256. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| address | String | Return the newly added QRL address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## ChangePassphrase
 
-```bash
+
+
+```shell
 # ChangePassphrase Request
 
 curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d '
@@ -183,32 +235,51 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d '
   "newPassphrase": "demo234"
 }'
 
-
-
 # ChangePassphrase Response
 
 {}
 ```
 
-Change the passphrase.
+```python
+def changePassphrase(oldPassphrase, newPassphrase):
+  import requests
+  import json
+  payload = {'oldPassphrase': oldPassphrase, 'newPassphrase': newPassphrase }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/ChangePassphrase", json=payload)
+  response = QRLrequest.text
+  lockWalletResp = json.loads(response)
+  jsonResponse = lockWalletResp
+  return(jsonResponse)
+  pass
+
+changePassphrase(demo123, demo234) 
+
+# Response 
+
+{}
+
+```
+
+Change the passphrase that encrypts the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| oldPassphrase | String | Old Passphrase |
-| newPassphrase | String | New Passphrase |
+| oldPassphrase | [String](#scalar-string) | Old Passphrase |
+| newPassphrase | [String](#scalar-string) | New Passphrase |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## EncryptWallet
 
-```bash
+
+```shell
 # EncryptWallet Request
 
 curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d '
@@ -222,26 +293,44 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d '
 {}
 ```
 
+
+```python
+def encryptWallet(passphrase):
+  import requests
+  import json
+  payload = {'passphrase': passphrase}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/EncryptWallet", json=payload)
+  response = QRLrequest.text
+  encryptWalletResp = json.loads(response)
+  jsonResponse = encryptWalletResp
+  return(jsonResponse)
+  pass
+
+encryptWallet("test123")
+
+# response
+{}
+```
+
+
 Encrypts the wallet with the given passphrase. This API only need to called once for encrypting the wallet first time.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| passphrase | String | Passphrase to encrypt the wallet |
+| passphrase | [String](#scalar-string) | Passphrase to encrypt the wallet |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## GetAddressFrom PK
 
-Get QRL address for a given public key.
-
-```bash
+```shell
 # Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
@@ -256,24 +345,49 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d '
   "address": "Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343"
 }
 ```
+
+```python
+def getAddressFromPK(pk):
+  import requests
+  import json
+  payload = {'pk': pk,}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetAddressFromPK", json=payload)
+  response = QRLrequest.text
+  getAddressFromPKResp = json.loads(response)
+  jsonResponse = getAddressFromPKResp
+  return(jsonResponse)
+  pass
+
+getAddressFromPK("01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e")
+
+# Response
+
+{'address': 'Q010200670246b0026436b717f199e3ec5320ba6ab61d5eddff811ac199a9e9b871d3280178b343'}
+
+```
+
+
+Get QRL address for a given private key.
+
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| pk | Bytes |Public key |
+| pk | [Bytes](#scalar-bytes) | Public key |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| address | String | QRL Address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| address | [String](#scalar-string) | QRL Address |
 
 
 ## GetBalance
 
-```bash
+
+```shell
 # GetBalance Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
@@ -284,28 +398,49 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d '
 # GetBalance Response
 
 {
-  "balance": "80709233943462"
+  "balance": "53599233943462"
 }
 ```
+
+```python
+def getBalance(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBalance", json=payload)
+  response = QRLrequest.text
+  getBalance = json.loads(response)
+  jsonResponse = getBalance['balance']
+  return(jsonResponse)
+  pass
+
+getBalance("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
+
+
+# Response
+
+'0'
+```
+
 Get the balance of the given QRL address.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| balance | UInt64 | Balance in Shor |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| balance | [UInt64](#scalar-uint64) | Balance in Shor |
 
 ## GetBlock
 
-```bash
+```shell
 # GetBlock Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlock -d '
@@ -362,25 +497,43 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d '
 }
 ```
 
+```python
+def getBlock(header_hash):
+  import requests
+  import json
+  payload = {'header_hash': header_hash,}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBlock", json=payload)
+  response = QRLrequest.text
+  getBlockResp = json.loads(response)
+  jsonResponse = getBlockResp
+  return(jsonResponse)
+  pass
+
+
+getBlock("1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000")
+
+```
+
 Get block details for a given header hash.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| header\_hash | String | Block Header Hash |
+| header\_hash | [String](#scalar-string) | Block Header Hash |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| block | Block | Block Details |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| block | [Block](#scalar-block) | Block Details |
 
 ## GetBlockByNumber
 
-```bash
+
+```shell
 # GetBlockByNumber Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d '
@@ -436,25 +589,41 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d '
 }
 ```
 
+```python
+def getBlockByNumber(block_number):
+  import requests
+  import json
+  payload = {'block_number': block_number,}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetBlockByNumber", json=payload)
+  response = QRLrequest.text
+  getBlockByNumberResp = json.loads(response)
+  jsonResponse = getBlockByNumberResp
+  return(jsonResponse)
+  pass
+
+
+getBlockByNumber(150)
+```
+
 Get block details for a given block number.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| block\_number | UInt64 | Block Number |
+| block\_number | [UInt64](#scalar-uint64) | Block Number |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| block | Block | Block Details |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| block | [Block](#scalar-block) | Block Details |
 
 ## GetHeight
 
-```bash
+```shell
 # GetHeight Request
 
 curl -XGET http://127.0.0.1:5359/api/GetHeight
@@ -466,26 +635,39 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
 }
 ```
 
+```python
+def getHeight():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetHeight")
+  response = QRLrequest.text
+  heightResp = json.loads(response)
+  jsonResponse = heightResp['height']
+  return(jsonResponse)
+  pass
+
+getHeight()
+
+```
+
 Get current blockchain height.
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| height | UInt64 | Current Height of the blockchain |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| height | [UInt64](#scalar-uint64) | Current Height of the blockchain |
 
 ## GetNodeInfo
 
-```bash
+```shell
 # GetNodeInfo Request
 
 curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 
-```
 
-```bash
 # GetNodeInfo Response
 
 {
@@ -499,40 +681,81 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
 }
 ```
 
+```python
+def getNodeInfo():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetNodeInfo")
+  response = QRLrequest.text
+  nodeInfoResp = json.loads(response)
+  jsonResponse = nodeInfoResp
+  return(jsonResponse)
+  pass
+
+getNodeInfo()
+
+
+# Response
+
+{
+  'block_height': '126706', 
+  'network_id': 'The sleeper must awaken', 
+  'version': '1.1.6', 
+  'block_last_hash': '50bc0ada04055b9ee19d3e5a0086bddbfd039c7b3351d8c7851c0d170c000000', 
+  'num_connections': '15', 
+  'num_known_peers': '481', 
+  'uptime': '15835'
+}
+```
+
 Get QRL node information.
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| version | String | Node version |
-| num_connections | String | Number of connections to Node |
-| num_known_peers | String | Number of known peers |
-| uptime | String | Node Uptime in seconds |
-| block_height | String | Current block height |
-| block_last_hash | String | Block headerhash for last block |
-| network_id | String | Network ID |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| version | [String](#scalar-string) | Node version |
+| num_connections | [String](#scalar-string) | Number of connections to Node |
+| num_known_peers | [String](#scalar-string) | Number of known peers |
+| uptime | [String](#scalar-string) | Node Uptime in seconds |
+| block_height | [String](#scalar-string) | Current block height |
+| block_last_hash | [String](#scalar-string) | Block headerhash for last block |
+| network_id | [String](#scalar-string) | Network ID |
 
 ## GetOTS
 
-```bash
+```shell
 # GetOTS Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetOTS -d '
 {
   "address": "Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"
 }'
-```
 
-```bash
+
 # GetOTS Response
 
 {
   "ots_bitfield": ["Aw==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA==", "AA=="],
   "next_unused_ots_index": "2"
 }
+```
+```python
+def getOTS(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetOTS", json=payload)
+  response = QRLrequest.text
+  getOTSResp = json.loads(response)
+  jsonResponse = getOTSResp
+  return(jsonResponse)
+  pass
+
+getOTS("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
+
 ```
 
 Get OTS bitfield and next unused OTS key index for a given QRL address.
@@ -541,20 +764,21 @@ Get OTS bitfield and next unused OTS key index for a given QRL address.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| ots\_bitfield | byte[][] | Ots bitfield data. Each 0 bit represent the ots key index is unused, while 1 indicates the ots key index has been used. |
-| next\_unused\_ots\_index | UInt64 | Next Unused OTS Index |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| ots\_bitfield | [byte](#scalar-byte) | Ots bitfield data. Each 0 bit represent the ots key index is unused, while 1 indicates the ots key index has been used. |
+| next\_unused\_ots\_index | [UInt64](#scalar-uint64) | Next Unused OTS Index |
 
 ## GetRecoverySeeds
 
-```bash
+
+```shell
 # GetRecoverySeeds Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d '
@@ -572,35 +796,49 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d '
 
 ```
 
+```python
+def getRecoverySeeds(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetRecoverySeeds", json=payload)
+  response = QRLrequest.text
+  recoverySeedResp = json.loads(response)
+  jsonResponse = recoverySeedResp
+  return(jsonResponse)
+  pass
+
+getRecoverySeeds("Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25")
+```
+
 Get hexseeds and mnemonic seeds for an address exist into wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| hexseed | String | Hexseed for the given address |
-| mnemonic | String | Mnemonic words for the given address |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| hexseed | [String](#scalar-string) | Hexseed for the given address |
+| mnemonic | [String](#scalar-string) | Mnemonic words for the given address |
 
 ## GetTransaction
 
-```bash
+```shell
 # GetTransaction Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
 {
   "tx_hash": "931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc"
 }'
-```
 
-```bash
+
 # GetTransaction Response
 
 {
@@ -619,26 +857,58 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d '
 }
 ```
 
+```python
+def getTransaction(tx_hash):
+  import requests
+  import json
+  payload = {'tx_hash': tx_hash}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetTransaction", json=payload)
+  response = QRLrequest.text
+  getTransactionByAddressResp = json.loads(response)
+  jsonResponse = getTransactionByAddressResp
+  return(jsonResponse)
+  pass
+
+getTransaction("931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc")
+
+# Response
+{
+  'confirmations': '126173', 
+  'block_number': '550', 
+  'block_header_hash': '1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000', 
+  'tx':{
+    'coinbase':{
+        'addr_to': 'Q0106001d34628da087339ddd650a843e131fa4a3f3b107e9b6222d609f6dad3860b4798cc5b361', 
+        'amount': '6656741376'
+    }, 
+  'nonce': '551', 
+  'transaction_hash': '931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc', 
+  'master_addr': 'Q0000000000000000000000000000000000000000000000000000000000000000'
+  }
+}
+
+```
+
 Get transaction details for a given transaction hash with number of confirmations if any.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| tx\_hash | String | Transaction hash |
+| tx\_hash | [String](#scalar-string) | Transaction hash |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Transaction Details |
-| confirmations | Uint64 | The number of confirmations if any |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Transaction Details |
+| confirmations | [UInt64](#scalar-uint64) | The number of confirmations if any |
 
 ## GetTransactionsByAddress
 
-```bash
+```shell
 # GetTransactionsByAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
@@ -666,26 +936,42 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d '
 }
 ```
 
+```python
+def getTransactionsByAddress(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/GetTransactionsByAddress", json=payload)
+  response = QRLrequest.text
+  getTransactionByAddressResp = json.loads(response)
+  jsonResponse = getTransactionByAddressResp
+  return(jsonResponse)
+  pass
+
+getTransactionsByAddress("Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e")
+
+```
+
 Get transactions hash and  other details for a given address.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL address |
+| address | [String](#scalar-string) | QRL address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| mini_transactions | MiniTransaction[] | List of MiniTransations which includes, transaction_hash, amount and out.|
-| balance | Uint64 | Total balance |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| mini_transactions | MiniTransaction | List of MiniTransations which includes, transaction_hash, amount and out.|
+| balance | [UInt64](#scalar-uint64) | Total balance |
 
 ## GetWalletInfo
 
-```bash
+```shell
 # GetWalletInfo Request
 
 curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
@@ -700,35 +986,72 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
 }
 ```
 
+```python
+def getWalletInfo():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetWalletInfo")
+  response = QRLrequest.text
+  walletLSResp = json.loads(response)
+  jsonResponse = walletLSResp
+  return(jsonResponse)
+  pass
+
+getWalletInfo()
+
+```
+
+
 Get wallet information.
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| version | Uint32 | Wallet version number |
-| address\_count | Uint64 | Number of addresses into the wallet |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| version | [UInt32](#scalar-uint32) | Wallet version number |
+| address\_count | [UInt64](#scalar-uint64) | Number of addresses into the wallet |
 | is\_encrypted | Boolean | True if wallet is already encryptedFalse if wallet is not encrypted |
 
 ## IsValidAddress
 
-```bash
+```shell
 # IsValidAddress Request
 
 curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d '
 {
   "address": "Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76"
 }'
-```
 
-```bash
+
 # IsValidAddress Response
 
 {
   "valid": "True"
 }
+```
+
+
+```python
+def getWalletInfo(address):
+  import requests
+  import json
+  payload = {'address': address}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/IsValidAddress", json=payload)
+  response = QRLrequest.text
+  walletInfoResp = json.loads(response)
+  jsonResponse = walletInfoResp
+  return(jsonResponse)
+  pass
+
+getWalletInfo("Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76")
+
+
+# Response
+
+{'valid': 'True'}
+
 ```
 
 Checks if a given QRL Address is valid.
@@ -737,19 +1060,19 @@ Checks if a given QRL Address is valid.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL Address |
+| address | [String](#scalar-string) | QRL Address |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| valid | String | Returns True for valid QRL address otherwise False. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| valid | [String](#scalar-string) | Returns True for valid QRL address otherwise False. |
 
 ## ListAddresses
 
-```bash
+```shell
 # ListAddresses Request
 
 curl -XGET http://127.0.0.1:5359/api/ListAddresses
@@ -761,19 +1084,44 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
 }
 ```
 
+```python
+def listAddresses():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/ListAddresses")
+  response = QRLrequest.text
+  listAddressesResp = json.loads(response)
+  jsonResponse = listAddressesResp
+  return(jsonResponse)
+  pass
+
+
+listAddresses()
+
+## Response
+
+{
+  'addresses': [
+    'Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25', 
+    'Q0105005e6f4e2e95e77fde716e5defb23c4b7cb23124ab6966c9af5adc0ea9f26a12ce67f8c4ed'
+  ]
+}
+```
+
+
 List all addresses into the wallet.
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| addresses | String[] | Return list of addresses added into your wallet |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| addresses | [String](#scalar-string) | Return list of addresses added into your wallet |
 
 ## LockWallet
 
-```bash
+```shell
 # LockWallet Request
 
 curl -XGET http://127.0.0.1:5359/api/LockWallet
@@ -784,18 +1132,28 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 {}
 ```
 
+```python
+def lockWallet():
+  import requests
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/LockWallet")
+  response = QRLrequest.text
+  return(response)
+
+lockWallet()
+```
+
 Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 ## RelayMessageTxn
 
-```bash
+```shell
 # RelayMessageTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
@@ -805,9 +1163,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 11
 }'
-```
 
-```bash
 # RelayMessageTxn Response
 
 {
@@ -824,29 +1180,46 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d '
 }
 ```
 
+```python
+def relayMessageTxn(message, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'message': message, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayMessageTxn", json=payload)
+  response = QRLrequest.text
+  relayMessageTxnResp = json.loads(response)
+  jsonResponse = relayMessageTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("Hello World!!!", 1000000000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 11)
+
+```
+
 Creates the signed message transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| message | String | String Message of maximum 80 bytes. |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | String | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | UInt64 | One Time Signature Index to be used to sign the transaction. |
+| message | [String](#scalar-string) | String Message of maximum 80 bytes. |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayMessageTxnBySlave
  
-```bash
+```shell
 # RelayMessageTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
@@ -855,9 +1228,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
   "fee": 1000000000,
   "master_address": "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"
 }'
-```
 
-```bash
 # RelayMessageTxnBySlave Response
 
 {
@@ -875,28 +1246,46 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d '
 }
 ```
 
+```python
+def relayMessageTxnBySlave(message, fee, master_address):
+  import requests
+  import json
+  payload = {'message': message, 'fee': fee, 'master_address': master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayMessageTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayMessageTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayMessageTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("Hello World!!!", 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+
+
+```
+
 Creates the signed message transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| message | String | String Message of maximum 80 bytes. |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| message | [String](#scalar-string) | String Message of maximum 80 bytes. |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelaySlaveTxn
 
-```bash
+```shell
 # RelaySlaveTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
@@ -907,9 +1296,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 16
 }'
-```
 
-```bash
 # RelaySlaveTxn Response
 
 {
@@ -931,6 +1318,24 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
 }
 ```
 
+```python
+
+def relaySlaveTxn(slave_pks, access_types, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'slave_pks': [slave_pks], 'access_types': [access_types], 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelaySlaveTxn", json=payload)
+  response = QRLrequest.text
+  relaySlaveTxnResp = json.loads(response)
+  jsonResponse = relaySlaveTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayMessageTxn("AQYAPYdez4/TrVmOUecaVLlpZnn1a+ltrfzMPCtQnhZzBtBxEEmp4/Qk199XQs0NMRcttHJ3JSI4qs5XSxEUKbXzWQ==", 0, 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 16)
+
+
+```
 
 Creates the signed slave transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
@@ -939,27 +1344,25 @@ Creates the signed slave transaction and relay it to the network. Signer address
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| slave\_pks | Bytes[] | List of Base64 encoded Public Keys which are allowed to act as slave |
-| access\_types | UInt64[] | Current supported access\_type is 0 |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | String | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | UInt64 | One Time Signature Index to be used to sign the transaction. |
+| slave\_pks | [Bytes](#scalar-bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
+| access\_types | [UInt64](#scalar-uint64) | Current supported access\_type is 0 |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelaySlaveTxnBySlave
 
 
-**Request**
-
-```bash
+```shell
 # RelaySlaveTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
@@ -973,7 +1376,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
 
 **Response**
 
-```bash
+```shell
 # RelaySlaveTxnBySlave Response
 
 {
@@ -996,29 +1399,35 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
 }
 ```
 
+```python
+
+```
+
+
 Creates the signed slave transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
 
+
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| slave\_pks | Bytes[] | List of Base64 encoded Public Keys which are allowed to act as slave |
-| access\_types | UInt64[] | Current supported access\_type is 0 |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| slave\_pks | [Bytes](#scalar-bytes) | List of Base64 encoded Public Keys which are allowed to act as slave |
+| access\_types | [UInt64](#scalar-uint64) | Current supported access\_type is 0 |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTokenTxn
 
-```bash
+```shell
 # RelayTokenTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
@@ -1033,9 +1442,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
   "signer_address": "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b",
   "ots_index": 12
 }'
-```
 
-```bash
+
 # RelayTokenTxn Response
 
 {
@@ -1065,36 +1473,40 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d '
 }
 ```
 
+```python
+
+```
+
 Creates the signed token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| symbol | String | Symbol of the token |
-| name | String | Name of the token |
-| owner | String | QRL Address of the token owner |
-| decimals | UInt64 | Maximum supported decimals |
-| addresses | String[] | List of address to whom initial token will be assigned |
-| amounts | UInt64[] | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | String | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | UInt64 | One Time Signature Index to be used to sign the transaction. |
+| symbol | [String](#scalar-string) | Symbol of the token |
+| name | [String](#scalar-string) | Name of the token |
+| owner | [String](#scalar-string) | QRL Address of the token owner |
+| decimals | [UInt64](#scalar-uint64) | Maximum supported decimals |
+| addresses | [String](#scalar-string) | List of address to whom initial token will be assigned |
+| amounts | [UInt64](#scalar-uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTokenTxnBySlave
 
-```bash
+```shell
 #  RelayTokenTxnBySlave Request
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 {
@@ -1109,9 +1521,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 }'
 ```
 
-**Response**
-
-```bash
+```shell
  # RelayTokenTxnBySlave Response
 {
   "tx":{
@@ -1141,33 +1551,48 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d '
 }
 ```
 
+```python
+def relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee, master_address):
+  import requests
+  import json
+  payload = {'symbol': symbol, 'name': name, 'owner': owner, 'decimals': decimals, 'addresses': '['addresses']', 'amounts' '['amounts']' , 'fee' fee, 'master_address' master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTokenTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayTokenTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayTokenTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee, master_address)
+```
+
 Creates the signed token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| symbol | String | Symbol of the token |
-| name | String | Name of the token |
-| owner | String | QRL Address of the token owner |
-| decimals | UInt64 | Maximum supported decimals |
-| addresses | String[] | List of address to whom initial token will be assigned |
-| amounts | UInt64[] | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| symbol | [String](#scalar-string) | Symbol of the token |
+| name | [String](#scalar-string) | Name of the token |
+| owner | [String](#scalar-string) | QRL Address of the token owner |
+| decimals | [UInt64](#scalar-uint64) | Maximum supported decimals |
+| addresses | [String](#scalar-string) | List of address to whom initial token will be assigned |
+| amounts | [UInt64](#scalar-uint64) | List of amounts of token to be assigned to addresses. Must be in same order as of addresses |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTransferTxn
 
-```bash
+```shell
 # RelayTransferTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
@@ -1180,7 +1605,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTxn Response
 
 {
@@ -1204,31 +1629,47 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d '
 }
 ```
 
+
+
+```python
+def relayTransferTxn(addresses_to, amounts, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'addresses_to': '['addresses_to']', 'amounts' '[' amounts ']' , 'fee' fee, 'signer_address' signer_address, 'ots_index' ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTransferTxn", json=payload)
+  response = QRLrequest.text
+  relayTransferTxnResp = json.loads(response)
+  jsonResponse = relayTransferTxnResp
+  return(jsonResponse)
+  pass
+```
+
 Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. 
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| addresses\_to | String[] | List of receiver&#39;s address |
-| amounts | UInt64[] | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | String | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | UInt64 | One Time Signature Index to be used to sign the transaction. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayTransferTxnBySlave
 
 
-```bash
+
+```shell
 # RelayTransferTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
@@ -1240,7 +1681,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTxnBySlave Response
 
 {
@@ -1265,6 +1706,21 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d '
 }
 ```
 
+```python
+def relayTransferTxnBySlave(addresses_to, amounts, fee, master_address,):
+  import requests
+  import json
+  payload = {'addresses_to': '['addresses_to']', 'amounts' '['amounts']' , 'fee' fee, 'master_address' master_address }
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/RelayTransferTxnBySlave", json=payload)
+  response = QRLrequest.text
+  relayTransferTxnBySlaveResp = json.loads(response)
+  jsonResponse = relayTransferTxnBySlaveResp
+  return(jsonResponse)
+  pass
+
+relayTransferTxnBySlave('"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"', '1000000000, 10000000000', 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")  
+```
+
 
 Creates the signed transfer transaction using one of the slaves and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100. 
 
@@ -1272,22 +1728,23 @@ Creates the signed transfer transaction using one of the slaves and relay it to 
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| addresses\_to | String[] | List of receiver&#39;s address |
-| amounts | UInt64[] | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of amounts in Shor to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RelayTransferTokenTxn
 
-```bash
+
+```shell
 # RelayTransferTokenTxn Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
@@ -1302,7 +1759,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 ```
 
 
-```bash
+```shell
 # RelayTransferTokenTxn Response
 
 {
@@ -1325,33 +1782,50 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 }
 ```
 
+```python
+def relayTransferTokenTxn(addresses_to, amounts, token_txhash, fee, signer_address, ots_index):
+  import requests
+  import json
+  payload = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/TransferTokenTxn", json=payload)
+  response = QRLrequest.text
+  relayTransferTokenTxnResp = json.loads(response)
+  jsonResponse = relayTransferTokenTxnResp
+  return(jsonResponse)
+  pass
+
+
+relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
+
+```
+
 Creates the signed transfer token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| token\_txhash | String | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
-| addresses\_to | String[] | List of receiver&#39;s address |
-| amounts | UInt64[] | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
-| signer\_address | String | QRL Address signing the transaction. QRL Address must be already added into wallet. |
-| ots\_index | UInt64 | One Time Signature Index to be used to sign the transaction. |
+| token\_txhash | [String](#scalar-string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | This is an optional field, only need to be filled with QRL address, if the transaction is signed from slave address. |
+| signer\_address | [String](#scalar-string) | QRL Address signing the transaction. QRL Address must be already added into wallet. |
+| ots\_index | [UInt64](#scalar-uint64) | One Time Signature Index to be used to sign the transaction. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 
 ## RelayTransferTokenTxnBySlave
 
 
-```bash
+```shell
 # RelayTransferTokenTxnBySlave Request
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
@@ -1364,7 +1838,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
 }'
 ```
 
-```bash
+```shell
 # RelayTransferTokenTxnBySlave Response
 {
   "tx":{
@@ -1387,29 +1861,54 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d '
 }
 ```
 
+```python
+def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, master_address):
+  import requests
+  import json
+  a = json.dumps(addresses_to)
+  am = json.dumps(amounts)
+  tt = token_txhash
+  f = fee
+  w = signer_address
+  o = ots_index
+  p = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
+  r = requests.post("http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave", json=p)
+  y = r.text
+  relayTokenTxResp = json.loads(y)
+  resp = relayTokenTxResp
+  return(resp)
+  pass
+
+
+relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+
+```
+
+
 Creates the signed transfer token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| token\_txhash | String | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
-| addresses\_to | String[] | List of receiver&#39;s address |
-| amounts | UInt64[] | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
-| fee | UInt64 | Transaction Fee in Shor |
-| master\_address | String | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
+| token\_txhash | [String](#scalar-string) | Token transaction hash is the transaction hash by which the token has been created. This is used to uniquely identify each created token in QRL network. |
+| addresses\_to | [String](#scalar-string) | List of receiver&#39;s address |
+| amounts | [UInt64](#scalar-uint64) | List of Amounts to be received by receiver. Must be in same order as of addresses\_to |
+| fee | [UInt64](#scalar-uint64) | Transaction Fee in Shor |
+| master\_address | [String](#scalar-string) | QRL address whose slave will be signing the transaction. QRL Address must exist into wallet. |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
-| tx | Transaction | Return the transaction that has been relayed to the network. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
+| tx  | [Transaction](#scalar-transaction) | Return the transaction that has been relayed to the network. |
 
 ## RemoveAddress
 
-```bash
+
+```shell
 # RemoveAddress Request 
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
@@ -1423,26 +1922,30 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
 {}
 ```
 
+```python
+
+```
+
 Removes the address from the wallet.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| address | String | QRL address to be removed from the wallet |
+| address | [String](#scalar-string) | QRL address to be removed from the wallet |
 
 **Response**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
 
 ## UnlockWallet
 
 
-```bash
+```shell
 # UnlockWallet Request
 
 curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d '
@@ -1457,13 +1960,28 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d '
 {}
 ```
 
+```python
+def unlockWallet(passphrase):
+  import requests
+  import json
+  payload = {'passphrase': passphrase}
+  QRLrequest = requests.post("http://127.0.0.1:5359/api/UnlockWallet", json=payload)
+  response = QRLrequest.text
+  unlockWalletResp = json.loads(response)
+  jsonResponse = unlockWalletResp
+  return(jsonResponse)
+  pass
+
+unlockWallet("demo123") 
+```
+
 Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.
 
 **Request**
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| passphrase | String | Passphrase to unlock the wallet |
+| passphrase | [String](#scalar-string) | Passphrase to unlock the wallet |
 
 
 
@@ -1471,6 +1989,6 @@ Unlocks the wallet and the passphrase is kept into the memory of wallet daemon.
 
 | **Parameter** | **Type** | **Description** |
 | --- | --- | --- |
-| code | UInt32 | Error Code. Only appears if any exception is triggered. |
-| error | String | Error Message. Only appears if any exception is triggered. |
+| code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
+| error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 
