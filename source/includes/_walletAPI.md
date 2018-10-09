@@ -193,7 +193,7 @@ def addNewAddressWithSlaves(height, number_of_slaves, hash_function):
   return(jsonResponse)
 
 # Add address with height 18, and 100 slaves using sha2_256
-addNewAddressWithSlaves(18, 100, "sha2_256")
+addNewAddressWithSlaves(10, 100, "sha2_256")
 
 # Response
 
@@ -221,7 +221,6 @@ Adds new randomly generated address to the wallet with slaves. Height, Number of
 | address | [String](#scalar-string) | Return the newly added QRL address |
 
 ## ChangePassphrase
-
 
 
 ```shell
@@ -1304,7 +1303,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
 def relaySlaveTxn(slave_pks, access_types, fee, signer_address, ots_index):
   import requests
   import json
-  payload = {'slave_pks': [slave_pks], 'access_types': [access_types], 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
+  payload = {'slave_pks': '['slave_pks']', 'access_types': '['access_types']', 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
   QRLrequest = requests.post("http://127.0.0.1:5359/api/RelaySlaveTxn", json=payload)
   response = QRLrequest.text
   relaySlaveTxnResp = json.loads(response)
@@ -1620,6 +1619,8 @@ def relayTransferTxn(addresses_to, amounts, fee, signer_address, ots_index):
   relayTransferTxnResp = json.loads(response)
   jsonResponse = relayTransferTxnResp
   return(jsonResponse)
+
+relayTransferTxn(["Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"], ["1000000000", "10000000000"], "1000000000", Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b, 4)
 ```
 
 Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. 
@@ -1763,7 +1764,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 def relayTransferTokenTxn(addresses_to, amounts, token_txhash, fee, signer_address, ots_index):
   import requests
   import json
-  payload = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  payload = {'addresses_to': '['addresses_to']', 'amounts': '['amounts']', 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
   QRLrequest = requests.post("http://127.0.0.1:5359/api/TransferTokenTxn", json=payload)
   response = QRLrequest.text
   relayTransferTokenTxnResp = json.loads(response)
@@ -1771,7 +1772,7 @@ def relayTransferTokenTxn(addresses_to, amounts, token_txhash, fee, signer_addre
   return(jsonResponse)
 
 
-relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
+relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", "10000", "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
 
 ```
 
@@ -1847,7 +1848,7 @@ def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, maste
   f = fee
   w = signer_address
   o = ots_index
-  p = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
+  p = {'addresses_to': '['addresses_to']', 'amounts': '['amounts']', 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
   r = requests.post("http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave", json=p)
   y = r.text
   relayTokenTxResp = json.loads(y)
@@ -1856,7 +1857,7 @@ def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, maste
   pass
 
 
-relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", "10000", "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
 
 ```
 
