@@ -126,7 +126,6 @@ def addNewAddress():
   NewAddressResp = json.loads(response)
   jsonResponse = NewAddressResp
   return(jsonResponse)
-  pass
 
 
 addNewAddress()
@@ -192,10 +191,9 @@ def addNewAddressWithSlaves(height, number_of_slaves, hash_function):
   addNewAddressWithSlavesResp = json.loads(response)
   jsonResponse = addNewAddressWithSlavesResp
   return(jsonResponse)
-  pass
 
 # Add address with height 18, and 100 slaves using sha2_256
-addNewAddressWithSlaves(18, 100, "sha2_256")
+addNewAddressWithSlaves(10, 100, "sha2_256")
 
 # Response
 
@@ -225,7 +223,6 @@ Adds new randomly generated address to the wallet with slaves. Height, Number of
 ## ChangePassphrase
 
 
-
 ```shell
 # ChangePassphrase Request
 
@@ -250,7 +247,6 @@ def changePassphrase(oldPassphrase, newPassphrase):
   lockWalletResp = json.loads(response)
   jsonResponse = lockWalletResp
   return(jsonResponse)
-  pass
 
 changePassphrase(demo123, demo234) 
 
@@ -304,7 +300,6 @@ def encryptWallet(passphrase):
   encryptWalletResp = json.loads(response)
   jsonResponse = encryptWalletResp
   return(jsonResponse)
-  pass
 
 encryptWallet("test123")
 
@@ -356,7 +351,6 @@ def getAddressFromPK(pk):
   getAddressFromPKResp = json.loads(response)
   jsonResponse = getAddressFromPKResp
   return(jsonResponse)
-  pass
 
 getAddressFromPK("01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e")
 
@@ -412,7 +406,6 @@ def getBalance(address):
   getBalance = json.loads(response)
   jsonResponse = getBalance['balance']
   return(jsonResponse)
-  pass
 
 getBalance("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
 
@@ -507,7 +500,6 @@ def getBlock(header_hash):
   getBlockResp = json.loads(response)
   jsonResponse = getBlockResp
   return(jsonResponse)
-  pass
 
 
 getBlock("1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000")
@@ -599,7 +591,6 @@ def getBlockByNumber(block_number):
   getBlockByNumberResp = json.loads(response)
   jsonResponse = getBlockByNumberResp
   return(jsonResponse)
-  pass
 
 
 getBlockByNumber(150)
@@ -644,7 +635,6 @@ def getHeight():
   heightResp = json.loads(response)
   jsonResponse = heightResp['height']
   return(jsonResponse)
-  pass
 
 getHeight()
 
@@ -690,7 +680,6 @@ def getNodeInfo():
   nodeInfoResp = json.loads(response)
   jsonResponse = nodeInfoResp
   return(jsonResponse)
-  pass
 
 getNodeInfo()
 
@@ -752,7 +741,6 @@ def getOTS(address):
   getOTSResp = json.loads(response)
   jsonResponse = getOTSResp
   return(jsonResponse)
-  pass
 
 getOTS("Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673")
 
@@ -806,7 +794,6 @@ def getRecoverySeeds(address):
   recoverySeedResp = json.loads(response)
   jsonResponse = recoverySeedResp
   return(jsonResponse)
-  pass
 
 getRecoverySeeds("Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25")
 ```
@@ -867,7 +854,6 @@ def getTransaction(tx_hash):
   getTransactionByAddressResp = json.loads(response)
   jsonResponse = getTransactionByAddressResp
   return(jsonResponse)
-  pass
 
 getTransaction("931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc")
 
@@ -946,7 +932,6 @@ def getTransactionsByAddress(address):
   getTransactionByAddressResp = json.loads(response)
   jsonResponse = getTransactionByAddressResp
   return(jsonResponse)
-  pass
 
 getTransactionsByAddress("Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e")
 
@@ -995,7 +980,6 @@ def getWalletInfo():
   walletLSResp = json.loads(response)
   jsonResponse = walletLSResp
   return(jsonResponse)
-  pass
 
 getWalletInfo()
 
@@ -1043,7 +1027,6 @@ def getWalletInfo(address):
   walletInfoResp = json.loads(response)
   jsonResponse = walletInfoResp
   return(jsonResponse)
-  pass
 
 getWalletInfo("Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76")
 
@@ -1093,7 +1076,6 @@ def listAddresses():
   listAddressesResp = json.loads(response)
   jsonResponse = listAddressesResp
   return(jsonResponse)
-  pass
 
 
 listAddresses()
@@ -1190,7 +1172,6 @@ def relayMessageTxn(message, fee, signer_address, ots_index):
   relayMessageTxnResp = json.loads(response)
   jsonResponse = relayMessageTxnResp
   return(jsonResponse)
-  pass
 
 
 relayMessageTxn("Hello World!!!", 1000000000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 11)
@@ -1256,7 +1237,6 @@ def relayMessageTxnBySlave(message, fee, master_address):
   relayMessageTxnBySlaveResp = json.loads(response)
   jsonResponse = relayMessageTxnBySlaveResp
   return(jsonResponse)
-  pass
 
 
 relayMessageTxn("Hello World!!!", 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
@@ -1323,13 +1303,12 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d '
 def relaySlaveTxn(slave_pks, access_types, fee, signer_address, ots_index):
   import requests
   import json
-  payload = {'slave_pks': [slave_pks], 'access_types': [access_types], 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
+  payload = {'slave_pks': '['slave_pks']', 'access_types': '['access_types']', 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index }
   QRLrequest = requests.post("http://127.0.0.1:5359/api/RelaySlaveTxn", json=payload)
   response = QRLrequest.text
   relaySlaveTxnResp = json.loads(response)
   jsonResponse = relaySlaveTxnResp
   return(jsonResponse)
-  pass
 
 
 relayMessageTxn("AQYAPYdez4/TrVmOUecaVLlpZnn1a+ltrfzMPCtQnhZzBtBxEEmp4/Qk199XQs0NMRcttHJ3JSI4qs5XSxEUKbXzWQ==", 0, 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 16)
@@ -1561,7 +1540,6 @@ def relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee,
   relayTokenTxnBySlaveResp = json.loads(response)
   jsonResponse = relayTokenTxnBySlaveResp
   return(jsonResponse)
-  pass
 
 relayTokenTxnBySlave(symbol, name, owner, decimals, addresses, amounts, fee, master_address)
 ```
@@ -1641,7 +1619,8 @@ def relayTransferTxn(addresses_to, amounts, fee, signer_address, ots_index):
   relayTransferTxnResp = json.loads(response)
   jsonResponse = relayTransferTxnResp
   return(jsonResponse)
-  pass
+
+relayTransferTxn(["Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"], ["1000000000", "10000000000"], "1000000000", Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b, 4)
 ```
 
 Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. 
@@ -1716,7 +1695,6 @@ def relayTransferTxnBySlave(addresses_to, amounts, fee, master_address,):
   relayTransferTxnBySlaveResp = json.loads(response)
   jsonResponse = relayTransferTxnBySlaveResp
   return(jsonResponse)
-  pass
 
 relayTransferTxnBySlave('"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"', '1000000000, 10000000000', 1000000000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")  
 ```
@@ -1786,16 +1764,15 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d '
 def relayTransferTokenTxn(addresses_to, amounts, token_txhash, fee, signer_address, ots_index):
   import requests
   import json
-  payload = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
+  payload = {'addresses_to': '['addresses_to']', 'amounts': '['amounts']', 'token_txhash': token_txhash, 'fee': fee, 'signer_address': signer_address, 'ots_index': ots_index}
   QRLrequest = requests.post("http://127.0.0.1:5359/api/TransferTokenTxn", json=payload)
   response = QRLrequest.text
   relayTransferTokenTxnResp = json.loads(response)
   jsonResponse = relayTransferTokenTxnResp
   return(jsonResponse)
-  pass
 
 
-relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
+relayTransferTokenTxn("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", "10000", "b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522", 100000, "Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b", 14)
 
 ```
 
@@ -1871,7 +1848,7 @@ def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, maste
   f = fee
   w = signer_address
   o = ots_index
-  p = {'addresses_to': addresses_to, 'amounts': amounts, 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
+  p = {'addresses_to': '['addresses_to']', 'amounts': '['amounts']', 'token_txhash': token_txhash, 'fee': fee, 'master_address': master_address}
   r = requests.post("http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave", json=p)
   y = r.text
   relayTokenTxResp = json.loads(y)
@@ -1880,7 +1857,7 @@ def relayTransferTokenTxnBySlave(addresses_to, amounts, token_txhash, fee, maste
   pass
 
 
-relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", 10000, "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
+relayTransferTokenTxnBySlave("Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9", "10000", "0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c", 100000, "Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781")
 
 ```
 
@@ -1970,7 +1947,6 @@ def unlockWallet(passphrase):
   unlockWalletResp = json.loads(response)
   jsonResponse = unlockWalletResp
   return(jsonResponse)
-  pass
 
 unlockWallet("demo123") 
 ```

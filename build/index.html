@@ -6048,7 +6048,6 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress
   <span class="n">NewAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">NewAddressResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">addNewAddress</span><span class="p">()</span>
@@ -6138,10 +6137,9 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddressWithSlaves -d <span class="s1
   <span class="n">addNewAddressWithSlavesResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">addNewAddressWithSlavesResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="c"># Add address with height 18, and 100 slaves using sha2_256</span>
-<span class="n">addNewAddressWithSlaves</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"sha2_256"</span><span class="p">)</span>
+<span class="n">addNewAddressWithSlaves</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"sha2_256"</span><span class="p">)</span>
 
 <span class="c"># Response</span>
 
@@ -6221,7 +6219,6 @@ curl -XPOST http://127.0.0.1:5359/api/ChangePassphrase -d <span class="s1">'
   <span class="n">lockWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">lockWalletResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">changePassphrase</span><span class="p">(</span><span class="n">demo123</span><span class="p">,</span> <span class="n">demo234</span><span class="p">)</span> 
 
@@ -6293,7 +6290,6 @@ curl -XPOST http://127.0.0.1:5359/api/EncryptWallet -d <span class="s1">'
   <span class="n">encryptWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">encryptWalletResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">encryptWallet</span><span class="p">(</span><span class="s">"test123"</span><span class="p">)</span>
 
@@ -6360,7 +6356,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetAddressFromPK -d <span class="s1">'
   <span class="n">getAddressFromPKResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getAddressFromPKResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getAddressFromPK</span><span class="p">(</span><span class="s">"01020016ecb9f39b9f4275d5a49e232346a15ae2fa8c50a2927daeac189b8c5f2d18bc4e3983bd564298c49ae2e7fa6e28d4b954d8cd59398f1225b08d6144854aee0e"</span><span class="p">)</span>
 
@@ -6433,7 +6428,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetBalance -d <span class="s1">'
   <span class="n">getBalance</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBalance</span><span class="p">[</span><span class="s">'balance'</span><span class="p">]</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getBalance</span><span class="p">(</span><span class="s">"Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"</span><span class="p">)</span>
 
@@ -6548,7 +6542,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlock -d <span class="s1">'
   <span class="n">getBlockResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBlockResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">getBlock</span><span class="p">(</span><span class="s">"1a57bee559af234a157b0429e2d2e3b7b3013ae5a52fd092eeeb22201c000000"</span><span class="p">)</span>
@@ -6659,7 +6652,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetBlockByNumber -d <span class="s1">'
   <span class="n">getBlockByNumberResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getBlockByNumberResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">getBlockByNumber</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
@@ -6724,7 +6716,6 @@ curl -XGET http://127.0.0.1:5359/api/GetHeight
   <span class="n">heightResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">heightResp</span><span class="p">[</span><span class="s">'height'</span><span class="p">]</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getHeight</span><span class="p">()</span>
 
@@ -6780,7 +6771,6 @@ curl -XGET http://127.0.0.1:5359/api/GetNodeInfo
   <span class="n">nodeInfoResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">nodeInfoResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getNodeInfo</span><span class="p">()</span>
 
@@ -6877,7 +6867,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetOTS -d <span class="s1">'
   <span class="n">getOTSResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getOTSResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getOTS</span><span class="p">(</span><span class="s">"Q010600a9313090b8b7c63f55b1e98eb098d2a7a844ba283a1efc34c8da9fd68378365af3213673"</span><span class="p">)</span>
 
@@ -6954,7 +6943,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
   <span class="n">recoverySeedResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">recoverySeedResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getRecoverySeeds</span><span class="p">(</span><span class="s">"Q010500063bcadecc409dd914eec179e3a3cec6cbb7f4e35c7a6af274aa14b3b4349f55a3c2cc25"</span><span class="p">)</span>
 </code></pre>
@@ -7039,7 +7027,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransaction -d <span class="s1">'
   <span class="n">getTransactionByAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getTransactionByAddressResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getTransaction</span><span class="p">(</span><span class="s">"931c33d9fe1900d3f6093a951ce04e9da31380cdd7bf1f6e23c58c2c8eecdfbc"</span><span class="p">)</span>
 
@@ -7142,7 +7129,6 @@ curl -XPOST http://127.0.0.1:5359/api/GetTransactionsByAddress -d <span class="s
   <span class="n">getTransactionByAddressResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">getTransactionByAddressResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getTransactionsByAddress</span><span class="p">(</span><span class="s">"Q010500c66bf9e74721c58fd76dc945ac7c35a2e290c6653cc5e4a4fba762cf1254602437bf156e"</span><span class="p">)</span>
 
@@ -7215,7 +7201,6 @@ curl -XGET http://127.0.0.1:5359/api/GetWalletInfo
   <span class="n">walletLSResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">walletLSResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getWalletInfo</span><span class="p">()</span>
 
@@ -7279,7 +7264,6 @@ curl -XPOST http://127.0.0.1:5359/api/IsValidAddress -d <span class="s1">'
   <span class="n">walletInfoResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">walletInfoResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">getWalletInfo</span><span class="p">(</span><span class="s">"Q01080032f6456a56624c6ede775b4165acc640dd48f89a122ac5a69c6244ba08012c863568cb76"</span><span class="p">)</span>
 
@@ -7349,7 +7333,6 @@ curl -XGET http://127.0.0.1:5359/api/ListAddresses
   <span class="n">listAddressesResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">listAddressesResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">listAddresses</span><span class="p">()</span>
@@ -7461,7 +7444,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
   <span class="n">relayMessageTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayMessageTxnResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"Hello World!!!"</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
@@ -7563,7 +7545,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxnBySlave -d <span class="s1"
   <span class="n">relayMessageTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayMessageTxnBySlaveResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"Hello World!!!"</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>
@@ -7657,13 +7638,12 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <span class="k">def</span> <span class="nf">relaySlaveTxn</span><span class="p">(</span><span class="n">slave_pks</span><span class="p">,</span> <span class="n">access_types</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
-  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'slave_pks'</span><span class="p">:</span> <span class="p">[</span><span class="n">slave_pks</span><span class="p">],</span> <span class="s">'access_types'</span><span class="p">:</span> <span class="p">[</span><span class="n">access_types</span><span class="p">],</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span> <span class="p">}</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'slave_pks'</span><span class="p">:</span> <span class="s">'['</span><span class="n">slave_pks</span><span class="s">']'</span><span class="p">,</span> <span class="s">'access_types'</span><span class="p">:</span> <span class="s">'['</span><span class="n">access_types</span><span class="s">']'</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span> <span class="p">}</span>
   <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelaySlaveTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">relaySlaveTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relaySlaveTxnResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
 <span class="n">relayMessageTxn</span><span class="p">(</span><span class="s">"AQYAPYdez4/TrVmOUecaVLlpZnn1a+ltrfzMPCtQnhZzBtBxEEmp4/Qk199XQs0NMRcttHJ3JSI4qs5XSxEUKbXzWQ=="</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
@@ -8010,7 +7990,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxnBySlave -d <span class="s1">'
   <span class="n">relayTokenTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTokenTxnBySlaveResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">relayTokenTxnBySlave</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">decimals</span><span class="p">,</span> <span class="n">addresses</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">master_address</span><span class="p">)</span>
 </code></pre>
@@ -8132,7 +8111,8 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
   <span class="n">relayTransferTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTxnResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
+
+<span class="n">relayTransferTxn</span><span class="p">([</span><span class="s">"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd"</span><span class="p">,</span> <span class="s">"Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"</span><span class="p">],</span> <span class="p">[</span><span class="s">"1000000000"</span><span class="p">,</span> <span class="s">"10000000000"</span><span class="p">],</span> <span class="s">"1000000000"</span><span class="p">,</span> <span class="n">Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </code></pre>
 <p>Creates the signed transfer transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet. </p>
 
@@ -8242,7 +8222,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxnBySlave -d <span class="s1
   <span class="n">relayTransferTxnBySlaveResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTxnBySlaveResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">relayTransferTxnBySlave</span><span class="p">(</span><span class="s">'"Q01050065b6caa35f315ae595d3a3bd4f619b18905d5354b87ec96d04bb8becaf826904371490cd", "Q0105003a35ea0d30b1dc12ebc27bd75aa8823f97c621c36e5ef6f615050573eb0afb6dda7a2575"'</span><span class="p">,</span> <span class="s">'1000000000, 10000000000'</span><span class="p">,</span> <span class="mi">1000000000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>  
 </code></pre>
@@ -8338,16 +8317,15 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 </code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">relayTransferTokenTxn</span><span class="p">(</span><span class="n">addresses_to</span><span class="p">,</span> <span class="n">amounts</span><span class="p">,</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="n">signer_address</span><span class="p">,</span> <span class="n">ots_index</span><span class="p">):</span>
   <span class="kn">import</span> <span class="nn">requests</span>
   <span class="kn">import</span> <span class="nn">json</span>
-  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="n">addresses_to</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="n">amounts</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span><span class="p">}</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="s">'['</span><span class="n">addresses_to</span><span class="s">']'</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="s">'['</span><span class="n">amounts</span><span class="s">']'</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'signer_address'</span><span class="p">:</span> <span class="n">signer_address</span><span class="p">,</span> <span class="s">'ots_index'</span><span class="p">:</span> <span class="n">ots_index</span><span class="p">}</span>
   <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/TransferTokenTxn"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
   <span class="n">relayTransferTokenTxnResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">relayTransferTokenTxnResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 
-<span class="n">relayTransferTokenTxn</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">relayTransferTokenTxn</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="s">"10000"</span><span class="p">,</span> <span class="s">"b83c82f71b44d3b080e2f511ae7097c67b9a80300414a8bd1d8b06c01cde8522"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q01050073e3a3f64c912b63b9e89ae1e0176b5a794f6c69cec07e59fa1d4d2322b1349ade09c68b"</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
 
 </code></pre>
 <p>Creates the signed transfer token transaction and relay it to the network. Signer address is used to sign the transaction and the signer address must exist into the wallet.</p>
@@ -8462,7 +8440,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
   <span class="n">f</span> <span class="o">=</span> <span class="n">fee</span>
   <span class="n">w</span> <span class="o">=</span> <span class="n">signer_address</span>
   <span class="n">o</span> <span class="o">=</span> <span class="n">ots_index</span>
-  <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="n">addresses_to</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="n">amounts</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span><span class="p">:</span> <span class="n">master_address</span><span class="p">}</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'addresses_to'</span><span class="p">:</span> <span class="s">'['</span><span class="n">addresses_to</span><span class="s">']'</span><span class="p">,</span> <span class="s">'amounts'</span><span class="p">:</span> <span class="s">'['</span><span class="n">amounts</span><span class="s">']'</span><span class="p">,</span> <span class="s">'token_txhash'</span><span class="p">:</span> <span class="n">token_txhash</span><span class="p">,</span> <span class="s">'fee'</span><span class="p">:</span> <span class="n">fee</span><span class="p">,</span> <span class="s">'master_address'</span><span class="p">:</span> <span class="n">master_address</span><span class="p">}</span>
   <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
   <span class="n">relayTokenTxResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -8471,7 +8449,7 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxnBySlave -d <span clas
   <span class="k">pass</span>
 
 
-<span class="n">relayTransferTokenTxnBySlave</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>
+<span class="n">relayTransferTokenTxnBySlave</span><span class="p">(</span><span class="s">"Q01060091aabafdc9569f4ddec95cbfbc5f10f871187777aabe375f16384dbfd7d3ba6922e566c9"</span><span class="p">,</span> <span class="s">"10000"</span><span class="p">,</span> <span class="s">"0e4d2eecba891334f78ff8f1eb0885af348a9b029e88f873e8eb05021273cb4c"</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="s">"Q010500aba127bfb010f63334fc772be860a8cfb4706d5d4c91b51d7fe1988bef4ce46db7974781"</span><span class="p">)</span>
 
 </code></pre>
 <p>Creates the signed transfer token transaction using one of the slave and relay it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
@@ -8609,7 +8587,6 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
   <span class="n">unlockWalletResp</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
   <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">unlockWalletResp</span>
   <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
-  <span class="k">pass</span>
 
 <span class="n">unlockWallet</span><span class="p">(</span><span class="s">"demo123"</span><span class="p">)</span> 
 </code></pre>
