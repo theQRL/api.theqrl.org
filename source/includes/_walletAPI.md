@@ -30,6 +30,12 @@ go build
 
 # Run the wallet-rest-proxy
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
+
+
+# Update the wallet-rest-proxy
+cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
+go get -u github.com/theQRL/walletd-rest-proxy
+go build
 ```
 
 Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
