@@ -817,6 +817,9 @@
                     <a href="#getrecoveryseeds" class="toc-h2 toc-link" data-title="GetRecoverySeeds">GetRecoverySeeds</a>
                   </li>
                   <li>
+                    <a href="#gettotalbalance" class="toc-h2 toc-link" data-title="GetTotalBalance">GetTotalBalance</a>
+                  </li>
+                  <li>
                     <a href="#gettransaction" class="toc-h2 toc-link" data-title="GetTransaction">GetTransaction</a>
                   </li>
                   <li>
@@ -5827,6 +5830,12 @@ go build
 
 <span class="c"># Run the wallet-rest-proxy</span>
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010<span class="sb">`</span>
+
+
+<span class="c"># Update the wallet-rest-proxy</span>
+<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/theQRL/walletd-rest-proxy
+go get -u github.com/theQRL/walletd-rest-proxy
+go build
 </code></pre>
 <p>Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. </p>
 
@@ -5939,6 +5948,11 @@ curl -XPOST http://127.0.0.1:5359/api/AddNewAddress -d <span class="s1">'{"heigh
 <td><a href="#getrecoveryseeds">GetRecoverySeeds</a></td>
 <td><a href="#getrecoveryseedsreq">GetRecoverySeedsReq</a></td>
 <td><a href="#getrecoveryseedsresp">GetRecoverySeedsResp</a></td>
+</tr>
+<tr>
+<td><a href="#gettotalbalance">GetTotalBalance</a></td>
+<td><a href="#gettotalbalancereq">GetTotalBalanceReq</a></td>
+<td><a href="#gettotalbalanceresp">GetTotalBalanceResp</a></td>
 </tr>
 <tr>
 <td><a href="#gettransaction">GetTransaction</a></td>
@@ -6992,6 +7006,56 @@ curl -XPOST http://127.0.0.1:5359/api/GetRecoverySeeds -d <span class="s1">'
 <td>mnemonic</td>
 <td><a href="#scalar-string">String</a></td>
 <td>Mnemonic words for the given address</td>
+</tr>
+</tbody></table>
+<h2 id='gettotalbalance'>GetTotalBalance</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetTotalBalance Request</span>
+
+curl -XGET http://127.0.0.1:5359/api/GetTotalBalance
+
+
+<span class="c"># GetTotalBalance Response</span>
+
+<span class="o">{</span>
+  <span class="s2">"balance"</span>: <span class="s2">"6000000000000"</span>
+<span class="o">}</span>
+
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">GetTotalBalance</span><span class="p">():</span>
+  <span class="kn">import</span> <span class="nn">requests</span>
+  <span class="kn">import</span> <span class="nn">json</span>
+  <span class="n">QRLrequest</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://127.0.0.1:5359/api/GetTotalBalance"</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">QRLrequest</span><span class="o">.</span><span class="n">text</span>
+  <span class="n">GetTotalBalance</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+  <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">GetTotalBalance</span>
+  <span class="k">return</span><span class="p">(</span><span class="n">jsonResponse</span><span class="p">)</span>
+
+
+<span class="n">GetTotalBalance</span><span class="p">()</span>
+</code></pre>
+<p>Get sum of balances of all the QRL addresses in Wallet.</p>
+
+<p><strong>Response</strong></p>
+
+<table><thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>UInt32</td>
+<td>Error Code. Only appears if any exception is triggered.</td>
+</tr>
+<tr>
+<td>error</td>
+<td>String</td>
+<td>Error Message. Only appears if any exception is triggered.</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>String</td>
+<td>Total Balance in Shor</td>
 </tr>
 </tbody></table>
 <h2 id='gettransaction'>GetTransaction</h2><pre class="highlight shell tab-shell"><code><span class="c"># GetTransaction Request</span>
