@@ -30,6 +30,12 @@ go build
 
 # Run the wallet-rest-proxy
 ./walletd-rest-proxy -serverIPPort 127.0.0.1:5359 -walletServiceEndpoint 127.0.0.1:19010`
+
+
+# Update the wallet-rest-proxy
+cd $GOPATH/src/github.com/theQRL/walletd-rest-proxy
+go get -u github.com/theQRL/walletd-rest-proxy
+go build
 ```
 
 Interfacing with the qrlWalletAPI is simple and straight forward. Follow the steps below to get started. This instruction set assumes you are installing on Ubuntu. 
@@ -82,6 +88,7 @@ Alternative parameters may be sent via `curl` by calling the `-d` flag and using
 | [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |
 | [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |
 | [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |
+| [GetTotalBalance](#gettotalbalance) | [GetTotalBalanceReq](#gettotalbalancereq) | [GetTotalBalanceResp](#gettotalbalanceresp) |
 | [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |
 | [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |
 | [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |
@@ -430,6 +437,7 @@ Get the balance of the given QRL address.
 | code | [UInt32](#scalar-uint32) | Error Code. Only appears if any exception is triggered. |
 | error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 | balance | [UInt64](#scalar-uint64) | Balance in Shor |
+
 
 ## GetBlock
 
@@ -814,6 +822,47 @@ Get hexseeds and mnemonic seeds for an address exist into wallet.
 | error | [String](#scalar-string) | Error Message. Only appears if any exception is triggered. |
 | hexseed | [String](#scalar-string) | Hexseed for the given address |
 | mnemonic | [String](#scalar-string) | Mnemonic words for the given address |
+
+## GetTotalBalance
+
+```shell
+# GetTotalBalance Request
+
+curl -XGET http://127.0.0.1:5359/api/GetTotalBalance
+
+
+# GetTotalBalance Response
+
+{
+  "balance": "6000000000000"
+}
+
+```
+
+```python
+def GetTotalBalance():
+  import requests
+  import json
+  QRLrequest = requests.get("http://127.0.0.1:5359/api/GetTotalBalance")
+  response = QRLrequest.text
+  GetTotalBalance = json.loads(response)
+  jsonResponse = GetTotalBalance
+  return(jsonResponse)
+
+
+GetTotalBalance()
+```
+
+Get sum of balances of all the QRL addresses in Wallet.
+
+**Response**
+
+| **Parameter** | **Type** | **Description** |
+| --- | --- | --- |
+| code | UInt32 | Error Code. Only appears if any exception is triggered. |
+| error | String | Error Message. Only appears if any exception is triggered. |
+| balance | String | Total Balance in Shor |
+
 
 ## GetTransaction
 
