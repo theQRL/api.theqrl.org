@@ -82,13 +82,13 @@ Alternative parameters may be sent via `curl` by calling the `-d` flag and using
 | [EncryptWallet](#encryptwallet) | [EncryptWalletReq](#encryptwalletreq) | [EncryptWalletResp](#encryptwalletresp) |  
 | [GetAddressFromPK](#getaddressfrom-pk) | [GetAddressFromPKReq](#addressfrompkreq) | [GetAddressFromPKResp](#addressfrompkresp) |
 | [GetBalance](#getbalance) | [BalanceReq](#balancereq) | [BalanceResp](#balanceresp) |
-| [GetTotalBalance](#gettotalbalance) | [GetTotalBalanceReq](#gettotalbalancereq) | [GetTotalBalanceResp](#gettotalbalanceresp) |
 | [GetBlock](#getblock) | [BlockReq](#blockreq) | [BlockResp](#blockresp) |
 | [GetBlockByNumber](#getblockbynumber) | [BlockByNumberReq](#blockbynumberreq) | [BlockResp](#blockbynumberresp) |
 | [GetHeight](#getheight) | [HeightReq](#heightreq) | [HeightResp](#heightresp) |
 | [GetNodeInfo](#getnodeinfo) | [GetNodeInfoReq](#nodeinforeq) | [GetNodeInfoResp](#nodeinforesp) |
 | [GetOTS](#getots) | [OTSReq](#otsreq) | [OTSResp](#otsresp) |
 | [GetRecoverySeeds](#getrecoveryseeds) | [GetRecoverySeedsReq](#getrecoveryseedsreq) | [GetRecoverySeedsResp](#getrecoveryseedsresp) |
+| [GetTotalBalance](#gettotalbalance) | [GetTotalBalanceReq](#gettotalbalancereq) | [GetTotalBalanceResp](#gettotalbalanceresp) |
 | [GetTransaction](#gettransaction) | [TransactionReq](#transactionreq) | [TransactionResp](#transactionresp) |
 | [GetTransactionsByAddress](#gettransactionsbyaddress) | [TransactionsByAddressReq](#transactionsbyaddressreq) | [ransactionsByAddressResp](#transactionsbyaddressresp) |
 | [GetWalletInfo](#getwalletinfo) | [GetWalletInfoReq](#getwalletinforeq) | [GetWalletInfoResp](#getwalletinforesp) |
