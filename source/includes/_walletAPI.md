@@ -13,7 +13,7 @@ The WalletAPI and Wallet Daemon now include automatic slave key transactions and
 
 ## Getting Started
 
-```shell
+```
 # Install qrl node Ubuntu
 apt update && apt upgrade -y
 apt-get -y install swig3.0 python3-dev python3-pip build-essential cmake pkg-config libssl-dev libffi-dev libhwloc-dev libboost-dev
