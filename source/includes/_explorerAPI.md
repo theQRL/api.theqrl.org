@@ -15,6 +15,14 @@ The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explor
 </aside>
 
 
-## 
+## Explorer API Methods
+
+| Method Name | Request Type | Response Type | 
+| ----------- | ------------ | ------------- | 
+| emission |  |  |
+| reward |  |  |
+| rewardshor |  |  |
+| blockheight |  |  |
+| status |  |  |
 
 
