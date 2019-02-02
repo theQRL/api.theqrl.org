@@ -19,7 +19,7 @@ The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explor
 
 | Method Name | Endpoint | Description | 
 | ----------- | ------------ | ------------- | 
-| [Block\#](#block#) |  |  |
+| [Block\#](#block_by_number) |  |  |
 | [Emission](#emission) | [/api/emission](https://explorer.theqrl.org/api/emission) | Get the total emission of coins to date  |
 | [reward](#reward) | [/api/reward](https://explorer.theqrl.org/api/reward) | Get the current payout reward value |
 | [rewardshor](#rewardshor) | [/api/rewardshor](https://explorer.theqrl.org/api/rewardshor) | Get the current reward in shor |
@@ -67,7 +67,7 @@ getEmission()
 Get the total QRL emission to date.
 
 
-## Block\#
+## Block By Number
 
 
 Get block details by number. 
