@@ -652,7 +652,7 @@ curl -XGET https://explorer.theqrl.org/api/emission
 
 {
 	"found":true,
-	"emission":67071768.975257985
+	"emission":67091254.15686654
 }
 ```
 
@@ -672,11 +672,13 @@ getEmission()
 # Response
 
 {
-   'emission': 67071775.286846995, 
+   'emission': 67091254.15686654, 
    'found': True
 }
 
 ```
+
+
 
 Get the total QRL emission to date.
 
@@ -692,6 +694,35 @@ Get the total QRL emission to date.
 | --- | --- | --- |
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Emission Details in JSON Response |
+
+```shell
+# Request
+
+curl -XGET https://explorer.theqrl.org/api/emission/text
+
+# Response
+
+67091254.15686654
+```
+
+```python
+def getEmissionText():
+  import requests
+  import json
+  request = requests.get("https://explorer.theqrl.org/api/emission/text")
+  response = request.text
+  getEmissionResp = json.loads(response)
+  jsonResponse = getEmissionResp
+  return(jsonResponse)
+
+
+getEmissionText()
+
+# Response
+
+67091254.15686654
+
+```
 
 <aside class="info">
 <strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
