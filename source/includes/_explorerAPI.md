@@ -729,6 +729,9 @@ getEmissionText()
 
 ```
 
+<aside class="info">
+<strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
+</aside>
 
 
 **Text Request**
