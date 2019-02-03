@@ -5,12 +5,6 @@
 The QRL block explorer has been built with an API endpoint to enable an easy way for developers to grab data from the QRL blockchain. This endpoint is limited in scope and may change in future iterations of the explorer.
 
 
-```
-# Default response is in JSON format
-# Append /text to the end of most requests to get a simple text response
-
-https://explorer.theqrl.org/api/{REQUEST}/text
-```
 
 <aside class="success">
 The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explorer.theQRL.org</a>. The API response can be either text or json depending on the developers needs. By default JSON is returned, simply append /text to the API query. Far an easy to read output use a browser add-on like Chrome's <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc">jsonview</a> and browse to the endpoint.
@@ -18,6 +12,13 @@ The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explor
 
 
 ## Explorer API Methods
+
+```
+# Default response is in JSON format
+# Append /text to the end of most requests to get a simple text response
+
+https://explorer.theqrl.org/api/{REQUEST}/text
+```
 
 | Method Name | Endpoint | Description | 
 | ----------- | ------------ | ------------- | 
