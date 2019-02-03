@@ -1,11 +1,13 @@
 # Explorer API 
 
+> The Explorer API queries the explorer node infrastructure and returns a response in either JSON or text. This is intended to simplify the process of developing tools for the QRL.
+
 The QRL block explorer has been built with an API endpoint to enable an easy way for developers to grab data from the QRL blockchain. This endpoint is limited in scope and may change in future iterations of the explorer.
 
 
 ```
 # Default response is in JSON format
-# Append /text to the end of any request to get plain text response
+# Append /text to the end of most requests to get a simple text response
 
 https://explorer.theqrl.org/api/{REQUEST}/text
 ```
