@@ -19,9 +19,9 @@ The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explor
 
 | Method Name | Endpoint | Description | 
 | ----------- | ------------ | ------------- | 
-| [Block](#block-by-number) | /api/block/{BLOCKNUMBER} | Get data from a specific block number |
-| [Transaction ](#transaction-by-hash) | /api/tx/{TRANSACTION} | Get data from a transaction by number |
-| [Address](#address-by-number) | /api/a/{QRL_ADDRESS} | Get data from an address |
+| [Block](#block-by-number) | [/api/block/#](#block-by-number) | Get data from a specific block number |
+| [Transaction ](#transaction-by-hash) | [/api/tx/](#transaction-by-hash) | Get data from a transaction by number |
+| [Address](#address-by-number) | [/api/a/](#address-by-number) | Get data from an address |
 | [Emission](#emission) | [/api/emission](https://explorer.theqrl.org/api/emission) | Get the total emission of coins to date  |
 | [reward](#reward) | [/api/reward](https://explorer.theqrl.org/api/reward) | Get the current payout reward value |
 | [rewardshor](#rewardshor) | [/api/rewardshor](https://explorer.theqrl.org/api/rewardshor) | Get the current reward in shor |
