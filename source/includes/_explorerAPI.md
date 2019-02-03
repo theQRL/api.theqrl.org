@@ -247,7 +247,7 @@ Get any block details by block number.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Block Details in JSON Response |
 
-<aside class="success">
+<aside class="info">
 <strong>Info:</strong> <em>/api/block/</em> requests will only return in JSON format. 
 Parse the response using json tools in a language of your choice. 
 </aside>
@@ -469,7 +469,7 @@ Get data from a transaction by number
 | json | Transaction Details in JSON Response |
 
 
-<aside class="success">
+<aside class="info">
 <strong>Info:</strong> <em>/api/tx/</em> requests will only return in JSON format. 
 Parse the response using json tools in a language of your choice. 
 </aside>
@@ -632,7 +632,7 @@ Get address data by number.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Address Details in JSON Response |
 
-<aside class="success">
+<aside class="info">
 <strong>Info:</strong> <em>/api/a/</em> requests will only return in JSON format. 
 Parse the response using json tools in a language of your choice. 
 </aside>
@@ -690,6 +690,23 @@ Get the total QRL emission to date.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Emission Details in JSON Response |
 
+<aside class="info">
+<strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
+</aside>
+
+**Text Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| emission/text | emission text request |
+
+
+**Text Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if any exception is triggered. |
+| text | Emission Details in simple TEXT Response |
 
 
 ## Reward
@@ -745,6 +762,23 @@ Get the current reward amount.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Current reward Details in JSON Response |
 
+<aside class="info">
+<strong>Info:</strong> <em>/api/reward</em> requests can return both JSON format as well as simple text. 
+</aside>
+
+**Text Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| reward/text | reward text request |
+
+
+**Text Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if any exception is triggered. |
+| text | Emission Details in simple TEXT Response |
 
 
 ## RewardShor
@@ -801,6 +835,25 @@ Get the current reward amount in shor.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Reward Details in shor JSON Response |
 
+<aside class="info">
+<strong>Info:</strong> <em>/api/rewardshor</em> requests can return both JSON format as well as simple text. 
+</aside>
+
+**Text Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| rewardshor/text | rewardshor text request |
+
+
+**Text Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if any exception is triggered. |
+| text | rewardshor Details in simple TEXT Response |
+
+
 ## Blockheight
 
 ```shell
@@ -854,9 +907,23 @@ Get the current Blockheight.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Blockheight Details in JSON Response |
 
+<aside class="info">
+<strong>Info:</strong> <em>/api/blockheight</em> requests can return both JSON format as well as simple text. 
+</aside>
+
+**Text Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| blockheight/text | rewardshor text request |
 
 
+**Text Response**
 
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if any exception is triggered. |
+| text | blockheight Details in simple TEXT Response |
 
 ## Network Status
 
@@ -1203,4 +1270,21 @@ getStatus()
 Get status of the blockchain including node details.
 
 
+**Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| status | Network status |
+
+**Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if any exception is triggered. |
+| json | status Details in JSON Response |
+
+<aside class="info">
+<strong>Info:</strong> <em>/api/status</em> requests will only return in JSON format. 
+Parse the response using json tools in a language of your choice. 
+</aside>
 
