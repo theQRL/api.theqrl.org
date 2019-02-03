@@ -643,6 +643,9 @@ Parse the response using json tools in a language of your choice.
 
 ## Emission
 
+> Json Response
+
+
 ```shell
 # Request
 
@@ -695,7 +698,7 @@ Get the total QRL emission to date.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Emission Details in JSON Response |
 
-> **Info:** */api/emission* requests can return both JSON format as well as simple text. 
+> Text Response
 
 ```shell
 # Request
