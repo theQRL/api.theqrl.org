@@ -35,6 +35,9 @@ https://explorer.theqrl.org/api/{REQUEST}/text
 
 ## Block By Number
 
+> Returns a json response
+
+
 ```shell
 # Request
 
@@ -258,6 +261,9 @@ Parse the response using json tools in a language of your choice.
 
 ## Transaction By Hash
 
+> Returns a json response
+
+
 ```shell
 # Request
 
@@ -480,6 +486,9 @@ Parse the response using json tools in a language of your choice.
 
 ## Address By Number
 
+> Returns a json response
+
+
 ```shell
 # Request
 
@@ -700,6 +709,10 @@ Get the total QRL emission to date.
 
 > Returns a text response
 
+<aside class="success">
+<strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
+</aside>
+
 ```shell
 # Request
 
@@ -728,10 +741,6 @@ getEmissionText()
 67091254.15686654
 
 ```
-
-<aside class="info">
-<strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
-</aside>
 
 
 **Text Request**
@@ -808,7 +817,7 @@ Get the current reward amount.
 
 > Returns a text response
 
-<aside class="info">
+<aside class="success">
 <strong>Info:</strong> <em>/api/reward</em> requests can return both JSON format as well as simple text. 
 </aside>
 
@@ -925,7 +934,7 @@ Get the current reward amount in shor.
 
 > Returns a text response
 
-<aside class="info">
+<aside class="success">
 <strong>Info:</strong> <em>/api/rewardshor</em> requests can return both JSON format as well as simple text. 
 </aside>
 
@@ -1040,7 +1049,7 @@ Get the current Blockheight.
 
 > Returns a text response
 
-<aside class="info">
+<aside class="success">
 <strong>Info:</strong> <em>/api/blockheight</em> requests can return both JSON format as well as simple text. 
 </aside>
 
