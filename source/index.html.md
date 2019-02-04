@@ -22,6 +22,7 @@ includes:
   - qrlstateinfo.proto
   - qrlwallet.proto
   - walletAPI
+  - explorerAPI
   - ScalarValueTypes
 #  - errors
 
