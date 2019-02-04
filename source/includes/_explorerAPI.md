@@ -643,7 +643,7 @@ Parse the response using json tools in a language of your choice.
 
 ## Emission
 
-> Json Response
+> Returns a json response
 
 
 ```shell
@@ -698,7 +698,7 @@ Get the total QRL emission to date.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Emission Details in JSON Response |
 
-> Text Response
+> Returns a text response
 
 ```shell
 # Request
@@ -751,6 +751,8 @@ getEmissionText()
 
 ## Reward
 
+> Returns a json response
+
 ```shell
 # Request
 
@@ -802,9 +804,52 @@ Get the current reward amount.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Current reward Details in JSON Response |
 
+
+
+> Returns a text response
+
 <aside class="info">
 <strong>Info:</strong> <em>/api/reward</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+
+```shell
+# Request
+
+curl -XGET https://explorer.theqrl.org/api/reward/text
+
+# Response
+
+{
+  "found":true,
+  "reward":6.311586903
+}
+
+```
+
+```python
+def getReward():
+  import requests
+  import json
+  request = requests.get("https://explorer.theqrl.org/api/reward/text")
+  response = request.text
+  getRewardResp = json.loads(response)
+  jsonResponse = getRewardResp
+  return(jsonResponse)
+
+
+getReward()
+
+# Response
+
+{
+  'reward': 6.311586903, 
+  'found': True
+}
+
+```
+
+
 
 **Text Request**
 
@@ -822,6 +867,8 @@ Get the current reward amount.
 
 
 ## RewardShor
+
+> Returns a json response
 
 ```shell
 # Request
@@ -875,9 +922,50 @@ Get the current reward amount in shor.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Reward Details in shor JSON Response |
 
+
+> Returns a text response
+
 <aside class="info">
 <strong>Info:</strong> <em>/api/rewardshor</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+
+```shell
+# Request
+
+curl -XGET https://explorer.theqrl.org/api/rewardshor/text
+
+# Response
+
+{
+  "found":true,
+  "reward":6311582702
+}
+
+```
+
+```python
+def getRewardShor():
+  import requests
+  import json
+  request = requests.get("https://explorer.theqrl.org/api/rewardshor/text")
+  response = request.text
+  getRewardShorResp = json.loads(response)
+  jsonResponse = getRewardShorResp
+  return(jsonResponse)
+
+
+getRewardShor()
+
+# Response
+
+{
+   'reward': 6311582702, 
+   'found': True
+}
+
+
+```
 
 **Text Request**
 
@@ -895,6 +983,8 @@ Get the current reward amount in shor.
 
 
 ## Blockheight
+
+> Returns a json response
 
 ```shell
 # Request
@@ -947,9 +1037,42 @@ Get the current Blockheight.
 | code | Error Code. Only appears if any exception is triggered. |
 | json | Blockheight Details in JSON Response |
 
+
+> Returns a text response
+
 <aside class="info">
 <strong>Info:</strong> <em>/api/blockheight</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+```shell
+# Request
+
+curl -XGET https://explorer.theqrl.org/api/blockheight/text
+
+# Response
+
+319606
+
+```
+
+```python
+def getBlockheight():
+  import requests
+  import json
+  request = requests.get("https://explorer.theqrl.org/api/blockheight/text")
+  response = request.text
+  getBlockheightResp = json.loads(response)
+  jsonResponse = getBlockheightResp
+  return(jsonResponse)
+
+
+getBlockheight()
+
+# Response
+
+319608
+
+```
 
 **Text Request**
 
@@ -966,6 +1089,8 @@ Get the current Blockheight.
 | text | blockheight Details in simple TEXT Response |
 
 ## Network Status
+
+> Returns a json response
 
 ```shell
 # Request
