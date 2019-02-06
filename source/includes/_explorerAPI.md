@@ -663,8 +663,8 @@ curl -XGET https://explorer.theqrl.org/api/emission
 # Response
 
 {
-	"found":true,
-	"emission":67091254.15686654
+  "found":true,
+  "emission":67091254.15686654
 }
 ```
 
@@ -770,8 +770,8 @@ curl -XGET https://explorer.theqrl.org/api/reward
 # Response
 
 {
-	"found":true,
-	"reward":6.311586903
+  "found":true,
+  "reward":6.311586903
 }
 
 ```
@@ -792,8 +792,8 @@ getReward()
 # Response
 
 {
-	'reward': 6.311586903, 
-	'found': True
+  'reward': 6.311586903, 
+  'found': True
 }
 
 ```
@@ -829,32 +829,26 @@ curl -XGET https://explorer.theqrl.org/api/reward/text
 
 # Response
 
-{
-  "found":true,
-  "reward":6.311586903
-}
+6.311586903
 
 ```
 
 ```python
-def getReward():
+def getRewardText():
   import requests
   import json
   request = requests.get("https://explorer.theqrl.org/api/reward/text")
   response = request.text
-  getRewardResp = json.loads(response)
-  jsonResponse = getRewardResp
+  getRewardTextResp = json.loads(response)
+  jsonResponse = getRewardTextResp
   return(jsonResponse)
 
 
-getReward()
+getRewardText()
 
 # Response
 
-{
-  'reward': 6.311586903, 
-  'found': True
-}
+6.311586903
 
 ```
 
@@ -887,8 +881,8 @@ curl -XGET https://explorer.theqrl.org/api/rewardshor
 # Response
 
 {
-	"found":true,
-	"reward":6311582702
+  "found":true,
+  "reward":6311582702
 }
 
 ```
@@ -946,21 +940,18 @@ curl -XGET https://explorer.theqrl.org/api/rewardshor/text
 
 # Response
 
-{
-  "found":true,
-  "reward":6311582702
-}
+6311582702
 
 ```
 
 ```python
-def getRewardShor():
+def getRewardShorText():
   import requests
   import json
   request = requests.get("https://explorer.theqrl.org/api/rewardshor/text")
   response = request.text
-  getRewardShorResp = json.loads(response)
-  jsonResponse = getRewardShorResp
+  getRewardShorTextResp = json.loads(response)
+  jsonResponse = getRewardShorTextResp
   return(jsonResponse)
 
 
@@ -968,11 +959,7 @@ getRewardShor()
 
 # Response
 
-{
-   'reward': 6311582702, 
-   'found': True
-}
-
+6311582702
 
 ```
 
@@ -1003,8 +990,8 @@ curl -XGET https://explorer.theqrl.org/api/blockheight
 # Response
 
 {
-	"found":true,
-	"blockheight":319606
+  "found":true,
+  "blockheight":319606
 }
 
 ```
@@ -1065,17 +1052,17 @@ curl -XGET https://explorer.theqrl.org/api/blockheight/text
 ```
 
 ```python
-def getBlockheight():
+def getBlockheightText():
   import requests
   import json
   request = requests.get("https://explorer.theqrl.org/api/blockheight/text")
   response = request.text
-  getBlockheightResp = json.loads(response)
-  jsonResponse = getBlockheightResp
+  getBlockheightTextResp = json.loads(response)
+  jsonResponse = getBlockheightTextResp
   return(jsonResponse)
 
 
-getBlockheight()
+getBlockheightText()
 
 # Response
 
@@ -1109,28 +1096,28 @@ curl -XGET https://explorer.theqrl.org/api/status
 # Response
 
 {
-	"_id":"r7h7u3ynXc4XPHngw",
-	"node_info":
-	{
-		"version":"1.1.11 python",
-		"state":"SYNCED",
-		"num_connections":33,
-		"num_known_peers":22645,
-		"uptime":"1765885",
-		"block_height":"319612",
-		"block_last_hash":
-		{
-			"0":239,
-			"1":173,
-			"2":170,
-			"3":80,
-			"4":71,
-			"5":106,
-			"6":233,
-			"7":132,
-			"8":53,
-			"9":240,
-			"10":179,
+  "_id":"r7h7u3ynXc4XPHngw",
+  "node_info":
+  {
+    "version":"1.1.11 python",
+    "state":"SYNCED",
+    "num_connections":33,
+    "num_known_peers":22645,
+    "uptime":"1765885",
+    "block_height":"319612",
+    "block_last_hash":
+    {
+      "0":239,
+      "1":173,
+      "2":170,
+      "3":80,
+      "4":71,
+      "5":106,
+      "6":233,
+      "7":132,
+      "8":53,
+      "9":240,
+      "10":179,
       "11":60,
       "12":30,
       "13":139,
@@ -1206,12 +1193,13 @@ curl -XGET https://explorer.theqrl.org/api/status
       "31":0
     },
 
-# Truncated Response for clarity
 
   }]
 }
 
 ```
+
+> Note: This response has been trunicated for clarity in this documentation.
 
 ```python
 def getStatus():
@@ -1312,8 +1300,8 @@ getStatus()
             "timestamp": "1548979234"
         },
 
-# ~ Truncated for clarity ~
-        
+{"TRUNICATED FOR CLARITY":""},
+
         {
             "difficulty": "2336533837",
             "hash_power": 2031768576,
