@@ -2,23 +2,27 @@
 
 > The Explorer API queries the explorer node infrastructure and returns a response in either JSON or text. This is intended to simplify the process of developing tools for the QRL.
 
+> If your project will put a large load on infrastructure with query requests you should spin up a QRL full node [\(Installation Documentation\)](https://docs.theqrl.org/node/QRLnode/) and run a local version of the QRL Block Explorer [\(GitHub Link\)](https://github.com/theQRL/block-explorer)
+
+
 The QRL block explorer has been built with an API endpoint to enable an easy way for developers to grab data from the QRL blockchain. This endpoint is limited in scope and may change in future iterations of the explorer.
 
 
 
 <aside class="success">
-The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explorer.theQRL.org</a>. The API response can be either text or json depending on the developers needs. By default JSON is returned, simply append /text to the API query. Far an easy to read output use a browser add-on like Chrome's <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc">jsonview</a> and browse to the endpoint.
+The explorer endpoint is reached at <a href="https://explorer.theqrl.org/" target="_blank">explorer.theQRL.org</a>
+
+The API response can be either text or json depending on the developers needs. By default JSON is returned, simply append `/text` to the API query. 
 </aside>
+
+
+
+For an easy to read output use a browser add-on like Chrome's <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc" target="_blank">jsonview</a> and browse to the endpoint.
 
 
 ## Explorer API Methods
 
-```
-# Default response is in JSON format
-# Append /text to the end of most requests to get a simple text response
 
-https://explorer.theqrl.org/api/{REQUEST}/text
-```
 
 | Method Name | Endpoint | Description | 
 | ----------- | ------------ | ------------- | 
@@ -35,7 +39,7 @@ https://explorer.theqrl.org/api/{REQUEST}/text
 
 ## Block By Number
 
-> Returns a json response
+> This function only returns a json response
 
 
 ```shell
@@ -250,7 +254,7 @@ Get any block details by block number.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Block Details in JSON Response |
 
 <aside class="info">
@@ -261,7 +265,7 @@ Parse the response using json tools in a language of your choice.
 
 ## Transaction By Hash
 
-> Returns a json response
+> This function only returns a json response
 
 
 ```shell
@@ -474,7 +478,7 @@ Get data from a transaction by number
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Transaction Details in JSON Response |
 
 
@@ -486,7 +490,7 @@ Parse the response using json tools in a language of your choice.
 
 ## Address By Number
 
-> Returns a json response
+> This function only returns a json response
 
 
 ```shell
@@ -641,7 +645,7 @@ Get address data by number.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Address Details in JSON Response |
 
 <aside class="info">
@@ -704,14 +708,15 @@ Get the total QRL emission to date.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Emission Details in JSON Response |
 
-> Returns a text response
 
 <aside class="success">
 <strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+> Returns a text response
 
 ```shell
 # Request
@@ -754,7 +759,7 @@ getEmissionText()
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | text | Emission Details in simple TEXT Response |
 
 
@@ -810,16 +815,17 @@ Get the current reward amount.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Current reward Details in JSON Response |
 
 
 
-> Returns a text response
 
 <aside class="success">
 <strong>Info:</strong> <em>/api/reward</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+> Returns a text response
 
 
 ```shell
@@ -865,7 +871,7 @@ getRewardText()
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | text | Emission Details in simple TEXT Response |
 
 
@@ -922,16 +928,16 @@ Get the current reward amount in shor.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Reward Details in shor JSON Response |
 
 
-> Returns a text response
 
 <aside class="success">
 <strong>Info:</strong> <em>/api/rewardshor</em> requests can return both JSON format as well as simple text. 
 </aside>
 
+> Returns a text response
 
 ```shell
 # Request
@@ -974,7 +980,7 @@ getRewardShor()
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | text | rewardshor Details in simple TEXT Response |
 
 
@@ -1030,15 +1036,16 @@ Get the current Blockheight.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | Blockheight Details in JSON Response |
 
 
-> Returns a text response
 
 <aside class="success">
 <strong>Info:</strong> <em>/api/blockheight</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+> Returns a text response
 
 ```shell
 # Request
@@ -1081,12 +1088,12 @@ getBlockheightText()
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | text | blockheight Details in simple TEXT Response |
 
 ## Network Status
 
-> Returns a json response
+> This function only returns a json response
 
 ```shell
 # Request
@@ -1442,7 +1449,7 @@ Get status of the blockchain including node details.
 
 | **Parameter** | **Description** |
 | --- | --- | --- |
-| code | Error Code. Only appears if any exception is triggered. |
+| code | Error Code. Only appears if an exception is triggered. |
 | json | status Details in JSON Response |
 
 <aside class="info">

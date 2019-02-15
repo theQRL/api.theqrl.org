@@ -8741,18 +8741,20 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 <h1 id='explorer-api'>Explorer API</h1>
 <blockquote>
 <p>The Explorer API queries the explorer node infrastructure and returns a response in either JSON or text. This is intended to simplify the process of developing tools for the QRL.</p>
+
+<p>If your project will put a large load on infrastructure with query requests you should spin up a QRL full node <a href="https://docs.theqrl.org/node/QRLnode/">(Installation Documentation)</a> and run a local version of the QRL Block Explorer <a href="https://github.com/theQRL/block-explorer">(GitHub Link)</a></p>
 </blockquote>
 
 <p>The QRL block explorer has been built with an API endpoint to enable an easy way for developers to grab data from the QRL blockchain. This endpoint is limited in scope and may change in future iterations of the explorer.</p>
 
 <aside class="success">
-The Explore endpoint is reached at <a href="https://explorer.theqrl.org/">explorer.theQRL.org</a>. The API response can be either text or json depending on the developers needs. By default JSON is returned, simply append /text to the API query. Far an easy to read output use a browser add-on like Chrome's <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc">jsonview</a> and browse to the endpoint.
-</aside>
-<h2 id='explorer-api-methods'>Explorer API Methods</h2><pre class="highlight plaintext"><code># Default response is in JSON format
-# Append /text to the end of most requests to get a simple text response
+The explorer endpoint is reached at <a href="https://explorer.theqrl.org/" target="_blank">explorer.theQRL.org</a>
 
-https://explorer.theqrl.org/api/{REQUEST}/text
-</code></pre>
+The API response can be either text or json depending on the developers needs. By default JSON is returned, simply append `/text` to the API query. 
+</aside>
+
+<p>For an easy to read output use a browser add-on like Chrome&#39;s <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc" target="_blank">jsonview</a> and browse to the endpoint.</p>
+<h2 id='explorer-api-methods'>Explorer API Methods</h2>
 <table><thead>
 <tr>
 <th>Method Name</th>
@@ -8803,7 +8805,7 @@ https://explorer.theqrl.org/api/{REQUEST}/text
 </tbody></table>
 <h2 id='block-by-number'>Block By Number</h2>
 <blockquote>
-<p>Returns a json response</p>
+<p>This function only returns a json response</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
@@ -9024,7 +9026,7 @@ curl -XGET https://explorer.theqrl.org/api/block/34556
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9038,7 +9040,7 @@ Parse the response using json tools in a language of your choice.
 </aside>
 <h2 id='transaction-by-hash'>Transaction By Hash</h2>
 <blockquote>
-<p>Returns a json response</p>
+<p>This function only returns a json response</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
@@ -9257,7 +9259,7 @@ curl -XGET https://explorer.theqrl.org/api/tx/c9656d989bce2000c794314b73882b0ebb
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9271,7 +9273,7 @@ Parse the response using json tools in a language of your choice.
 </aside>
 <h2 id='address-by-number'>Address By Number</h2>
 <blockquote>
-<p>Returns a json response</p>
+<p>This function only returns a json response</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
@@ -9432,7 +9434,7 @@ curl -XGET https://explorer.theqrl.org/api/a/Q01040007a591a62c23ed27adfe3df8eb81
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9504,7 +9506,7 @@ curl -XGET https://explorer.theqrl.org/api/emission
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9512,13 +9514,13 @@ curl -XGET https://explorer.theqrl.org/api/emission
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Returns a text response</p>
-</blockquote>
-
 <aside class="success">
 <strong>Info:</strong> <em>/api/emission</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+<blockquote>
+<p>Returns a text response</p>
+</blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
 curl -XGET https://explorer.theqrl.org/api/emission/text
@@ -9567,7 +9569,7 @@ curl -XGET https://explorer.theqrl.org/api/emission/text
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -9635,7 +9637,7 @@ curl -XGET https://explorer.theqrl.org/api/reward
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9643,13 +9645,13 @@ curl -XGET https://explorer.theqrl.org/api/reward
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Returns a text response</p>
-</blockquote>
-
 <aside class="success">
 <strong>Info:</strong> <em>/api/reward</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+<blockquote>
+<p>Returns a text response</p>
+</blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
 curl -XGET https://explorer.theqrl.org/api/reward/text
@@ -9699,7 +9701,7 @@ curl -XGET https://explorer.theqrl.org/api/reward/text
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -9768,7 +9770,7 @@ curl -XGET https://explorer.theqrl.org/api/rewardshor
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9776,13 +9778,13 @@ curl -XGET https://explorer.theqrl.org/api/rewardshor
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Returns a text response</p>
-</blockquote>
-
 <aside class="success">
 <strong>Info:</strong> <em>/api/rewardshor</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+<blockquote>
+<p>Returns a text response</p>
+</blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
 curl -XGET https://explorer.theqrl.org/api/rewardshor/text
@@ -9832,7 +9834,7 @@ curl -XGET https://explorer.theqrl.org/api/rewardshor/text
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -9900,7 +9902,7 @@ curl -XGET https://explorer.theqrl.org/api/blockheight
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
@@ -9908,13 +9910,13 @@ curl -XGET https://explorer.theqrl.org/api/blockheight
 </tr>
 </tbody></table>
 
-<blockquote>
-<p>Returns a text response</p>
-</blockquote>
-
 <aside class="success">
 <strong>Info:</strong> <em>/api/blockheight</em> requests can return both JSON format as well as simple text. 
 </aside>
+
+<blockquote>
+<p>Returns a text response</p>
+</blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
 curl -XGET https://explorer.theqrl.org/api/blockheight/text
@@ -9964,7 +9966,7 @@ curl -XGET https://explorer.theqrl.org/api/blockheight/text
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -9973,7 +9975,7 @@ curl -XGET https://explorer.theqrl.org/api/blockheight/text
 </tbody></table>
 <h2 id='network-status'>Network Status</h2>
 <blockquote>
-<p>Returns a json response</p>
+<p>This function only returns a json response</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># Request</span>
 
@@ -10339,7 +10341,7 @@ curl -XGET https://explorer.theqrl.org/api/status
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Error Code. Only appears if any exception is triggered.</td>
+<td>Error Code. Only appears if an exception is triggered.</td>
 </tr>
 <tr>
 <td>json</td>
