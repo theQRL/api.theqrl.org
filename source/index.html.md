@@ -36,7 +36,7 @@ search: true
 
 ## Introduction
 
-> Use the language tabs above to select between code examples. They will show here. If you dont see something you would like, please contact us!
+> Use the language tabs above to select between code examples. They will show here. If you don't see something you would like, please contact us!
 
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
 
@@ -102,10 +102,10 @@ async function fetchRemoteProto(nodeAddr) {
 
 ```
 
-Connecting to the QRL network is simple. The network consists of various nodes, communicating via P2P comunication protocols. All nodes sync with each other, sharing the blockchain data and valdating each block. 
+Connecting to the QRL network is simple. The network consists of various nodes, communicating via P2P communication protocols. All nodes sync with each other, sharing the blockchain data and validating each block. 
 
 
-For security reasions, it is recomended that you run a private QRL node for your application to connect to. You can find the qrl api running at `127.0.0.1:19009` on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documantation for [running a full node](https://docs.theqrl.org/node/QRLnode/), and setting up a [configuration file](https://docs.theqrl.org/node/configuration/).
+For security reasons, it is recommended that you run a private QRL node for your application to connect to. You can find the qrl api running at `127.0.0.1:19009` on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documentation for [running a full node](https://docs.theqrl.org/node/QRLnode/), and setting up a [configuration file](https://docs.theqrl.org/node/configuration/).
 
 
 
@@ -118,11 +118,11 @@ For security reasions, it is recomended that you run a private QRL node for your
 > QRL uses XMSS to extend the available OTS keys. You need to be cognizant that you don't run out of available keys in a wallet. By default the Web and Desktop wallet will not allow you to make transactions with the same key. Best practice is to track your OTS manually.
 
 <aside class="warning">
-Warning! If you use all OTS keys the remaining funds will be locked. This is a central feature that is necessary to maintain quantum resistancy of the ledger. By default the web and desktop wallets will warn you as you approach the last 50 OTS keys. This will allow you to transfer the remaining funds to a new address.
+Warning! If you use all OTS keys the remaining funds will be locked. This is a central feature that is necessary to maintain quantum resistance of the ledger. By default the web and desktop wallets will warn you as you approach the last 50 OTS keys. This will allow you to transfer the remaining funds to a new address.
 <br>Please see the documentation at <a href="https://docs.theqrl.org/developers/ots/" target="_blank">docs.theqrl.org</a>
 </aside>
 
-The [WalletAPI](#wallet-api) has been re-developed to support slave files by default, adding some sutomation and extending the available transactions (Signitures) that an addess can make. If you use the wallet daemon and generate an address with slaves, the last 5 keys will not be consumed, allowing you to transfer the remaining funds to a new wallet.
+The [WalletAPI](#wallet-api) has been re-developed to support slave files by default, adding some automation and extending the available transactions (Signatures) that an address can make. If you use the wallet daemon and generate an address with slaves, the last 5 keys will not be consumed, allowing you to transfer the remaining funds to a new wallet.
 
 See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
