@@ -1141,9 +1141,7 @@ Locks the wallet and removes the passphrase from the memory of wallet daemon.
 
 ## RelayMessageTxn
 
-```
-This relays a message to the network using an OTS key from the master address.
-```
+> This relays a message to the network using an OTS key from the master address.
 
 ```shell
 # RelayMessageTxn Request
@@ -1210,9 +1208,8 @@ Creates the signed message transaction and relay it to the network. Signer addre
 
 ## RelaySlaveTxn
 
-```
-Use for addresses you have manually created slave trees for, if you are using the automatic slave tree functions, please use RelaySlaveTxnBySlave
-```
+> Use for addresses you have manually created slave trees for, if you are using the automatic slave tree functions, please use RelaySlaveTxnBySlave
+
 
 ```shell
 # RelaySlaveTxn Request
@@ -1290,9 +1287,8 @@ Creates the signed slave transaction and relay it to the network. Signer address
 
 ## RelayTokenTxn
 
-```
-Use for Token Transactions that are not using slave trees.
-```
+> Use for Token Transactions that are not using slave trees.
+
 
 ```shell
 # RelayTokenTxn Request
@@ -1372,10 +1368,8 @@ Creates the signed token transaction and relay it to the network. Signer address
 
 ## RelayTransferTxn
 
-```
-Use for addresses not utilizing slave trees.
-this will consume the OTS index of the master address
-```
+> Use for addresses not utilizing slave trees. This will consume the OTS index of the master address
+
 
 ```shell
 # RelayTransferTxn Request
@@ -1453,9 +1447,8 @@ Creates the signed transfer transaction and relays it to the network. Signer add
 
 ## RelayTransferTokenTxn
 
-```
-This will use an OTS from the master seed or main address, 
-```
+> This will use an OTS from the master seed or main address, if you wish to use slave trees, please see the [Automatic Wallet API](#automatic-wallet-api) section
+
 
 ```shell
 # RelayTransferTokenTxn Request
@@ -1535,9 +1528,8 @@ Creates the signed transfer token transaction and relay it to the network. Signe
 
 ## RemoveAddress
 
-```
-Use to remove a single address from a wallet.
-```
+> Use to remove a single address from a wallet.
+
 
 ```shell
 # RemoveAddress Request 
@@ -1551,10 +1543,6 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d '
 # RemoveAddress Response
 
 {}
-```
-
-```python
-
 ```
 
 Removes the address from the wallet. The remaining addresses contained in the wallet will remain. 

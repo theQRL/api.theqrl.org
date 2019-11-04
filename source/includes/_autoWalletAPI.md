@@ -6,20 +6,18 @@
 This service describes the Wallet API automatic functions. This is intended to simplify the programmatic interaction with the QRL wallet and will allow further development with automated services.
 
 <aside class="success">
-The WalletAPI and Wallet Daemon now include automatic slave key transactions and lockout management. When using these automatic functions the wallet functionality has been increased dramatically. The last 5 slave keys are not automatically consumed, slave trees are automatically generated when you get close to running out. 
-<br><br>
-This creates an almost infinite amount OTS keys for a given master address!
+The <code>WalletAPI</code> and <code>Wallet Daemon</code> now include automatic slave key transactions and lockout management. When using these automatic features, the wallet functionality has been increased dramatically. The last 5 slave keys are not automatically consumed, slave trees are automatically generated when you get close to running out. This creates an almost infinite amount OTS keys for a given master address!
 </aside>
 
 ## Auto Wallet Getting Started
 
-Using the functions defined below you will have, automatic OTS key management, automatic slave tree generation, and additional OTS usage protection saving 5 OTS keys from being used. 
+Using the functions defined below you will have, automatic OTS key management, automatic slave tree generation, and additional OTS usage protection saving 5 OTS keys from being used by the automated system.  
 
 See the [WalletAPI](#wallet-api) section for installation and additional instructions of the daemon. 
 
 ## Automatic WalletAPI Methods
 
-> additional methods available using the [walletAPI](#wallet-api)
+> Additional methods are available by using the [walletAPI](#wallet-api). 
 
 | Method Name | Request Type | Response Type | 
 | ----------- | ------------ | ------------- | 
@@ -74,7 +72,6 @@ addNewAddressWithSlaves(10, 100, "sha2_256")
 
 ```
 
-
 Adds new randomly generated address to the wallet with slaves. This function is intended to be automated for high volume transaction accounts for multiple users. 
 
 <aside class="success">
@@ -83,9 +80,7 @@ When the OTS available count reaches less than 100, the API will automatically r
 The API will not allow the last 5 OTS to be used for the given address.
 </aside>
 
-
-By default the command without any options will add or create a wallet at \~/.qrl/walletd.json with height 10, 3 slaves using shake128 hash_function.
-
+By default the command without any options will add or create a wallet at \~/.qrl/walletd.json with the height of 10, 3 slave trees, using the shake128 hash_function.
 
 **Request**
 
@@ -107,7 +102,7 @@ By default the command without any options will add or create a wallet at \~/.qr
 ## RelayMessageTxnBySlave
 
 
-> Use this to relay a message on the network using a slave OTS key. The address must have slave trees and have been created using the [AddNewAddressWithSlaves](#addnewaddresswithslaves) or this will fail.
+> Use this to relay a message on the network using a slave OTS key. The address must have slave trees, and have been created using the [AddNewAddressWithSlaves](#addnewaddresswithslaves) or this will fail.
  
 ```shell
 # RelayMessageTxnBySlave Request
@@ -177,7 +172,7 @@ This call will relay a slave transaction if the remaining slave OTS key are less
 
 ## RelaySlaveTxnBySlave
 
-> Use this to send a transaction from an address using slave trees created with AddNewAddressWithSlaves. If there are no slave threes in the address, this will fail.
+> Use this to send a transaction from an address using slave trees created with AddNewAddressWithSlaves. If there are no slave trees in the address, this will fail.
 
 ```shell
 # RelaySlaveTxnBySlave Request
@@ -215,11 +210,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d '
   }
 }
 ```
-
-```python
-
-```
-
 
 Creates the signed slave transaction using one of the slave OTS keys and relays it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.
 
