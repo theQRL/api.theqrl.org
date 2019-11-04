@@ -4960,8 +4960,11 @@ curl -XGET http://127.0.0.1:5359/api/LockWallet
 <td>Error Message. Only appears if any exception is triggered.</td>
 </tr>
 </tbody></table>
-<h2 id='relaymessagetxn'>RelayMessageTxn</h2><pre class="highlight plaintext"><code>This relays a message to the network using an OTS key from the master address.
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayMessageTxn Request</span>
+<h2 id='relaymessagetxn'>RelayMessageTxn</h2>
+<blockquote>
+<p>This relays a message to the network using an OTS key from the master address.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelayMessageTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 {
@@ -5062,8 +5065,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelayMessageTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relayslavetxn'>RelaySlaveTxn</h2><pre class="highlight plaintext"><code>Use for addresses you have manually created slave trees for, if you are using the automatic slave tree functions, please use RelaySlaveTxnBySlave
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxn Request</span>
+<h2 id='relayslavetxn'>RelaySlaveTxn</h2>
+<blockquote>
+<p>Use for addresses you have manually created slave trees for, if you are using the automatic slave tree functions, please use RelaySlaveTxnBySlave</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 {
@@ -5177,8 +5183,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytokentxn'>RelayTokenTxn</h2><pre class="highlight plaintext"><code>Use for Token Transactions that are not using slave trees.
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTokenTxn Request</span>
+<h2 id='relaytokentxn'>RelayTokenTxn</h2>
+<blockquote>
+<p>Use for Token Transactions that are not using slave trees.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelayTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 {
@@ -5311,9 +5320,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTokenTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertxn'>RelayTransferTxn</h2><pre class="highlight plaintext"><code>Use for addresses not utilizing slave trees.
-this will consume the OTS index of the master address
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxn Request</span>
+<h2 id='relaytransfertxn'>RelayTransferTxn</h2>
+<blockquote>
+<p>Use for addresses not utilizing slave trees. This will consume the OTS index of the master address</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 {
@@ -5424,8 +5435,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTxn -d <span class="s1">'
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2><pre class="highlight plaintext"><code>This will use an OTS from the master seed or main address, 
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
+<h2 id='relaytransfertokentxn'>RelayTransferTokenTxn</h2>
+<blockquote>
+<p>This will use an OTS from the master seed or main address, if you wish to use slave trees, please see the <a href="#automatic-wallet-api">Automatic Wallet API</a> section</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RelayTransferTokenTxn Request</span>
 
 curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">'
 {
@@ -5543,8 +5557,11 @@ curl -XPOST http://127.0.0.1:5359/api/RelayTransferTokenTxn -d <span class="s1">
 <td>Return the transaction that has been relayed to the network.</td>
 </tr>
 </tbody></table>
-<h2 id='removeaddress'>RemoveAddress</h2><pre class="highlight plaintext"><code>Use to remove a single address from a wallet.
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># RemoveAddress Request </span>
+<h2 id='removeaddress'>RemoveAddress</h2>
+<blockquote>
+<p>Use to remove a single address from a wallet.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># RemoveAddress Request </span>
 
 curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 {
@@ -5555,7 +5572,6 @@ curl -XPOST http://127.0.0.1:5359/api/RemoveAddress -d <span class="s1">'
 <span class="c"># RemoveAddress Response</span>
 
 <span class="o">{}</span>
-</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <p>Removes the address from the wallet. The remaining addresses contained in the wallet will remain. </p>
 
@@ -5665,17 +5681,15 @@ curl -XPOST http://127.0.0.1:5359/api/UnlockWallet -d <span class="s1">'
 <p>This service describes the Wallet API automatic functions. This is intended to simplify the programmatic interaction with the QRL wallet and will allow further development with automated services.</p>
 
 <aside class="success">
-The WalletAPI and Wallet Daemon now include automatic slave key transactions and lockout management. When using these automatic functions the wallet functionality has been increased dramatically. The last 5 slave keys are not automatically consumed, slave trees are automatically generated when you get close to running out. 
-<br><br>
-This creates an almost infinite amount OTS keys for a given master address!
+The <code>WalletAPI</code> and <code>Wallet Daemon</code> now include automatic slave key transactions and lockout management. When using these automatic features, the wallet functionality has been increased dramatically. The last 5 slave keys are not automatically consumed, slave trees are automatically generated when you get close to running out. This creates an almost infinite amount OTS keys for a given master address!
 </aside>
 <h2 id='auto-wallet-getting-started'>Auto Wallet Getting Started</h2>
-<p>Using the functions defined below you will have, automatic OTS key management, automatic slave tree generation, and additional OTS usage protection saving 5 OTS keys from being used. </p>
+<p>Using the functions defined below you will have, automatic OTS key management, automatic slave tree generation, and additional OTS usage protection saving 5 OTS keys from being used by the automated system.  </p>
 
 <p>See the <a href="#wallet-api">WalletAPI</a> section for installation and additional instructions of the daemon. </p>
 <h2 id='automatic-walletapi-methods'>Automatic WalletAPI Methods</h2>
 <blockquote>
-<p>additional methods available using the <a href="#wallet-api">walletAPI</a></p>
+<p>Additional methods are available by using the <a href="#wallet-api">walletAPI</a>. </p>
 </blockquote>
 
 <table><thead>
@@ -5763,7 +5777,7 @@ When the OTS available count reaches less than 100, the API will automatically r
 The API will not allow the last 5 OTS to be used for the given address.
 </aside>
 
-<p>By default the command without any options will add or create a wallet at ~/.qrl/walletd.json with height 10, 3 slaves using shake128 hash_function.</p>
+<p>By default the command without any options will add or create a wallet at ~/.qrl/walletd.json with the height of 10, 3 slave trees, using the shake128 hash_function.</p>
 
 <p><strong>Request</strong></p>
 
@@ -5822,7 +5836,7 @@ The API will not allow the last 5 OTS to be used for the given address.
 </tbody></table>
 <h2 id='relaymessagetxnbyslave'>RelayMessageTxnBySlave</h2>
 <blockquote>
-<p>Use this to relay a message on the network using a slave OTS key. The address must have slave trees and have been created using the <a href="#addnewaddresswithslaves">AddNewAddressWithSlaves</a> or this will fail.</p>
+<p>Use this to relay a message on the network using a slave OTS key. The address must have slave trees, and have been created using the <a href="#addnewaddresswithslaves">AddNewAddressWithSlaves</a> or this will fail.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># RelayMessageTxnBySlave Request</span>
 
@@ -5922,7 +5936,7 @@ This call will relay a slave transaction if the remaining slave OTS key are less
 </tbody></table>
 <h2 id='relayslavetxnbyslave'>RelaySlaveTxnBySlave</h2>
 <blockquote>
-<p>Use this to send a transaction from an address using slave trees created with AddNewAddressWithSlaves. If there are no slave threes in the address, this will fail.</p>
+<p>Use this to send a transaction from an address using slave trees created with AddNewAddressWithSlaves. If there are no slave trees in the address, this will fail.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># RelaySlaveTxnBySlave Request</span>
 
@@ -5955,7 +5969,6 @@ curl -XPOST http://127.0.0.1:5359/api/RelaySlaveTxnBySlave -d <span class="s1">'
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight python tab-python"><code>
 </code></pre>
 <p>Creates the signed slave transaction using one of the slave OTS keys and relays it to the network. Master Address must exist into wallet. It may relay a slave transaction if the remaining slave OTS key are less than 100.</p>
 
