@@ -15,21 +15,21 @@ toc_footers:
 
 includes:
   - QRL.proto
+  - walletAPI
+  - autoWalletAPI
+  - explorerAPI
+  - qrlmining.proto
+  - qrlwallet.proto
+  - qrlstateinfo.proto
   - qrlbase.proto
   - qrldebug.proto
   - qrllegacy.proto
-  - qrlmining.proto
-  - qrlstateinfo.proto
-  - qrlwallet.proto
-  - walletAPI
-  - explorerAPI
   - ScalarValueTypes
 #  - errors
 
 search: true
 
 ---
-
 
 
 # QRL API 
@@ -108,9 +108,6 @@ Connecting to the QRL network is simple. The network consists of various nodes, 
 For security reasons, it is recommended that you run a private QRL node for your application to connect to. You can find the qrl api running at `127.0.0.1:19009` on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documentation for [running a full node](https://docs.theqrl.org/node/QRLnode/), and setting up a [configuration file](https://docs.theqrl.org/node/configuration/).
 
 
-
-
-
 ## Important information 
 
 **OTS Keys**
@@ -127,6 +124,22 @@ The [WalletAPI](#wallet-api) has been re-developed to support slave files by def
 See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
+## API's
+
+See the list of API's detailed below.
+
+| API | Usage | 
+| --- | --- |
+| [QRL Protocol](#qrl-protocol) | Main QRL Protocol |
+| [Wallet API](#wallet-api) | Wallet API used for automating functions |
+| [Automatic Wallet API](#automatic-wallet-api) | Expansion of the [WalletAPI](#wallet-api) with unlimited\* OTS slave trees |
+| [Explorer API](#explorer-api) | For basic calls to query information from the network |
+| [QRL Mining Protocol](#qrl-mining-protocol) | The mining protocol used by the QRL |
+| [QRL Wallet Protocol](#qrlwallet-proto) | Base wallet protocol for the QRL |
+| [QRL State Info Protocol](#qrl-state-info-protocol) | |
+| [QRL Base Protocol](#qrl-base-protocol) |  |
+| [QRL Debug Protocol](#qrl-debug-protocol) |  |
+| [QRL Legacy Protocol](#qrl-legacy-protocol) |  |
 
 ## Functions
 
