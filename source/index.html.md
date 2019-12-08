@@ -15,14 +15,15 @@ toc_footers:
 
 includes:
   - QRL.proto
+  - walletAPI
+  - autoWalletAPI
+  - explorerAPI
+  - qrlmining.proto
+  - qrlwallet.proto
+  - qrlstateinfo.proto
   - qrlbase.proto
   - qrldebug.proto
   - qrllegacy.proto
-  - qrlmining.proto
-  - qrlstateinfo.proto
-  - qrlwallet.proto
-  - walletAPI
-  - explorerAPI
   - ScalarValueTypes
 #  - errors
 
@@ -31,17 +32,15 @@ search: true
 ---
 
 
-
 # QRL API 
 
 ## Introduction
-
-> Use the language tabs above to select between code examples. They will show here. If you don't see something you would like, please contact us!
 
 The QRL API is organized around [GRPC](https://grpc.io/). GRPC uses [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) for serializing structured data. 
 
 Every function requires an object as parameter and returns another object as response. Our qrl.proto file lists the different objects as messages in two categories, request (named \*Req) and response (named \*Resp).
 
+> Use the language tabs above to select between code examples. They will show here. If you don't see something you would like, please contact us!
 
 QRL is under active development, code may change, site layout is fluid. Please see the QRL documentation at <a href="https://docs.theqrl.org" target="_blank">https://docs.theqrl.org</a> or drop a line to <a href="mailto://support@theqrl.org">support@theqrl.org</a>
 
@@ -108,9 +107,6 @@ Connecting to the QRL network is simple. The network consists of various nodes, 
 For security reasons, it is recommended that you run a private QRL node for your application to connect to. You can find the qrl api running at `127.0.0.1:19009` on a local node. You can configure this to another port, or make it available to the public by modifying the config.yml file found in the default qrl directory. For more information please see the documentation for [running a full node](https://docs.theqrl.org/node/QRLnode/), and setting up a [configuration file](https://docs.theqrl.org/node/configuration/).
 
 
-
-
-
 ## Important information 
 
 **OTS Keys**
@@ -127,6 +123,22 @@ The [WalletAPI](#wallet-api) has been re-developed to support slave files by def
 See the documentation for more information [slave.json documentation](https://docs.theqrl.org/wallet/slaves.json/)
 
 
+## API's
+
+See the list of API's detailed below.
+
+| API | Usage | 
+| --- | --- |
+| [QRL Protocol](#qrl-protocol) | Main QRL Protocol |
+| [Wallet API](#wallet-api) | Wallet API used for automating functions |
+| [Automatic Wallet API](#automatic-wallet-api) | Expansion of the [WalletAPI](#wallet-api) with unlimited\* OTS slave trees |
+| [Explorer API](#explorer-api) | For basic calls to query information from the network |
+| [QRL Mining Protocol](#qrl-mining-protocol) | The mining protocol used by the QRL |
+| [QRL Wallet Protocol](#qrlwallet-proto) | Base wallet protocol for the QRL |
+| [QRL State Info Protocol](#qrl-state-info-protocol) | |
+| [QRL Base Protocol](#qrl-base-protocol) |  |
+| [QRL Debug Protocol](#qrl-debug-protocol) |  |
+| [QRL Legacy Protocol](#qrl-legacy-protocol) |  |
 
 ## Functions
 
