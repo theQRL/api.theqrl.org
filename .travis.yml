@@ -1,13 +1,12 @@
 language:
   - ruby
-  - java
-jdk: openjdk8  
+
 rvm:
   - 2.5.0
 
 before_install:
   - gem update --system
-  - gem install bundler
+  - gem install bundler:1.17.3
 
 install:
   - bundle install
@@ -36,5 +35,3 @@ script:
 after_success:
   - chmod +x _scripts/deploy.sh
   - _scripts/deploy.sh
-
-sudo: false
