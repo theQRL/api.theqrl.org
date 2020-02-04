@@ -7,20 +7,15 @@ rvm:
 
 before_install:
   - gem update --system
-  - gem install bundler
+  - gem install bundler:1.17.3
 
 install:
   - bundle install
-  - gem install jekyll
   - gem install s3_website
 
 branches:
   only:
-    - master
-
-env:
-  global:
-    - JEKYLL_ENV=production
+    - masters
 
 notifications:
   email:
@@ -36,5 +31,3 @@ script:
 after_success:
   - chmod +x _scripts/deploy.sh
   - _scripts/deploy.sh
-
-sudo: false
