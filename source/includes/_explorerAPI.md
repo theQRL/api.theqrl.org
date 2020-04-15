@@ -34,7 +34,7 @@ For an easy to read output use a browser add-on like Chrome's <a href="https://c
 | [rewardshor](#rewardshor) | [/api/rewardshor](https://explorer.theqrl.org/api/rewardshor) | Get the current reward in shor |
 | [blockheight](#blockheight) | [/api/blockheight](https://explorer.theqrl.org/api/blockheight) | Get the current blockheight |
 | [status](#network-status) | [/api/status](https://explorer.theqrl.org/api/status) | Get the status of the network |
-
+| [miningstats](#mining-stats) | [/api/miningstats](https://explorer.theqrl.org/api/miningstats) | Get mining stats |
 
 
 ## Block By Number
@@ -1457,3 +1457,43 @@ Get status of the blockchain including node details.
 Parse the response using json tools in a language of your choice. 
 </aside>
 
+## Mining stats
+
+Get different mining stats.
+
+**Request**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| miningstats | Mining stats |
+
+**Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| code | Error Code. Only appears if an exception is triggered. |
+| json | status Details in JSON Response |
+
+**JSON Response**
+
+| **Parameter** | **Description** |
+| --- | --- | --- |
+| block | Current blockheight of chain |
+| hashrate | Current hashrate.* |
+| difficulty | Current difficulty |
+| blocktime | Current hashrate |
+
+\* Hashrate is per block. To find your hashes/s, divide the `hashrate` by the the `blocktime`.
+
+```bash
+curl -s https://explorer.theqrl.org/api/miningstats
+
+# response
+{"block":"954426","hashrate":533590080,"difficulty":"542483240","blocktime":"61"}
+
+# Get just one value
+curl -s "https://explorer.theqrl.org/api/miningstats" | jq '.hashrate'
+
+# Get an approximate hashrate
+expr $(curl -s "https://explorer.theqrl.org/api/miningstats" | jq '.hashrate') / 60
+```
