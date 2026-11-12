@@ -26,7 +26,8 @@ ready do
   require './lib/multilang.rb'
 end
 
-activate :sprockets
+# Let Middleman render SCSS; Sprockets handles JavaScript manifests.
+activate :sprockets, supported_output_extensions: ['.js']
 
 activate :autoprefixer do |config|
   config.browsers = ['last 2 version', 'Firefox ESR']
